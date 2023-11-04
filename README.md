@@ -1,70 +1,152 @@
-# Getting Started with Create React App
+# Overview: Notebooks
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+- An app leaning loosely on the concept of bullet journalling
+- It combines journals, lists and trackers
+- It helps to evaluate where you are in your life, makes you think about your goals and helps building healthy habits that will help you achieve these
+- It’s an archive of your life you can look back on to simply reminisce or to see how far you have come
+- Easy and intuitive to use
+- VNth: It helps you get started with suggestions where to start
+  - Have one notebook per year. In that:
+  - Create a gratitude journal. Create a new page every day and write down three things you’re grateful for or proud of. Link to article of mental health benefits of doing this.
+  - Create a list page and write down goals you would like to achieve. Think of habits you’d like to build and where you want to be in a year / 5 years. Link to article of how setting goals improves success rate.
+    Create a weekly habit tracker page for habits that will help you achieve your goals. Link to study of how long you need to do a habit so it becomes something that is done without having to think about it.
+  - Create a to do list page
+  - Start a mood tracker page every month to be able to see patterns in your moods
+- Nth: Suggest other things you can do, eg create a recipe collection (as a journal, use sections for themes such as mains, deserts, etc)
+- Nth: Can easily add pictures, screenshots, URLs to a page when browsing the internet or from pictures on phone
+- Nth: Can share aspects of it with friends who are using the app too.
 
-## Available Scripts
+### Problem
 
-In the project directory, you can run:
+I have been looking for an app to replace a physical notebook and can't find anything that combines journals, habit trackers, mood trackers, and lists, is easy to use and visually attractive / customisable.
 
-### `npm start`
+Physical journals take up space and are time consuming to maintain. A journal on your phone can be udpated quickly, on the go, and doesn't use any extra space in your bag or bookshelf.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+I would like the personal journey to be easily visualised by being able to scroll through notebooks and see old habits trackers, list, journal entries, etc.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### User Profile
 
-### `npm test`
+Anyone who
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- would like to organise their life in a simple app
+- would like to figure out their goals and work towards them
+- would like to use a journal or habit tracker to improve mental health
+- finds ticking off to do lists motivating
+- needs an app to be visually inviting and simple to use to be able to stick with it
 
-### `npm run build`
+### Features
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+#### Home
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- Logo
+- Medium sized preview of main notebooks by year, infinite vertical scroll
+- Nth: you can choose which libraries, notebooks, collections, or pages you want to display on homepage (tick option: show on my homepage)
+- Menu with
+  - List of links to all created libraries/notebooks
+  - My account page (username / password / avatar / settings)
+  - Option to create new:
+    - Notebook
+    - Library
+- VNth: Search function
+- Nth: build your own colour scheme, under my account, settings
+- Nth: Opt in for pages to be displayed in menu as quick link?
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+#### Pages
 
-### `npm run eject`
+- Are formatted a bit like a blog post
+- Need to be in a notebook
+- Several pages form a notebook
+- Pages can be sorted into sections in the notebook
+- Have:
+  - A full page view and a in-journal view (preview) (State?)
+  - VNth: Optional title image/colour
+  - Header
+  - Subheader
+  - Main body can contain:
+    - Photo/video/text
+    - To do list
+    - Habit tracker
+  - Creation date
+  - Category tags
+    - Journal page
+    - To do list
+    - Habit tracker
+    - Mood tracker (basically a vertically displayed month of a calendar which you can separate into columns and populate with text/emojis)
+    - Nth: custom category
+- VNth: All pages will show up in main notebook unless opted out (tick option, exclude from main notebook)
+- Different icons for different notebook page categories, showing up somewhere on that page
+  - Journal page (book)
+  - To to list, (tick, post it)
+  - Habits (tick, victory fingers)
+  - Mood tracker (grey smiley)
+- Can easily be duplicated
+- Nth: Pages in notebooks are sections, you can scroll to next one easily
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+#### Notebooks
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Are collection pages (several pages can be sorted into sections)
+It’s suggested you start with one notebook per year
+Nth: Search function in each notebook
+VNth: Each section can also have a header image
+Displayed as:
+Endless scroll of pages
+Nth: options of how to display several image on one page in endless scroll view
+Nth: notebooks can be sorted into libraries
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+Nth: Libraries
+Are a collection of notebooks
+Can have a title image, or display collection of notebook title images/previews
+Show up in navigation or on homepage
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+Nth: Archive
+Same structure as usual page, but with all libraries/notebooks/ that are archived
+Have a date as to when they were originally created, and when they were archived
+Nth: Option to view notebooks with their pages as very small previews, sorted chronologically by date with month/year headers
 
-## Learn More
+To do’s
+To do’s are a special kind of page: a to do page
+Have a creation date
+Optional due date per page (page will show up in main calendar if due date set). Or per item on page?
+VNth: if set date, will send reminder to phone as alert
+Individual list items who either
+Get crossed out when done
+Or have a tickbox next to it
+A to do can have sub to dos
+Nth: In progress option for when do to is started (colour of tickbox?)
+Nth: Undated to dos have an option: display on calendar (on creation date)
+Nth: can have secondary tag, eg home, work, custom tag, etc
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Habits
+Habits are a special kind of page: a habit page
+Habits are tracked per week
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+- Nth: habits can be tracked weekly, monthly or yearly
+  Each habit
+  Chose how many times per week (nth:/month/year) you want to do that habit
+  Eg 4 x week will get you 4 circles next to habit
+  Each time you do the habit that week you fill out one circle
+  At end of week, all habits that have all circles next to them filled out get marked as ‘achieved’.
+  Nth: Chose when you want to archive habit, eg after completing 4 weeks in a row. Once that’s done you get a message that you achieved it and it gets moved into an archive page.
+  Nth: Can see habits in a calendar view
 
-### Code Splitting
+Calendar
+Displayed like apple calendar
+Events on calendars are marked with an indicator (text? dots?)
+Clicking on a day shows you what’s on that day below the calendar
+Can insert item on a certain day
+VNth: Daily, weekly, monthly and yearly view
+Nth: Have calendars work as pages, so can build as many as you want to show different items, but have one main calendar with all the items in it
+Nth: Can have filter what’s showing up so can have a page with a calendar that shows all habits and a different page with a calendar that shows all to dos and a main calendar that has everything in it (can toggle on and off filters)
+Nth: Can repeat event daily/weekly/monthly/yearly
+Nth: Can set reminders for events
+Nth: Habits show up on calendar. Appear differently based on if you completed the habit or not, and if it’s in the future or past
+Nth: Can display when you wrote a journal entry and link to them (toggle on and off on main calendar)
+Nth: To dos appear on calendar. Different appearance for active to dos that are done and not
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Mood Tracker
+Header with month name at top
+Nth: Have option to have image at top as header
+Displayed per month
+Vertical list of days in month with date, day of week
+You can add smiley in each day to track mood
+You divide day in up to ? (3 for now?) Sections to track different things (ie mood, cycle, etc). Or just use tabs?
