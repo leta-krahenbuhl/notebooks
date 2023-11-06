@@ -1,11 +1,14 @@
 # Overview: Notebooks
 
+(Nth = Nice to have,
+VNth: Very nice to have)
+
 - An app leaning loosely on the concept of bullet journalling
 - It combines journals, lists and trackers
 - It helps to evaluate where you are in your life, makes you think about your goals and helps building healthy habits that will help you achieve these
 - It’s an archive of your life you can look back on to simply reminisce or to see how far you have come
 - Easy and intuitive to use
-- VNth: It helps you get started with suggestions where to start
+- VNth: App helps you get started with suggestions where to start
   - Have one notebook per year. In that:
   - Create a gratitude journal. Create a new page every day and write down three things you’re grateful for or proud of. Link to article of mental health benefits of doing this.
   - Create a list page and write down goals you would like to achieve. Think of habits you’d like to build and where you want to be in a year / 5 years. Link to article of how setting goals improves success rate.
@@ -84,69 +87,142 @@ Anyone who
 
 #### Notebooks
 
-Are collection pages (several pages can be sorted into sections)
-It’s suggested you start with one notebook per year
-Nth: Search function in each notebook
-VNth: Each section can also have a header image
-Displayed as:
-Endless scroll of pages
-Nth: options of how to display several image on one page in endless scroll view
-Nth: notebooks can be sorted into libraries
+- Are collection pages (several pages can be sorted into sections)
+- It’s suggested you start with one notebook per year
+- Nth: Search function in each notebook
+- VNth: Each section can also have a header image
+- Displayed as:
+  - Endless scroll of pages
+  - Nth: options of how to display several image on one page in endless scroll view
+- Nth: notebooks can be sorted into libraries
 
-Nth: Libraries
-Are a collection of notebooks
-Can have a title image, or display collection of notebook title images/previews
-Show up in navigation or on homepage
+#### To do’s
 
-Nth: Archive
-Same structure as usual page, but with all libraries/notebooks/ that are archived
-Have a date as to when they were originally created, and when they were archived
-Nth: Option to view notebooks with their pages as very small previews, sorted chronologically by date with month/year headers
+- To do’s are a special kind of page: a to do page
+- Have a creation date
+- Optional due date per page (page will show up in main calendar if due date set). Or per item on page?
+- VNth: if set date, will send reminder to phone as alert
+- Individual list items who either
+  - Get crossed out when done
+  - Or have a tickbox next to them
+- A to do can have sub to dos
+- Nth: In progress option for when do to is started (colour of tickbox?)
+- Nth: Undated to dos have an option: display on calendar (on creation date)
+- Nth: can have secondary tag, eg home, work, custom tag, etc
 
-To do’s
-To do’s are a special kind of page: a to do page
-Have a creation date
-Optional due date per page (page will show up in main calendar if due date set). Or per item on page?
-VNth: if set date, will send reminder to phone as alert
-Individual list items who either
-Get crossed out when done
-Or have a tickbox next to it
-A to do can have sub to dos
-Nth: In progress option for when do to is started (colour of tickbox?)
-Nth: Undated to dos have an option: display on calendar (on creation date)
-Nth: can have secondary tag, eg home, work, custom tag, etc
+#### Habits
 
-Habits
-Habits are a special kind of page: a habit page
-Habits are tracked per week
-
+- Habits are a special kind of page: a habit page
+- Habits are tracked per week
 - Nth: habits can be tracked weekly, monthly or yearly
-  Each habit
-  Chose how many times per week (nth:/month/year) you want to do that habit
-  Eg 4 x week will get you 4 circles next to habit
-  Each time you do the habit that week you fill out one circle
-  At end of week, all habits that have all circles next to them filled out get marked as ‘achieved’.
-  Nth: Chose when you want to archive habit, eg after completing 4 weeks in a row. Once that’s done you get a message that you achieved it and it gets moved into an archive page.
-  Nth: Can see habits in a calendar view
+- Each habit
+  - Chose how many times per week (nth:/month/year) you want to do that habit
+  - Eg 4 x week will get you 4 circles next to habit
+  - Each time you do the habit that week you fill out one circle
+  - At end of week, all habits that have all circles next to them filled out get marked as ‘achieved’.
+- Nth: Chose when you want to archive habit, eg after completing 4 weeks in a row. Once that’s done you get a message that you achieved it and it gets moved into an archive page.
+- Nth: Can see habits in a calendar view
 
-Calendar
-Displayed like apple calendar
-Events on calendars are marked with an indicator (text? dots?)
-Clicking on a day shows you what’s on that day below the calendar
-Can insert item on a certain day
-VNth: Daily, weekly, monthly and yearly view
-Nth: Have calendars work as pages, so can build as many as you want to show different items, but have one main calendar with all the items in it
-Nth: Can have filter what’s showing up so can have a page with a calendar that shows all habits and a different page with a calendar that shows all to dos and a main calendar that has everything in it (can toggle on and off filters)
-Nth: Can repeat event daily/weekly/monthly/yearly
-Nth: Can set reminders for events
-Nth: Habits show up on calendar. Appear differently based on if you completed the habit or not, and if it’s in the future or past
-Nth: Can display when you wrote a journal entry and link to them (toggle on and off on main calendar)
-Nth: To dos appear on calendar. Different appearance for active to dos that are done and not
+#### Mood Tracker
 
-Mood Tracker
-Header with month name at top
-Nth: Have option to have image at top as header
-Displayed per month
-Vertical list of days in month with date, day of week
-You can add smiley in each day to track mood
-You divide day in up to ? (3 for now?) Sections to track different things (ie mood, cycle, etc). Or just use tabs?
+- Header with month name at top
+- Nth: Have option to have image at top as header
+- Displayed per month
+- Vertical list of days in month with date, day of week
+- You can add smiley in each day to track mood
+- You divide day in up to ? (3 for now?) Sections to track different things (ie mood, cycle, etc). Or just use tabs?
+
+#### Nth: Add to Calendar Button (OR Nth: Calendar)
+
+- Have a 'add to calendar' button where you can add to do lists to your device calendar
+
+#### Nth: Calendar (OR Add to Calendar Button)
+
+- Displayed like apple calendar
+- Events on calendars are marked with an indicator (text? dots?)
+- Clicking on a day shows you what’s on that day below the calendar
+- Can insert item on a certain day
+- VNth: Daily, weekly, monthly and yearly view
+- Nth: Have calendars work as pages, so can build as many as you want to show different items, but have one main calendar with all the items in it
+- Nth: Can have filter what’s showing up so can have a page with a calendar that shows all habits and a different page with a calendar that shows all to dos and a main calendar that has everything in it (can toggle on and off filters)
+- Nth: Can repeat event daily/weekly/monthly/yearly
+- Nth: Can set reminders for events
+- Nth: Habits show up on calendar. Appear differently based on if you completed the habit or not, and if it’s in the future or past
+- Nth: Can display when you wrote a journal entry and link to them (toggle on and off on main calendar)
+- Nth: To dos appear on calendar. Different appearance for active to dos that are done and not
+
+#### Nth: Libraries
+
+- Are a collection of notebooks
+- Can have a title image, or display collection of notebook title images/previews
+- Show up in navigation or on homepage
+
+#### Nth: Archive
+
+- Same structure as usual page, but with all libraries/notebooks/ that are archived
+- Have a date as to when they were originally created, and when they were archived
+- Nth: Option to view notebooks with their pages as very small previews, sorted chronologically by date with month/year headers
+
+## Implementation
+
+### Tech Stack
+
+List technologies that will be used in your app, including any libraries to save time or provide more functionality. Be sure to research any potential limitations.
+
+- Use HTML, CSS, SASS with BEM, JavaScript, React, Node, Express, Knex.js and Databases
+- I will see if there are any do to lists and habit tracker libraries that I can customise to have the functionality I wish them to have
+- Nth: The add to calendar button would be an npm library
+
+### APIs
+
+The data will come from the user themself.
+
+### Sitemap
+
+- Home
+- My Account
+- Create New Notebook
+- Notebooks
+  - Journals
+  - To Do Lists
+  - Habit Trackers
+  - Mood Trackers
+- Nth: Calendar
+
+### Mockups
+
+Provide visuals of your app's screens. You can use tools like Figma or pictures of hand-drawn sketches.
+
+### Data
+
+The data will be what the user inputs.
+It comes in the form of:
+
+1. Journal entries consisting of text and/or images
+2. To do lists
+3. Mood trackers
+4. Habit trackers
+
+These four data type entries are collected in 'notebooks'.
+
+The data displayed depends on which user is logged in.
+
+### Endpoints
+
+List endpoints that your server will implement, including HTTP methods, parameters, and example responses.
+
+### Auth
+
+Does your project include any login or user profile functionality? If so, describe how authentication/authorization will be implemented.
+
+- Log-in with password
+
+## Roadmap
+
+Scope your project as a sprint. Break down the tasks that will need to be completed and map out timeframes for implementation. Think about what you can reasonably complete before the due date. The more detail you provide, the easier it will be to build.
+
+## Nice-to-haves
+
+Your project will be marked based on what you committed to in the above document. Under nice-to-haves, you can list any additional features you may complete if you have extra time, or after finishing.
+
+I have added the nice-to-haves in the project above as I thought it would be easier to understand like that.
