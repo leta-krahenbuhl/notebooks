@@ -1,0 +1,9 @@
+[
+  {
+    "id": 1,
+    "order": 1,
+    "title": "go for a run",
+    "amount_per_week": 2,
+    "habit_tracker_id": 1
+  }
+]

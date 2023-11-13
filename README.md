@@ -189,8 +189,6 @@ For the mood tracker I would like to use a date utility API to generate the days
 
 ### Endpoints
 
-List endpoints that your server will implement, including HTTP methods, parameters, and example responses.
-
 #### http://localhost:8080/api/notebooks
 
 - To get a list of all notebooks, post notebooks, edit notebooks or delete notebooks
@@ -202,25 +200,6 @@ List endpoints that your server will implement, including HTTP methods, paramete
     "date": "11/13/2023, 3:30:00 PM",
     "name": "Gratitude"
 }
-```
-
-#### http://localhost:8080/api/journals/entries
-
-- To get a list of all journal entries, post a new journal entry, edit a journal entry or delete a journal entry
-- GET / POST / PUT / DELETE
-
-```
-[
-  {
-     "id": 1,
-     "date": "11/13/2023, 3:30:00 PM",
-     "title": "17 Nov",
-     "text": "This is a journal entry. There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text.",
-     "image": "path-to-my-image",
-     "image_description": "Description to my image",
-     "journal_id": 3
-   }
-]
 ```
 
 #### http://localhost:8080/api/sections
@@ -247,18 +226,33 @@ List endpoints that your server will implement, including HTTP methods, paramete
 ```
 [
   {
-     "id": 1,
-     "date": "11/13/2023, 3:30:00 PM",
-     "title": "Gratitude",
-     "section_id": "3",
-     "notbooke_id": "1"
-   }
-]
+    "id": 1,
+    "date": "11/13/2023, 3:30:00 PM",
+    "title": "Gratitude",
+    "section_id": "3",
+    "notebook_id": "1"
+  },
+];
+```
+
+#### http://localhost:8080/api/entries
+
+- to get a list of all entries, add a new entry, edit an entry or delete an entry
+- GET / POST / PUT / DELETE
+
+```
+      {
+        "id": 1,
+        "date": "11/13/2023, 3:30:00 PM",
+        "title": "17 Nov",
+        "text": "This is a journal entry. There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text.",
+        journal_id: 3,
+      };
 ```
 
 #### http://localhost:8080/api/mood-trackers
 
-- to get a list of all mood-trackers, get one mood-tracker, add a new mood-tracker, edit a mood-tracker or delete a mood-tracker
+- to get a list of all mood-trackers, get one specific mood-tracker, add a new mood-tracker, edit a mood-tracker or delete a mood-tracker
 - GET / POST / PUT / DELETE
 
 ```
@@ -269,23 +263,26 @@ List endpoints that your server will implement, including HTTP methods, paramete
      "title": "April",
      "notbooke_id": "5",
      "mood_month": "November",
-     "days_of_month": [
-                {
-                  "day_nr": 1,
-                  "day_weekend": true,
-                  "day_content": "U+1F600"
-                  "day_notes": "Some more info about day1."
-                },
-                {
-                  "day_nr": 2,
-                  "day_weekend": false,
-                  "day_content": "U+1F600"
-                  "day_notes": "Some more info about day2."
-                },
-                // etc, for each day of the "mood_month"...
-     ]
+
    }
 ]
+```
+
+#### http://localhost:8080/api/mood-days
+
+- to get days or edit a days
+- GET / PUT
+
+```
+[
+  {
+    "day_nr": 1,
+    "day_weekend": true,
+    "day_content": "U+1F600",
+    "day_notes": "Some more info about day1.",
+  },
+  // etc, for each day of the "mood_month"...
+];
 ```
 
 #### http://localhost:8080/api/habit-trackers
@@ -296,36 +293,50 @@ List endpoints that your server will implement, including HTTP methods, paramete
 ```
 [
   {
-    id: 1,
-    date: "11/13/2023, 3:30:00 PM",
-    title: "WC 5 November",
-    notebook_id: "5",
-    section_id: "4",
-    habits: [
-      {
-        id: 1,
-        order: 1,
-        title: "U+1F600",
-        amount_per_week: 4,
-        circles: [
-          {
-            id: 1,
-            done: true,
-          },
-          {
-            id: 2,
-            done: true,
-          },
-        ],
-      },
-    ],
+    "id": 1,
+    "date": "11/13/2023, 3:30:00 PM",
+    "title": "WC 5 November",
+    "notebook_id": "5",
+    "section_id": "4",
   },
 ];
 ```
 
+#### http://localhost:8080/api/habits
+
+- To access data of habits, add a new habit, edit a habit or delete a habit
+- GET / POST / PUT / DELETE
+
+```
+[
+  {
+    "id": 1,
+    "order": 1,
+    "title": "go for a run",
+    "amount_per_week": 2,
+    "habit_tracker_id": 1
+  }
+]
+```
+
+#### http://localhost:8080/api/circles
+
+- To access data of the circles of each habit (GET), set the amoung of circles (POST), edit the "done" status of a circle (true or false)
+- amount of circles per habit depends on what is set in the habit as "amount_per_week"
+
+```
+[
+  {
+    "id": 1,
+    "done": true,
+    "habit_id": 1,
+  }
+]
+```
+
 #### http://localhost:8080/api/lists
 
-- To get a list of all lists, get one list, add a new list edit a list or delete a list
+- To get a list of lists, get one list, add a new list edit a list or delete a list
 - GET / POST / PUT / DELETE
 
 ```
@@ -334,60 +345,113 @@ List endpoints that your server will implement, including HTTP methods, paramete
     id: 1,
     date: "11/13/2023, 3:30:00 PM",
     title: "To Do Today",
-    notebook_id: "5",
     section_id: "4",
-    list_groups: [
-      {
-        id: 1,
-        title: "work",
-        notes: "Some notes about the work list group.",
-        list_items: [
-          {
-            id: 1,
-            tick_or_strike: true,
-            status: true,
-            text: "phone dad",
-          },
-          {
-            id: 2,
-            done: true,
-          },
-        ],
-      },
-    ],
-  },
-];
+    notebook_id: "5",
+  }
+]
 ```
 
-#### http://localhost:8080/notebooks/:notebook-id/journals/:journal-id/:journal-entry-id
+#### http://localhost:8080/api/list-items
 
-- Page of one specific journal entry in a notebook
+- To get a list of all list items for a specific list, add a new list item, edit a list item or delete a list item
+- GET / POST / PUT / DELETE
 
-#### http://localhost:8080/notebooks/:notebook-id/habit-trackers
-
-#### http://localhost:8080/notebooks/:notebook-id/mood-trackers
-
-#### http://localhost:8080/notebooks/:notebook-id/lists
-
-- Page of all mood trackers/habit trackers/lists from one notebook, as a collapsed navigation
-
-#### http://localhost:8080/notebooks/:notebook-id/sections/:section-id
-
-- Page of all journal entries/mood trackers/habit trackers/lists from one section in one notebook
-
-#### http://localhost:8080/notebooks/:notebook-id/journals/:journal-id
-
-- Page of all entries from one journal in one notebook in blog format
+```
+      {
+        "id": 1,
+        "text": "call dad",
+        "tick-or-strike": true,
+        "done": true,
+        "list_id": 3
+      }
+```
 
 ### Auth
 
-Does your project include any login or user profile functionality? If so, describe how authentication/authorization will be implemented.
-
-- Log-in with password
+I would like to add log-in functinality in the future, but not for this sprint.
 
 ## Roadmap
 
-Scope your project as a sprint. Break down the tasks that will need to be completed and map out timeframes for implementation. Think about what you can reasonably complete before the due date. The more detail you provide, the easier it will be to build.
+### 13 Nov
+
+Proposal first draft
+
+### 14 Nov
+
+- Finalise proposal
+- Create some seed data for
+  - http://localhost:8080/api/notebooks
+  - http://localhost:8080/api/sections
+  - http://localhost:8080/api/journals
+  - http://localhost:8080/api/entries
+  - http://localhost:8080/api/mood-trackers
+  - http://localhost:8080/api/mood-days
+  - http://localhost:8080/api/habit-trackers
+  - http://localhost:8080/api/habits
+  - http://localhost:8080/api/circles
+  - http://localhost:8080/api/lists
+  - http://localhost:8080/api/list-items
+
+### 15 Nov
+
+- Set up API end-points on back-end, see above
+- Set up pages and routes on front-end
+
+### 16 Nov
+
+- Header component (logo with link, background, border-bottom)
+- Home page component with list of notebook titles as links
+- Footer navigation component all 5 icons. Icons in state so they’re only displayed when needed?
+
+### 7 Nov
+
+- Industry project
+- Navigation component. Displays what page you’re on. Chevron on right to get dropdown menu
+
+### 18 Nov
+
+- Dropdown menu component. Expandable sections populated with titles. Links.
+- Create list component
+
+### 19 Nov
+
+- Create add notebook component. Button sends POST request to API endpoint.
+- Create page that shows all entries from one notebook
+- Create page that shows all lists from one notebook
+- Create page that shows all mood trackers from one notebook
+- Create page that shows all habit trackers from one notebook
+
+### 20 Nov
+
+- Create page that shows all notebook pages from a certain month
+- Create page that shows all notebook pages from a certain section
+- Create page that shows all entries from a specific journal
+
+### 21 Nov
+
+- Create journal entry component
+- Create add list component
+- Create add mood tracker component
+
+### 22 Nov
+
+- Create add stuffs component. Link to each create page.
+
+### 23 Nov
+
+- Create add journal component
+- Create add habit tracker component
+
+### 24 Nov
+
+- Create habit tracker component
+- Create mood tracker component
+- Create habit component
+- Create add journal entry component
+
+### 25/26 Nov
+
+- Bug fixes and styling
 
 ## Nice-to-haves
 
@@ -406,8 +470,7 @@ Scope your project as a sprint. Break down the tasks that will need to be comple
 
 #### Home
 
-- Ability to build your own colour scheme / chose own fonts
-- Option in for certain items to be displayed in menu as quick link?
+- Ability to set your own colour scheme / chose own fonts
 - Choose which libraries, notebooks, collections, or pages you want to display on homepage (tick option: show on homepage)
 
 #### Notebooks
@@ -420,9 +483,10 @@ Scope your project as a sprint. Break down the tasks that will need to be comple
 
 - Option to display on calendar or not
 - If list/item has a date, option to send reminder to phone as alert
-- A list item can have sub list items
+- Lists can have subtitles with groups of lists
 - Optional due date per list or item
 - In progress option for when do to is started (colour of tickbox?)
+- can add images
 
 #### Habits
 
@@ -450,7 +514,7 @@ Scope your project as a sprint. Break down the tasks that will need to be comple
 - Can display when you wrote a journal entry and link to them (toggle on and off on main calendar)
 - To dos appear on calendar. Different appearance for active to dos that are done and not
 
-#### Nth: Libraries
+#### Libraries
 
 - Are a collection of notebooks
 - Can have a title image, or display collection of notebook title images/previews
