@@ -185,45 +185,199 @@ Link to diagram: https://drawsql.app/teams/lk-13/diagrams/notebooks
 
 The 'user' is a nice to have for this sprint, but I am planning to implement it later.
 
+For the mood tracker I would like to use a date utility API to generate the days of the month and add a background colour for the weekends. I have had a quick look at Date-fns Library and Nager.at API so far for that.
+
 ### Endpoints
 
 List endpoints that your server will implement, including HTTP methods, parameters, and example responses.
 
-/
-Home page with list of all notebooks as links
+#### http://localhost:8080/api/notebooks
 
-/create-notebook
-Create notebook page
+- To get a list of all notebooks, post notebooks, edit notebooks or delete notebooks
+- GET / POST / PUT / DELETE
 
-/notebooks/:notebook-id
-Page of all entries from one notebook in blog post format, sorted by date, newest at top. All entries can be collapsed so only header is visible
+```
+{
+    "id": 1,
+    "date": "11/13/2023, 3:30:00 PM",
+    "name": "Gratitude"
+}
+```
 
-/notebooks/:notebook-id/create/section
-/notebooks/:notebook-id/create/journal
-/notebooks/:notebook-id/create/journal-entry
-/notebooks/:notebook-id/create/mood-tracker
-/notebooks/:notebook-id/create/habit-tracker
-/notebooks/:notebook-id/create/list
-Page to create a section/journal/journal entry/mood tracker/habit tracker/list in one notebook
+#### http://localhost:8080/api/journals/entries
 
-/notebooks/:notebook-id/lists/:list-id
-/notebooks/:notebook-id/mood-trackers/:mood-tracker-id
-/notebooks/:notebook-id/habit-trackers/:habit-tracker-id
-Page of one specific list/mood tracker/habit tracker in a notebook
+- To get a list of all journal entries, post a new journal entry, edit a journal entry or delete a journal entry
+- GET / POST / PUT / DELETE
 
-/notebooks/:notebook-id/journals/:journal-id/:journal-entry-id
-Page of one specific journal entry in a notebook
+```
+[
+  {
+     "id": 1,
+     "date": "11/13/2023, 3:30:00 PM",
+     "title": "17 Nov",
+     "text": "This is a journal entry. There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text.",
+     "image": "path-to-my-image",
+     "image_description": "Description to my image",
+     "journal_id": 3
+   }
+]
+```
 
-/notebooks/:notebook-id/habit-trackers
-/notebooks/:notebook-id/mood-trackers
-/notebooks/:notebook-id/lists
-Page of all mood trackers/habit trackers/lists from one notebook, as a collapsed navigation
+#### http://localhost:8080/api/sections
 
-/notebooks/:notebook-id/sections/:section-id
-Page of all journal entries/mood trackers/habit trackers/lists from one section in one notebook
+- to get a list of all sections, add a section, edit a section or delete a section
+- GET / POST / PUT / DELETE
 
-/notebooks/:notebook-id/journals/:journal-id
-Page of all entries from one journal in one notebook in blog format
+```
+[
+  {
+     "id": 1,
+     "date": "11/13/2023, 3:30:00 PM",
+     "title": "17 Nov",
+     "notebook_id": "3"
+   }
+]
+```
+
+#### http://localhost:8080/api/journals
+
+- to get a list of all journals, add a new journal, edit a journal or delete a journal
+- GET / POST / PUT / DELETE
+
+```
+[
+  {
+     "id": 1,
+     "date": "11/13/2023, 3:30:00 PM",
+     "title": "Gratitude",
+     "section_id": "3",
+     "notbooke_id": "1"
+   }
+]
+```
+
+#### http://localhost:8080/api/mood-trackers
+
+- to get a list of all mood-trackers, get one mood-tracker, add a new mood-tracker, edit a mood-tracker or delete a mood-tracker
+- GET / POST / PUT / DELETE
+
+```
+[
+  {
+     "id": 1,
+     "date": "11/13/2023, 3:30:00 PM",
+     "title": "April",
+     "notbooke_id": "5",
+     "mood_month": "November",
+     "days_of_month": [
+                {
+                  "day_nr": 1,
+                  "day_weekend": true,
+                  "day_content": "U+1F600"
+                  "day_notes": "Some more info about day1."
+                },
+                {
+                  "day_nr": 2,
+                  "day_weekend": false,
+                  "day_content": "U+1F600"
+                  "day_notes": "Some more info about day2."
+                },
+                // etc, for each day of the "mood_month"...
+     ]
+   }
+]
+```
+
+#### http://localhost:8080/api/habit-trackers
+
+- To get a list of all habit-trackers, add a new habit-tracker, edit a habit-tracker or delete a habit-tracker
+- GET / POST / PUT / DELETE
+
+```
+[
+  {
+    id: 1,
+    date: "11/13/2023, 3:30:00 PM",
+    title: "WC 5 November",
+    notebook_id: "5",
+    section_id: "4",
+    habits: [
+      {
+        id: 1,
+        order: 1,
+        title: "U+1F600",
+        amount_per_week: 4,
+        circles: [
+          {
+            id: 1,
+            done: true,
+          },
+          {
+            id: 2,
+            done: true,
+          },
+        ],
+      },
+    ],
+  },
+];
+```
+
+#### http://localhost:8080/api/lists
+
+- To get a list of all lists, get one list, add a new list edit a list or delete a list
+- GET / POST / PUT / DELETE
+
+```
+[
+  {
+    id: 1,
+    date: "11/13/2023, 3:30:00 PM",
+    title: "To Do Today",
+    notebook_id: "5",
+    section_id: "4",
+    list_groups: [
+      {
+        id: 1,
+        title: "work",
+        notes: "Some notes about the work list group.",
+        list_items: [
+          {
+            id: 1,
+            tick_or_strike: true,
+            status: true,
+            text: "phone dad",
+          },
+          {
+            id: 2,
+            done: true,
+          },
+        ],
+      },
+    ],
+  },
+];
+```
+
+#### http://localhost:8080/notebooks/:notebook-id/journals/:journal-id/:journal-entry-id
+
+- Page of one specific journal entry in a notebook
+
+#### http://localhost:8080/notebooks/:notebook-id/habit-trackers
+
+#### http://localhost:8080/notebooks/:notebook-id/mood-trackers
+
+#### http://localhost:8080/notebooks/:notebook-id/lists
+
+- Page of all mood trackers/habit trackers/lists from one notebook, as a collapsed navigation
+
+#### http://localhost:8080/notebooks/:notebook-id/sections/:section-id
+
+- Page of all journal entries/mood trackers/habit trackers/lists from one section in one notebook
+
+#### http://localhost:8080/notebooks/:notebook-id/journals/:journal-id
+
+- Page of all entries from one journal in one notebook in blog format
 
 ### Auth
 
