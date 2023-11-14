@@ -174,37 +174,35 @@ Proposal first draft
 
 ### 15 Nov
 
-- Set up API end-points on back-end, see above
-- Set up pages and routes on front-end
+- Set up API end-points on back-end (see above)
+- Set up pages and routes on front-end (see above)
 
 ### 16 Nov
 
-- Header component (logo with link, background, border-bottom)
-- Home page component with list of notebook titles as links
-- Footer navigation component all 5 icons. Icons in state so they’re only displayed when needed?
+- Create add journal entry component
 
 ### 7 Nov
 
 - Industry project
-- Navigation component. Displays what page you’re on. Chevron on right to get dropdown menu
+- Create add journal component
 
 ### 18 Nov
 
-- Dropdown menu component. Expandable sections populated with titles. Links.
-- Create list component
+- Navigation component. Displays what page you’re on. Chevron on right to get dropdown menu
+- Header component (logo with link, background, border-bottom)
 
 ### 19 Nov
 
-- Create add notebook component. Button sends POST request to API endpoint.
-- Create page that shows all entries from one notebook
+- Home page component with list of notebook titles as links
+- Footer navigation component all 5 icons. Icons in state so they’re only displayed when needed?
 
 ### 20 Nov
 
-- Create page that shows all entries from a specific journal
+- Dropdown menu component. Expandable sections populated with titles. Links.
 
 ### 21 Nov
 
-- Create journal entry component
+- Create add notebook component. Button sends POST request to API endpoint.
 
 ### 22 Nov
 
@@ -212,11 +210,12 @@ Proposal first draft
 
 ### 23 Nov
 
-- Create add journal component
+- Create journal entry component
 
 ### 24 Nov
 
-- Create add journal entry component
+- Create page that shows all entries from one notebook
+- Create page that shows all entries from a specific journal
 
 ### 25/26 Nov
 

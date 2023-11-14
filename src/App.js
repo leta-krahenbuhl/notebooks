@@ -8,9 +8,7 @@ function App() {
       <div className="app">
         <Header />
         <Routes>
-          {/* <Route path="/" element={<Main />} />
-          <Route path="/videos/:videoId" element={<Main />} />
-          <Route path="upload" element={<UploadPage />} /> */}
+          <Route path="/" element={<Home />} />
         </Routes>
       </div>
     </BrowserRouter>
