@@ -228,8 +228,7 @@ Proposal first draft
 
 - App is extended to combine journals, lists and trackers
 - Helps evaluate where you are in your life, makes you think about your goals and helps building healthy habits that will help you achieve these
-- An archive of your life you can look back on to simply reminisce or to see how far you have come
-- App helps you get started with suggestions where to start
+- App helps you get started with suggestions where to start:
   - Start with one notebook per year. In that:
   - Create a gratitude journal. Create a new page every day and write down three things you’re grateful for or proud of. Link to article of mental health benefits of doing this.
   - Create a list page and write down goals you would like to achieve. Think of habits you’d like to build and where you want to be in a year / 5 years. Link to article of how setting goals improves success rate.
@@ -237,7 +236,7 @@ Proposal first draft
   - Create a to do list page
   - Start a mood tracker page every month to be able to see patterns in your moods
   - Suggest other things you can do
-    - eg create a recipe collection (as a new notebook, use a journal for each theme such as mains, deserts, etc)
+    - eg create a recipe collection
     - Create lists such as movies I'd like to watch, books to read, etc
 - Can easily add pictures, screenshots, URLs to a page when browsing the internet or from pictures on phone
 - Make it social so you can share aspects of it with friends who are using the app too
@@ -269,14 +268,14 @@ Proposal first draft
 #### Lists
 
 - Individual list items who either
-- Get crossed out when done
-- Or have a tickbox next to them
+  - Get crossed out when done
+  - Or have a tickbox next to them
 - list items can be sorted under sub-titles
 - Option to display on calendar or not
 - If list/item has a date, option to send reminder to phone as alert
 - Lists can have subtitles with groups of lists
 - Optional due date per list or item
-- In progress option for when do to is started (colour of tickbox?)
+- In progress option for when do to is started
 - can add images
 
 #### Habits
@@ -288,8 +287,7 @@ Proposal first draft
   - Each time you do the habit that week you fill out one circle
   - Each habit has a start next to it as well which can be filled out when all circles have been completed that week
 - Chose when you want to archive habit, eg after completing 4 weeks in a row. Once that’s done you get a message that you achieved it and it gets archived. You can see all archived habits that year.
-- Can see habits in a calendar
-- Nth: habits can be tracked weekly, monthly or yearly
+- Can see habits in calendar
 
 #### Mood Tracker
 
@@ -298,15 +296,14 @@ Proposal first draft
 - Vertical list of days in month with date, weekends in different background colour
 - You can add smilies in each day to track mood and other things
 
-#### Add to Calendar Button (OR Nth: Calendar)
+#### Add to Calendar Button (OR in app Calendar?)
 
 - Have a 'add to calendar' button where you can add to do lists to your device calendar
 - Use npm library for this?
 
-#### Calendar (OR Add to Calendar Button)
+#### Calendar (OR Add to Calendar Button?)
 
 - Displayed like apple calendar
-- Events on calendars are marked with an indicator (text? dots?)
 - Clicking on a day shows you what’s on that day below the calendar
 - Can insert item on a certain day
 - Daily, weekly, monthly and yearly view
@@ -326,10 +323,10 @@ Proposal first draft
 
 #### Archive
 
-- Same structure as usual page, but with all libraries/notebooks/ that are archived
+- Same structure as usual page, but with all libraries/notebooks/lists/etc that are archived
+- Archived items don't show up in notebook scroll anymore
 - Have a date as to when they were originally created, and when they were archived
-- Option to view notebooks with their pages as very small previews, sorted chronologically by date with month/year headers
-- Lists can be archived so they don't show up in notebook scroll anymore
+- Also: Option to view notebooks with their pages as very small previews, sorted chronologically by date with month/year headers
 
 ### Sitemap
 
@@ -395,8 +392,7 @@ The data will be what the user inputs.
      "date": "11/13/2023, 3:30:00 PM",
      "title": "April",
      "notbooke_id": "5",
-     "mood_month": "November",
-
+     "mood_month": "November"
    }
 ]
 ```
@@ -412,10 +408,10 @@ The data will be what the user inputs.
     "day_nr": 1,
     "day_weekend": true,
     "day_content": "U+1F600",
-    "day_notes": "Some more info about day1.",
-  },
+    "day_notes": "Some more info about day1."
+  }
   // etc, for each day of the "mood_month"...
-];
+]
 ```
 
 #### http://localhost:8080/api/habit-trackers
@@ -430,9 +426,9 @@ The data will be what the user inputs.
     "date": "11/13/2023, 3:30:00 PM",
     "title": "WC 5 November",
     "notebook_id": "5",
-    "section_id": "4",
-  },
-];
+    "section_id": "4"
+  }
+]
 ```
 
 #### http://localhost:8080/api/habits
@@ -462,7 +458,7 @@ The data will be what the user inputs.
   {
     "id": 1,
     "done": true,
-    "habit_id": 1,
+    "habit_id": 1
   }
 ]
 ```
@@ -479,7 +475,7 @@ The data will be what the user inputs.
     date: "11/13/2023, 3:30:00 PM",
     title: "To Do Today",
     section_id: "4",
-    notebook_id: "5",
+    notebook_id: "5"
   }
 ]
 ```
