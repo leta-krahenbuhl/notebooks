@@ -32,11 +32,15 @@ export default function CreateJournalEntry() {
     }
   };
 
+  // --------------------------------- TO DO NEXT
+  // I need a list of journals to make the select option work
+
+  //put form validation in
   return (
     <>
       <main className="create-journal-entry">
         <h1>ADD JOURNAL ENTRY</h1>
-        <form onSubmit={handleSubmit} className="journal-entry-form">
+        <form onSubmit={handleSubmit} className="form">
           <label htmlFor="title" className="form__label">
             Title
           </label>
@@ -66,6 +70,17 @@ export default function CreateJournalEntry() {
             //     : "form__text-input"
             // }
           ></textarea>
+          <label htmlFor="journal" className="form__label">
+            Add to journal:
+          </label>
+          <select name="journal" id="journal" required className="from__select">
+            <option value="">Please select</option>
+            {/* {journals.map((journal) => (
+              <option value={journal.id} key={journal.id}>
+                {journal.title}
+              </option>
+            ))} */}
+          </select>
           <button type="submit" className="create-journal-entry__button">
             Submit
           </button>
