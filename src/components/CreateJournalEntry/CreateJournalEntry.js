@@ -1,5 +1,5 @@
 import "./CreateJournalEntry.scss";
-import React, { useState } from "react";
+// import React, { useState } from "react";
 import "react-quill/dist/quill.snow.css";
 import axios from "axios";
 
@@ -25,6 +25,7 @@ export default function CreateJournalEntry() {
     try {
       await axios.post(`${baseURL}/journal-entries/create`, newEntry);
       // setIsError(false);
+      event.target.reset();
     } catch (error) {
       console.log(error);
       // setIsError(true);

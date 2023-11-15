@@ -79,7 +79,7 @@ The data will come from the user and I will build the database structure to save
 
 - Page of one specific journal entry in a notebook
 
-#### /create-notebook
+#### /create/notebook
 
 #### /create/journal
 
