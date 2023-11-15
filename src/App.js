@@ -16,7 +16,7 @@ function App() {
             path="/create/journal-entry"
             element={<CreateJournalEntry />}
           />
-          <Route path="/create/notebooks" element={<CreateNotebook />} />
+          <Route path="/create/notebook" element={<CreateNotebook />} />
         </Routes>
       </div>
     </BrowserRouter>
