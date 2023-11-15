@@ -1,14 +1,15 @@
-import "./Notebooks.scss";
+import "./NotebookTitles.scss";
+import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
-import { fetchNotebooks } from "../../utils/AxiosRequests";
+import { fetchNotebookTitles } from "../../utils/AxiosRequests";
 
 export default function Home() {
   const [notebooks, setNotebooks] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
 
-  const getNotebooks = async () => {
+  const getNotebookTitles = async () => {
     try {
-      const data = await fetchNotebooks();
+      const data = await fetchNotebookTitles();
       setNotebooks(data);
       setIsLoading(false);
     } catch (error) {
@@ -17,7 +18,7 @@ export default function Home() {
   };
 
   useEffect(() => {
-    getNotebooks();
+    getNotebookTitles();
   }, []);
 
   if (isLoading) {
@@ -29,9 +30,9 @@ export default function Home() {
       {notebooks.map((notebook) => {
         return (
           // wrap h3 in a link
-          <h2 className="notebook-title" key={notebook.id}>
-            {notebook.title}
-          </h2>
+          <Link to={`/${notebook.id}`} key={notebook.id}>
+            <h2 className="notebook-title">{notebook.title}</h2>
+          </Link>
         );
       })}
     </>
