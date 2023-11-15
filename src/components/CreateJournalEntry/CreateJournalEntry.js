@@ -23,7 +23,7 @@ export default function CreateJournalEntry() {
     // console.log(baseURL); //works
 
     try {
-      await axios.post(`${baseURL}/journal-entries/create`, newEntry);
+      await axios.post(`${baseURL}/api/journal-entries/create`, newEntry);
       // setIsError(false);
       event.target.reset();
     } catch (error) {
