@@ -1,63 +1,70 @@
 import "./CreateJournalEntry.scss";
-import React, { useState, useRef } from "react";
-import ReactQuill from "react-quill";
+import React, { useState } from "react";
 import "react-quill/dist/quill.snow.css";
 import axios from "axios";
 
 export default function CreateJournalEntry() {
-  const [value, setValue] = useState("");
-  const quillRef = useRef();
-
   // console.log(value); // returns html of current value
   // after every character, image is realllly long
 
   const handleSubmit = async (event) => {
     event.preventDefault();
 
-    if (quillRef.current) {
-      const delta = quillRef.current.getEditor().getContents();
-      console.log(delta); // works
+    const newEntry = {
+      title: event.target.title.value,
+      text: event.target.text.value,
+    };
 
-      const newEntry = {
-        content: delta,
-      };
+    // console.log(newEntry); //works
 
-      // put front-end form evaluation here
-      const baseURL = process.env.REACT_APP_BASE_URL;
-      //   console.log(baseURL); works
+    // put front-end form evaluation here
 
-      try {
-        await axios.post(`${baseURL}/create/journal-entries`, newEntry);
-        console.log("posted");
-        // setIsError(false);
-      } catch (error) {
-        console.log(error);
-        // setIsError(true);
-      }
+    const baseURL = process.env.REACT_APP_BASE_URL;
+    // console.log(baseURL); //works
+
+    try {
+      await axios.post(`${baseURL}/journal-entries/create`, newEntry);
+      // setIsError(false);
+    } catch (error) {
+      console.log(error);
+      // setIsError(true);
     }
-    setValue("");
   };
 
   return (
     <>
       <main className="create-journal-entry">
-        Add a journal entry
+        <h1>ADD JOURNAL ENTRY</h1>
         <form onSubmit={handleSubmit} className="journal-entry-form">
-          <div className="create-journal-entry__rich-text-editor">
-            <ReactQuill
-              theme="snow"
-              value={value}
-              onChange={setValue}
-              modules={{
-                toolbar: [
-                  [{ header: [1, 2, false] }],
-                  ["bold", "italic", "underline"],
-                  ["image", "code-block"],
-                ],
-              }}
-              ref={quillRef}
-            />
-          </div>
+          <label htmlFor="title" className="form__label">
+            Title
+          </label>
+          <input
+            placeholder="Enter your title here"
+            type="text"
+            name="title"
+            id="title"
+            className="form__input"
+            // className={
+            //   formErrors.warehouse_name
+            //     ? "form__text-input--red"
+            //     : "form__text-input"
+            // }
+          />
+          <label htmlFor="text" className="form__label">
+            Text
+          </label>
+          <textarea
+            placeholder="Enter your text here"
+            name="text"
+            id="text"
+            className="form__textarea"
+            // className={
+            //   formErrors.warehouse_name
+            //     ? "form__text-input--red"
+            //     : "form__text-input"
+            // }
+          ></textarea>
           <button type="submit" className="create-journal-entry__button">
             Submit
           </button>
