@@ -81,13 +81,11 @@ The data will come from the user and I will build the database structure to save
 
 #### /create-notebook
 
-- Create notebook page
+#### /create/journal
 
-#### /notebooks/:notebook-id/create/journal
+#### /create/journal-entry
 
-#### /notebooks/:notebook-id/create/journal-entry
-
-- Page to create a journal/journal entry in one notebook
+- Page to create a notebook/journal/journal entry
 
 ### Mockups
 
