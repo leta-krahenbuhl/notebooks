@@ -4,6 +4,7 @@ import { useState } from "react";
 
 export default function AddListItem() {
   const [allItems, setAllItems] = useState([]);
+  const [inputValue, setInputValue] = useState("");
 
   const handleSubmitItem = async (event) => {
     event.preventDefault();
@@ -13,7 +14,7 @@ export default function AddListItem() {
     };
     // put front-end form evaluation here
 
-    setAllItems(newListItem);
+    setAllItems([...allItems, newListItem]);
 
     const baseURL = process.env.REACT_APP_BASE_URL;
 
@@ -29,9 +30,18 @@ export default function AddListItem() {
     }
   };
 
+  const handleInputChange = (event) => {
+    setInputValue(event.target.value);
+  };
+
   return (
     <div className="add-list-item">
       <h3 className="add-list-item__header">start your list:</h3>
+      <ul className="added-items">
+        {allItems.map((item, index) => (
+          <li key={index}>{item.text}</li>
+        ))}
+      </ul>
       <form className="add-list-item-form" onSubmit={handleSubmitItem}>
         <input
           type="text"
