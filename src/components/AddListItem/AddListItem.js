@@ -1,7 +1,10 @@
 import "./AddListItem.scss";
 import axios from "axios";
+import { useState } from "react";
 
 export default function AddListItem() {
+  const [allItems, setAllItems] = useState([]);
+
   const handleSubmitItem = async (event) => {
     event.preventDefault();
 
@@ -9,6 +12,8 @@ export default function AddListItem() {
       text: event.target.listItem.value,
     };
     // put front-end form evaluation here
+
+    setAllItems(newListItem);
 
     const baseURL = process.env.REACT_APP_BASE_URL;
 
