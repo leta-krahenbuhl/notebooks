@@ -1,12 +1,36 @@
 import "./CreateList.scss";
 import AddListTitle from "../../components/AddListTitle/AddListTitle";
 import AddListItem from "../../components/AddListItem/AddListItem";
+import { useState, useEffect } from "react";
+import { fetchListTitles } from "../../utils/AxiosRequests";
 
 export default function CreateList() {
+  const [lists, setLists] = useState();
+  const [isLoading, setIsLoading] = useState(true);
+
+  const getListTitles = async () => {
+    try {
+      const data = await fetchListTitles();
+      setLists(data);
+      setIsLoading(false);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  useEffect(() => {
+    getListTitles();
+  }, []);
+
+  if (isLoading) {
+    return <div>Loading...</div>;
+  }
+  // console.log(lists); //works!
+
   return (
     <div className="create-list">
       <AddListTitle />
-      <AddListItem />
+      <AddListItem lists={lists} />
     </div>
   );
 }

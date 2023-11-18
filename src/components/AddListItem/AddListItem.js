@@ -2,7 +2,7 @@ import "./AddListItem.scss";
 import axios from "axios";
 import { useState } from "react";
 
-export default function AddListItem() {
+export default function AddListItem({ lists }) {
   const [allItems, setAllItems] = useState([]);
   const [inputValue, setInputValue] = useState("");
 

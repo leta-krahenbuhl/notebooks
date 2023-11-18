@@ -7,4 +7,9 @@ const fetchNotebookTitles = async () => {
   return data;
 };
 
-export { fetchNotebookTitles };
+const fetchListTitles = async () => {
+  const { data } = await axios.get(`${baseURL}/api/list-titles`);
+  return data;
+};
+
+export { fetchNotebookTitles, fetchListTitles };
