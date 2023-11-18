@@ -15,7 +15,7 @@ function App() {
         <Header />
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/:notebook-id" element={<Notebook />} />
+          <Route path="/notebooks/:notebookId" element={<Notebook />} />
           <Route
             path="/create/journal-entry"
             element={<CreateJournalEntry />}

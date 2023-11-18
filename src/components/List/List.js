@@ -1,25 +1,17 @@
 import "./List.scss";
 // import { useState, useEffect } from "react";
 
+//--- List1,2,3,4,....
+// get list title where notebook_id = notebookId
+// get all list items where list_id = is the id of the result of the previous map
+// display these two underneath each other
+
+// repeat for all list titles
+
 export default function List() {
-  return <></>;
+  return (
+    <>
+      <p className="hi">Hi im a list</p>
+    </>
+  );
 }
-
-//----------------------- just a list with checkboxes
-
-// return (
-//   <>
-//     <form action="" className="list-form">
-//       <div>
-//         <h2 className="list">My List</h2>
-//         <label htmlFor="lang1">Call dad</label>
-//         <input type="checkbox" id="lang1" name="lang1" value="Java" />
-//       </div>
-//       <div>
-//         <label htmlFor="lang2"> Fix cupboard door</label>
-//         <input type="checkbox" id="lang2" name="lang2" value="Python" />
-//       </div>
-//       <button className="list-form__button">Submit</button>
-//     </form>
-//   </>
-// );
