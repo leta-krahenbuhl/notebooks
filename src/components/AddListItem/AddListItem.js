@@ -1,26 +1,37 @@
 import "./AddListItem.scss";
 import axios from "axios";
 import { useState } from "react";
+import { useParams } from "react-router-dom";
 
 export default function AddListItem({ lists }) {
   const [allItems, setAllItems] = useState([]);
   const [inputValue, setInputValue] = useState("");
+  const { listId } = useParams();
 
   const handleSubmitItem = async (event) => {
     event.preventDefault();
 
+    const parsedListId = parseInt(listId);
+    console.log(parsedListId); //works, and its defo a nr
+
     const newListItem = {
       text: event.target.listItem.value,
+      list_id: parsedListId,
     };
-    // put front-end form evaluation here
 
-    setAllItems([...allItems, newListItem]);
+    // put front-end form evaluation here
 
     const baseURL = process.env.REACT_APP_BASE_URL;
 
     try {
-      await axios.post(`${baseURL}/api/list-items`, newListItem);
-      // setIsError(false);
+      const response = await axios.post(
+        `${baseURL}/api/list-items`,
+        newListItem
+      );
+      const updatedItem = response.data;
+
+      setAllItems((prevItems) => [...prevItems, updatedItem]);
+
       event.target.reset();
       // setIsTitle(true);
       // setTitle(newListTitle);

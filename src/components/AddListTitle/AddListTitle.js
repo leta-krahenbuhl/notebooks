@@ -6,18 +6,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 export default function List() {
   const [isTitle, setIsTitle] = useState(false);
   const [title, setTitle] = useState("");
-  const location = useLocation(); // Get the current location object
   const navigate = useNavigate();
-
-  useEffect(() => {
-    const queryParams = new URLSearchParams(location.search);
-    const itemIdFromURL = queryParams.get("itemId");
-
-    if (itemIdFromURL) {
-      // Perform any action based on the ID retrieved from the URL
-      console.log("Item ID from URL:", itemIdFromURL);
-    }
-  }, [location.search]);
 
   const handleSubmitTitle = async (event) => {
     event.preventDefault();
@@ -38,7 +27,7 @@ export default function List() {
 
       setIsTitle(true);
       setTitle(newListTitle);
-      // Update the URL by adding the ID as a query parameter
+
       // Update the URL by adding the ID as a query parameter
       navigate(`/lists/edit/${newItemId}`);
       event.target.reset();
