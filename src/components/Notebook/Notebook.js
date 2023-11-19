@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { fetchListTitles } from "../../utils/AxiosRequests";
 import { fetchListItems } from "../../utils/AxiosRequests";
+import TopNavigation from "../TopNavigation/TopNavigation";
 
 export default function Notebook() {
   const [listTitleswithNotebookId, setListTitleswithNotebookId] =
@@ -66,32 +67,19 @@ export default function Notebook() {
     allListItems || []
   );
 
-  console.log(itemsForTitles);
+  // console.log(itemsForTitles);
 
   return (
     <>
-      <h2 className="notebook">
-        All pages from one notebook here please thank you.{" "}
-      </h2>
-      {itemsForTitles && <List itemsForTitles={itemsForTitles} />}
+      <TopNavigation notebookId={notebookId} />
+      <article className="notebook">
+        {" "}
+        {itemsForTitles && <List itemsForTitles={itemsForTitles} />}{" "}
+      </article>
     </>
   );
 }
 
 //--------------------- PSEUDO CODE
 
-//--- List1,2,3,4,....
-// get list title where notebook_id = notebookId
-// get all list items where list_id = is the id of the result of the previous map
-// display these two underneath each other
-
-// repeat for all list titles
-
-//--- Journal Entry1,2,3,4,....
-// get journal where notebook_id = notebookId
-// get all journal entries where journal_id = is the id of the result of the previous map
-// display the entries
-
-// repeat for all journals
-
-// sort all these components by date. Make date state in this component.
+// sort all List as well as JouralEntry components by date. Make date state in this component.
