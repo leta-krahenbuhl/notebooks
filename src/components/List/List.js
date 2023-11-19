@@ -1,8 +1,9 @@
 import { Link } from "react-router-dom";
 import "./List.scss";
-import ListItems from "../ListItems/ListItems";
 
 export default function List({ itemsForTitles, notebookId }) {
+  // console.log(itemsForTitles); //works
+
   return (
     <>
       <div className="list">
@@ -11,7 +12,11 @@ export default function List({ itemsForTitles, notebookId }) {
             <Link to={`/notebooks/${notebookId}/lists/${titleObj.title.id}`}>
               <h2 className="list__title">{titleObj.title.title}</h2>
             </Link>
-            <ListItems itemsForTitles={itemsForTitles} />
+            <ul className="list__text">
+              {titleObj.items.map((item, itemIndex) => (
+                <li key={itemIndex}>{item.text}</li>
+              ))}
+            </ul>
           </div>
         ))}
       </div>

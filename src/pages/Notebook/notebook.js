@@ -49,7 +49,7 @@ export default function Notebook() {
       const itemsForTitle = items.filter((item) => item.list_id === title.id);
       return { title, items: itemsForTitle };
     });
-
+    // console.log(itemsByTitle); // logs items by title, RIGHT
     return itemsByTitle;
   };
 
@@ -58,7 +58,7 @@ export default function Notebook() {
     allListItems || []
   );
 
-  // console.log(itemsForTitles);
+  // console.log(itemsForTitles); // logs items by title, RIGHT
 
   return (
     <>
