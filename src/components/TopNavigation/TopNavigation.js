@@ -2,7 +2,7 @@ import "./TopNavigation.scss";
 import { useState, useEffect } from "react";
 import { fetchNotebookTitles } from "../../utils/AxiosRequests";
 
-export default function TopNavigation({ notebookId }) {
+export default function TopNavigation({ notebookId, currentListTitleObj }) {
   const [notebooks, setNotebooks] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
 
@@ -31,7 +31,10 @@ export default function TopNavigation({ notebookId }) {
 
   return (
     <>
-      <h2 className="top-navigation">{navNotebookTitle.title}</h2>
+      <h2 className="top-navigation">
+        {navNotebookTitle.title}
+        {currentListTitleObj && <> | {currentListTitleObj.title}</>}
+      </h2>
     </>
   );
 }
