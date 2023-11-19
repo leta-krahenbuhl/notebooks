@@ -4,9 +4,10 @@ import { BrowserRouter, Link, Route, Routes } from "react-router-dom";
 import Home from "./pages/Home/Home";
 import CreateJournalEntry from "./pages/CreateJournalEntry/CreateJournalEntry";
 import CreateNotebook from "./pages/CreateNotebook/CreateNotebook";
-import Notebook from "./components/Notebook/Notebook";
+import Notebook from "./pages/Notebook/notebook";
 import List from "./components/List/List";
 import CreateList from "./pages/CreateList/CreateList";
+import ListDetail from "./pages/ListDetail/ListDetail";
 
 function App() {
   return (
@@ -16,6 +17,10 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/notebooks/:notebookId" element={<Notebook />} />
+          <Route
+            path="/notebooks/:notebookId/lists/:listId"
+            element={<ListDetail />}
+          />
           <Route
             path="/create/journal-entry"
             element={<CreateJournalEntry />}
@@ -28,7 +33,7 @@ function App() {
           />
           {/* temporary route to experiment with lists: */}
           <Route path="/lists" element={<List />} />
-          <Route path="/lists/edit/:listId" element={<CreateList />} />
+          <Route path="/lists/add/:listId" element={<CreateList />} />
         </Routes>
       </div>
     </BrowserRouter>

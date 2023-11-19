@@ -27,13 +27,13 @@ export default function AddListTitle({ notebookId }) {
         `${baseURL}/api/list-titles`,
         newListTitle
       );
-      const newItemId = response.data.id;
+      const newListTitleId = response.data.id;
 
       setIsTitle(true);
       setTitle(newListTitle);
 
       // Update the URL by adding the ID as a query parameter
-      navigate(`/lists/edit/${newItemId}`);
+      navigate(`/lists/add/${newListTitleId}`);
       event.target.reset();
     } catch (error) {
       console.log(error);
@@ -45,7 +45,6 @@ export default function AddListTitle({ notebookId }) {
       <>
         <form className="add-list-title-form" onSubmit={handleSubmitTitle}>
           <h2 className="add-list-title-form__header">ADD LIST</h2>
-          {/* <div className="add-list-title-form__title-input"> */}
           {/* <label htmlFor="text">Title</label> */}
           <div className="add-list-title-form__wrapper">
             <input
