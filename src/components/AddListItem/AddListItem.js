@@ -12,7 +12,6 @@ export default function AddListItem({ lists }) {
     event.preventDefault();
 
     const parsedListId = parseInt(listId);
-    console.log(parsedListId); //works, and its defo a nr
 
     const newListItem = {
       text: event.target.listItem.value,

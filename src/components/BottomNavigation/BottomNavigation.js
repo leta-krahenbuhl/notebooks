@@ -47,7 +47,7 @@ export default function BottomNavigation({ notebookId }) {
   if (notebookId)
     return (
       <nav className="notebook-navigation">
-        <Link to="/create/list">
+        <Link to={`/notebooks/${notebookId}/create/list`}>
           <img
             src={plusIcon}
             alt="add new list"

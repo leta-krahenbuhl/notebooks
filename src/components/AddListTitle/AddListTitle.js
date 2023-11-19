@@ -3,7 +3,7 @@ import axios from "axios";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-export default function List() {
+export default function AddListTitle({ notebookId }) {
   const [isTitle, setIsTitle] = useState(false);
   const [title, setTitle] = useState("");
   const navigate = useNavigate();
@@ -11,8 +11,11 @@ export default function List() {
   const handleSubmitTitle = async (event) => {
     event.preventDefault();
 
+    const parsedNotebookId = parseInt(notebookId);
+
     const newListTitle = {
       title: event.target.text.value,
+      notebook_id: parsedNotebookId,
     };
     // put front-end form evaluation here
 

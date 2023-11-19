@@ -3,9 +3,10 @@ import AddListTitle from "../../components/AddListTitle/AddListTitle";
 import AddListItem from "../../components/AddListItem/AddListItem";
 import { useState, useEffect } from "react";
 import { fetchListTitles } from "../../utils/AxiosRequests";
-import BottomNavigation from "../../components/BottomNavigation/BottomNavigation";
+import { useParams } from "react-router-dom";
 
 export default function CreateList() {
+  const { notebookId } = useParams();
   const [lists, setLists] = useState();
   const [isLoading, setIsLoading] = useState(true);
 
@@ -30,7 +31,7 @@ export default function CreateList() {
 
   return (
     <div className="create-list">
-      <AddListTitle />
+      <AddListTitle notebookId={notebookId} />
       <AddListItem lists={lists} />
     </div>
   );
