@@ -48,7 +48,7 @@ export default function List() {
               type="text"
               id="text"
               name="text"
-              placeholder="add your list title"
+              placeholder="add list title"
               className="add-list-title-form__input"
             />
             {/* </div> */}

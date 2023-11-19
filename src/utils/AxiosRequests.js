@@ -12,4 +12,9 @@ const fetchListTitles = async () => {
   return data;
 };
 
-export { fetchNotebookTitles, fetchListTitles };
+const fetchListItems = async () => {
+  const { data } = await axios.get(`${baseURL}/api/list-items`);
+  return data;
+};
+
+export { fetchNotebookTitles, fetchListTitles, fetchListItems };

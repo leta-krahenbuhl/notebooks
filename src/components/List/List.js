@@ -11,6 +11,7 @@ import "./List.scss";
 export default function List() {
   return (
     <>
+      <h4 className="list__title">List Title here</h4>
       <p className="hi">Hi im a list</p>
     </>
   );

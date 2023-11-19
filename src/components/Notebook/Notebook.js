@@ -3,23 +3,29 @@ import "./Notebook.scss";
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { fetchListTitles } from "../../utils/AxiosRequests";
+import { fetchListItems } from "../../utils/AxiosRequests";
 
 export default function Notebook() {
-  const [listTitles, setListTitles] = useState(null);
-  const [isLoading, setIsLoading] = useState(true);
+  const [listTitleswithNotebookId, setListTitleswithNotebookId] =
+    useState(null);
+  const [allListItems, setAllListItems] = useState(null);
+  const [isLoadingNotebooks, setisLoadingNotebooks] = useState(true);
+  const [isLoadingListTitles, setisLoadingListTitles] = useState(true);
 
   const { notebookId } = useParams();
   // console.log(notebookId); //works
 
-  const getListTitlesWithNotebookId = async () => {
+  const getArrayOfListTitlesWithNotebookId = async () => {
     try {
       const data = await fetchListTitles();
-      setListTitles(data);
-      setIsLoading(false);
+      setisLoadingNotebooks(false);
 
-      const listTitleswithNotebookId = data.filter(
+      const arrayOfListTitleswithNotebookId = data.filter(
         (notebook) => notebook.notebook_id === parseInt(notebookId)
       );
+      setListTitleswithNotebookId(arrayOfListTitleswithNotebookId);
+      // console.log(arrayOfListTitleswithNotebookId);
+
       // console.log(listTitleswithNotebookId); //works! for different notebooks!
     } catch (error) {
       console.error(error);
@@ -27,69 +33,65 @@ export default function Notebook() {
   };
 
   useEffect(() => {
-    getListTitlesWithNotebookId();
+    getArrayOfListTitlesWithNotebookId();
   }, [notebookId]);
 
-  // need to get listItems!
-  // const listItemsByTitle = getListTitlesWithNotebookId.map((title) => {
-  //   const items = listItems.filter((item) => item.list_id === title.id);
-  //   return { title, items };
-  // });
+  const getAllListItems = async () => {
+    try {
+      const data = await fetchListItems();
+      setAllListItems(data);
+      setisLoadingListTitles(false);
 
-  if (isLoading) {
-    return <div>Loading...</div>;
-  }
+      // console.log(allListItems);
+    } catch (error) {
+      console.error(error);
+    }
+  };
 
-  // console.log(listTitles); //works
+  useEffect(() => {
+    getAllListItems();
+  }, [listTitleswithNotebookId]);
 
-  //--------------------- PSEUDO CODE
+  const getItemsForTitles = (titles, items) => {
+    const itemsByTitle = titles.map((title) => {
+      const itemsForTitle = items.filter((item) => item.list_id === title.id);
+      return { title, items: itemsForTitle };
+    });
 
-  //--- List1,2,3,4,....
-  // get list title where notebook_id = notebookId
-  // get all list items where list_id = is the id of the result of the previous map
-  // display these two underneath each other
+    return itemsByTitle;
+  };
 
-  // repeat for all list titles
+  const itemsForTitles = getItemsForTitles(
+    listTitleswithNotebookId || [],
+    allListItems || []
+  );
 
-  //--- Journal Entry1,2,3,4,....
-  // get journal where notebook_id = notebookId
-  // get all journal entries where journal_id = is the id of the result of the previous map
-  // display the entries
-
-  // repeat for all journals
-
-  // sort all these components by date. Make date state in this component.
+  console.log(itemsForTitles);
 
   return (
     <>
       <h2 className="notebook">
         All pages from one notebook here please thank you.{" "}
       </h2>
-      <List />
+      {itemsForTitles && <List />}
     </>
   );
 }
 
-//---- TO DO CHECK BELOW
+//--------------------- PSEUDO CODE
 
-// Assuming listTitles and listItems contain your data
-// const listTitles = [
-//   { id: 1, notebook_id: 1, title: "Title 1" },
-//   { id: 2, notebook_id: 2, title: "Title 2" },
-// ...other list titles
-// ];
+//--- List1,2,3,4,....
+// get list title where notebook_id = notebookId
+// get all list items where list_id = is the id of the result of the previous map
+// display these two underneath each other
 
-// const listItems = [
-//   { id: 1, list_id: 1, content: "Item 1" },
-//   { id: 2, list_id: 1, content: "Item 2" },
-// ...other list items
-// ];
+// repeat for all list titles
 
-// For each matching list title, find associated list items
-// const listItemsByTitle = filteredListTitles.map((title) => {
-//   const items = listItems.filter((item) => item.list_id === title.id);
-//   return { title, items };
-// });
+//--- Journal Entry1,2,3,4,....
+// get journal where notebook_id = notebookId
+// get all journal entries where journal_id = is the id of the result of the previous map
+// display the entries
 
-// listItemsByTitle will contain an array of objects, each object representing a title with its associated items
-// console.log(listItemsByTitle);
+// repeat for all journals
+
+// sort all these components by date. Make date state in this component.
