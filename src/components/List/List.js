@@ -1,18 +1,22 @@
 import "./List.scss";
-// import { useState, useEffect } from "react";
 
-//--- List1,2,3,4,....
-// get list title where notebook_id = notebookId
-// get all list items where list_id = is the id of the result of the previous map
-// display these two underneath each other
+export default function List({ itemsForTitles }) {
+  // console.log(itemsForTitles); //works
 
-// repeat for all list titles
-
-export default function List() {
   return (
     <>
-      <h4 className="list__title">List Title here</h4>
-      <p className="hi">Hi im a list</p>
+      <div className="list">
+        {itemsForTitles.map((titleObj, index) => (
+          <div key={index}>
+            <h2 className="list__title">{titleObj.title.title}</h2>
+            <ul className="list__text">
+              {titleObj.items.map((item, itemIndex) => (
+                <li key={itemIndex}>{item.text}</li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
     </>
   );
 }

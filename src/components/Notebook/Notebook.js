@@ -73,7 +73,7 @@ export default function Notebook() {
       <h2 className="notebook">
         All pages from one notebook here please thank you.{" "}
       </h2>
-      {itemsForTitles && <List />}
+      {itemsForTitles && <List itemsForTitles={itemsForTitles} />}
     </>
   );
 }

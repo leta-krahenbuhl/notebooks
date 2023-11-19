@@ -47,7 +47,6 @@ export default function AddListItem({ lists }) {
 
   return (
     <div className="add-list-items">
-      {/* <h3 className="add-list-item__header">start your list:</h3> */}
       <ul className="add-list-items__list">
         {allItems.map((item, index) => (
           <li key={index}>{item.text}</li>
