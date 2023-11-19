@@ -1,1 +1,19 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
 
+.main-home {
+  min-height: 100vh;
+}
+
+.home-navigation {
+  background-color: $primary1;
+  height: 3rem;
+  text-align: center;
+  padding-top: 0.6rem;
+  position: sticky;
+  bottom: 0px;
+
+  &__image {
+    width: 2rem;
+  }
+}

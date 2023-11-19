@@ -26,7 +26,6 @@ function App() {
           <Route path="/lists" element={<List />} />
           <Route path="/lists/edit/:listId" element={<CreateList />} />
         </Routes>
-        <Link to="/create/list">create list</Link>
       </div>
     </BrowserRouter>
   );
