@@ -12,6 +12,7 @@ export default function AddListTitle({ notebookId }) {
     event.preventDefault();
 
     const parsedNotebookId = parseInt(notebookId);
+    console.log(parsedNotebookId); //works
 
     const newListTitle = {
       title: event.target.text.value,

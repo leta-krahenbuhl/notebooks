@@ -10,6 +10,8 @@ export default function CreateList() {
   const [lists, setLists] = useState();
   const [isLoading, setIsLoading] = useState(true);
 
+  // console.log(notebookId); //works
+
   const getListTitles = async () => {
     try {
       const data = await fetchListTitles();
