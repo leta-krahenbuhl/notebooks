@@ -5,13 +5,14 @@ import { useState, useEffect } from "react";
 import { fetchListTitles } from "../../utils/AxiosRequests";
 import { fetchListItems } from "../../utils/AxiosRequests";
 import TopNavigation from "../TopNavigation/TopNavigation";
+import BottomNavigation from "../BottomNavigation/BottomNavigation";
 
 export default function Notebook() {
   const [listTitleswithNotebookId, setListTitleswithNotebookId] =
     useState(null);
   const [allListItems, setAllListItems] = useState(null);
-  const [isLoadingNotebooks, setisLoadingNotebooks] = useState(true);
-  const [isLoadingListTitles, setisLoadingListTitles] = useState(true);
+  // const [isLoadingNotebooks, setisLoadingNotebooks] = useState(true);
+  // const [isLoadingListTitles, setisLoadingListTitles] = useState(true);
 
   const { notebookId } = useParams();
   // console.log(notebookId); //works
@@ -19,7 +20,7 @@ export default function Notebook() {
   const getArrayOfListTitlesWithNotebookId = async () => {
     try {
       const data = await fetchListTitles();
-      setisLoadingNotebooks(false);
+      // setisLoadingNotebooks(false);
 
       const arrayOfListTitleswithNotebookId = data.filter(
         (notebook) => notebook.notebook_id === parseInt(notebookId)
@@ -41,7 +42,7 @@ export default function Notebook() {
     try {
       const data = await fetchListItems();
       setAllListItems(data);
-      setisLoadingListTitles(false);
+      // setisLoadingListTitles(false);
 
       // console.log(allListItems);
     } catch (error) {
@@ -76,6 +77,7 @@ export default function Notebook() {
         {" "}
         {itemsForTitles && <List itemsForTitles={itemsForTitles} />}{" "}
       </article>
+      <BottomNavigation notebookId={notebookId} />
     </>
   );
 }

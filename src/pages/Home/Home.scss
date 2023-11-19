@@ -6,12 +6,7 @@
 }
 
 .home-navigation {
-  background-color: $primary1;
-  height: 3rem;
-  text-align: center;
-  padding-top: 0.6rem;
-  position: sticky;
-  bottom: 0px;
+  @include bottom-navigation;
 
   &__image {
     width: 2rem;

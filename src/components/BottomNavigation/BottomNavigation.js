@@ -1,37 +1,59 @@
-// import "./BottomNavigation.scss";
-// import { useState, useEffect } from "react";
-// import { fetchNotebookTitles } from "../../utils/AxiosRequests";
+import "./BottomNavigation.scss";
+import { useState, useEffect } from "react";
+import { fetchNotebookTitles } from "../../utils/AxiosRequests";
+import plusIcon from "../../assets/images/plus.svg";
+import { Link } from "react-router-dom";
 
-// export default function BottomNavigation({ notebookId }) {
-//   const [notebooks, setNotebooks] = useState(null);
-//   const [isLoading, setIsLoading] = useState(true);
+export default function BottomNavigation({ notebookId }) {
+  const [notebooks, setNotebooks] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
 
-//   const getNotebookTitles = async () => {
-//     try {
-//       const data = await fetchNotebookTitles();
-//       setNotebooks(data);
-//       setIsLoading(false);
-//     } catch (error) {
-//       console.error(error);
-//     }
-//   };
+  const getNotebookTitles = async () => {
+    try {
+      const data = await fetchNotebookTitles();
+      setNotebooks(data);
+      setIsLoading(false);
+    } catch (error) {
+      console.error(error);
+    }
+  };
 
-//   useEffect(() => {
-//     getNotebookTitles();
-//   }, []);
+  useEffect(() => {
+    getNotebookTitles();
+  }, []);
 
-//   if (isLoading) {
-//     return <div>Loading...</div>;
-//   }
-//   const parsedNotebookId = parseInt(notebookId);
+  if (isLoading) {
+    return <div>Loading...</div>;
+  }
+  const parsedNotebookId = parseInt(notebookId);
 
-//   const navNotebookTitle = notebooks.find(
-//     (notebook) => notebook.id === parsedNotebookId
-//   );
+  const navNotebookTitle = notebooks.find(
+    (notebook) => notebook.id === parsedNotebookId
+  );
 
-//   return (
-//     <>
-//       <h2 className="top-navigation">{navNotebookTitle.title}</h2>
-//     </>
-//   );
-// }
+  if (!notebookId)
+    return (
+      <nav className="home-navigation">
+        <Link to="/create/notebook">
+          <img
+            src={plusIcon}
+            alt="add new notebook"
+            className="home-navigation__image"
+          />
+        </Link>
+      </nav>
+    );
+
+  if (notebookId)
+    return (
+      <nav className="notebook-navigation">
+        <Link to="/create/list">
+          <img
+            src={plusIcon}
+            alt="add new list"
+            className="notebook-navigation__image"
+          />
+        </Link>
+      </nav>
+    );
+}

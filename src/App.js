@@ -22,6 +22,10 @@ function App() {
           />
           <Route path="/create/notebook" element={<CreateNotebook />} />
           <Route path="/create/list" element={<CreateList />} />
+          <Route
+            path="/notebooks/:notebookId/create/list"
+            element={<CreateList />}
+          />
           {/* temporary route to experiment with lists: */}
           <Route path="/lists" element={<List />} />
           <Route path="/lists/edit/:listId" element={<CreateList />} />

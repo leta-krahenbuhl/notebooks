@@ -35,3 +35,12 @@
   border: $border;
   border-radius: 4px;
 }
+
+@mixin bottom-navigation {
+  background-color: $primary1;
+  height: 3rem;
+  text-align: center;
+  padding-top: 0.6rem;
+  position: sticky;
+  bottom: 0px;
+}

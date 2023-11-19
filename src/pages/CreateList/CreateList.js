@@ -3,6 +3,7 @@ import AddListTitle from "../../components/AddListTitle/AddListTitle";
 import AddListItem from "../../components/AddListItem/AddListItem";
 import { useState, useEffect } from "react";
 import { fetchListTitles } from "../../utils/AxiosRequests";
+import BottomNavigation from "../../components/BottomNavigation/BottomNavigation";
 
 export default function CreateList() {
   const [lists, setLists] = useState();
