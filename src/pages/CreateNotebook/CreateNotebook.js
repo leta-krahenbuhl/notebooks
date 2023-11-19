@@ -2,8 +2,10 @@ import "./CreateNotebook.scss";
 // import React, { useState } from "react";
 import "react-quill/dist/quill.snow.css";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 export default function CreateNotebook() {
+  const navigate = useNavigate();
   // console.log(value); // returns html of current value
   // after every character, image is realllly long
 
@@ -22,6 +24,8 @@ export default function CreateNotebook() {
       await axios.post(`${baseURL}/api/notebooks`, newNotebook);
       // setIsError(false);
       event.target.reset();
+      alert("Notebook added successfully");
+      navigate(`/`);
     } catch (error) {
       console.log(error);
       // setIsError(true);

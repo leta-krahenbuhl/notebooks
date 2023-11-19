@@ -11,7 +11,7 @@ export default function Home() {
         <NotebooksTitles />
       </main>
       <nav className="home-navigation">
-        <Link to="/create/list">
+        <Link to="/create/notebook">
           <img
             src={plusIcon}
             alt="add new notebook"
