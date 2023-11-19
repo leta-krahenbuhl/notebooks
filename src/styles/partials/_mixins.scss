@@ -1,3 +1,5 @@
+@use "../../styles/partials/variables" as *;
+
 @mixin tablet {
   @media screen and (min-width: 768px) {
     @content;
@@ -8,4 +10,28 @@
   @media screen and (min-width: 1280px) {
     @content;
   }
+}
+
+@mixin button {
+  background-color: $primary1;
+  color: $primary2;
+  font-family: "Antonio";
+  border: none;
+  width: 10rem;
+  font-size: 2rem;
+}
+
+@mixin button-icon {
+  background-color: $primary2;
+  background-size: 2.5rem;
+  border: none;
+  width: 2.9rem;
+  height: 2.5rem;
+}
+
+@mixin input-field {
+  padding-left: 0.5rem;
+  height: 2.5rem;
+  border: $border;
+  border-radius: 4px;
 }

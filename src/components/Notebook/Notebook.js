@@ -20,6 +20,7 @@ export default function Notebook() {
       const listTitleswithNotebookId = data.filter(
         (notebook) => notebook.notebook_id === parseInt(notebookId)
       );
+      // console.log(listTitleswithNotebookId); //works! for different notebooks!
     } catch (error) {
       console.error(error);
     }
@@ -27,13 +28,21 @@ export default function Notebook() {
 
   useEffect(() => {
     getListTitlesWithNotebookId();
-  }, []);
+  }, [notebookId]);
+
+  // need to get listItems!
+  // const listItemsByTitle = getListTitlesWithNotebookId.map((title) => {
+  //   const items = listItems.filter((item) => item.list_id === title.id);
+  //   return { title, items };
+  // });
 
   if (isLoading) {
     return <div>Loading...</div>;
   }
 
   // console.log(listTitles); //works
+
+  //--------------------- PSEUDO CODE
 
   //--- List1,2,3,4,....
   // get list title where notebook_id = notebookId
@@ -60,3 +69,27 @@ export default function Notebook() {
     </>
   );
 }
+
+//---- TO DO CHECK BELOW
+
+// Assuming listTitles and listItems contain your data
+// const listTitles = [
+//   { id: 1, notebook_id: 1, title: "Title 1" },
+//   { id: 2, notebook_id: 2, title: "Title 2" },
+// ...other list titles
+// ];
+
+// const listItems = [
+//   { id: 1, list_id: 1, content: "Item 1" },
+//   { id: 2, list_id: 1, content: "Item 2" },
+// ...other list items
+// ];
+
+// For each matching list title, find associated list items
+// const listItemsByTitle = filteredListTitles.map((title) => {
+//   const items = listItems.filter((item) => item.list_id === title.id);
+//   return { title, items };
+// });
+
+// listItemsByTitle will contain an array of objects, each object representing a title with its associated items
+// console.log(listItemsByTitle);

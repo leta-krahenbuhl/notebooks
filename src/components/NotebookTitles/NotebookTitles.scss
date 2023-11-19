@@ -1,0 +1,7 @@
+@use "../../styles/partials/variables" as *;
+
+.notebook-title {
+  margin: 1rem;
+  color: $primary1;
+  font-size: 1.8rem;
+}

@@ -46,20 +46,23 @@ export default function AddListItem({ lists }) {
   };
 
   return (
-    <div className="add-list-item">
-      <h3 className="add-list-item__header">start your list:</h3>
-      <ul className="added-items">
+    <div className="add-list-items">
+      {/* <h3 className="add-list-item__header">start your list:</h3> */}
+      <ul className="add-list-items__list">
         {allItems.map((item, index) => (
           <li key={index}>{item.text}</li>
         ))}
       </ul>
-      <form className="add-list-item-form" onSubmit={handleSubmitItem}>
-        <input
-          type="text"
-          className="add-list-item-form__input"
-          name="listItem"
-        />
-        <button className="save">SAVE</button>
+      <form className="add-list-items-form" onSubmit={handleSubmitItem}>
+        <div className="add-list-items-form__wrapper">
+          <input
+            type="text"
+            className="add-list-items-form__input"
+            name="listItem"
+            placeholder="add list item"
+          />
+          <button className="add-list-items-form__button"></button>
+        </div>
       </form>
     </div>
   );

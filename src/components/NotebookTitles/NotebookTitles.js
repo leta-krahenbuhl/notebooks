@@ -29,7 +29,6 @@ export default function Home() {
     <>
       {notebooks.map((notebook) => {
         return (
-          // wrap h3 in a link
           <Link to={`/notebooks/${notebook.id}`} key={notebook.id}>
             <h2 className="notebook-title">{notebook.title}</h2>
           </Link>

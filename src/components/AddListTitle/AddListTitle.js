@@ -1,7 +1,7 @@
 import "./AddListTitle.scss";
 import axios from "axios";
-import { useState, useEffect } from "react";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 export default function List() {
   const [isTitle, setIsTitle] = useState(false);
@@ -40,12 +40,20 @@ export default function List() {
     return (
       <>
         <form className="add-list-title-form" onSubmit={handleSubmitTitle}>
-          <div>
-            <h2 className="add-list-title-form__header">ADD LIST</h2>
-            <label htmlFor="text">Title</label>
-            <input type="text" id="text" name="text" />
+          <h2 className="add-list-title-form__header">ADD LIST</h2>
+          {/* <div className="add-list-title-form__title-input"> */}
+          {/* <label htmlFor="text">Title</label> */}
+          <div className="add-list-title-form__wrapper">
+            <input
+              type="text"
+              id="text"
+              name="text"
+              placeholder="add your list title"
+              className="add-list-title-form__input"
+            />
+            {/* </div> */}
+            <button className="add-list-title-form__button"></button>
           </div>
-          <button className="add-list-title-form__button">SAVE</button>
         </form>
       </>
     );
@@ -55,7 +63,7 @@ export default function List() {
     return (
       <>
         <h2 className="add-list-title-form__header">ADD LIST</h2>
-        <p>{title.title}</p>
+        <h3 className="add-list-title-form__list-title">{title.title}</h3>
       </>
     );
   }

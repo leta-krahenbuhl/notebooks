@@ -1,0 +1,28 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+
+.add-list-items {
+  margin: 1rem;
+
+  &__list {
+    margin-left: -1.6rem;
+    line-height: 1.4rem;
+  }
+}
+
+.add-list-items-form {
+  &__wrapper {
+    display: flex;
+  }
+
+  &__input {
+    width: 100%;
+    margin-right: 1rem;
+    @include input-field;
+  }
+
+  &__button {
+    background-image: URL("../../assets/images/save.svg");
+    @include button-icon;
+  }
+}
