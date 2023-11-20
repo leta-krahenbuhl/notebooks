@@ -36,10 +36,13 @@ export default function ListItems({ itemsForTitles, getAllListItems }) {
                   return item.list_id === parseInt(listId);
                 })
                 .map((item, itemIndex) => {
+                  const listItemClass = `${
+                    !item.done ? "list-items__item" : "list-items__item--true"
+                  }`;
                   return (
                     <li
                       key={itemIndex}
-                      className="list-items__item"
+                      className={listItemClass}
                       onClick={() => handleClick(item.id, item.done)}
                     >
                       {item.text}

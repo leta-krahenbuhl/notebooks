@@ -4,5 +4,10 @@
 .list-items {
   &__item {
     line-height: 1.6rem;
+
+    &--true {
+      line-height: 1.6rem;
+      text-decoration: line-through;
+    }
   }
 }
