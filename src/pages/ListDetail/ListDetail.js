@@ -77,7 +77,10 @@ export default function Home() {
         currentListTitleObj={currentListTitleObj}
       />
       <main className="main-list-detail">
-        <ListItems itemsForTitles={itemsForTitles} />
+        <ListItems
+          itemsForTitles={itemsForTitles}
+          getAllListItems={getAllListItems}
+        />
       </main>
       <BottomNavigation />
     </>

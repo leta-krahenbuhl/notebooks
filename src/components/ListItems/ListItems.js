@@ -2,7 +2,7 @@ import "./ListItems.scss";
 import { useParams } from "react-router-dom";
 import { editListItemDone } from "../../utils/AxiosRequests";
 
-export default function ListItems({ itemsForTitles }) {
+export default function ListItems({ itemsForTitles, getAllListItems }) {
   const { notebookId, listId } = useParams();
 
   // console.log(itemsForTitles);
@@ -21,6 +21,8 @@ export default function ListItems({ itemsForTitles }) {
     } catch (error) {
       return console.error(error);
     }
+
+    getAllListItems();
   };
 
   return (
