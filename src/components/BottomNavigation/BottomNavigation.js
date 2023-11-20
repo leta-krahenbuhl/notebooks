@@ -3,10 +3,13 @@ import { useState, useEffect } from "react";
 import { fetchNotebookTitles } from "../../utils/AxiosRequests";
 import plusIcon from "../../assets/images/plus.svg";
 import { Link } from "react-router-dom";
+import { useParams } from "react-router-dom";
 
-export default function BottomNavigation({ notebookId }) {
+//deleted notebookId as a prop, may cause issues later??
+export default function BottomNavigation() {
   const [notebooks, setNotebooks] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
+  const { notebookId, listId } = useParams();
 
   const getNotebookTitles = async () => {
     try {
