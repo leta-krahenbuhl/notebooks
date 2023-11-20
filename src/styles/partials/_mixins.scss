@@ -44,3 +44,11 @@
   position: sticky;
   bottom: 0px;
 }
+
+@mixin form-headers {
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+  text-align: center;
+  font-family: "Antonio";
+  font-size: 1.8rem;
+}

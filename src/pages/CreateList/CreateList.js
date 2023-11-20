@@ -4,6 +4,7 @@ import AddListItem from "../../components/AddListItem/AddListItem";
 import { useState, useEffect } from "react";
 import { fetchListTitles } from "../../utils/AxiosRequests";
 import { useParams } from "react-router-dom";
+import TopNavigation from "../../components/TopNavigation/TopNavigation";
 
 export default function CreateList() {
   const { notebookId } = useParams();
@@ -33,6 +34,7 @@ export default function CreateList() {
 
   return (
     <div className="create-list">
+      <TopNavigation notebookId={notebookId} />
       <AddListTitle notebookId={notebookId} />
       <AddListItem lists={lists} />
     </div>

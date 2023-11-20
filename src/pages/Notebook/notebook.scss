@@ -1,3 +1,10 @@
+@use "../../styles/partials/variables" as *;
+
 .notebook {
   min-height: 100vh;
+  color: $primary1;
+}
+
+a {
+  color: $primary1;
 }

@@ -1,0 +1,9 @@
+@use "../../styles/partials/variables" as *;
+
+.top-navigation {
+  border-bottom: 3px solid $primary1;
+  background-color: $primary2;
+  padding-bottom: 1rem;
+  font-size: 1.8rem;
+  padding-left: 1rem;
+}

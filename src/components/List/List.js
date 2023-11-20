@@ -14,7 +14,9 @@ export default function List({ itemsForTitles, notebookId }) {
             </Link>
             <ul className="list__text">
               {titleObj.items.map((item, itemIndex) => (
-                <li key={itemIndex}>{item.text}</li>
+                <li key={itemIndex} className="list__item">
+                  {item.text}
+                </li>
               ))}
             </ul>
           </div>

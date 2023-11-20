@@ -1,0 +1,14 @@
+@use "../../styles/partials/variables" as *;
+
+.list {
+  padding: 1rem;
+
+  &__title {
+    font-size: 1.8rem;
+  }
+
+  &__item {
+    margin-left: -1.7rem;
+    line-height: 1.6rem;
+  }
+}

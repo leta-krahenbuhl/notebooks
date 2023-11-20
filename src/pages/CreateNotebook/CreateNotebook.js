@@ -35,26 +35,24 @@ export default function CreateNotebook() {
   return (
     <>
       <main className="create-notebook-entry">
-        <h1>ADD NOTEBOOK</h1>
+        <h1 className="create-notebook-entry__header">ADD NOTEBOOK</h1>
         <form onSubmit={handleSubmit} className="add-notebook-form">
-          <label htmlFor="title" className="form__label">
+          {/* <label htmlFor="title" className="form__label">
             Title
-          </label>
+          </label> */}
           <input
             placeholder="Enter your title here"
             type="text"
             name="title"
             id="title"
-            className="form__input"
+            className="add-notebook-form__input"
             // className={
             //   formErrors.warehouse_name
             //     ? "form__text-input--red"
             //     : "form__text-input"
             // }
           />
-          <button type="submit" className="add-notebook-form__button">
-            Submit
-          </button>
+          <button type="submit" className="add-notebook-form__button"></button>
         </form>
       </main>
     </>

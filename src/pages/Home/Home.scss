@@ -2,6 +2,7 @@
 @use "../../styles/partials/mixins" as *;
 
 .main-home {
+  border-top: 3px solid $primary1;
   min-height: 100vh;
 }
 
