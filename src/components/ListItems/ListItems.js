@@ -15,7 +15,6 @@ export default function ListItems({ itemsForTitles }) {
                   return item.list_id === parseInt(listId);
                 })
                 .map((item, itemIndex) => {
-                  console.log(titleObj);
                   return <li key={itemIndex}>{item.text}</li>;
                 })}
             </ul>

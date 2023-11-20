@@ -12,7 +12,7 @@ export default function AddListTitle({ notebookId }) {
     event.preventDefault();
 
     const parsedNotebookId = parseInt(notebookId);
-    console.log(parsedNotebookId); //works
+    // console.log(parsedNotebookId); //works
 
     const newListTitle = {
       title: event.target.text.value,
@@ -32,8 +32,10 @@ export default function AddListTitle({ notebookId }) {
       setIsTitle(true);
       setTitle(newListTitle);
 
-      // Update the URL by adding the ID as a query parameter
-      navigate(`/lists/add/${newListTitleId}`);
+      // Update the URL
+      // navigate(`/lists/add/${newListTitleId}`); OLD
+      navigate(`/notebooks/${notebookId}/create/list/${newListTitleId}`);
+
       event.target.reset();
     } catch (error) {
       console.log(error);
