@@ -6,7 +6,17 @@
 
   &__list {
     margin-left: -1.6rem;
-    line-height: 1.4rem;
+    line-height: 3rem;
+  }
+
+  &__item {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__button {
+    background-image: URL("../../assets/images/edit-pink.svg");
+    @include button-icon;
   }
 }
 

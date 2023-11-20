@@ -9,10 +9,6 @@ export default function AddListItem({ lists }) {
   const [inputValue, setInputValue] = useState("");
   const { listId } = useParams();
 
-  // console.log(allItems);
-
-  // display all existing items for this list when clicking on "Edit" within list
-
   const parsedListId = parseInt(listId);
 
   const getItems = async () => {
@@ -36,13 +32,10 @@ export default function AddListItem({ lists }) {
   const handleSubmitItem = async (event) => {
     event.preventDefault();
 
-    // const parsedListId = parseInt(listId);
-
     const newListItem = {
       text: event.target.listItem.value,
       list_id: parsedListId,
     };
-
     // put front-end form evaluation here
 
     const baseURL = process.env.REACT_APP_BASE_URL;
@@ -69,11 +62,21 @@ export default function AddListItem({ lists }) {
   //   setInputValue(event.target.value);
   // };
 
+  const handleClick = () => {
+    console.log("click");
+  };
+
   return (
     <div className="add-list-items">
       <ul className="add-list-items__list">
         {allItems.map((item, index) => (
-          <li key={index}>{item.text}</li>
+          <li key={index} className="add-list-items__item">
+            {item.text}{" "}
+            <button
+              onClick={handleClick}
+              className="add-list-items__button"
+            ></button>
+          </li>
         ))}
       </ul>
       <form className="add-list-items-form" onSubmit={handleSubmitItem}>
