@@ -8,6 +8,7 @@ import Notebook from "./pages/Notebook/notebook";
 import List from "./components/List/List";
 import CreateList from "./pages/CreateList/CreateList";
 import ListDetail from "./pages/ListDetail/ListDetail";
+import EditList from "./pages/EditList/EditList";
 
 function App() {
   return (
@@ -16,11 +17,18 @@ function App() {
         <Header />
         <Routes>
           <Route path="/" element={<Home />} />
+
           <Route path="/notebooks/:notebookId" element={<Notebook />} />
+
           <Route
             path="/notebooks/:notebookId/lists/:listId"
             element={<ListDetail />}
           />
+          <Route
+            path="/notebooks/:notebookId/lists/:listId/edit"
+            element={<EditList />}
+          />
+
           <Route
             path="/create/journal-entry"
             element={<CreateJournalEntry />}
@@ -36,6 +44,7 @@ function App() {
             path="/notebooks/:notebookId/create/list/:listId"
             element={<CreateList />}
           />
+
           {/* temporary route to experiment with lists: */}
           <Route path="/lists" element={<List />} />
           <Route path="/lists/add/:listId" element={<CreateList />} />

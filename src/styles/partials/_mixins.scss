@@ -43,6 +43,8 @@
   padding-top: 0.6rem;
   position: sticky;
   bottom: 0px;
+  display: flex;
+  justify-content: space-evenly;
 }
 
 @mixin form-headers {

@@ -8,7 +8,6 @@ export default function ListItems({ itemsForTitles, getAllListItems }) {
   // console.log(itemsForTitles);
 
   const handleClick = async (id, currentDoneValue) => {
-    console.log(currentDoneValue);
     const newDoneValue = !currentDoneValue;
 
     const updateDoneObject = {

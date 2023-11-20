@@ -2,6 +2,7 @@ import "./BottomNavigation.scss";
 import { useState, useEffect } from "react";
 import { fetchNotebookTitles } from "../../utils/AxiosRequests";
 import plusIcon from "../../assets/images/plus.svg";
+import editIcon from "../../assets/images/edit.svg";
 import { Link } from "react-router-dom";
 import { useParams } from "react-router-dom";
 
@@ -47,13 +48,33 @@ export default function BottomNavigation() {
       </nav>
     );
 
-  if (notebookId)
+  if (notebookId && !listId)
     return (
       <nav className="notebook-navigation">
         <Link to={`/notebooks/${notebookId}/create/list`}>
           <img
             src={plusIcon}
             alt="add new list"
+            className="notebook-navigation__image"
+          />
+        </Link>
+      </nav>
+    );
+
+  if (notebookId && listId)
+    return (
+      <nav className="notebook-navigation">
+        <Link to={`/notebooks/${notebookId}/create/list`}>
+          <img
+            src={plusIcon}
+            alt="add new list"
+            className="notebook-navigation__image"
+          />
+        </Link>
+        <Link to={`/notebooks/${notebookId}/lists/${listId}/edit`}>
+          <img
+            src={editIcon}
+            alt="edit list"
             className="notebook-navigation__image"
           />
         </Link>
