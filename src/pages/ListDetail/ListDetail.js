@@ -59,7 +59,7 @@ export default function Home() {
     listTitleswithNotebookId || [],
     allListItems || []
   );
-  // ----------------------------------
+  // ---------------------------------- end
 
   useEffect(() => {
     if (listTitleswithNotebookId) {
@@ -86,5 +86,3 @@ export default function Home() {
     </>
   );
 }
-
-//------ ListItems reneders all the items, not just the one for the list chosen..... How to fix?

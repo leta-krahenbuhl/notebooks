@@ -1,8 +1,9 @@
 import "./AddListTitle.scss";
 import axios from "axios";
-import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useParams } from "react-router-dom";
+import { fetchListTitles } from "../../utils/AxiosRequests";
+import { useEffect, useState } from "react";
 
 //Editing works when:
 // Go into notebook, add new, add title, then edit title
@@ -12,9 +13,31 @@ import { useParams } from "react-router-dom";
 //deleted notebookId prop and tried to get it in here
 export default function AddListTitle() {
   const [isTitle, setIsTitle] = useState(false);
+  const [titleArr, setTitleArr] = useState("");
   const [title, setTitle] = useState("");
   const navigate = useNavigate();
   const { notebookId, listId } = useParams();
+
+  //put base URL here? it's in lots of reqeusts...
+
+  useEffect(() => {
+    if (listId) {
+      const getTitles = async () => {
+        try {
+          const data = await fetchListTitles();
+          const currentTitleArr = data.filter((titleObj) => {
+            return titleObj.id === parseInt(listId);
+          });
+          setTitleArr(currentTitleArr);
+          setIsTitle(true);
+        } catch (error) {
+          console.error(error);
+        }
+      };
+
+      getTitles();
+    }
+  }, []);
 
   const handleSubmitTitle = async (event) => {
     event.preventDefault();
@@ -38,8 +61,8 @@ export default function AddListTitle() {
         );
         const newListTitleId = response.data.id;
 
-        setIsTitle(true);
         setTitle(newListTitle);
+        setIsTitle(true);
 
         // Update the URL
         // navigate(`/lists/add/${newListTitleId}`); OLD
@@ -68,8 +91,8 @@ export default function AddListTitle() {
           newListTitle
         );
 
-        setIsTitle(true);
         setTitle(newListTitle);
+        setIsTitle(true);
 
         event.target.reset();
       } catch (error) {
@@ -82,7 +105,8 @@ export default function AddListTitle() {
     setIsTitle(false);
   };
 
-  if (!isTitle) {
+  if (!isTitle && !listId) {
+    console.log("no title");
     return (
       <>
         <form className="add-list-title-form" onSubmit={handleSubmitTitle}>
@@ -103,12 +127,40 @@ export default function AddListTitle() {
     );
   }
 
+  if (!isTitle && listId) {
+    console.log("we have no title but we have list id");
+    //that shouldn't be possible??
+    //need to set title when page loads if there is one... put it in state with axios call?
+
+    return (
+      <>
+        <form className="add-list-title-form" onSubmit={handleSubmitTitle}>
+          <h2 className="add-list-title-form__header">ADD LIST</h2>
+          <div className="add-list-title-form__wrapper">
+            <input
+              type="text"
+              id="text"
+              name="text"
+              placeholder="add list title"
+              className="add-list-title-form__input"
+              defaultValue={title}
+            />
+            <button className="add-list-title-form__button"></button>
+          </div>
+        </form>
+      </>
+    );
+  }
+
   if (isTitle) {
+    console.log("title!");
     return (
       <>
         <h2 className="add-list-title-form__header">ADD LIST</h2>
         <article className="edit-form">
-          <h3 className="add-list-title-form__list-title">{title.title}</h3>
+          <h3 className="add-list-title-form__list-title">
+            {titleArr[0].title}
+          </h3>
           <img
             onClick={handleClick}
             className="edit-list-title-form__button"
