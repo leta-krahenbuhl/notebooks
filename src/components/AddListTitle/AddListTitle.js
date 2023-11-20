@@ -5,11 +5,6 @@ import { useParams } from "react-router-dom";
 import { fetchListTitles } from "../../utils/AxiosRequests";
 import { useEffect, useState } from "react";
 
-//Editing works when:
-// Go into notebook, add new, add title, then edit title
-//Editing doesn't work when:
-// Go into notebook, go into list, click edit
-
 //deleted notebookId prop and tried to get it in here
 export default function AddListTitle() {
   const [isTitle, setIsTitle] = useState(false);
@@ -44,7 +39,6 @@ export default function AddListTitle() {
 
     if (!listId) {
       const parsedNotebookId = parseInt(notebookId);
-      // console.log(parsedNotebookId); //works
 
       const newListTitle = {
         title: event.target.text.value,
@@ -100,7 +94,6 @@ export default function AddListTitle() {
   };
 
   const handleClick = () => {
-    // setTitle(titleArr[0].title);
     setIsTitle(false);
   };
 
@@ -117,7 +110,6 @@ export default function AddListTitle() {
               name="text"
               placeholder="add list title"
               className="add-list-title-form__input"
-              // defaultValue={title}
             />
             <button className="add-list-title-form__button"></button>
           </div>

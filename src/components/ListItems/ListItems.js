@@ -5,8 +5,6 @@ import { editListItemDone } from "../../utils/AxiosRequests";
 export default function ListItems({ itemsForTitles, getAllListItems }) {
   const { notebookId, listId } = useParams();
 
-  // console.log(itemsForTitles);
-
   const handleClick = async (id, currentDoneValue) => {
     const newDoneValue = !currentDoneValue;
 
@@ -55,7 +53,3 @@ export default function ListItems({ itemsForTitles, getAllListItems }) {
     </>
   );
 }
-
-// on each item
-// on click function, that
-// sends a PUT request to list-items to update DONE to true, of item that was clicked on

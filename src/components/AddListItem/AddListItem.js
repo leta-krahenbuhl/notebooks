@@ -1,17 +1,42 @@
 import "./AddListItem.scss";
 import axios from "axios";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import { fetchListItems } from "../../utils/AxiosRequests";
 
 export default function AddListItem({ lists }) {
-  const [allItems, setAllItems] = useState([]);
+  const [allItems, setAllItems] = useState([]); //current ones??
   const [inputValue, setInputValue] = useState("");
   const { listId } = useParams();
+
+  // console.log(allItems);
+
+  // display all existing items for this list when clicking on "Edit" within list
+
+  const parsedListId = parseInt(listId);
+
+  const getItems = async () => {
+    try {
+      const data = await fetchListItems();
+      // console.log(data); // array of objects
+      const currentItemArr = data.filter((itemObj) => {
+        return itemObj.list_id === parseInt(listId);
+      });
+      setAllItems(currentItemArr);
+      // setIsTitle(true);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  useEffect(() => {
+    getItems();
+  }, []);
 
   const handleSubmitItem = async (event) => {
     event.preventDefault();
 
-    const parsedListId = parseInt(listId);
+    // const parsedListId = parseInt(listId);
 
     const newListItem = {
       text: event.target.listItem.value,
@@ -40,9 +65,9 @@ export default function AddListItem({ lists }) {
     }
   };
 
-  const handleInputChange = (event) => {
-    setInputValue(event.target.value);
-  };
+  // const handleInputChange = (event) => {
+  //   setInputValue(event.target.value);
+  // };
 
   return (
     <div className="add-list-items">
