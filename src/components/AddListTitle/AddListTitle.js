@@ -2,43 +2,79 @@ import "./AddListTitle.scss";
 import axios from "axios";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useParams } from "react-router-dom";
 
-export default function AddListTitle({ notebookId }) {
+//Editing works when:
+// Go into notebook, add new, add title, then edit title
+//Editing doesn't work when:
+// Go into notebook, go into list, click edit
+
+//deleted notebookId prop and tried to get it in here
+export default function AddListTitle() {
   const [isTitle, setIsTitle] = useState(false);
   const [title, setTitle] = useState("");
   const navigate = useNavigate();
+  const { notebookId, listId } = useParams();
 
   const handleSubmitTitle = async (event) => {
     event.preventDefault();
 
-    const parsedNotebookId = parseInt(notebookId);
-    // console.log(parsedNotebookId); //works
+    if (!listId) {
+      const parsedNotebookId = parseInt(notebookId);
+      // console.log(parsedNotebookId); //works
 
-    const newListTitle = {
-      title: event.target.text.value,
-      notebook_id: parsedNotebookId,
-    };
-    // put front-end form evaluation here
+      const newListTitle = {
+        title: event.target.text.value,
+        notebook_id: parsedNotebookId,
+      };
+      // put front-end form evaluation here
 
-    const baseURL = process.env.REACT_APP_BASE_URL;
+      const baseURL = process.env.REACT_APP_BASE_URL;
 
-    try {
-      const response = await axios.post(
-        `${baseURL}/api/list-titles`,
-        newListTitle
-      );
-      const newListTitleId = response.data.id;
+      try {
+        const response = await axios.post(
+          `${baseURL}/api/list-titles`,
+          newListTitle
+        );
+        const newListTitleId = response.data.id;
 
-      setIsTitle(true);
-      setTitle(newListTitle);
+        setIsTitle(true);
+        setTitle(newListTitle);
 
-      // Update the URL
-      // navigate(`/lists/add/${newListTitleId}`); OLD
-      navigate(`/notebooks/${notebookId}/create/list/${newListTitleId}`);
+        // Update the URL
+        // navigate(`/lists/add/${newListTitleId}`); OLD
+        navigate(`/notebooks/${notebookId}/create/list/${newListTitleId}`);
 
-      event.target.reset();
-    } catch (error) {
-      console.log(error);
+        event.target.reset();
+      } catch (error) {
+        console.log(error);
+      }
+    }
+
+    if (listId) {
+      const parsedNotebookId = parseInt(notebookId);
+
+      const newListTitle = {
+        id: listId,
+        title: event.target.text.value,
+      };
+      // put front-end form evaluation here
+
+      const baseURL = process.env.REACT_APP_BASE_URL;
+
+      try {
+        const response = await axios.put(
+          `${baseURL}/api/list-titles`,
+          newListTitle
+        );
+
+        setIsTitle(true);
+        setTitle(newListTitle);
+
+        event.target.reset();
+      } catch (error) {
+        console.log(error);
+      }
     }
   };
 
@@ -58,6 +94,7 @@ export default function AddListTitle({ notebookId }) {
               name="text"
               placeholder="add list title"
               className="add-list-title-form__input"
+              defaultValue={title.title}
             />
             <button className="add-list-title-form__button"></button>
           </div>

@@ -1,5 +1,5 @@
 import "./EditList.scss";
-import EditListTitle from "../../components/EditListTitle/EditListTitle";
+import AddListTitle from "../../components/AddListTitle/AddListTitle";
 import AddListItem from "../../components/AddListItem/AddListItem";
 import { useState, useEffect } from "react";
 import { fetchListTitles } from "../../utils/AxiosRequests";
@@ -34,7 +34,7 @@ export default function CreateList() {
   return (
     <div className="create-list">
       <TopNavigation notebookId={notebookId} />
-      <EditListTitle notebookId={notebookId} />
+      <AddListTitle />
       <AddListItem lists={lists} />
     </div>
   );
