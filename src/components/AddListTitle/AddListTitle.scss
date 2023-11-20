@@ -39,3 +39,16 @@
     margin: 1rem;
   }
 }
+
+.edit-list-title-form {
+  &__button {
+    background-image: URL("../../assets/images/edit-pink.svg");
+    @include button-icon;
+  }
+}
+
+.edit-form {
+  display: flex;
+  justify-content: space-between;
+  margin: 1rem;
+}

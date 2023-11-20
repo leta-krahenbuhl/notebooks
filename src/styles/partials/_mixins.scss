@@ -22,11 +22,14 @@
 }
 
 @mixin button-icon {
-  background-color: $primary2;
-  background-size: 2.5rem;
+  background-color: $primary1;
+  background-size: 1.5rem;
+  background-repeat: no-repeat;
+  background-position: center;
   border: none;
-  width: 2.9rem;
+  width: 2.5rem;
   height: 2.5rem;
+  border-radius: 5px;
 }
 
 @mixin input-field {

@@ -1,3 +1,5 @@
+//AM I NOT USING THIS FILE?? 20 NOV
+
 import { Link } from "react-router-dom";
 import "./List.scss";
 
