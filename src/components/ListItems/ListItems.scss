@@ -1,2 +1,8 @@
 @use "../../styles/partials/variables" as *;
 @use "../../styles/partials/mixins" as *;
+
+.list-items {
+  &__item {
+    line-height: 1.6rem;
+  }
+}
