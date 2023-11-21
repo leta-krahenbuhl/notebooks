@@ -18,11 +18,15 @@ const fetchListItems = async () => {
 };
 
 const editListItemDone = async (updateDoneObject) =>
-  await axios.put(`${baseURL}/api/list-items`, updateDoneObject);
+  await axios.put(`${baseURL}/api/list-items/done`, updateDoneObject);
+
+const editListItem = async (updateItemObject) =>
+  await axios.put(`${baseURL}/api/list-items`, updateItemObject);
 
 export {
   fetchNotebookTitles,
   fetchListTitles,
   fetchListItems,
   editListItemDone,
+  editListItem,
 };

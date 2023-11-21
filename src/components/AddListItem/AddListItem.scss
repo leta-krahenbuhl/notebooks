@@ -34,5 +34,6 @@
   &__button {
     background-image: URL("../../assets/images/save.svg");
     @include button-icon;
+    background-size: 2.1rem;
   }
 }

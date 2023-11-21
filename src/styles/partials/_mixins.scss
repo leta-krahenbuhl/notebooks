@@ -30,6 +30,7 @@
   width: 2.5rem;
   height: 2.5rem;
   border-radius: 5px;
+  flex-shrink: 0;
 }
 
 @mixin input-field {
