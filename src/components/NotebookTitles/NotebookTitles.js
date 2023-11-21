@@ -53,10 +53,12 @@ export default function Home() {
             <Link to={`/notebooks/${notebook.id}`}>
               <h2 className="notebook__title">{notebook.title}</h2>
             </Link>
-            <button
-              onClick={() => handleDelete(notebook.id)}
-              className="notebook__button-delete"
-            ></button>
+            {location.pathname === "/delete" && (
+              <button
+                onClick={() => handleDelete(notebook.id)}
+                className="notebook__button-delete"
+              ></button>
+            )}
           </div>
         );
       })}
