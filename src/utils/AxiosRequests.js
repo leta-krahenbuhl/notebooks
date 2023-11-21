@@ -23,6 +23,12 @@ const editListItemDone = async (updateDoneObject) =>
 const editListItem = async (updateItemObject) =>
   await axios.put(`${baseURL}/api/list-items`, updateItemObject);
 
+const deleteItem = async (itemId) => {
+  await axios.delete(`${baseURL}/api/list-items`, {
+    data: { itemId: itemId },
+  });
+};
+
 const deleteNotebook = async (id) => {
   await axios.delete(`${baseURL}/api/notebooks`, {
     data: { id: id },
@@ -43,4 +49,5 @@ export {
   editListItem,
   deleteNotebook,
   deleteList,
+  deleteItem,
 };

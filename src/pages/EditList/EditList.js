@@ -13,29 +13,29 @@ export default function CreateList() {
 
   // console.log(notebookId); //works
 
-  const getListTitles = async () => {
-    try {
-      const data = await fetchListTitles();
-      setLists(data);
-      setIsLoading(false);
-    } catch (error) {
-      console.error(error);
-    }
-  };
+  // const getListTitles = async () => {
+  //   try {
+  //     const data = await fetchListTitles();
+  //     setLists(data);
+  //     setIsLoading(false);
+  //   } catch (error) {
+  //     console.error(error);
+  //   }
+  // };
 
-  useEffect(() => {
-    getListTitles();
-  }, []);
+  // useEffect(() => {
+  //   getListTitles();
+  // }, []);
 
-  if (isLoading) {
-    return <div>Loading...</div>;
-  }
+  // if (isLoading) {
+  //   return <div>Loading...</div>;
+  // }
 
   return (
     <div className="create-list">
       <TopNavigation notebookId={notebookId} />
       <AddListTitle />
-      <AddListItem lists={lists} />
+      <AddListItem />
     </div>
   );
 }

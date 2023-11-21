@@ -19,6 +19,9 @@
     @include button-icon;
   }
 }
+.add-list-items {
+  text-align: center;
+}
 
 .add-list-items-form {
   &__wrapper {
@@ -35,5 +38,17 @@
     background-image: URL("../../assets/images/save.svg");
     @include button-icon;
     background-size: 2.1rem;
+  }
+}
+
+.delete-list-item-button {
+  background-image: URL("../../assets/images/delete-cross.svg");
+  @include icon;
+  background-size: 2.1rem;
+}
+
+.edit-list-items {
+  &__done-button {
+    @include button;
   }
 }
