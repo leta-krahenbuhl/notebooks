@@ -5,6 +5,13 @@
   @include bottom-navigation;
 
   &__image {
-    width: 2rem;
+    width: 1.8rem;
+  }
+}
+
+.list {
+  &__button-delete {
+    background-image: url("../../assets/images/delete.svg");
+    @include button-icon;
   }
 }

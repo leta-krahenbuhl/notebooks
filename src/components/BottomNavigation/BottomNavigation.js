@@ -1,17 +1,20 @@
 import "./BottomNavigation.scss";
 import { useState, useEffect } from "react";
 import { fetchNotebookTitles } from "../../utils/AxiosRequests";
+import { deleteList } from "../../utils/AxiosRequests";
 import plusIcon from "../../assets/images/plus.svg";
 import editIcon from "../../assets/images/edit.svg";
 import deleteIcon from "../../assets/images/delete.svg";
 import { Link } from "react-router-dom";
 import { useParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 //deleted notebookId as a prop, may cause issues later??
 export default function BottomNavigation() {
   const [notebooks, setNotebooks] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const { notebookId, listId } = useParams();
+  const navigate = useNavigate();
 
   const getNotebookTitles = async () => {
     try {
@@ -40,16 +43,16 @@ export default function BottomNavigation() {
     //meaning we're on home page
     return (
       <nav className="home-navigation">
-        <Link to="/create/notebook">
+        <Link to="/delete">
           <img
-            src={plusIcon}
+            src={deleteIcon}
             alt="add new notebook"
             className="home-navigation__image"
           />
         </Link>
-        <Link to="/delete">
+        <Link to="/create/notebook">
           <img
-            src={deleteIcon}
+            src={plusIcon}
             alt="add new notebook"
             className="home-navigation__image"
           />
@@ -70,9 +73,40 @@ export default function BottomNavigation() {
       </nav>
     );
 
+  const handleDeleteList = async (listId) => {
+    const confirmDelete = window.confirm(
+      "Are you sure you want to delete this list? This action cannot be undone."
+    );
+
+    if (confirmDelete) {
+      try {
+        await deleteList(listId);
+      } catch (error) {
+        console.error(error);
+      }
+
+      navigate(`/notebooks/${notebookId}`);
+
+      //render notebook content again
+    } else {
+      console.log("List deletion canceled");
+    }
+  };
+
   if (notebookId && listId)
     return (
       <nav className="notebook-navigation">
+        {/* <Link to={`/notebooks/${notebookId}/lists/${listId}/delete`}>
+          <img
+            src={deleteIcon}
+            alt="add new notebook"
+            className="home-navigation__image"
+          />
+        </Link> */}
+        <button
+          onClick={() => handleDeleteList(listId)}
+          className="list__button-delete"
+        ></button>
         <Link to={`/notebooks/${notebookId}/create/list`}>
           <img
             src={plusIcon}

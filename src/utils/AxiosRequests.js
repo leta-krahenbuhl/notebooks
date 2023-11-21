@@ -29,6 +29,12 @@ const deleteNotebook = async (id) => {
   });
 };
 
+const deleteList = async (listId) => {
+  await axios.delete(`${baseURL}/api/list-titles`, {
+    data: { listId: listId },
+  });
+};
+
 export {
   fetchNotebookTitles,
   fetchListTitles,
@@ -36,4 +42,5 @@ export {
   editListItemDone,
   editListItem,
   deleteNotebook,
+  deleteList,
 };
