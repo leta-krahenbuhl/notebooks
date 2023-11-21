@@ -12,8 +12,6 @@ export default function Home() {
   const location = useLocation();
   const navigate = useNavigate();
 
-  // console.log(location.pathname); // logs /delete
-
   const getNotebookTitles = async () => {
     try {
       const data = await fetchNotebookTitles();
@@ -33,16 +31,23 @@ export default function Home() {
   }
 
   const handleDelete = async (id) => {
-    //are you sure you want to delete this notebook pop-up!!!
+    const confirmDelete = window.confirm(
+      "Are you sure you want to delete this notebook? This action cannot be undone."
+    );
 
-    try {
-      await deleteNotebook(id);
-    } catch (error) {
-      console.error(error);
+    if (confirmDelete) {
+      try {
+        await deleteNotebook(id);
+      } catch (error) {
+        console.error(error);
+      }
+
+      navigate(`/`);
+
+      getNotebookTitles();
+    } else {
+      console.log("Notebook deletion canceled");
     }
-    navigate(`/`);
-
-    getNotebookTitles();
   };
 
   return (
