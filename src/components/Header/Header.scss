@@ -1,8 +1,17 @@
 @use "../../styles/partials/variables" as *;
 
 .header {
-  padding: 0.5rem;
+  // padding: 0.5rem 0 0.5rem 0;
+  margin: 0.5rem 0 0rem 0;
+  padding-bottom: 3.5rem;
   background-color: $primary2;
+  position: sticky;
+  top: 0px;
+  height: 3rem;
+
+  &__border {
+    border-top: 3px solid $primary1;
+  }
 
   &__logo {
     text-decoration: none;
@@ -10,7 +19,8 @@
     font-size: 2rem;
     color: black;
     transform: rotate(-2deg);
-    margin-left: 0.5rem;
+    margin-left: 1rem;
+    margin-bottom: 0.5rem;
   }
 }
 
