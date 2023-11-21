@@ -2,10 +2,17 @@ import "./NotebookTitles.scss";
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { fetchNotebookTitles } from "../../utils/AxiosRequests";
+import { deleteNotebook } from "../../utils/AxiosRequests";
+import { useLocation } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 export default function Home() {
   const [notebooks, setNotebooks] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  // console.log(location.pathname); // logs /delete
 
   const getNotebookTitles = async () => {
     try {
@@ -25,13 +32,32 @@ export default function Home() {
     return <div>Loading...</div>;
   }
 
+  const handleDelete = async (id) => {
+    //are you sure you want to delete this notebook pop-up!!!
+
+    try {
+      await deleteNotebook(id);
+    } catch (error) {
+      console.error(error);
+    }
+    navigate(`/`);
+
+    getNotebookTitles();
+  };
+
   return (
     <>
       {notebooks.map((notebook) => {
         return (
-          <Link to={`/notebooks/${notebook.id}`} key={notebook.id}>
-            <h2 className="notebook-title">{notebook.title}</h2>
-          </Link>
+          <div className="notebook__wrapper" key={notebook.date}>
+            <Link to={`/notebooks/${notebook.id}`}>
+              <h2 className="notebook__title">{notebook.title}</h2>
+            </Link>
+            <button
+              onClick={() => handleDelete(notebook.id)}
+              className="notebook__button-delete"
+            ></button>
+          </div>
         );
       })}
     </>

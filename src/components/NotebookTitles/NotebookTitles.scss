@@ -1,7 +1,21 @@
 @use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
 
-.notebook-title {
-  margin: 1rem;
-  color: $primary1;
-  font-size: 1.8rem;
+.notebook {
+  &__wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: last baseline;
+  }
+
+  &__title {
+    margin: 1rem;
+    color: $primary1;
+    font-size: 1.8rem;
+  }
+
+  &__button-delete {
+    background-image: url("../../assets/images/delete.svg");
+    @include button-icon;
+  }
 }

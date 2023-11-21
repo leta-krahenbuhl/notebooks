@@ -23,10 +23,17 @@ const editListItemDone = async (updateDoneObject) =>
 const editListItem = async (updateItemObject) =>
   await axios.put(`${baseURL}/api/list-items`, updateItemObject);
 
+const deleteNotebook = async (id) => {
+  await axios.delete(`${baseURL}/api/notebooks`, {
+    data: { id: id },
+  });
+};
+
 export {
   fetchNotebookTitles,
   fetchListTitles,
   fetchListItems,
   editListItemDone,
   editListItem,
+  deleteNotebook,
 };
