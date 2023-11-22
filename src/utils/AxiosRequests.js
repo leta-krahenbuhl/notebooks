@@ -35,6 +35,13 @@ const deleteNotebook = async (id) => {
   });
 };
 
+const editNotebookTitle = async ({ id, title }) => {
+  await axios.put(`${baseURL}/api/notebooks`, {
+    id: id,
+    title: title,
+  });
+};
+
 const deleteList = async (listId) => {
   await axios.delete(`${baseURL}/api/list-titles`, {
     data: { listId: listId },
@@ -50,4 +57,5 @@ export {
   deleteNotebook,
   deleteList,
   deleteItem,
+  editNotebookTitle,
 };

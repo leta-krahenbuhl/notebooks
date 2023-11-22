@@ -16,28 +16,29 @@ export default function BottomNavigation() {
   const { notebookId, listId } = useParams();
   const navigate = useNavigate();
 
-  const getNotebookTitles = async () => {
-    try {
-      const data = await fetchNotebookTitles();
-      setNotebooks(data);
-      setIsLoading(false);
-    } catch (error) {
-      console.error(error);
-    }
-  };
+  // const getNotebookTitles = async () => {
+  //   try {
+  //     const data = await fetchNotebookTitles();
+  //     setNotebooks(data);
+  //     setIsLoading(false);
+  //   } catch (error) {
+  //     console.error(error);
+  //   }
+  // };
 
-  useEffect(() => {
-    getNotebookTitles();
-  }, []);
+  // useEffect(() => {
+  //   getNotebookTitles();
+  // }, []);
 
-  if (isLoading) {
-    return <div>Loading...</div>;
-  }
+  // if (isLoading) {
+  //   return <div>Loading...</div>;
+  // }
+
   const parsedNotebookId = parseInt(notebookId);
 
-  const navNotebookTitle = notebooks.find(
-    (notebook) => notebook.id === parsedNotebookId
-  );
+  // const navNotebookTitle = notebooks.find(
+  //   (notebook) => notebook.id === parsedNotebookId
+  // );
 
   //on home page
   if (!notebookId)

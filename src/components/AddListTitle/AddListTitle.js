@@ -5,7 +5,6 @@ import { useParams } from "react-router-dom";
 import { fetchListTitles } from "../../utils/AxiosRequests";
 import { useEffect, useState } from "react";
 
-//deleted notebookId prop and tried to get it in here
 export default function AddListTitle() {
   const [isTitle, setIsTitle] = useState(false);
   const [titleArr, setTitleArr] = useState("");
@@ -15,6 +14,7 @@ export default function AddListTitle() {
 
   //put base URL here? it's in lots of reqeusts...
 
+  // if there is a listId, it means we're editing an existing list
   useEffect(() => {
     if (listId) {
       const getTitles = async () => {
@@ -37,6 +37,7 @@ export default function AddListTitle() {
   const handleSubmitTitle = async (event) => {
     event.preventDefault();
 
+    // if there is no listId, it means we're creating an new one
     if (!listId) {
       const parsedNotebookId = parseInt(notebookId);
 
@@ -66,6 +67,7 @@ export default function AddListTitle() {
       }
     }
 
+    // if there is a listId, it means we're editing an existing list
     if (listId) {
       const parsedNotebookId = parseInt(notebookId);
 
@@ -93,10 +95,14 @@ export default function AddListTitle() {
     }
   };
 
+  //isTitle: True means it displays the title as text
+  //isTitle: False means it displays input field
   const handleClick = () => {
     setIsTitle(false);
   };
 
+  //If isTitle===false it means the input field is being displayed
+  //If there's no listId it means we are adding a new list, not editing a current one
   if (!isTitle && !listId) {
     console.log("no title");
     return (
@@ -118,6 +124,8 @@ export default function AddListTitle() {
     );
   }
 
+  //If isTitle===false it means the input field is being displayed
+  //If there's a listId it means we're eiditng an existing list title
   if (!isTitle && listId) {
     return (
       <>
@@ -141,6 +149,7 @@ export default function AddListTitle() {
     );
   }
 
+  // If isTitle===true it means the title is being displayed, not the input form
   if (isTitle) {
     return (
       <>

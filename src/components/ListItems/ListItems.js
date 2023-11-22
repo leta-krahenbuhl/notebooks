@@ -7,7 +7,7 @@ export default function ListItems({ itemsForTitles, getAllListItems, listId }) {
   //   const { notebookId, listId } = useParams();
   // }
 
-  console.log(listId);
+  // console.log(listId);
 
   const handleClick = async (id, currentDoneValue) => {
     const newDoneValue = !currentDoneValue;
@@ -29,7 +29,7 @@ export default function ListItems({ itemsForTitles, getAllListItems, listId }) {
   return (
     <>
       <div className="list-items">
-        {console.log("items rendering!")}
+        {/* {console.log("items rendering!")} */}
         {/* {console.log(itemsForTitles)} */}
         {itemsForTitles.map((titleObj, index) => (
           <div key={index}>
@@ -44,7 +44,7 @@ export default function ListItems({ itemsForTitles, getAllListItems, listId }) {
                 .map((item, itemIndex) => {
                   {
                     //this one is not working in the notebook (on List.js)!
-                    console.log(item);
+                    // console.log(item);
                   }
                   const listItemClass = `${
                     !item.done ? "list-items__item" : "list-items__item--true"

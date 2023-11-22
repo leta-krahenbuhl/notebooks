@@ -24,4 +24,10 @@
     margin-right: 1rem;
     @include button-icon;
   }
+
+  &__button-save {
+    background-image: url("../../assets/images/save.svg");
+    margin-right: 1rem;
+    @include button-icon;
+  }
 }
