@@ -13,7 +13,6 @@ export default function Notebook() {
     <>
       <TopNavigation notebookId={notebookId} />
       <article className="notebook">
-        {" "}
         <List notebookId={notebookId} />
       </article>
       <BottomNavigation />

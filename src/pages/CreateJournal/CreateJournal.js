@@ -1,5 +1,4 @@
 import "./CreateJournal.scss";
-// import { useState } from "react";
 import { useParams } from "react-router-dom";
 import TopNavigation from "../../components/TopNavigation/TopNavigation";
 import axios from "axios";
@@ -7,8 +6,6 @@ import { useNavigate } from "react-router-dom";
 
 export default function CreateJournal() {
   const { notebookId } = useParams();
-  //   const [lists, setLists] = useState();
-  //   const [isLoading, setIsLoading] = useState(true);
   const navigate = useNavigate();
   const baseURL = process.env.REACT_APP_BASE_URL;
 
