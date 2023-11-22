@@ -1,7 +1,7 @@
 import "./TopNavigation.scss";
 import { useState, useEffect } from "react";
 import { fetchNotebookTitles } from "../../utils/AxiosRequests";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 
 // deleted notebookId as a received prop and defined it in here myself, may cause issues later
 // can I get the list title without updating the URL
@@ -36,7 +36,7 @@ export default function TopNavigation({ currentListTitleObj }) {
   return (
     <>
       <h2 className="top-navigation">
-        {navNotebookTitle.title}
+        <Link to={`/notebooks/${notebookId}`}> {navNotebookTitle.title} </Link>
         {currentListTitleObj && <> | {currentListTitleObj.title}</>}
       </h2>
     </>

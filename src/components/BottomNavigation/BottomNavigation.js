@@ -39,14 +39,14 @@ export default function BottomNavigation() {
     (notebook) => notebook.id === parsedNotebookId
   );
 
+  //on home page
   if (!notebookId)
-    //meaning we're on home page
     return (
       <nav className="home-navigation">
         <Link to="/delete">
           <img
             src={deleteIcon}
-            alt="add new notebook"
+            alt="delete notebook"
             className="home-navigation__image"
           />
         </Link>
@@ -57,9 +57,17 @@ export default function BottomNavigation() {
             className="home-navigation__image"
           />
         </Link>
+        <Link to="/edit">
+          <img
+            src={editIcon}
+            alt="edit notebook"
+            className="home-navigation__image"
+          />
+        </Link>
       </nav>
     );
 
+  //in a notebook
   if (notebookId && !listId)
     return (
       <nav className="notebook-navigation">

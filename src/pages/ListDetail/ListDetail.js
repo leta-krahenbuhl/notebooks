@@ -8,7 +8,7 @@ import { fetchListTitles } from "../../utils/AxiosRequests";
 import { fetchListItems } from "../../utils/AxiosRequests";
 
 export default function Home() {
-  // ----- this whole thing is also in notebook.js... make DRYer?
+  // ------------- this whole thing is also in notebook.js... make DRYer?
   const [listTitleswithNotebookId, setListTitleswithNotebookId] =
     useState(null);
   const [allListItems, setAllListItems] = useState(null);
@@ -61,6 +61,7 @@ export default function Home() {
   );
   // ---------------------------------- end
 
+  // ----------------- to get current list title for TopNaviations: below
   useEffect(() => {
     if (listTitleswithNotebookId) {
       const result = listTitleswithNotebookId.find(
@@ -69,6 +70,7 @@ export default function Home() {
       setCurrentListTitleObj(result);
     }
   }, [listTitleswithNotebookId, listId]);
+  // ----------------- to get current list title for TopNaviations: above
 
   return (
     <>
@@ -80,6 +82,7 @@ export default function Home() {
         <ListItems
           itemsForTitles={itemsForTitles}
           getAllListItems={getAllListItems}
+          listId={listId}
         />
       </main>
       <BottomNavigation />

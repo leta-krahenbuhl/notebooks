@@ -18,6 +18,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/delete" element={<Home />} />
+          <Route path="/edit" element={<Home />} />
 
           <Route path="/notebooks/:notebookId" element={<Notebook />} />
 

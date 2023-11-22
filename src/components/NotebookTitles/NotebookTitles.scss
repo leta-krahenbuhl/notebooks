@@ -5,7 +5,7 @@
   &__wrapper {
     display: flex;
     justify-content: space-between;
-    align-items: last baseline;
+    align-items: baseline;
   }
 
   &__title {
@@ -16,6 +16,12 @@
 
   &__button-delete {
     background-image: url("../../assets/images/delete.svg");
+    @include button-icon;
+  }
+
+  &__button-edit {
+    background-image: url("../../assets/images/edit.svg");
+    margin-right: 1rem;
     @include button-icon;
   }
 }

@@ -11,6 +11,7 @@ export default function Home() {
   const [isLoading, setIsLoading] = useState(true);
   const location = useLocation();
   const navigate = useNavigate();
+  const baseURL = process.env.REACT_APP_BASE_URL;
 
   const getNotebookTitles = async () => {
     try {
@@ -50,6 +51,8 @@ export default function Home() {
     }
   };
 
+  const handleNotebookEdit = async (id) => {};
+
   return (
     <>
       {notebooks.map((notebook) => {
@@ -62,6 +65,12 @@ export default function Home() {
               <button
                 onClick={() => handleDelete(notebook.id)}
                 className="notebook__button-delete"
+              ></button>
+            )}
+            {location.pathname === "/edit" && (
+              <button
+                onClick={() => handleNotebookEdit(notebook.id)}
+                className="notebook__button-edit"
               ></button>
             )}
           </div>
