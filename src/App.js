@@ -9,6 +9,8 @@ import List from "./components/List/List";
 import CreateList from "./pages/CreateList/CreateList";
 import ListDetail from "./pages/ListDetail/ListDetail";
 import EditList from "./pages/EditList/EditList";
+import CreatePost from "./pages/CreatePost/CreatePost";
+import CreateJournal from "./pages/CreateJournal/CreateJournal";
 
 function App() {
   return (
@@ -21,6 +23,10 @@ function App() {
           <Route path="/edit" element={<Home />} />
 
           <Route path="/notebooks/:notebookId" element={<Notebook />} />
+          <Route
+            path="/notebooks/:notebookId/create-post"
+            element={<CreatePost />}
+          />
 
           <Route
             path="/notebooks/:notebookId/lists/:listId"
@@ -35,14 +41,9 @@ function App() {
             element={<ListDetail />}
           />
 
-          <Route
-            path="/create/journal-entry"
-            element={<CreateJournalEntry />}
-          />
           <Route path="/create/notebook" element={<CreateNotebook />} />
-          <Route path="/create/list" element={<CreateList />} />
           <Route
-            path="/notebooks/:notebookId/create/list/"
+            path="/notebooks/:notebookId/create-post/list/"
             element={<CreateList />}
           />
 
@@ -54,6 +55,16 @@ function App() {
           {/* temporary route to experiment with lists: */}
           <Route path="/lists" element={<List />} />
           <Route path="/lists/add/:listId" element={<CreateList />} />
+
+          <Route
+            path="/notebooks/:notebookId/create/journal/"
+            element={<CreateJournal />}
+          />
+
+          <Route
+            path="/create/journal-entry"
+            element={<CreateJournalEntry />}
+          />
         </Routes>
       </div>
     </BrowserRouter>

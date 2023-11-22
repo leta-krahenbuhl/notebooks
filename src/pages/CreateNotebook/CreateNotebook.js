@@ -6,8 +6,6 @@ import { useNavigate } from "react-router-dom";
 
 export default function CreateNotebook() {
   const navigate = useNavigate();
-  // console.log(value); // returns html of current value
-  // after every character, image is realllly long
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -22,13 +20,11 @@ export default function CreateNotebook() {
 
     try {
       await axios.post(`${baseURL}/api/notebooks`, newNotebook);
-      // setIsError(false);
       event.target.reset();
       alert("Notebook added successfully");
       navigate(`/`);
     } catch (error) {
       console.log(error);
-      // setIsError(true);
     }
   };
 
@@ -37,20 +33,12 @@ export default function CreateNotebook() {
       <main className="create-notebook-entry">
         <h1 className="create-notebook-entry__header">ADD NOTEBOOK</h1>
         <form onSubmit={handleSubmit} className="add-notebook-form">
-          {/* <label htmlFor="title" className="form__label">
-            Title
-          </label> */}
           <input
             placeholder="Enter your title here"
             type="text"
             name="title"
             id="title"
             className="add-notebook-form__input"
-            // className={
-            //   formErrors.warehouse_name
-            //     ? "form__text-input--red"
-            //     : "form__text-input"
-            // }
           />
           <button type="submit" className="add-notebook-form__button"></button>
         </form>

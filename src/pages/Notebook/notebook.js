@@ -9,36 +9,6 @@ import "./notebook.scss";
 export default function Notebook() {
   const { notebookId } = useParams();
 
-  // below is also in List-------------------------
-  // const getAllListItems = async () => {
-  //   try {
-  //     const data = await fetchListItems();
-  //     setAllListItems(data);
-  //   } catch (error) {
-  //     console.error(error);
-  //   }
-  // };
-
-  // useEffect(() => {
-  //   getAllListItems();
-  // }, [listTitleswithNotebookId]);
-
-  //took it out from here and put it in List-------below
-  // const getItemsForTitles = (titles, items) => {
-  //   const itemsByTitle = titles.map((title) => {
-  //     const itemsForTitle = items.filter((item) => item.list_id === title.id);
-  //     return { title, items: itemsForTitle };
-  //   });
-  //   return itemsByTitle;
-  // };
-
-  // const itemsForTitles = getItemsForTitles(
-  //   listTitleswithNotebookId || [],
-  //   allListItems || []
-  // );
-
-  //took it out from here and put it in List-------above
-
   return (
     <>
       <TopNavigation notebookId={notebookId} />
