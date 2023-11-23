@@ -1,23 +1,22 @@
 import "./AddListItem.scss";
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { fetchListItems } from "../../utils/AxiosRequests";
 import { editListItem } from "../../utils/AxiosRequests";
 import { deleteItem } from "../../utils/AxiosRequests";
 import { useLocation } from "react-router-dom";
-import { useNavigate } from "react-router-dom";
 
 export default function AddListItem() {
   const [allItems, setAllItems] = useState([]); //only items for current list title
-  const [editedItem, setEditedItem] = useState(null);
-  const [inputValue, setInputValue] = useState("");
+  const [editedItemId, setEditedItemId] = useState(null);
   const { notebookId, listId } = useParams();
   const location = useLocation();
 
   const parsedListId = parseInt(listId);
   const baseURL = process.env.REACT_APP_BASE_URL;
 
+  //get items for current list title
   const getItems = async () => {
     try {
       const data = await fetchListItems();
@@ -48,6 +47,8 @@ export default function AddListItem() {
         `${baseURL}/api/list-items`,
         newListItem
       );
+      //without this I get a "each child has to have a uniuqe key"
+      //error message
       const updatedItem = response.data;
 
       setAllItems((prevItems) => [...prevItems, updatedItem]);
@@ -59,7 +60,7 @@ export default function AddListItem() {
   };
 
   const handleItemClick = (item) => {
-    setEditedItem(item.id);
+    setEditedItemId(item.id);
   };
 
   const handleItemEdit = async (editedText, itemId) => {
@@ -70,7 +71,7 @@ export default function AddListItem() {
 
     try {
       await editListItem(updateItemObject);
-      setEditedItem(null);
+      setEditedItemId(null);
     } catch (error) {
       return console.error(error);
     }
@@ -102,7 +103,7 @@ export default function AddListItem() {
       <ul className="add-list-items__list">
         {allItems.map((item) => (
           <li key={item.id} className="add-list-items__item">
-            {editedItem === item.id ? (
+            {editedItemId === item.id ? (
               <div>
                 <input
                   type="text"
@@ -134,12 +135,14 @@ export default function AddListItem() {
         </div>
       </form>
       {location.pathname.endsWith("/edit") && (
-        <button
-          onClick={handleDoneButtonClick}
-          className="edit-list-items__done-button"
-        >
-          DONE
-        </button>
+        <Link to={`/notebooks/${notebookId}/lists/${listId}`}>
+          <button
+            onClick={handleDoneButtonClick}
+            className="edit-list-items__done-button"
+          >
+            DONE
+          </button>
+        </Link>
       )}
     </div>
   );

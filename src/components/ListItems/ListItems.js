@@ -3,12 +3,6 @@ import { useParams } from "react-router-dom";
 import { editListItemDone } from "../../utils/AxiosRequests";
 
 export default function ListItems({ itemsForTitles, getAllListItems, listId }) {
-  // if (!listId) {
-  //   const { notebookId, listId } = useParams();
-  // }
-
-  // console.log(listId);
-
   const handleClick = async (id, currentDoneValue) => {
     const newDoneValue = !currentDoneValue;
 
