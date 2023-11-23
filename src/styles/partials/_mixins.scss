@@ -25,7 +25,7 @@
 }
 
 @mixin button-icon {
-  background-color: $primary1;
+  background-color: $primary2;
   background-size: 1.5rem;
   background-repeat: no-repeat;
   background-position: center;
@@ -64,6 +64,13 @@
   padding-left: 0.5rem;
   height: 2.5rem;
   border: $border;
+  border-radius: 4px;
+}
+
+@mixin input-field-inactive {
+  padding-left: 0.5rem;
+  height: 2.5rem;
+  border: $border-inactive;
   border-radius: 4px;
 }
 

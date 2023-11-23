@@ -1,7 +1,7 @@
 import "./AddListItem.scss";
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { fetchListItems } from "../../utils/AxiosRequests";
 import { editListItem } from "../../utils/AxiosRequests";
 import { deleteItem } from "../../utils/AxiosRequests";
@@ -34,8 +34,15 @@ export default function AddListItem() {
     getItems();
   }, []);
 
+  if (!listId) {
+  }
+
   const handleSubmitItem = async (event) => {
     event.preventDefault();
+
+    if (!listId) {
+      return alert("Please add a list title before adding list items.");
+    }
 
     const newListItem = {
       text: event.target.listItem.value,
@@ -98,8 +105,6 @@ export default function AddListItem() {
     }
   };
 
-  // const handleDoneButtonClick = () => {};
-
   return (
     <div className="add-list-items">
       <ul className="add-list-items__list">
@@ -111,7 +116,6 @@ export default function AddListItem() {
                   type="text"
                   defaultValue={item.text}
                   onChange={(event) => setEditedItemValue(event.target.value)}
-                  // onBlur={(e) => handleItemEdit(e.target.value, item.id)}
                 />
                 <button
                   className="save-edit-list-item-button"
@@ -119,8 +123,6 @@ export default function AddListItem() {
                 ></button>
               </form>
             ) : (
-              // <div onClick={() => handleItemClick(item)}>{item.text}</div>
-
               <div>
                 {item.text}
                 <button
@@ -140,15 +142,26 @@ export default function AddListItem() {
           </li>
         ))}
       </ul>
+
       <form className="add-list-items-form" onSubmit={handleSubmitItem}>
         <div className="add-list-items-form__wrapper">
           <input
             type="text"
-            className="add-list-items-form__input"
+            className={`${
+              listId
+                ? "add-list-items-form__input"
+                : "add-list-items-form__input--inactive"
+            }`}
             name="listItem"
             placeholder="add list item"
           />
-          <button className="add-list-items-form__button"></button>
+          <button
+            className={`${
+              listId
+                ? "add-list-items-form__button"
+                : "add-list-items-form__button--inactive"
+            }`}
+          ></button>
         </div>
       </form>
     </div>
