@@ -2,14 +2,6 @@
 @use "../../styles/partials/mixins" as *;
 
 .main-home {
-  // border-top: 3px solid $primary1;
   min-height: 100vh;
-}
-
-.home-navigation {
-  @include bottom-navigation;
-
-  &__image {
-    width: 1.8rem;
-  }
+  margin-top: 1.2rem;
 }

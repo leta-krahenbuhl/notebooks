@@ -15,3 +15,17 @@
     @include button-icon;
   }
 }
+
+.home-navigation {
+  @include bottom-navigation;
+  height: 3.2rem;
+
+  &__image-plus {
+    margin-top: -0.3rem;
+    width: 1.8rem;
+  }
+
+  &__image {
+    width: 1.8rem;
+  }
+}

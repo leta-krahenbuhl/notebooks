@@ -1,6 +1,5 @@
 import "./BottomNavigation.scss";
-import { useState, useEffect } from "react";
-import { fetchNotebookTitles } from "../../utils/AxiosRequests";
+import { useState } from "react";
 import { deleteList } from "../../utils/AxiosRequests";
 import plusIcon from "../../assets/images/plus.svg";
 import editIcon from "../../assets/images/edit.svg";
@@ -9,59 +8,34 @@ import { Link } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 
-//deleted notebookId as a prop, may cause issues later??
 export default function BottomNavigation() {
-  const [notebooks, setNotebooks] = useState(null);
-  const [isLoading, setIsLoading] = useState(true);
   const { notebookId, listId } = useParams();
   const navigate = useNavigate();
 
-  // const getNotebookTitles = async () => {
-  //   try {
-  //     const data = await fetchNotebookTitles();
-  //     setNotebooks(data);
-  //     setIsLoading(false);
-  //   } catch (error) {
-  //     console.error(error);
-  //   }
-  // };
-
-  // useEffect(() => {
-  //   getNotebookTitles();
-  // }, []);
-
-  // if (isLoading) {
-  //   return <div>Loading...</div>;
-  // }
-
   const parsedNotebookId = parseInt(notebookId);
-
-  // const navNotebookTitle = notebooks.find(
-  //   (notebook) => notebook.id === parsedNotebookId
-  // );
 
   //on home page
   if (!notebookId)
     return (
       <nav className="home-navigation">
-        <Link to="/delete">
-          <img
-            src={deleteIcon}
-            alt="delete notebook"
-            className="home-navigation__image"
-          />
-        </Link>
         <Link to="/create/notebook">
           <img
             src={plusIcon}
             alt="add new notebook"
-            className="home-navigation__image"
+            className="home-navigation__image-plus"
           />
         </Link>
         <Link to="/edit">
           <img
             src={editIcon}
             alt="edit notebook"
+            className="home-navigation__image"
+          />
+        </Link>
+        <Link to="/delete">
+          <img
+            src={deleteIcon}
+            alt="delete notebook"
             className="home-navigation__image"
           />
         </Link>
@@ -95,8 +69,6 @@ export default function BottomNavigation() {
       }
 
       navigate(`/notebooks/${notebookId}`);
-
-      //render notebook content again
     } else {
       console.log("List deletion canceled");
     }
@@ -105,13 +77,6 @@ export default function BottomNavigation() {
   if (notebookId && listId)
     return (
       <nav className="notebook-navigation">
-        {/* <Link to={`/notebooks/${notebookId}/lists/${listId}/delete`}>
-          <img
-            src={deleteIcon}
-            alt="add new notebook"
-            className="home-navigation__image"
-          />
-        </Link> */}
         <button
           onClick={() => handleDeleteList(listId)}
           className="list__button-delete"

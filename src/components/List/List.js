@@ -10,10 +10,6 @@ export default function List({ notebookId }) {
   const [listTitleswithNotebookId, setListTitleswithNotebookId] =
     useState(null);
 
-  // console.log(notebookId);  //works
-  // console.log(allListItems);  //works
-  // console.log(listTitleswithNotebookId); //works
-
   const getArrayOfListTitlesWithNotebookId = async () => {
     try {
       const data = await fetchListTitles();
@@ -62,7 +58,6 @@ export default function List({ notebookId }) {
   return (
     <>
       <div className="list">
-        {/* {console.log(itemsForTitles)} works!. returns an object */}
         {itemsForTitles.map((titleObj, index) => (
           <div key={index}>
             <Link to={`/notebooks/${notebookId}/lists/${titleObj.title.id}`}>
@@ -73,15 +68,6 @@ export default function List({ notebookId }) {
               getAllListItems={getAllListItems}
               listId={titleObj.title.id}
             />
-
-            {/* ------------------------------------ list items that work 
-            <ul className="list__text">
-              {titleObj.items.map((item, itemIndex) => (
-                <li key={itemIndex} className="list__item">
-                  {item.text}
-                </li>
-              ))}
-            </ul> */}
           </div>
         ))}
       </div>

@@ -36,6 +36,18 @@
   flex-shrink: 0;
 }
 
+@mixin button-icon-white {
+  background-color: $primary2;
+  background-size: 1.5rem;
+  background-repeat: no-repeat;
+  background-position: center;
+  border: none;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 5px;
+  flex-shrink: 0;
+}
+
 @mixin icon {
   background-color: $primary2;
   background-size: 1.5rem;
@@ -57,7 +69,6 @@
 
 @mixin bottom-navigation {
   background-color: $primary1;
-  height: 3rem;
   text-align: center;
   padding-top: 0.6rem;
   position: sticky;

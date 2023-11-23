@@ -109,12 +109,10 @@ export default function Home() {
     return (
       <>
         {notebooks.map((notebook) => {
-          // console.log(notebook); //works
           return (
             <div className="notebook__wrapper" key={notebook.date}>
               {notebookToEdit === notebook.id ? (
                 //if notebook title id is the one that is being edited, display the following:
-
                 <form>
                   <input
                     type="text"
@@ -129,10 +127,11 @@ export default function Home() {
                 </form>
               ) : (
                 //if notebook title id is NOT the one that is being edited, display the following:
-                <div className="wrapper">
+                <div className="notebook__wrapper-single">
                   <Link to={`/notebooks/${notebook.id}`}>
                     <h2 className="notebook__title">{notebook.title}</h2>
                   </Link>
+
                   <button
                     onClick={() => handleClickEditIcon(notebook.id)}
                     className="notebook__button-edit"
