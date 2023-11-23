@@ -70,6 +70,7 @@ export default function CreateNotebook() {
         <Link to={`/`}>
           <p className="create-notebook-entry__cancel-button">CANCEL</p>
         </Link>
+        {isError && <p>Failed to create notebook.</p>}
       </main>
     </>
   );

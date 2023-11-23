@@ -8,13 +8,13 @@ import { useEffect, useState } from "react";
 export default function AddListTitle() {
   const [isTitle, setIsTitle] = useState(false);
   const [titleArr, setTitleArr] = useState("");
-  const [title, setTitle] = useState("");
+  const [title, setTitle] = useState(""); //used as a dependency for rendering titleArr
+  const [isError, setIsError] = useState(false);
+
   const navigate = useNavigate();
   const { notebookId, listId } = useParams();
+  const baseURL = process.env.REACT_APP_BASE_URL;
 
-  //put base URL here? it's in lots of reqeusts...
-
-  // if there is a listId, it means we're editing an existing list
   useEffect(() => {
     if (listId) {
       const getTitles = async () => {
@@ -36,8 +36,13 @@ export default function AddListTitle() {
 
   const handleSubmitTitle = async (event) => {
     event.preventDefault();
+    setIsError(false);
 
-    // if there is no listId, it means we're creating an new one
+    if (!event.target.text.value) {
+      return setIsError(true);
+    }
+
+    //create a new list
     if (!listId) {
       const parsedNotebookId = parseInt(notebookId);
 
@@ -45,17 +50,16 @@ export default function AddListTitle() {
         title: event.target.text.value,
         notebook_id: parsedNotebookId,
       };
-      // put front-end form evaluation here
-
-      const baseURL = process.env.REACT_APP_BASE_URL;
 
       try {
         const response = await axios.post(
           `${baseURL}/api/list-titles`,
           newListTitle
         );
+
         const newListTitleId = response.data.id;
 
+        setIsError(false);
         setTitle(newListTitle);
         setIsTitle(true);
 
@@ -67,17 +71,20 @@ export default function AddListTitle() {
       }
     }
 
-    // if there is a listId, it means we're editing an existing list
+    //edit an existing list
     if (listId) {
       const parsedNotebookId = parseInt(notebookId);
+
+      setIsError(false);
+
+      if (!event.target.text.value) {
+        return setIsError(true);
+      }
 
       const newListTitle = {
         id: listId,
         title: event.target.text.value,
       };
-      // put front-end form evaluation here
-
-      const baseURL = process.env.REACT_APP_BASE_URL;
 
       try {
         const response = await axios.put(
@@ -85,6 +92,7 @@ export default function AddListTitle() {
           newListTitle
         );
 
+        setIsError(false);
         setTitle(newListTitle);
         setIsTitle(true);
 
@@ -95,16 +103,13 @@ export default function AddListTitle() {
     }
   };
 
-  //isTitle: True means it displays the title as text
-  //isTitle: False means it displays input field
+  //isTitle(false) means it displays input field
   const handleClick = () => {
     setIsTitle(false);
   };
 
-  //If isTitle===false it means the input field is being displayed
   //If there's no listId it means we are adding a new list, not editing a current one
   if (!isTitle && !listId) {
-    console.log("no title");
     return (
       <>
         <form className="add-list-title-form" onSubmit={handleSubmitTitle}>
@@ -118,6 +123,11 @@ export default function AddListTitle() {
               className="add-list-title-form__input"
             />
             <button className="add-list-title-form__button"></button>
+            {isError && (
+              <p className="add-notebook-form__error">
+                Please enter a list title.
+              </p>
+            )}
           </div>
         </form>
       </>
@@ -143,6 +153,11 @@ export default function AddListTitle() {
               }
             />
             <button className="add-list-title-form__button"></button>
+            {isError && (
+              <p className="add-notebook-form__error">
+                Please enter a list title.
+              </p>
+            )}
           </div>
         </form>
       </>
