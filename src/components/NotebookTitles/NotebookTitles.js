@@ -57,7 +57,26 @@ export default function Home() {
 
   const handleClickEditIcon = async (id) => {
     setNotebookToEdit(id);
-    // console.log(notebookToEdit); //doesn't work immediately cause of re-render!
+  };
+
+  const handleSaveTitle = async (event, id) => {
+    event.preventDefault();
+    const submittedTitle =
+      editedTitle ||
+      notebooks.find((notebook) => notebook.id === notebookToEdit)?.title ||
+      "";
+
+    const parsedNotebookId = parseInt(id);
+
+    try {
+      await editNotebookTitle({ id: parsedNotebookId, title: submittedTitle });
+      setNotebookToEdit(null);
+    } catch (error) {
+      return console.error(error);
+    }
+
+    getNotebookTitles();
+    navigate(`/`);
   };
 
   //----------------------------------------------- on page load and delete render
@@ -89,23 +108,7 @@ export default function Home() {
     );
   }
 
-  //----------------------------------------------- edit functionality & render
-  const handleSaveTitle = async (event, id) => {
-    event.preventDefault();
-
-    const parsedNotebookId = parseInt(id);
-
-    try {
-      await editNotebookTitle({ id: parsedNotebookId, title: editedTitle });
-      setNotebookToEdit(null);
-    } catch (error) {
-      return console.error(error);
-    }
-
-    getNotebookTitles();
-    navigate(`/`);
-  };
-
+  //-------------------------- render after clicking on edit in bottom nav
   if (location.pathname === "/edit") {
     return (
       <>
@@ -117,7 +120,7 @@ export default function Home() {
                 <form>
                   <input
                     type="text"
-                    defaultValue={notebook.title}
+                    value={editedTitle !== "" ? editedTitle : notebook.title}
                     onChange={(event) => setEditedTitle(event.target.value)}
                   />
                   <button
