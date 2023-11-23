@@ -36,8 +36,11 @@
 }
 
 .add-notebook-form {
-  display: flex;
   width: 100&;
+
+  &__wrapper {
+    display: flex;
+  }
 
   &__input {
     width: 100%;
@@ -48,5 +51,10 @@
   &__button {
     background-image: URL("../../assets/images/save.svg");
     @include button-icon;
+  }
+
+  &__error {
+    @include error-message-form;
+    display: block;
   }
 }

@@ -93,3 +93,10 @@
   font-weight: bold;
   font-size: 1rem;
 }
+
+@mixin error-message-form {
+  font-size: 0.8rem;
+  color: $warning;
+  text-align: left;
+  margin-top: 0.5rem;
+}
