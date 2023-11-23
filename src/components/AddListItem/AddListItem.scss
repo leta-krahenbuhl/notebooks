@@ -41,9 +41,8 @@
   }
 
   &__button {
-    background-image: URL("../../assets/images/save.svg");
+    background-image: URL("../../assets/images/save-black.svg");
     @include button-icon;
-    background-size: 2.1rem;
 
     &--inactive {
       background-image: URL("../../assets/images/save-grey.svg");

@@ -13,6 +13,7 @@ export default function AddListItem() {
   const [editedItemValue, setEditedItemValue] = useState("");
   const { notebookId, listId } = useParams();
   const location = useLocation();
+  const [isError, setIsError] = useState(false);
 
   const parsedListId = parseInt(listId);
   const baseURL = process.env.REACT_APP_BASE_URL;
@@ -40,6 +41,12 @@ export default function AddListItem() {
   const handleSubmitItem = async (event) => {
     event.preventDefault();
 
+    setIsError(false);
+
+    if (!event.target.listItem.value) {
+      return setIsError(true);
+    }
+
     if (!listId) {
       return alert("Please add a list title before adding list items.");
     }
@@ -48,17 +55,16 @@ export default function AddListItem() {
       text: event.target.listItem.value,
       list_id: parsedListId,
     };
-    // put front-end form evaluation here
 
     try {
       const response = await axios.post(
         `${baseURL}/api/list-items`,
         newListItem
       );
-      //without this I get a "each child has to have a uniuqe key"
-      //error message
+      //without this I get a "each child has to have a uniuqe key error msg?
       const updatedItem = response.data;
 
+      setIsError(false);
       setAllItems((prevItems) => [...prevItems, updatedItem]);
 
       event.target.reset();
@@ -110,6 +116,7 @@ export default function AddListItem() {
       <ul className="add-list-items__list">
         {allItems.map((item) => (
           <li key={item.id} className="add-list-items__item">
+            {/* display for item that is currently being edited */}
             {editedItemId === item.id ? (
               <form>
                 <input
@@ -121,6 +128,11 @@ export default function AddListItem() {
                   className="save-edit-list-item-button"
                   onClick={() => handleSaveEditedItemClick(item.id)}
                 ></button>
+                {isError && (
+                  <p className="add-notebook-form__error">
+                    Please enter text for your item.
+                  </p>
+                )}
               </form>
             ) : (
               <div>
@@ -163,6 +175,11 @@ export default function AddListItem() {
             }`}
           ></button>
         </div>
+        {isError && (
+          <p className="add-notebook-form__error">
+            Please enter text for your item.
+          </p>
+        )}
       </form>
     </div>
   );
