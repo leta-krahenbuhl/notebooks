@@ -1,14 +1,16 @@
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import "./List.scss";
 import ListItems from "../ListItems/ListItems";
 import { fetchListItems } from "../../utils/AxiosRequests";
 import { useState, useEffect } from "react";
 import { fetchListTitles } from "../../utils/AxiosRequests";
 
-export default function List({ notebookId }) {
+export default function List() {
   const [allListItems, setAllListItems] = useState(null);
   const [listTitleswithNotebookId, setListTitleswithNotebookId] =
     useState(null);
+
+  const { notebookId } = useParams();
 
   const getArrayOfListTitlesWithNotebookId = async () => {
     try {

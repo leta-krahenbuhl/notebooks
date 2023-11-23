@@ -35,25 +35,33 @@ export default function CreateNotebook() {
   return (
     <>
       <main className="create-notebook-entry">
-        <h1 className="create-notebook-entry__header">ADD NOTEBOOK</h1>
-        <form onSubmit={handleSubmit} className="add-notebook-form">
-          {/* <label htmlFor="title" className="form__label">
+        <div className="create-notebook-entry__wrapper">
+          <h1 className="create-notebook-entry__header">ADD NOTEBOOK</h1>
+          <form onSubmit={handleSubmit} className="add-notebook-form">
+            {/* <label htmlFor="title" className="form__label">
             Title
           </label> */}
-          <input
-            placeholder="Enter your title here"
-            type="text"
-            name="title"
-            id="title"
-            className="add-notebook-form__input"
-            // className={
-            //   formErrors.warehouse_name
-            //     ? "form__text-input--red"
-            //     : "form__text-input"
-            // }
-          />
-          <button type="submit" className="add-notebook-form__button"></button>
-        </form>
+            <input
+              placeholder="Enter your title here"
+              type="text"
+              name="title"
+              id="title"
+              className="add-notebook-form__input"
+              // className={
+              //   formErrors.warehouse_name
+              //     ? "form__text-input--red"
+              //     : "form__text-input"
+              // }
+            />
+            <button
+              type="submit"
+              className="add-notebook-form__button"
+            ></button>
+          </form>
+        </div>
+        <button className="create-notebook-entry__cancel-button" onClick={`/`}>
+          CANCEL
+        </button>
       </main>
     </>
   );

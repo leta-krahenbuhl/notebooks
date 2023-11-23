@@ -48,12 +48,6 @@
   background-size: 2.1rem;
 }
 
-.edit-list-items {
-  &__done-button {
-    @include button;
-  }
-}
-
 .edit-list-items-button {
   @include button-icon-white;
   background-image: URL("../../assets/images/edit-black.svg");

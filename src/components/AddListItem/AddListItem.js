@@ -98,7 +98,7 @@ export default function AddListItem() {
     }
   };
 
-  const handleDoneButtonClick = () => {};
+  // const handleDoneButtonClick = () => {};
 
   return (
     <div className="add-list-items">
@@ -151,7 +151,7 @@ export default function AddListItem() {
           <button className="add-list-items-form__button"></button>
         </div>
       </form>
-      {location.pathname.endsWith("/edit") && (
+      {/* {location.pathname.endsWith("/edit") && (
         <Link to={`/notebooks/${notebookId}/lists/${listId}`}>
           <button
             onClick={handleDoneButtonClick}
@@ -160,7 +160,7 @@ export default function AddListItem() {
             DONE
           </button>
         </Link>
-      )}
+      )} */}
     </div>
   );
 }
