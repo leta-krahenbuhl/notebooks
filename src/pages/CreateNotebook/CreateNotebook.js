@@ -1,7 +1,7 @@
 import "./CreateNotebook.scss";
 import "react-quill/dist/quill.snow.css";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 
 export default function CreateNotebook() {
@@ -67,9 +67,9 @@ export default function CreateNotebook() {
             )}
           </form>
         </div>
-        <button className="create-notebook-entry__cancel-button" onClick={`/`}>
-          CANCEL
-        </button>
+        <Link to={`/`}>
+          <p className="create-notebook-entry__cancel-button">CANCEL</p>
+        </Link>
       </main>
     </>
   );
