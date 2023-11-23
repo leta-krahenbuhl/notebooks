@@ -10,7 +10,6 @@
   }
 
   &__item {
-    display: flex;
     justify-content: space-between;
   }
 
@@ -56,6 +55,17 @@
   background-image: URL("../../assets/images/delete-cross.svg");
   @include icon;
   background-size: 2.1rem;
+}
+
+.edit-list-items {
+  &__wrapper {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__text {
+    margin-right: auto;
+  }
 }
 
 .edit-list-items-button {

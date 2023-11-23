@@ -135,7 +135,7 @@ export default function AddListItem() {
         {allItems.map((item) => (
           <li key={item.id} className="add-list-items__item">
             {editedItemId === item.id ? (
-              //display for existing item that is currently being edited
+              //display this for existing item that is currently being edited
               <form>
                 <input
                   type="text"
@@ -153,21 +153,21 @@ export default function AddListItem() {
                 )}
               </form>
             ) : (
-              // display for other existing items
-              <div>
-                {item.text}
+              // display this for other existing items
+              <div className="edit-list-items__wrapper">
+                <div className="edit-list-items__text">{item.text}</div>
                 <button
                   className="edit-list-items-button"
                   onClick={() => handleItemClick(item.id)}
                 ></button>
-              </div>
-            )}
-            {location.pathname.endsWith("/edit") && (
-              <div className="delete-edit-wrapper">
-                <button
-                  onClick={() => handleDeleteItemClick(item.id)}
-                  className="delete-list-item-button"
-                ></button>
+                {location.pathname.endsWith("/edit") && (
+                  // <div className="delete-edit-wrapper">
+                  <button
+                    onClick={() => handleDeleteItemClick(item.id)}
+                    className="delete-list-item-button"
+                  ></button>
+                  // </div>
+                )}
               </div>
             )}
           </li>
