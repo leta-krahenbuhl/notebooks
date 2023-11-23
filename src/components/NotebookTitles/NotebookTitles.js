@@ -60,6 +60,7 @@ export default function Home() {
     // console.log(notebookToEdit); //doesn't work immediately cause of re-render!
   };
 
+  //----------------------------------------------- on page load and delete render
   if (location.pathname === "/" || location.pathname === "/delete") {
     return (
       <>

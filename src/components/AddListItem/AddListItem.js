@@ -10,6 +10,7 @@ import { useLocation } from "react-router-dom";
 export default function AddListItem() {
   const [allItems, setAllItems] = useState([]); //only items for current list title
   const [editedItemId, setEditedItemId] = useState(null);
+  const [editedItemValue, setEditedItemValue] = useState("");
   const { notebookId, listId } = useParams();
   const location = useLocation();
 
@@ -59,14 +60,15 @@ export default function AddListItem() {
     }
   };
 
-  const handleItemClick = (item) => {
-    setEditedItemId(item.id);
+  const handleItemClick = (itemId) => {
+    setEditedItemId(itemId);
+    console.log(editedItemId);
   };
 
-  const handleItemEdit = async (editedText, itemId) => {
+  const handleSaveEditedItemClick = async (itemId) => {
     const updateItemObject = {
       id: itemId,
-      text: editedText,
+      text: editedItemValue,
     };
 
     try {
@@ -104,21 +106,36 @@ export default function AddListItem() {
         {allItems.map((item) => (
           <li key={item.id} className="add-list-items__item">
             {editedItemId === item.id ? (
-              <div>
+              <form>
                 <input
                   type="text"
                   defaultValue={item.text}
-                  onBlur={(e) => handleItemEdit(e.target.value, item.id)}
+                  onChange={(event) => setEditedItemValue(event.target.value)}
+                  // onBlur={(e) => handleItemEdit(e.target.value, item.id)}
                 />
-              </div>
+                <button
+                  className="save-edit-list-item-button"
+                  onClick={() => handleSaveEditedItemClick(item.id)}
+                ></button>
+              </form>
             ) : (
-              <div onClick={() => handleItemClick(item)}>{item.text}</div>
+              // <div onClick={() => handleItemClick(item)}>{item.text}</div>
+
+              <div>
+                {item.text}
+                <button
+                  className="edit-list-items-button"
+                  onClick={() => handleItemClick(item.id)}
+                ></button>
+              </div>
             )}
             {location.pathname.endsWith("/edit") && (
-              <button
-                onClick={() => handleDeleteItemClick(item.id)}
-                className="delete-list-item-button"
-              ></button>
+              <div className="delete-edit-wrapper">
+                <button
+                  onClick={() => handleDeleteItemClick(item.id)}
+                  className="delete-list-item-button"
+                ></button>
+              </div>
             )}
           </li>
         ))}
