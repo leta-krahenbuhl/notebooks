@@ -33,7 +33,6 @@ export default function List() {
     try {
       const data = await fetchListItems();
       setAllListItems(data);
-      // console.log(data);  //works
     } catch (error) {
       console.error(error);
     }

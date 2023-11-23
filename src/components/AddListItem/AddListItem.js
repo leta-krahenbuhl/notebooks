@@ -151,16 +151,6 @@ export default function AddListItem() {
           <button className="add-list-items-form__button"></button>
         </div>
       </form>
-      {/* {location.pathname.endsWith("/edit") && (
-        <Link to={`/notebooks/${notebookId}/lists/${listId}`}>
-          <button
-            onClick={handleDoneButtonClick}
-            className="edit-list-items__done-button"
-          >
-            DONE
-          </button>
-        </Link>
-      )} */}
     </div>
   );
 }

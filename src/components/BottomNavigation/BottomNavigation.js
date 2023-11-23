@@ -14,6 +14,24 @@ export default function BottomNavigation() {
 
   const parsedNotebookId = parseInt(notebookId);
 
+  const handleDeleteList = async (listId) => {
+    const confirmDelete = window.confirm(
+      "Are you sure you want to delete this list? This action cannot be undone."
+    );
+
+    if (confirmDelete) {
+      try {
+        await deleteList(listId);
+      } catch (error) {
+        console.error(error);
+      }
+
+      navigate(`/notebooks/${notebookId}`);
+    } else {
+      console.log("List deletion canceled");
+    }
+  };
+
   //on home page
   if (!notebookId)
     return (
@@ -56,24 +74,7 @@ export default function BottomNavigation() {
       </nav>
     );
 
-  const handleDeleteList = async (listId) => {
-    const confirmDelete = window.confirm(
-      "Are you sure you want to delete this list? This action cannot be undone."
-    );
-
-    if (confirmDelete) {
-      try {
-        await deleteList(listId);
-      } catch (error) {
-        console.error(error);
-      }
-
-      navigate(`/notebooks/${notebookId}`);
-    } else {
-      console.log("List deletion canceled");
-    }
-  };
-
+  //in a list
   if (notebookId && listId)
     return (
       <nav className="notebook-navigation">
@@ -81,13 +82,6 @@ export default function BottomNavigation() {
           onClick={() => handleDeleteList(listId)}
           className="list__button-delete"
         ></button>
-        <Link to={`/notebooks/${notebookId}/create/list`}>
-          <img
-            src={plusIcon}
-            alt="add new list"
-            className="notebook-navigation__image"
-          />
-        </Link>
         <Link to={`/notebooks/${notebookId}/lists/${listId}/edit`}>
           <img
             src={editIcon}
