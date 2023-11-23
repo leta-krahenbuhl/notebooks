@@ -12,6 +12,8 @@ export default function Home() {
   const [isLoading, setIsLoading] = useState(true);
   const [notebookToEdit, setNotebookToEdit] = useState(null);
   const [editedTitle, setEditedTitle] = useState("");
+  const [formErrors, setFormErrors] = useState({});
+  const [isError, setIsError] = useState(false);
 
   const location = useLocation();
   const navigate = useNavigate();
@@ -61,18 +63,33 @@ export default function Home() {
 
   const handleSaveTitle = async (event, id) => {
     event.preventDefault();
+
     const submittedTitle =
       editedTitle ||
-      notebooks.find((notebook) => notebook.id === notebookToEdit)?.title ||
-      "";
+      notebooks.find((notebook) => notebook.id === notebookToEdit)?.title;
+
+    setFormErrors({});
+    const errors = {};
+    let isFormValid = true;
+
+    if (!submittedTitle) {
+      isFormValid = false;
+      errors["title"] = "Please enter a notebook title";
+    }
+
+    if (!isFormValid) {
+      return setFormErrors(errors);
+    }
 
     const parsedNotebookId = parseInt(id);
 
     try {
       await editNotebookTitle({ id: parsedNotebookId, title: submittedTitle });
       setNotebookToEdit(null);
+      setIsError(false);
     } catch (error) {
-      return console.error(error);
+      console.error(error);
+      setIsError(true);
     }
 
     getNotebookTitles();
