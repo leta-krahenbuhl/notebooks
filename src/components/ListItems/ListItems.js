@@ -1,6 +1,7 @@
 import "./ListItems.scss";
-import { useParams } from "react-router-dom";
 import { editListItemDone } from "../../utils/AxiosRequests";
+import iconSquareDone from "../../assets/images/square-done.svg";
+import iconSquareEmpty from "../../assets/images/square-empty.svg";
 
 export default function ListItems({ itemsForTitles, getAllListItems, listId }) {
   const handleClick = async (id, currentDoneValue) => {
@@ -23,34 +24,38 @@ export default function ListItems({ itemsForTitles, getAllListItems, listId }) {
   return (
     <>
       <div className="list-items">
-        {/* {console.log("items rendering!")} */}
-        {/* {console.log(itemsForTitles)} */}
         {itemsForTitles.map((titleObj, index) => (
           <div key={index}>
             <ul className="list-items__text">
               {titleObj.items
                 .filter((item) => {
-                  // {
-                  //   console.log(item);
-                  // }
                   return item.list_id === parseInt(listId);
                 })
                 .map((item, itemIndex) => {
-                  {
-                    //this one is not working in the notebook (on List.js)!
-                    // console.log(item);
-                  }
-                  const listItemClass = `${
-                    !item.done ? "list-items__item" : "list-items__item--true"
-                  }`;
+                  // const listItemClass = `${
+                  //   !item.done ? "list-items__item" : "list-items__item--true"
+                  // }`;
                   return (
-                    <li
-                      key={itemIndex}
-                      className={listItemClass}
-                      onClick={() => handleClick(item.id, item.done)}
-                    >
-                      {item.text}
-                    </li>
+                    <div className="list-items__wrapper">
+                      <li key={itemIndex} className="list-items__item">
+                        {item.text}
+                      </li>
+                      {item.done ? (
+                        <img
+                          className="list-items__square"
+                          src={iconSquareDone}
+                          alt="ticked box"
+                          onClick={() => handleClick(item.id, item.done)}
+                        />
+                      ) : (
+                        <img
+                          className="list-items__square"
+                          src={iconSquareEmpty}
+                          alt="unticked box"
+                          onClick={() => handleClick(item.id, item.done)}
+                        />
+                      )}
+                    </div>
                   );
                 })}
             </ul>
