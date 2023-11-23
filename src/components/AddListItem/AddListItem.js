@@ -13,7 +13,8 @@ export default function AddListItem() {
   const [editedItemValue, setEditedItemValue] = useState("");
   const { notebookId, listId } = useParams();
   const location = useLocation();
-  const [isError, setIsError] = useState(false);
+  const [isErrorNewItem, setIsErrorNewItem] = useState(false);
+  const [isErrorEditItem, setIsErrorEditItem] = useState(false);
 
   const parsedListId = parseInt(listId);
   const baseURL = process.env.REACT_APP_BASE_URL;
@@ -38,13 +39,14 @@ export default function AddListItem() {
   if (!listId) {
   }
 
+  //add new list item
   const handleSubmitItem = async (event) => {
     event.preventDefault();
 
-    setIsError(false);
+    setIsErrorNewItem(false);
 
     if (!event.target.listItem.value) {
-      return setIsError(true);
+      return setIsErrorNewItem(true);
     }
 
     if (!listId) {
@@ -64,7 +66,7 @@ export default function AddListItem() {
       //without this I get a "each child has to have a uniuqe key error msg?
       const updatedItem = response.data;
 
-      setIsError(false);
+      setIsErrorNewItem(false);
       setAllItems((prevItems) => [...prevItems, updatedItem]);
 
       event.target.reset();
@@ -74,11 +76,24 @@ export default function AddListItem() {
   };
 
   const handleItemClick = (itemId) => {
+    // setIsError(false);
+    // setIsErrorEditItem(false);
     setEditedItemId(itemId);
-    console.log(editedItemId);
   };
 
+  //save edited item
   const handleSaveEditedItemClick = async (itemId) => {
+    await handleItemClick();
+
+    setIsErrorEditItem(false);
+
+    if (!editedItemValue) {
+      console.log("detected empty valuuuue"); //works when form empty (or unchaged ugh)
+      setIsErrorEditItem(true);
+
+      return console.log(isErrorEditItem); // still false, why???
+    }
+
     const updateItemObject = {
       id: itemId,
       text: editedItemValue,
@@ -87,6 +102,7 @@ export default function AddListItem() {
     try {
       await editListItem(updateItemObject);
       setEditedItemId(null);
+      setIsErrorEditItem(false);
     } catch (error) {
       return console.error(error);
     }
@@ -107,17 +123,19 @@ export default function AddListItem() {
       }
       getItems();
     } else {
+      //change this before submission
       console.log("Item deletion cancelled");
     }
   };
 
+  //render the error message below if isErrorEditItem is true
   return (
     <div className="add-list-items">
       <ul className="add-list-items__list">
         {allItems.map((item) => (
           <li key={item.id} className="add-list-items__item">
-            {/* display for item that is currently being edited */}
             {editedItemId === item.id ? (
+              //display for existing item that is currently being edited
               <form>
                 <input
                   type="text"
@@ -128,13 +146,14 @@ export default function AddListItem() {
                   className="save-edit-list-item-button"
                   onClick={() => handleSaveEditedItemClick(item.id)}
                 ></button>
-                {isError && (
+                {isErrorEditItem && (
                   <p className="add-notebook-form__error">
                     Please enter text for your item.
                   </p>
                 )}
               </form>
             ) : (
+              // display for other existing items
               <div>
                 {item.text}
                 <button
@@ -175,7 +194,7 @@ export default function AddListItem() {
             }`}
           ></button>
         </div>
-        {isError && (
+        {isErrorNewItem && (
           <p className="add-notebook-form__error">
             Please enter text for your item.
           </p>

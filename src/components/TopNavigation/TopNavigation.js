@@ -2,11 +2,46 @@ import "./TopNavigation.scss";
 import { useState, useEffect } from "react";
 import { fetchNotebookTitles } from "../../utils/AxiosRequests";
 import { Link, useParams } from "react-router-dom";
+import { fetchListTitles } from "../../utils/AxiosRequests";
 
-export default function TopNavigation({ currentListTitleObj }) {
+//took out currentListTitleObj from props
+export default function TopNavigation() {
   const [notebooks, setNotebooks] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const { notebookId, listId } = useParams();
+  const [currentListTitleObj, setCurrentListTitleObj] = useState("");
+  const [listTitleswithNotebookId, setListTitleswithNotebookId] =
+    useState(null);
+
+  //----- to run the below useEffect
+
+  const getArrayOfListTitlesWithNotebookId = async () => {
+    try {
+      const data = await fetchListTitles();
+
+      const arrayOfListTitleswithNotebookId = data.filter(
+        (notebook) => notebook.notebook_id === parseInt(notebookId)
+      );
+      setListTitleswithNotebookId(arrayOfListTitleswithNotebookId);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  useEffect(() => {
+    getArrayOfListTitlesWithNotebookId();
+  }, [notebookId]);
+
+  // ----------------- to get current list title for TopNaviations: below
+  useEffect(() => {
+    if (listTitleswithNotebookId) {
+      const result = listTitleswithNotebookId.find(
+        (listTitle) => listTitle.id === parseInt(listId)
+      );
+      setCurrentListTitleObj(result);
+    }
+  }, [listTitleswithNotebookId, listId]);
+  // ----------------- to get current list title for TopNaviations: above
 
   const getNotebookTitles = async () => {
     try {
