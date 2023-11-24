@@ -51,11 +51,11 @@
   }
 }
 
-.delete-list-item-button {
-  background-image: URL("../../assets/images/delete-cross.svg");
-  @include icon;
-  background-size: 2.1rem;
-}
+// .delete-list-item-button {
+//   background-image: URL("../../assets/images/delete-cross.svg");
+//   @include icon;
+//   background-size: 2.1rem;
+// }
 
 .edit-list-items {
   &__wrapper {
@@ -68,11 +68,11 @@
   }
 }
 
-.edit-list-items-button {
-  @include button-icon-white;
-  background-image: URL("../../assets/images/edit-black.svg");
-  margin-right: 1.5rem;
-}
+// .edit-list-items-button {
+//   @include button-icon-white;
+//   background-image: URL("../../assets/images/edit-black.svg");
+//   margin-right: 1.5rem;
+// }
 
 .save-edit-list-item-button {
   @include button-icon-white;
