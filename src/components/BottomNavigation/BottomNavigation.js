@@ -2,7 +2,7 @@ import "./BottomNavigation.scss";
 import { useState } from "react";
 import { deleteList } from "../../utils/AxiosRequests";
 import plusIcon from "../../assets/images/plus.svg";
-import editIcon from "../../assets/images/edit.svg";
+import editIcon from "../../assets/images/edit-white.svg";
 import deleteIcon from "../../assets/images/delete.svg";
 import { Link } from "react-router-dom";
 import { useParams } from "react-router-dom";
@@ -68,7 +68,7 @@ export default function BottomNavigation() {
           <img
             src={plusIcon}
             alt="add new list"
-            className="notebook-navigation__image"
+            className="notebook-navigation__icon-plus"
           />
         </Link>
       </nav>
@@ -77,16 +77,16 @@ export default function BottomNavigation() {
   //in a list
   if (notebookId && listId)
     return (
-      <nav className="notebook-navigation">
+      <nav className="list-bottom-navigation">
         <button
           onClick={() => handleDeleteList(listId)}
-          className="list__button-delete"
+          className="list-bottom-navigation__button-delete"
         ></button>
         <Link to={`/notebooks/${notebookId}/lists/${listId}/edit`}>
           <img
             src={editIcon}
             alt="edit list"
-            className="notebook-navigation__image"
+            className="list-bottom-navigation__button-edit"
           />
         </Link>
       </nav>

@@ -32,7 +32,7 @@ export default function AddListTitle() {
 
       getTitles();
     }
-  }, [title]);
+  }, [title, listId]);
 
   const handleSubmitTitle = async (event) => {
     event.preventDefault();
@@ -67,13 +67,13 @@ export default function AddListTitle() {
 
         event.target.reset();
       } catch (error) {
-        console.log(error);
+        console.error(error);
       }
     }
 
     //edit an existing list
     if (listId) {
-      const parsedNotebookId = parseInt(notebookId);
+      // const parsedNotebookId = parseInt(notebookId);
 
       setIsError(false);
 
@@ -87,10 +87,7 @@ export default function AddListTitle() {
       };
 
       try {
-        const response = await axios.put(
-          `${baseURL}/api/list-titles`,
-          newListTitle
-        );
+        await axios.put(`${baseURL}/api/list-titles`, newListTitle);
 
         setIsError(false);
         setTitle(newListTitle);
@@ -98,7 +95,7 @@ export default function AddListTitle() {
 
         event.target.reset();
       } catch (error) {
-        console.log(error);
+        console.error(error);
       }
     }
   };

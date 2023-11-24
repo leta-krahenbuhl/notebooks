@@ -1,7 +1,7 @@
 import "./AddListItem.scss";
 import axios from "axios";
 import EditItem from "../EditItem/EditItem";
-
+import { useCallback } from "react";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { fetchListItems } from "../../utils/AxiosRequests";
@@ -15,20 +15,28 @@ export default function AddListItem() {
   const parsedListId = parseInt(listId);
   const baseURL = process.env.REACT_APP_BASE_URL;
 
-  const getItems = async () => {
-    const data = await fetchListItems();
-    const currentItemArr = data.filter((itemObj) => {
-      return itemObj.list_id === parseInt(listId);
-    });
-    return currentItemArr;
-  };
+  const getItems = useCallback(async () => {
+    try {
+      const data = await fetchListItems();
+      const currentItemArr = data.filter((itemObj) => {
+        return itemObj.list_id === parseInt(listId);
+      });
+      return currentItemArr;
+    } catch (error) {
+      console.error("An error occurred while getting items:", error);
+      // Throw the error so that it can be caught in the Promise chain
+      throw error;
+    }
+  }, [listId]); // Add listId as a dependency if it's used inside getItems
 
   useEffect(() => {
     getItems()
       .then((data) => {
         setAllItems(data);
       })
-      .catch(console.error);
+      .catch((error) => {
+        console.error(error);
+      });
   }, [getItems]);
 
   const handleUpateItem = async (updatedItem) => {
@@ -113,3 +121,25 @@ export default function AddListItem() {
     </div>
   );
 }
+
+//----------before useCallback
+
+// const getItems = async () => {
+//   try {
+//     const data = await fetchListItems();
+//     const currentItemArr = data.filter((itemObj) => {
+//       return itemObj.list_id === parseInt(listId);
+//     });
+//     return currentItemArr;
+//   } catch (error) {
+//     return console.error("An error occurred while getting items:", error);
+//   }
+// };
+
+// useEffect(() => {
+//   getItems()
+//     .then((data) => {
+//       setAllItems(data);
+//     })
+//     .catch(console.error);
+// }, [getItems]);

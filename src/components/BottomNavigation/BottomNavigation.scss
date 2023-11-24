@@ -4,15 +4,9 @@
 .notebook-navigation {
   @include bottom-navigation;
 
-  &__image {
+  &__icon-plus {
     width: 1.8rem;
-  }
-}
-
-.list {
-  &__button-delete {
-    background-image: url("../../assets/images/delete.svg");
-    @include button-icon;
+    margin-bottom: 0.6rem;
   }
 }
 
@@ -27,5 +21,22 @@
 
   &__image {
     width: 1.8rem;
+  }
+}
+
+.list-bottom-navigation {
+  @include bottom-navigation;
+
+  &__button-delete {
+    background-image: url("../../assets/images/delete.svg");
+    @include button-icon-white;
+    background-color: black;
+    margin-bottom: 0.6rem;
+    width: 1.8rem;
+  }
+
+  &__button-edit {
+    width: 1.8rem;
+    margin-bottom: -1.3rem;
   }
 }
