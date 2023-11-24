@@ -94,7 +94,7 @@ export default function AddListItem() {
                 : "add-list-items-form__input--inactive"
             }`}
             name="listItem"
-            placeholder="add list item"
+            placeholder="add item"
           />
           <button
             className={`${

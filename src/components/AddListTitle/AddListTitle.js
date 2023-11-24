@@ -119,7 +119,7 @@ export default function AddListTitle() {
               type="text"
               id="text"
               name="text"
-              placeholder="add list title"
+              placeholder="add title"
               className="add-list-title-form__input"
             />
             <button className="add-list-title-form__button"></button>
