@@ -32,14 +32,13 @@ export default function ListItems({ itemsForTitles, getAllListItems, listId }) {
                   return item.list_id === parseInt(listId);
                 })
                 .map((item, itemIndex) => {
+                  const uniqueKey = `${index}-${itemIndex}`;
                   // const listItemClass = `${
                   //   !item.done ? "list-items__item" : "list-items__item--true"
                   // }`;
                   return (
-                    <div className="list-items__wrapper">
-                      <li key={itemIndex} className="list-items__item">
-                        {item.text}
-                      </li>
+                    <div key={uniqueKey} className="list-items__wrapper">
+                      <li className="list-items__item">{item.text}</li>
                       {item.done ? (
                         <img
                           className="list-items__square"
