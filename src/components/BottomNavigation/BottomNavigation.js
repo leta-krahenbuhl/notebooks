@@ -1,5 +1,4 @@
 import "./BottomNavigation.scss";
-import { useState } from "react";
 import { deleteList } from "../../utils/AxiosRequests";
 import plusIcon from "../../assets/images/plus.svg";
 import editIcon from "../../assets/images/edit-white.svg";
@@ -11,8 +10,6 @@ import { useNavigate } from "react-router-dom";
 export default function BottomNavigation() {
   const { notebookId, listId } = useParams();
   const navigate = useNavigate();
-
-  const parsedNotebookId = parseInt(notebookId);
 
   const handleDeleteList = async (listId) => {
     const confirmDelete = window.confirm(

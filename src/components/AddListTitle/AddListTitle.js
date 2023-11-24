@@ -100,7 +100,7 @@ export default function AddListTitle() {
     }
   };
 
-  //isTitle(false) means it displays input field
+  //setting isTitle to false will display the input field
   const handleClick = () => {
     setIsTitle(false);
   };
@@ -160,7 +160,7 @@ export default function AddListTitle() {
     );
   }
 
-  //title displayed
+  //title displayed (no input field)
   if (isTitle) {
     return (
       <>
@@ -170,6 +170,7 @@ export default function AddListTitle() {
             {titleArr && titleArr.length > 0 ? titleArr[0].title : ""}
           </h3>
           <img
+            alt="edit list title button"
             onClick={() => handleClick(titleArr[0].title)}
             className="edit-list-title-form__button"
           ></img>

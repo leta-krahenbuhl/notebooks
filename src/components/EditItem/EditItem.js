@@ -1,11 +1,19 @@
 import { useState } from "react";
-import { deleteItem } from "../../utils/AxiosRequests"; //move this into Item component
+import { deleteItem } from "../../utils/AxiosRequests";
 import "./EditItem.scss";
 
-export default function EditItem({ item, onItemUpdate, getItems }) {
+export default function EditItem({
+  item,
+  onItemUpdate,
+  getItems,
+  setRender,
+  render,
+}) {
   const [isEditing, setIsEditing] = useState(false);
   const [value, setValue] = useState(item.text);
   const [isError, setIsError] = useState(false);
+
+  const renderState = render;
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -21,7 +29,7 @@ export default function EditItem({ item, onItemUpdate, getItems }) {
 
   const handleDeleteItem = async () => {
     const confirmDelete = window.confirm(
-      "Are you sure you want to delete this item? This action cannot be undone."
+      `Are you sure you want to delete "${value}" ? This action cannot be undone.`
     );
 
     if (confirmDelete) {
@@ -31,7 +39,9 @@ export default function EditItem({ item, onItemUpdate, getItems }) {
       } catch (error) {
         console.error(error);
       }
-      getItems();
+      console.log("here");
+      // getItems();
+      setRender(!renderState);
     } else {
       //change this before submission
       console.log("Item deletion cancelled");

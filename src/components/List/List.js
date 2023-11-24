@@ -12,20 +12,20 @@ export default function List() {
 
   const { notebookId } = useParams();
 
-  const getArrayOfListTitlesWithNotebookId = async () => {
-    try {
-      const data = await fetchListTitles();
-
-      const arrayOfListTitleswithNotebookId = data.filter(
-        (notebook) => notebook.notebook_id === parseInt(notebookId)
-      );
-      setListTitleswithNotebookId(arrayOfListTitleswithNotebookId);
-    } catch (error) {
-      console.error(error);
-    }
-  };
-
   useEffect(() => {
+    const getArrayOfListTitlesWithNotebookId = async () => {
+      try {
+        const data = await fetchListTitles();
+
+        const arrayOfListTitleswithNotebookId = data.filter(
+          (notebook) => notebook.notebook_id === parseInt(notebookId)
+        );
+        setListTitleswithNotebookId(arrayOfListTitleswithNotebookId);
+      } catch (error) {
+        console.error(error);
+      }
+    };
+
     getArrayOfListTitlesWithNotebookId();
   }, [notebookId]);
 
@@ -45,7 +45,6 @@ export default function List() {
   const getItemsForTitles = (titles, items) => {
     const itemsByTitle = titles.map((title) => {
       const itemsForTitle = items.filter((item) => item.list_id === title.id);
-
       return { title, items: itemsForTitle };
     });
     return itemsByTitle;
