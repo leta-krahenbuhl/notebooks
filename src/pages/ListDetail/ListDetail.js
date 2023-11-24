@@ -59,18 +59,6 @@ export default function Home() {
     listTitleswithNotebookId || [],
     allListItems || []
   );
-  // ---------------------------------- end
-
-  // // ----------------- to get current list title for TopNaviations: below
-  // useEffect(() => {
-  //   if (listTitleswithNotebookId) {
-  //     const result = listTitleswithNotebookId.find(
-  //       (listTitle) => listTitle.id === parseInt(listId)
-  //     );
-  //     setCurrentListTitleObj(result);
-  //   }
-  // }, [listTitleswithNotebookId, listId]);
-  // // ----------------- to get current list title for TopNaviations: above
 
   return (
     <>

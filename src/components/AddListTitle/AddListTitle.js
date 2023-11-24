@@ -108,7 +108,7 @@ export default function AddListTitle() {
     setIsTitle(false);
   };
 
-  //If there's no listId it means we are adding a new list, not editing a current one
+  //add a new list
   if (!isTitle && !listId) {
     return (
       <>
@@ -134,8 +134,7 @@ export default function AddListTitle() {
     );
   }
 
-  //If isTitle===false it means the input field is being displayed
-  //If there's a listId it means we're eiditng an existing list title
+  //edit existing list title
   if (!isTitle && listId) {
     return (
       <>
@@ -164,7 +163,7 @@ export default function AddListTitle() {
     );
   }
 
-  // If isTitle===true it means the title is being displayed, not the input form
+  //title displayed
   if (isTitle) {
     return (
       <>

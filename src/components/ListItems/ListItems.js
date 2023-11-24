@@ -62,6 +62,7 @@ export default function ListItems({ itemsForTitles, getAllListItems, listId }) {
           </div>
         ))}
       </div>
+      <div className="border"></div>
     </>
   );
 }
