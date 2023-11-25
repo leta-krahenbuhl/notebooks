@@ -43,14 +43,14 @@ function App() {
             element={<CreateJournalEntry />}
           />
           <Route path="/create/notebook" element={<CreateNotebook />} />
-          <Route path="/create/list" element={<CreateList />} />
+          <Route path="/create/lists" element={<CreateList />} />
           <Route
-            path="/notebooks/:notebookId/create/list/"
+            path="/notebooks/:notebookId/create/lists/"
             element={<CreateList />}
           />
 
           <Route
-            path="/notebooks/:notebookId/create/list/:listId"
+            path="/notebooks/:notebookId/create/lists/:listId"
             element={<CreateList />}
           />
 

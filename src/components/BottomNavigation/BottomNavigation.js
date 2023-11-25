@@ -61,7 +61,7 @@ export default function BottomNavigation() {
   if (notebookId && !listId)
     return (
       <nav className="notebook-navigation">
-        <Link to={`/notebooks/${notebookId}/create/list`}>
+        <Link to={`/notebooks/${notebookId}/create/lists`}>
           <img
             src={plusIcon}
             alt="add new list"

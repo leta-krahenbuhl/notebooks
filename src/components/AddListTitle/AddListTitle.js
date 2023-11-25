@@ -63,7 +63,7 @@ export default function AddListTitle() {
         setTitle(newListTitle);
         setIsTitle(true);
 
-        navigate(`/notebooks/${notebookId}/create/list/${newListTitleId}`);
+        navigate(`/notebooks/${notebookId}/create/lists/${newListTitleId}`);
 
         event.target.reset();
       } catch (error) {
