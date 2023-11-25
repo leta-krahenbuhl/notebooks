@@ -13,7 +13,7 @@ export default function BottomNavigation() {
 
   const handleDeleteList = async (listId) => {
     const confirmDelete = window.confirm(
-      "Are you sure you want to delete this list? This action cannot be undone."
+      `Are you sure you want to delete this list? This action cannot be undone.`
     );
 
     if (confirmDelete) {

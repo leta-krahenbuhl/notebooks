@@ -70,7 +70,16 @@ export default function TopNavigation() {
     <>
       <h2 className="top-navigation">
         <Link to={`/notebooks/${notebookId}`}> {navNotebookTitle.title} </Link>
-        {currentListTitleObj && <> | {currentListTitleObj.title}</>}
+        {currentListTitleObj && (
+          <>
+            {" "}
+            |{" "}
+            <Link to={`/notebooks/${notebookId}/lists/${listId}`}>
+              {" "}
+              {currentListTitleObj.title}
+            </Link>
+          </>
+        )}
       </h2>
     </>
   );

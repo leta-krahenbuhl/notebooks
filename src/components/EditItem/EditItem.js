@@ -45,21 +45,23 @@ export default function EditItem({ item, onItemUpdate, setRender, render }) {
   return (
     <>
       {isEditing ? (
-        <form onSubmit={handleSubmit} className="edit-item-form">
-          <input
-            type="text"
-            value={value}
-            onChange={(event) => {
-              setValue(event.target.value);
-            }}
-          />
-          <button className="edit-item-form__button-save"></button>
+        <div className="wrapper">
+          <form onSubmit={handleSubmit} className="edit-item-form">
+            <input
+              type="text"
+              value={value}
+              onChange={(event) => {
+                setValue(event.target.value);
+              }}
+            />
+            <button className="edit-item-form__button-save"></button>
+          </form>
           {isError && (
             <p className="edit-item-form__error">
               Please enter text for your item.
             </p>
           )}
-        </form>
+        </div>
       ) : (
         <div className="edit-item">
           <p className="edit-item__text">{value}</p>
