@@ -3,10 +3,10 @@
 
 .notebook-navigation {
   @include bottom-navigation;
+  height: 3.2rem;
 
   &__icon-plus {
     width: 1.8rem;
-    margin-bottom: 0.6rem;
   }
 }
 

@@ -33,8 +33,7 @@ export default function EditItem({ item, onItemUpdate, setRender, render }) {
       } catch (error) {
         console.error(error);
       }
-      console.log("here");
-      // getItems();
+
       setRender(!renderState);
     } else {
       //change this before submission
@@ -66,12 +65,12 @@ export default function EditItem({ item, onItemUpdate, setRender, render }) {
         <div className="edit-item">
           <p className="edit-item__text">{value}</p>
           <button
-            className="edit-item__button-edit"
-            onClick={() => setIsEditing(true)}
-          ></button>
-          <button
             className="edit-item__button-delete"
             onClick={handleDeleteItem}
+          ></button>
+          <button
+            className="edit-item__button-edit"
+            onClick={() => setIsEditing(true)}
           ></button>
         </div>
       )}
