@@ -14,6 +14,7 @@ export default function AddListItem() {
 
   const parsedListId = parseInt(listId);
   const baseURL = process.env.REACT_APP_BASE_URL;
+
   useEffect(() => {
     const getItems = async () => {
       try {
@@ -75,20 +76,21 @@ export default function AddListItem() {
   };
 
   return (
-    <div className="add-list-items">
-      <ul className="add-list-items__list">
+    // exisiting items
+    <div className="edit-list-items">
+      <ul className="edit-list-items__list">
         {allItems.map((item) => (
-          <li key={item.id} className="add-list-items__item">
+          <li key={item.id} className="edit-list-items__item">
             <EditItem
               item={item}
               onItemUpdate={handleUpateItem}
-              // getItems={getItems}
               setRender={setRender}
               render={render}
             />
           </li>
         ))}
       </ul>
+      {/* add new item */}
       <form className="add-list-items-form" onSubmit={handleSubmitItem}>
         <div className="add-list-items-form__wrapper">
           <input
@@ -118,25 +120,3 @@ export default function AddListItem() {
     </div>
   );
 }
-
-//----------before useCallback
-
-// const getItems = async () => {
-//   try {
-//     const data = await fetchListItems();
-//     const currentItemArr = data.filter((itemObj) => {
-//       return itemObj.list_id === parseInt(listId);
-//     });
-//     return currentItemArr;
-//   } catch (error) {
-//     return console.error("An error occurred while getting items:", error);
-//   }
-// };
-
-// useEffect(() => {
-//   getItems()
-//     .then((data) => {
-//       setAllItems(data);
-//     })
-//     .catch(console.error);
-// }, [getItems]);

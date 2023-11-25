@@ -2,13 +2,7 @@ import { useState } from "react";
 import { deleteItem } from "../../utils/AxiosRequests";
 import "./EditItem.scss";
 
-export default function EditItem({
-  item,
-  onItemUpdate,
-  getItems,
-  setRender,
-  render,
-}) {
+export default function EditItem({ item, onItemUpdate, setRender, render }) {
   const [isEditing, setIsEditing] = useState(false);
   const [value, setValue] = useState(item.text);
   const [isError, setIsError] = useState(false);
@@ -51,7 +45,7 @@ export default function EditItem({
   return (
     <>
       {isEditing ? (
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} className="edit-item-form">
           <input
             type="text"
             value={value}
@@ -59,9 +53,9 @@ export default function EditItem({
               setValue(event.target.value);
             }}
           />
-          <button className="save-edit-list-item-button"></button>
+          <button className="edit-item-form__button-save"></button>
           {isError && (
-            <p className="add-notebook-form__error">
+            <p className="edit-item-form__error">
               Please enter text for your item.
             </p>
           )}

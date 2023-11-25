@@ -1,6 +1,21 @@
 @use "../../styles/partials/mixins" as *;
 @use "../../styles/partials/mixins" as *;
 
+//ok
+.edit-item-form {
+  &__button-save {
+    @include button-icon-white;
+    background-image: URL("../../assets/images/save-black.svg");
+    margin-right: 1.5rem;
+  }
+
+  &__error {
+    @include error-message-form;
+    display: block;
+  }
+}
+
+//ok
 .edit-item {
   display: flex;
   justify-content: space-between;
