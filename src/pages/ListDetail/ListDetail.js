@@ -8,6 +8,7 @@ import { fetchListTitles } from "../../utils/AxiosRequests";
 import { fetchListItems } from "../../utils/AxiosRequests";
 
 export default function Home() {
+  //this whole thing is also in Lsit.js!!!!
   const [allListItems, setAllListItems] = useState(null);
   const [listTitleswithNotebookId, setListTitleswithNotebookId] =
     useState(null);

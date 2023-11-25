@@ -1,11 +1,11 @@
 import "./App.scss";
 import Header from "./components/Header/Header";
-import { BrowserRouter, Link, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Home from "./pages/Home/Home";
 import CreateJournalEntry from "./pages/CreateJournalEntry/CreateJournalEntry";
 import CreateNotebook from "./pages/CreateNotebook/CreateNotebook";
 import Notebook from "./pages/Notebook/notebook";
-import List from "./components/List/List";
+// import List from "./components/List/List";
 import CreateList from "./pages/CreateList/CreateList";
 import ListDetail from "./pages/ListDetail/ListDetail";
 import EditList from "./pages/EditList/EditList";
@@ -52,7 +52,7 @@ function App() {
           />
 
           {/* temporary route to experiment with lists: */}
-          <Route path="/lists" element={<List />} />
+          {/* <Route path="/lists" element={<List />} /> */}
           <Route path="/lists/add/:listId" element={<CreateList />} />
         </Routes>
       </div>
