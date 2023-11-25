@@ -120,12 +120,12 @@ export default function AddListTitle() {
               className="add-list-title-form__input"
             />
             <button className="add-list-title-form__button"></button>
-            {isError && (
-              <p className="add-notebook-form__error">
-                Please enter a list title.
-              </p>
-            )}
           </div>
+          {isError && (
+            <p className="add-notebook-form__error">
+              Please enter a list title.
+            </p>
+          )}
         </form>
       </>
     );

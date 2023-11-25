@@ -41,8 +41,8 @@ export default function CreateList() {
           <AddListTitle notebookId={notebookId} />
           <AddListItem lists={lists} />
         </div>
-        <Link to={`/notebooks/${notebookId}`} className="cancel-button">
-          <p>CANCEL</p>
+        <Link to={`/notebooks/${notebookId}`}>
+          <button className="create-list__done-button">DONE</button>
         </Link>
       </div>
     </div>

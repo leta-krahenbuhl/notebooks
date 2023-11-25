@@ -2,10 +2,16 @@
 @use "../../styles/partials/mixins" as *;
 
 .notebook {
+  &__delete-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
   &__wrapper-single {
     display: flex;
     justify-content: space-between;
-    align-items: baseline;
+    align-items: center;
   }
 
   &__title {
@@ -15,8 +21,9 @@
   }
 
   &__button-delete {
-    background-image: url("../../assets/images/delete.svg");
-    @include button-icon;
+    background-image: url("../../assets/images/trash-black.svg");
+    @include button-icon-white;
+    margin-right: 1rem;
   }
 
   &__button-edit {
@@ -26,8 +33,18 @@
   }
 
   &__button-save {
-    background-image: url("../../assets/images/save.svg");
+    background-image: url("../../assets/images/save-black.svg");
     margin-right: 1rem;
-    @include button-icon;
+    @include button-icon-white;
+  }
+}
+
+.notebook-edit-form {
+  display: flex;
+  justify-content: space-between;
+  margin-left: 1rem;
+
+  &__input {
+    @include input-field;
   }
 }

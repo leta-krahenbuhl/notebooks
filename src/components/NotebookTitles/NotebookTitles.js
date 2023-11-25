@@ -96,22 +96,24 @@ export default function Home() {
     navigate(`/`);
   };
 
-  //----------------------------------------------- on page load and delete render
+  //page load and delete render
   if (location.pathname === "/" || location.pathname === "/delete") {
     return (
       <>
         {notebooks.map((notebook) => {
           return (
             <div className="notebook__wrapper" key={notebook.date}>
-              <Link to={`/notebooks/${notebook.id}`}>
-                <h2 className="notebook__title">{notebook.title}</h2>
-              </Link>
-              {location.pathname === "/delete" && (
-                <button
-                  onClick={() => handleDelete(notebook.id)}
-                  className="notebook__button-delete"
-                ></button>
-              )}
+              <div className="notebook__delete-wrapper">
+                <Link to={`/notebooks/${notebook.id}`}>
+                  <h2 className="notebook__title">{notebook.title}</h2>
+                </Link>
+                {location.pathname === "/delete" && (
+                  <button
+                    onClick={() => handleDelete(notebook.id)}
+                    className="notebook__button-delete"
+                  ></button>
+                )}
+              </div>
               {location.pathname === "/edit" && (
                 <button
                   onClick={() => handleClickEditIcon(notebook.id)}
@@ -125,7 +127,7 @@ export default function Home() {
     );
   }
 
-  //-------------------------- render after clicking on edit in bottom nav
+  //after clicking on edit
   if (location.pathname === "/edit") {
     return (
       <>
@@ -134,9 +136,10 @@ export default function Home() {
             <div className="notebook__wrapper" key={notebook.date}>
               {notebookToEdit === notebook.id ? (
                 //if notebook title id is the one that is being edited, display the following:
-                <form>
+                <form className="notebook-edit-form">
                   <input
                     type="text"
+                    className="notebook-edit-form__input"
                     value={editedTitle !== "" ? editedTitle : notebook.title}
                     onChange={(event) => setEditedTitle(event.target.value)}
                   />
@@ -165,41 +168,4 @@ export default function Home() {
       </>
     );
   }
-
-  // return (
-  //   <>
-  //     {notebooks.map((notebook) => {
-  //       return (
-  //         <div className="notebook__wrapper" key={notebook.date}>
-  //           {notebookToEdit === notebook.id ? (
-  //             <div>
-  //               <input
-  //                 type="text"
-  //                 defaultValue={notebook.title}
-  //                 // onBlur={(e) => handleItemEdit(e.target.value, item.id)}
-  //               />
-  //             </div>
-  //           ) : (
-  //             <Link to={`/notebooks/${notebook.id}`}>
-  //               <h2 className="notebook__title">{notebook.title}</h2>
-  //             </Link>
-  //           )}
-
-  //           {location.pathname === "/delete" && (
-  //             <button
-  //               onClick={() => handleDelete(notebook.id)}
-  //               className="notebook__button-delete"
-  //             ></button>
-  //           )}
-  //           {location.pathname === "/edit" && (
-  //             <button
-  //               onClick={() => handleClickEditIcon(notebook.id)}
-  //               className="notebook__button-edit"
-  //             ></button>
-  //           )}
-  //         </div>
-  //       );
-  //     })}
-  //   </>
-  // );
 }

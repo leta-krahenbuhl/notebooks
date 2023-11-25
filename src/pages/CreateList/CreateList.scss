@@ -16,6 +16,10 @@
   &__wrapper2 {
     width: 100%;
   }
+
+  &__done-button {
+    @include button;
+  }
 }
 
 .edit-list-items {
