@@ -4,6 +4,8 @@ import ListItems from "../ListItems/ListItems";
 import { fetchListItems } from "../../utils/AxiosRequests";
 import { useState, useEffect } from "react";
 import { fetchListTitles } from "../../utils/AxiosRequests";
+import TopNavigation from "../../components/TopNavigation/TopNavigation";
+import BottomNavigation from "../../components/BottomNavigation/BottomNavigation";
 
 export default function List() {
   //this whole thing is also in LsitDetail.js!!!!
@@ -43,6 +45,7 @@ export default function List() {
     getAllListItems();
   }, []);
 
+  //only gets items for titles that are in this notebook
   const getItemsForTitles = (titles, items) => {
     const itemsByTitle = titles.map((title) => {
       const itemsForTitle = items.filter((item) => item.list_id === title.id);
@@ -52,6 +55,8 @@ export default function List() {
     return itemsByTitle;
   };
 
+  //itemsForTitles is an array of objects. Each object has two properties
+  //items and title. Items is an array with objects. Title is an object.
   const itemsForTitles = getItemsForTitles(
     listTitleswithNotebookId || [],
     allListItems || []
@@ -70,11 +75,29 @@ export default function List() {
               <ListItems
                 itemsForTitles={itemsForTitles}
                 getAllListItems={getAllListItems}
-                listId={titleObj.title.id}
+                listIdForTitle={titleObj.title.id}
+                listId={listId}
               />
             </div>
           ))}
         </div>
+      </>
+    );
+  }
+
+  if (listId) {
+    return (
+      <>
+        <TopNavigation notebookId={notebookId} />
+
+        <div className="list">
+          <ListItems
+            itemsForTitles={itemsForTitles}
+            getAllListItems={getAllListItems}
+            listId={listId}
+          />
+        </div>
+        <BottomNavigation />
       </>
     );
   }

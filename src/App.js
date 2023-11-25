@@ -7,8 +7,9 @@ import CreateNotebook from "./pages/CreateNotebook/CreateNotebook";
 import Notebook from "./pages/Notebook/notebook";
 // import List from "./components/List/List";
 import CreateList from "./pages/CreateList/CreateList";
-import ListDetail from "./pages/ListDetail/ListDetail";
+// import ListDetail from "./pages/ListDetail/ListDetail";
 import EditList from "./pages/EditList/EditList";
+import List from "./components/List/List";
 
 function App() {
   return (
@@ -24,7 +25,8 @@ function App() {
 
           <Route
             path="/notebooks/:notebookId/lists/:listId"
-            element={<ListDetail />}
+            // element={<ListDetail />}
+            element={<List />}
           />
           <Route
             path="/notebooks/:notebookId/lists/:listId/edit"
@@ -32,7 +34,8 @@ function App() {
           />
           <Route
             path="/notebooks/:notebookId/lists/:listId/delete"
-            element={<ListDetail />}
+            // element={<ListDetail />}
+            element={<List />}
           />
 
           <Route
