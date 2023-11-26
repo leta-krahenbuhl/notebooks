@@ -12,12 +12,10 @@ export default function Home() {
   const [isLoading, setIsLoading] = useState(true);
   const [notebookToEdit, setNotebookToEdit] = useState(null);
   const [editedTitle, setEditedTitle] = useState("");
-  const [formErrors, setFormErrors] = useState({});
   const [isError, setIsError] = useState(false);
 
   const location = useLocation();
   const navigate = useNavigate();
-  const baseURL = process.env.REACT_APP_BASE_URL;
 
   //setEditedTitle before starting to edit to populate input field with current title
   useEffect(() => {
@@ -81,19 +79,6 @@ export default function Home() {
     const submittedTitle =
       editedTitle ||
       notebooks.find((notebook) => notebook.id === notebookToEdit)?.title;
-
-    setFormErrors({});
-    const errors = {};
-    let isFormValid = true;
-
-    if (!submittedTitle) {
-      isFormValid = false;
-      errors["title"] = "Please enter a notebook title";
-    }
-
-    if (!isFormValid) {
-      return setFormErrors(errors);
-    }
 
     const parsedNotebookId = parseInt(id);
 
