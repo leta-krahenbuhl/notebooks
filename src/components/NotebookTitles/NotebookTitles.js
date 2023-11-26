@@ -19,7 +19,7 @@ export default function Home() {
   const navigate = useNavigate();
   const baseURL = process.env.REACT_APP_BASE_URL;
 
-  //setEditedTitle before starting to edit
+  //setEditedTitle before starting to edit to populate input field with current title
   useEffect(() => {
     if (notebookToEdit !== null) {
       setEditedTitle(
@@ -73,6 +73,11 @@ export default function Home() {
 
   const handleSaveTitle = async (event, id) => {
     event.preventDefault();
+
+    if (!editedTitle && !((notebook) => notebook.id === notebookToEdit).title) {
+      console.log("empty title detected");
+      return setIsError(true);
+    }
 
     const submittedTitle =
       editedTitle ||
@@ -146,19 +151,24 @@ export default function Home() {
             <div className="notebook__wrapper" key={notebook.date}>
               {notebookToEdit === notebook.id ? (
                 //if notebook title id is the one that is being edited, display the following:
-                <form className="notebook-edit-form">
-                  <input
-                    type="text"
-                    className="notebook-edit-form__input"
-                    value={editedTitle}
-                    onChange={(event) => setEditedTitle(event.target.value)}
-                  />
-                  <button
-                    type="submit"
-                    onClick={(event) => handleSaveTitle(event, notebook.id)}
-                    className="notebook__button-save"
-                  ></button>
-                </form>
+                <div className="notebook__form-wrapper">
+                  <form className="notebook-edit-form">
+                    <input
+                      type="text"
+                      className="notebook-edit-form__input"
+                      value={editedTitle}
+                      onChange={(event) => setEditedTitle(event.target.value)}
+                    />
+                    <button
+                      type="submit"
+                      onClick={(event) => handleSaveTitle(event, notebook.id)}
+                      className="notebook__button-save"
+                    ></button>
+                  </form>
+                  {isError && (
+                    <p className="notebook__error">Please enter a title.</p>
+                  )}
+                </div>
               ) : (
                 //if notebook title id is NOT the one that is being edited, display the following:
                 <div className="notebook__wrapper-single">
