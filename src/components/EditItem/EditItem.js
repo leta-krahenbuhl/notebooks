@@ -36,8 +36,7 @@ export default function EditItem({ item, onItemUpdate, setRender, render }) {
 
       setRender(!renderState);
     } else {
-      //change this before submission
-      console.log("Item deletion cancelled");
+      return <p>Couldn't delete item.</p>;
     }
   };
 

@@ -3,7 +3,7 @@
 
 .notebook-navigation {
   @include bottom-navigation;
-  height: 3.2rem;
+  padding-top: 0.45rem;
 
   &__icon-plus {
     width: 1.8rem;
@@ -12,7 +12,7 @@
 
 .home-navigation {
   @include bottom-navigation;
-  height: 3.2rem;
+  padding-top: 0.7rem;
 
   &__image-plus {
     margin-top: -0.3rem;
@@ -22,15 +22,20 @@
   &__image {
     width: 1.8rem;
   }
+
+  overscroll-behavior: none;
+  width: 100%;
 }
 
 .list-bottom-navigation {
   @include bottom-navigation;
+  padding-top: 0.4rem;
 
   &__button-delete {
     background-image: url("../../assets/images/delete.svg");
     @include button-icon-white;
     background-color: black;
+    background-size: 1.8rem;
     margin-bottom: 0.6rem;
     width: 1.8rem;
   }
