@@ -1,4 +1,4 @@
-import "./AddListItem.scss";
+import "./AddEditListItems.scss";
 import axios from "axios";
 import EditItem from "../EditItem/EditItem";
 import { useEffect, useState } from "react";
@@ -63,7 +63,6 @@ export default function AddListItem() {
         `${baseURL}/api/list-items`,
         newListItem
       );
-      //without this I get a "each child has to have a uniuqe key error msg?
       const updatedItem = response.data;
 
       setIsErrorNewItem(false);

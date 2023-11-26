@@ -1,6 +1,6 @@
 import "./CreateList.scss";
-import AddListTitle from "../../components/AddListTitle/AddListTitle";
-import AddListItem from "../../components/AddListItem/AddListItem";
+import AddEditListTitle from "../../components/AddEditListTitle/AddEditListTitle";
+import AddEditListItems from "../../components/AddEditListItems/AddEditListItems";
 import { useState, useEffect } from "react";
 import { fetchListTitles } from "../../utils/AxiosRequests";
 import { useParams } from "react-router-dom";
@@ -8,11 +8,9 @@ import TopNavigation from "../../components/TopNavigation/TopNavigation";
 import { Link } from "react-router-dom";
 
 export default function CreateList() {
-  const { notebookId, listId } = useParams();
+  const { notebookId } = useParams();
   const [lists, setLists] = useState();
   const [isLoading, setIsLoading] = useState(true);
-
-  // console.log(notebookId); //works
 
   const getListTitles = async () => {
     try {
@@ -31,15 +29,14 @@ export default function CreateList() {
   if (isLoading) {
     return <div>Loading...</div>;
   }
-  // console.log(lists); //works!
 
   return (
     <div className="create-list">
       <TopNavigation notebookId={notebookId} />
       <div className="create-list__wrapper1">
         <div className="create-list__wrapper2">
-          <AddListTitle notebookId={notebookId} />
-          <AddListItem lists={lists} />
+          <AddEditListTitle notebookId={notebookId} />
+          <AddEditListItems lists={lists} />
         </div>
         <Link to={`/notebooks/${notebookId}`}>
           <button className="create-list__done-button">DONE</button>

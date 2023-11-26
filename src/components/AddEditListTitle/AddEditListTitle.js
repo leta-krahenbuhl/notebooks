@@ -1,4 +1,4 @@
-import "./AddListTitle.scss";
+import "./AddEditListTitle.scss";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { useParams } from "react-router-dom";
@@ -73,8 +73,6 @@ export default function AddListTitle() {
 
     //edit an existing list
     if (listId) {
-      // const parsedNotebookId = parseInt(notebookId);
-
       setIsError(false);
 
       if (!event.target.text.value) {

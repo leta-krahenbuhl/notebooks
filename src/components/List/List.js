@@ -8,7 +8,6 @@ import TopNavigation from "../../components/TopNavigation/TopNavigation";
 import BottomNavigation from "../../components/BottomNavigation/BottomNavigation";
 
 export default function List() {
-  //this whole thing is also in LsitDetail.js!!!!
   const [allListItems, setAllListItems] = useState(null);
   const [listTitleswithNotebookId, setListTitleswithNotebookId] =
     useState(null);
@@ -55,8 +54,6 @@ export default function List() {
     return itemsByTitle;
   };
 
-  //itemsForTitles is an array of objects. Each object has two properties
-  //items and title. Items is an array with objects. Title is an object.
   const itemsForTitles = getItemsForTitles(
     listTitleswithNotebookId || [],
     allListItems || []

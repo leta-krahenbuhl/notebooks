@@ -22,10 +22,7 @@ export default function BottomNavigation() {
       } catch (error) {
         console.error(error);
       }
-
       navigate(`/notebooks/${notebookId}`);
-    } else {
-      console.log("List deletion canceled");
     }
   };
 

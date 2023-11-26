@@ -63,7 +63,7 @@ export default function Home() {
 
       getNotebookTitles();
     } else {
-      console.log("Notebook deletion canceled");
+      navigate(`/`);
     }
   };
 
@@ -75,7 +75,6 @@ export default function Home() {
     event.preventDefault();
 
     if (!editedTitle && !((notebook) => notebook.id === notebookToEdit).title) {
-      console.log("empty title detected");
       return setIsError(true);
     }
 
@@ -150,7 +149,7 @@ export default function Home() {
           return (
             <div className="notebook__wrapper" key={notebook.date}>
               {notebookToEdit === notebook.id ? (
-                //if notebook title id is the one that is being edited, display the following:
+                //if notebook title id is the one that is being edited
                 <div className="notebook__form-wrapper">
                   <form className="notebook-edit-form">
                     <input
@@ -170,7 +169,7 @@ export default function Home() {
                   )}
                 </div>
               ) : (
-                //if notebook title id is NOT the one that is being edited, display the following:
+                //if notebook title id is NOT the one that is being edited
                 <div className="notebook__wrapper-single">
                   <Link to={`/notebooks/${notebook.id}`}>
                     <h2 className="notebook__title">{notebook.title}</h2>
@@ -189,46 +188,3 @@ export default function Home() {
     );
   }
 }
-
-// ------ after clicking on edit which somehwhxat worked:
-
-// if (location.pathname === "/edit") {
-//   return (
-//     <>
-//       {notebooks.map((notebook) => {
-//         return (
-//           <div className="notebook__wrapper" key={notebook.date}>
-//             {notebookToEdit === notebook.id ? (
-//               //if notebook title id is the one that is being edited, display the following:
-//               <form className="notebook-edit-form">
-//                 <input
-//                   type="text"
-//                   className="notebook-edit-form__input"
-//                   value={editedTitle !== "" ? editedTitle : notebook.title}
-//                   onChange={(event) => setEditedTitle(event.target.value)}
-//                 />
-//                 <button
-//                   type="submit"
-//                   onClick={(event) => handleSaveTitle(event, notebook.id)}
-//                   className="notebook__button-save"
-//                 ></button>
-//               </form>
-//             ) : (
-//               //if notebook title id is NOT the one that is being edited, display the following:
-//               <div className="notebook__wrapper-single">
-//                 <Link to={`/notebooks/${notebook.id}`}>
-//                   <h2 className="notebook__title">{notebook.title}</h2>
-//                 </Link>
-
-//                 <button
-//                   onClick={() => handleClickEditIcon(notebook.id)}
-//                   className="notebook__button-edit"
-//                 ></button>
-//               </div>
-//             )}
-//           </div>
-//         );
-//       })}
-//     </>
-//   );
-// }

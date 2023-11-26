@@ -4,7 +4,6 @@ import { fetchNotebookTitles } from "../../utils/AxiosRequests";
 import { Link, useParams } from "react-router-dom";
 import { fetchListTitles } from "../../utils/AxiosRequests";
 
-//took out currentListTitleObj from props
 export default function TopNavigation() {
   const [notebooks, setNotebooks] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
@@ -13,8 +12,7 @@ export default function TopNavigation() {
   const [listTitleswithNotebookId, setListTitleswithNotebookId] =
     useState(null);
 
-  //----- to run the below useEffect
-
+  //to run useEffect2
   const getArrayOfListTitlesWithNotebookId = async () => {
     try {
       const data = await fetchListTitles();
@@ -32,7 +30,7 @@ export default function TopNavigation() {
     getArrayOfListTitlesWithNotebookId();
   }, [notebookId]);
 
-  // ----------------- to get current list title for TopNaviations: below
+  //useEffect2 : get current list title for TopNaviation
   useEffect(() => {
     if (listTitleswithNotebookId) {
       const result = listTitleswithNotebookId.find(
@@ -41,7 +39,6 @@ export default function TopNavigation() {
       setCurrentListTitleObj(result);
     }
   }, [listTitleswithNotebookId, listId]);
-  // ----------------- to get current list title for TopNaviations: above
 
   const getNotebookTitles = async () => {
     try {

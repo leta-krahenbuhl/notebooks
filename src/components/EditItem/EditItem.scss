@@ -1,7 +1,6 @@
 @use "../../styles/partials/mixins" as *;
 @use "../../styles/partials/mixins" as *;
 
-//ok
 .edit-item-form {
   display: flex;
   justify-content: space-between;
@@ -10,7 +9,7 @@
   &__button-save {
     @include button-icon-white;
     background-image: URL("../../assets/images/save-black.svg");
-    margin-right: 3.5rem;
+    margin-right: 0rem;
   }
 
   &__error {
@@ -20,7 +19,6 @@
   }
 }
 
-//ok
 .edit-item {
   display: flex;
   justify-content: space-between;
@@ -37,9 +35,9 @@
   }
 
   &__button-delete {
-    background-image: URL("../../assets/images/delete-cross.svg");
+    background-image: URL("../../assets/images/trash-black.svg");
     @include icon;
-    background-size: 2.1rem;
-    margin-right: 1.5rem;
+    background-size: 1.4rem;
+    margin-right: 1.2rem;
   }
 }
