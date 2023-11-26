@@ -1,5 +1,6 @@
 # Overview: Notebooks
 
+- This is the front-end part of the notebooks project. It connects with the following back-end part: https://github.com/leta-krahenbuhl/notebooks-server
 - A to do list app where users can sort to do lists into notebooks
 - To be extended into a combination of lists, trackers and journals (see 'Nice to Haves')
 - Designed for mobile only at the moment!
@@ -175,6 +176,7 @@ Three API endpoints:
 - Download both client and server side of the notebooks code from GitHub:
   - Front-end: https://github.com/leta-krahenbuhl/notebooks
   - Back-end: https://github.com/leta-krahenbuhl/notebooks-server
+- Log in to MySQL (mysql -u root -p, then type in your password and hit enter)
 - Set up a local MySQL database called 'notebooks'
 - Server side:
   - npm install (to install any dependencies including knex and mysql2)
