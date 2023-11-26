@@ -35,7 +35,6 @@ export default function CreateNotebook() {
       await axios.post(`${baseURL}/api/notebooks`, newNotebook);
       setIsError(false);
       event.target.reset();
-      alert("Notebook added successfully");
       navigate(`/`);
     } catch (error) {
       console.error(error);

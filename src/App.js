@@ -4,8 +4,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Home from "./pages/Home/Home";
 import CreateNotebook from "./pages/CreateNotebook/CreateNotebook";
 import Notebook from "./pages/Notebook/notebook";
-import CreateList from "./pages/CreateList/CreateList";
-import EditList from "./pages/EditList/EditList";
+import AddEditList from "./pages/AddEditList/AddEditList";
 import List from "./components/List/List";
 
 function App() {
@@ -26,7 +25,7 @@ function App() {
           />
           <Route
             path="/notebooks/:notebookId/lists/:listId/edit"
-            element={<EditList />}
+            element={<AddEditList />}
           />
           <Route
             path="/notebooks/:notebookId/lists/:listId/delete"
@@ -36,12 +35,12 @@ function App() {
           <Route path="/create/notebook" element={<CreateNotebook />} />
           <Route
             path="/notebooks/:notebookId/create/lists/"
-            element={<CreateList />}
+            element={<AddEditList />}
           />
 
           <Route
             path="/notebooks/:notebookId/create/lists/:listId"
-            element={<CreateList />}
+            element={<AddEditList />}
           />
         </Routes>
       </div>

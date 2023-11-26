@@ -138,7 +138,6 @@ Three API endpoints:
     "id": 1,
     "date": "11/13/2023, 3:30:00 PM",
     "title": "Gift Ideas",
-    "notebook_id": "1"
   }
 ]
 ```

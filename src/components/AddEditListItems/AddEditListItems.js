@@ -6,7 +6,7 @@ import { useParams } from "react-router-dom";
 import { fetchListItems } from "../../utils/AxiosRequests";
 import { editListItem } from "../../utils/AxiosRequests";
 
-export default function AddListItem() {
+export default function AddEditListItem() {
   const [allItems, setAllItems] = useState([]); //only items for current list title
   const { listId } = useParams();
   const [isErrorNewItem, setIsErrorNewItem] = useState(false);
