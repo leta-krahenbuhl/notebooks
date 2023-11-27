@@ -13,20 +13,19 @@ export default function TopNavigation() {
     useState(null);
 
   //to run useEffect2
-  const getArrayOfListTitlesWithNotebookId = async () => {
-    try {
-      const data = await fetchListTitles();
-
-      const arrayOfListTitleswithNotebookId = data.filter(
-        (notebook) => notebook.notebook_id === parseInt(notebookId)
-      );
-      setListTitleswithNotebookId(arrayOfListTitleswithNotebookId);
-    } catch (error) {
-      console.error(error);
-    }
-  };
-
   useEffect(() => {
+    const getArrayOfListTitlesWithNotebookId = async () => {
+      try {
+        const data = await fetchListTitles();
+
+        const arrayOfListTitleswithNotebookId = data.filter(
+          (notebook) => notebook.notebook_id === parseInt(notebookId)
+        );
+        setListTitleswithNotebookId(arrayOfListTitleswithNotebookId);
+      } catch (error) {
+        console.error(error);
+      }
+    };
     getArrayOfListTitlesWithNotebookId();
   }, [notebookId]);
 
