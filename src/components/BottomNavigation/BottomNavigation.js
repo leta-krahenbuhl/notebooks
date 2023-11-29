@@ -6,10 +6,12 @@ import deleteIcon from "../../assets/images/delete.svg";
 import { Link } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 
 export default function BottomNavigation() {
   const { notebookId, listId } = useParams();
   const navigate = useNavigate();
+  const location = useLocation();
 
   const handleDeleteList = async (listId) => {
     const confirmDelete = window.confirm(
@@ -37,20 +39,46 @@ export default function BottomNavigation() {
             className="home-navigation__image-plus"
           />
         </Link>
-        <Link to="/edit">
-          <img
-            src={editIcon}
-            alt="edit notebook"
-            className="home-navigation__image"
-          />
-        </Link>
-        <Link to="/delete">
-          <img
-            src={deleteIcon}
-            alt="delete notebook"
-            className="home-navigation__image"
-          />
-        </Link>
+
+        {location.pathname === "/edit" && (
+          <Link to="/">
+            <img
+              src={editIcon}
+              alt="edit notebook"
+              className="home-navigation__image"
+            />
+          </Link>
+        )}
+
+        {(location.pathname === "/" || location.pathname === "/delete") && (
+          <Link to="/edit">
+            <img
+              src={editIcon}
+              alt="edit notebook"
+              className="home-navigation__image"
+            />
+          </Link>
+        )}
+
+        {location.pathname === "/delete" && (
+          <Link to="/">
+            <img
+              src={deleteIcon}
+              alt="delete notebook"
+              className="home-navigation__image"
+            />
+          </Link>
+        )}
+
+        {(location.pathname === "/" || location.pathname === "/edit") && (
+          <Link to="/delete">
+            <img
+              src={deleteIcon}
+              alt="delete notebook"
+              className="home-navigation__image"
+            />
+          </Link>
+        )}
       </nav>
     );
 
