@@ -30,6 +30,8 @@ export default function Home() {
   const getNotebookTitles = async () => {
     try {
       const data = await fetchNotebookTitles();
+      data.sort((a, b) => new Date(b.date) - new Date(a.date));
+
       setNotebooks(data);
       setIsLoading(false);
     } catch (error) {
@@ -44,6 +46,7 @@ export default function Home() {
   if (isLoading) {
     return <div>Loading...</div>;
   }
+  console.log(notebooks);
 
   const handleDelete = async (id) => {
     const confirmDelete = window.confirm(
