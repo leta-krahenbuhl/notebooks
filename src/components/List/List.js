@@ -22,7 +22,12 @@ export default function List() {
         const arrayOfListTitleswithNotebookId = data.filter(
           (notebook) => notebook.notebook_id === parseInt(notebookId)
         );
-        setListTitleswithNotebookId(arrayOfListTitleswithNotebookId);
+
+        const titlesByDate = arrayOfListTitleswithNotebookId.sort(
+          (a, b) => new Date(b.date) - new Date(a.date)
+        );
+
+        setListTitleswithNotebookId(titlesByDate);
       } catch (error) {
         console.error(error);
       }
