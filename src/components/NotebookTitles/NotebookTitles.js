@@ -46,7 +46,6 @@ export default function Home() {
   if (isLoading) {
     return <div>Loading...</div>;
   }
-  console.log(notebooks);
 
   const handleDelete = async (id) => {
     const confirmDelete = window.confirm(
