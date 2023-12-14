@@ -83,6 +83,11 @@
   display: flex;
   justify-content: space-evenly;
   height: 3.2rem;
+
+  @include desktop {
+    width: 304px;
+    background-color: $primary2;
+  }
 }
 
 @mixin form-headers {

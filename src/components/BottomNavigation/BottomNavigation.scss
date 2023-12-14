@@ -14,13 +14,41 @@
   @include bottom-navigation;
   padding-top: 0.7rem;
 
+  @include desktop {
+    padding-bottom: 4.5rem;
+  }
+
   &__image-plus {
     margin-top: -0.3rem;
     width: 1.8rem;
+
+    @include desktop {
+      display: none;
+    }
+  }
+
+  &__image-plus-desktop {
+    display: none;
+
+    @include desktop {
+      display: inline;
+    }
   }
 
   &__image {
     width: 1.8rem;
+
+    @include desktop {
+      display: none;
+    }
+  }
+
+  &__image-desktop {
+    display: none;
+
+    @include desktop {
+      display: inline;
+    }
   }
 
   overscroll-behavior: none;

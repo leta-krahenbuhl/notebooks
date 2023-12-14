@@ -3,6 +3,9 @@ import { deleteList } from "../../utils/AxiosRequests";
 import plusIcon from "../../assets/images/plus.svg";
 import editIcon from "../../assets/images/edit-white.svg";
 import deleteIcon from "../../assets/images/delete.svg";
+import deleteIconDesktop from "../../assets/images/trash-black.svg";
+import plusIconDesktop from "../../assets/images/plus-black.svg";
+import editIconDesktop from "../../assets/images/edit-black.svg";
 import { Link } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
@@ -38,6 +41,11 @@ export default function BottomNavigation() {
             alt="add new notebook"
             className="home-navigation__image-plus"
           />
+          <img
+            src={plusIconDesktop}
+            alt="add new notebook"
+            className="home-navigation__image-plus-desktop"
+          />
         </Link>
 
         {location.pathname === "/edit" && (
@@ -46,6 +54,11 @@ export default function BottomNavigation() {
               src={editIcon}
               alt="edit notebook"
               className="home-navigation__image"
+            />
+            <img
+              src={editIconDesktop}
+              alt="add new notebook"
+              className="home-navigation__image-desktop"
             />
           </Link>
         )}
@@ -57,6 +70,11 @@ export default function BottomNavigation() {
               alt="edit notebook"
               className="home-navigation__image"
             />
+            <img
+              src={editIconDesktop}
+              alt="add new notebook"
+              className="home-navigation__image-desktop"
+            />
           </Link>
         )}
 
@@ -67,6 +85,11 @@ export default function BottomNavigation() {
               alt="delete notebook"
               className="home-navigation__image"
             />
+            <img
+              src={deleteIconDesktop}
+              alt="add new notebook"
+              className="home-navigation__image-desktop"
+            />
           </Link>
         )}
 
@@ -76,6 +99,11 @@ export default function BottomNavigation() {
               src={deleteIcon}
               alt="delete notebook"
               className="home-navigation__image"
+            />
+            <img
+              src={deleteIconDesktop}
+              alt="add new notebook"
+              className="home-navigation__image-desktop"
             />
           </Link>
         )}
