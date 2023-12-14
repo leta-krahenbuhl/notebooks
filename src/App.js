@@ -37,6 +37,10 @@ function App() {
             path="/notebooks/:notebookId/create/lists/"
             element={<AddEditList />}
           />
+          <Route
+            path="/notebooks/:notebookId/create/journal/"
+            element={<AddEditList />}
+          />
 
           <Route
             path="/notebooks/:notebookId/create/lists/:listId"
