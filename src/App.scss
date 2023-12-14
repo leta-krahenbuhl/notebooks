@@ -1,13 +1,33 @@
 @use "./styles/partials/typography";
 @use "./styles/partials/resets";
 
-.app {
-  background-image: url("../src/assets/images/dotgridpage.png");
-  background-repeat: repeat;
-  background-size: 170%;
-  background-attachment: fixed;
-}
+// .app {
+//   background-image: url("../src/assets/images/dotgridpage.png");
+//   background-repeat: repeat;
+//   background-size: 170%;
+//   background-attachment: fixed;
+// }
 
 input {
   font-family: "Courier New", Courier, monospace;
+}
+
+.app {
+  --dot-bg: white;
+  --dot-color: lightgrey;
+  --dot-size: 2px;
+  --dot-space: 22px;
+  background: linear-gradient(
+        90deg,
+        var(--dot-bg) calc(var(--dot-space) - var(--dot-size)),
+        transparent 1%
+      )
+      center / var(--dot-space) var(--dot-space),
+    linear-gradient(
+        var(--dot-bg) calc(var(--dot-space) - var(--dot-size)),
+        transparent 1%
+      )
+      center / var(--dot-space) var(--dot-space),
+    var(--dot-color);
+  background-attachment: fixed;
 }
