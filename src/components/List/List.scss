@@ -1,8 +1,13 @@
 @use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
 
 .list {
   padding: 1rem;
   min-height: 100vh;
+
+  @include desktop {
+    width: 44rem;
+  }
 
   &__title {
     font-size: 1.8rem;

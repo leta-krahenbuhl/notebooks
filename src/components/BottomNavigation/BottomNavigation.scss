@@ -7,6 +7,10 @@
 
   &__icon-plus {
     width: 1.8rem;
+
+    @include desktop {
+      display: none;
+    }
   }
 }
 
@@ -32,6 +36,7 @@
 
     @include desktop {
       display: inline;
+      width: 2.5rem;
     }
   }
 
@@ -48,6 +53,7 @@
 
     @include desktop {
       display: inline;
+      width: 2.5rem;
     }
   }
 

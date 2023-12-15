@@ -113,15 +113,22 @@ export default function BottomNavigation() {
   //in a notebook
   if (notebookId && !listId)
     return (
-      <nav className="notebook-navigation">
-        <Link to={`/notebooks/${notebookId}/create/lists`}>
-          <img
-            src={plusIcon}
-            alt="add new list"
-            className="notebook-navigation__icon-plus"
-          />
-        </Link>
-      </nav>
+      <>
+        <nav className="notebook-navigation">
+          <Link to={`/notebooks/${notebookId}/create/lists`}>
+            <img
+              src={plusIcon}
+              alt="add new list"
+              className="notebook-navigation__icon-plus"
+            />
+            <img
+              src={plusIconDesktop}
+              alt="add new list"
+              className="home-navigation__image-plus-desktop"
+            />
+          </Link>
+        </nav>
+      </>
     );
 
   //in a list
