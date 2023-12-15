@@ -5,6 +5,10 @@
   @include bottom-navigation;
   padding-top: 0.45rem;
 
+  @include desktop {
+    margin-bottom: 1rem;
+  }
+
   &__icon-plus {
     width: 1.8rem;
 
@@ -65,17 +69,51 @@
   @include bottom-navigation;
   padding-top: 0.4rem;
 
-  &__button-delete {
+  @include desktop {
+    margin-bottom: 1rem;
+  }
+
+  &__button-delete-mobile {
     background-image: url("../../assets/images/delete.svg");
     @include button-icon-white;
     background-color: black;
     background-size: 1.8rem;
     margin-bottom: 0.6rem;
     width: 1.8rem;
+
+    @include desktop {
+      display: none;
+    }
   }
 
-  &__button-edit {
+  &__button-delete-desktop {
+    display: none;
+
+    @include desktop {
+      display: inline;
+      background-image: url("../../assets/images/trash-black.svg");
+      @include button-icon-white;
+      background-size: 2.5rem;
+      width: 2.5rem;
+    }
+  }
+
+  &__button-edit-mobile {
     width: 1.8rem;
     margin-bottom: -1.3rem;
+
+    @include desktop {
+      display: none;
+    }
+  }
+
+  &__button-edit-desktop {
+    display: none;
+
+    @include desktop {
+      display: inline;
+      width: 1.8rem;
+      width: 2.5rem;
+    }
   }
 }

@@ -137,13 +137,22 @@ export default function BottomNavigation() {
       <nav className="list-bottom-navigation">
         <button
           onClick={() => handleDeleteList(listId)}
-          className="list-bottom-navigation__button-delete"
+          className="list-bottom-navigation__button-delete-mobile"
+        ></button>
+        <button
+          onClick={() => handleDeleteList(listId)}
+          className="list-bottom-navigation__button-delete-desktop"
         ></button>
         <Link to={`/notebooks/${notebookId}/lists/${listId}/edit`}>
           <img
             src={editIcon}
             alt="edit list"
-            className="list-bottom-navigation__button-edit"
+            className="list-bottom-navigation__button-edit-mobile"
+          />
+          <img
+            src={editIconDesktop}
+            alt="edit list"
+            className="list-bottom-navigation__button-edit-desktop"
           />
         </Link>
       </nav>

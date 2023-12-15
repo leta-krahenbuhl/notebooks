@@ -6,6 +6,7 @@ import { useState, useEffect } from "react";
 import { fetchListTitles } from "../../utils/AxiosRequests";
 import TopNavigation from "../../components/TopNavigation/TopNavigation";
 import BottomNavigation from "../../components/BottomNavigation/BottomNavigation";
+import Header from "../../components/Header/Header";
 
 export default function List() {
   const [allListItems, setAllListItems] = useState(null);
@@ -90,16 +91,26 @@ export default function List() {
   if (listId) {
     return (
       <>
-        <TopNavigation notebookId={notebookId} />
+        <div className="desktop-wrapper">
+          <div className="nav-desktop-wrapper">
+            <Header />
+            <TopNavigation notebookId={notebookId} />
+            <div className="bottom-navigation-desktop">
+              <BottomNavigation />
+            </div>
+          </div>
 
-        <div className="list">
-          <ListItems
-            itemsForTitles={itemsForTitles}
-            getAllListItems={getAllListItems}
-            listId={listId}
-          />
+          <div className="list">
+            <ListItems
+              itemsForTitles={itemsForTitles}
+              getAllListItems={getAllListItems}
+              listId={listId}
+            />
+          </div>
         </div>
-        <BottomNavigation />
+        <div className="bottom-navigation-mobile">
+          <BottomNavigation />
+        </div>
       </>
     );
   }
