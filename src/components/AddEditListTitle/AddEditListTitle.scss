@@ -6,12 +6,31 @@
   margin-right: 1rem;
   height: 9rem;
 
+  @include tablet {
+    margin-left: 4rem;
+    margin-right: 4rem;
+    margin-top: -2rem;
+  }
+
+  @include desktop {
+    margin-left: 1rem;
+    margin-right: 1rem;
+  }
+
   &__header {
     margin-top: 1rem;
     margin-bottom: 2rem;
     text-align: center;
     font-family: "Antonio";
     font-size: 1.8rem;
+
+    @include tablet {
+      margin-top: 5rem;
+    }
+
+    @include desktop {
+      margin-top: 3rem;
+    }
   }
 
   &__wrapper {
@@ -52,6 +71,16 @@
   &__wrapper {
     display: flex;
     justify-content: space-between;
+
+    @include tablet {
+      margin-left: 3rem;
+      margin-right: 3rem;
+    }
+
+    @include desktop {
+      margin-left: 0rem;
+      margin-right: 0rem;
+    }
   }
 
   &__header {
