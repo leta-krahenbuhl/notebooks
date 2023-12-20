@@ -2,14 +2,17 @@
 @use "../../styles/partials/mixins" as *;
 
 .notebook {
+  &__wrapper {
+    @include desktop {
+      margin-left: 1rem;
+      margin-right: 1rem;
+    }
+  }
+
   &__delete-wrapper {
     display: flex;
     justify-content: space-between;
     align-items: center;
-
-    @include desktop {
-      justify-content: center;
-    }
   }
 
   &__wrapper-single {
@@ -22,6 +25,10 @@
     margin: 1rem;
     color: $primary1;
     font-size: 1.8rem;
+
+    @include desktop {
+      text-align: left;
+    }
   }
 
   &__button-delete {

@@ -22,4 +22,9 @@
   border-bottom: 4px dotted black;
   margin-bottom: 2rem;
   margin-top: 2rem;
+
+  @include tablet {
+    margin-bottom: 3rem;
+    margin-top: 3rem;
+  }
 }

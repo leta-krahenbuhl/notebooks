@@ -40,7 +40,7 @@
 
     @include desktop {
       display: inline;
-      width: 2.5rem;
+      width: 2rem;
     }
   }
 
@@ -57,7 +57,7 @@
 
     @include desktop {
       display: inline;
-      width: 2.5rem;
+      width: 2rem;
     }
   }
 
@@ -93,8 +93,8 @@
       display: inline;
       background-image: url("../../assets/images/trash-black.svg");
       @include button-icon-white;
-      background-size: 2.5rem;
-      width: 2.5rem;
+      background-size: 2rem;
+      width: 2rem;
       cursor: pointer;
     }
   }
@@ -113,8 +113,8 @@
 
     @include desktop {
       display: inline;
-      width: 1.8rem;
-      width: 2.5rem;
+      width: 2rem;
+      margin-top: 0.3rem;
     }
   }
 }
