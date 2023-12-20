@@ -1,8 +1,40 @@
 @use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+
+.desktop-wrapper {
+  @include desktop {
+    display: flex;
+  }
+}
+
+.nav-desktop-wrapper {
+  @include desktop {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    background-color: $primary2;
+    box-shadow: 1px 1px 10px #f5f5f5;
+    padding-bottom: 1rem;
+    position: fixed;
+  }
+}
 
 .list {
   padding: 1rem;
   min-height: 100vh;
+  overflow-y: auto;
+
+  @include tablet {
+    padding: 3rem 4rem 3rem 4rem;
+  }
+
+  @include desktop {
+    width: 54rem;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 0rem;
+    padding-left: 350px;
+  }
 
   &__title {
     font-size: 1.8rem;
@@ -12,5 +44,23 @@
   &__item {
     margin-left: -1.7rem;
     line-height: 1.6rem;
+  }
+}
+
+.bottom-navigation-mobile {
+  position: sticky;
+  bottom: 0px;
+
+  @include desktop {
+    display: none;
+  }
+}
+
+.bottom-navigation-desktop {
+  display: none;
+
+  @include desktop {
+    display: inline;
+    margin-top: auto;
   }
 }

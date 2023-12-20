@@ -7,10 +7,30 @@
 
   &__list {
     margin-left: -1.6rem;
+
+    @include tablet {
+      margin-left: 3rem;
+      margin-right: 3rem;
+    }
+
+    @include desktop {
+      margin-left: 0rem;
+      margin-right: 0rem;
+    }
   }
 }
 
 .add-list-items-form {
+  @include tablet {
+    margin-left: 3rem;
+    margin-right: 3rem;
+  }
+
+  @include desktop {
+    margin-left: 0rem;
+    margin-right: 0rem;
+  }
+
   &__wrapper {
     display: flex;
   }

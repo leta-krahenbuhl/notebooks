@@ -3,6 +3,9 @@ import { deleteList } from "../../utils/AxiosRequests";
 import plusIcon from "../../assets/images/plus.svg";
 import editIcon from "../../assets/images/edit-white.svg";
 import deleteIcon from "../../assets/images/delete.svg";
+import deleteIconDesktop from "../../assets/images/trash-black.svg";
+import plusIconDesktop from "../../assets/images/plus-black.svg";
+import editIconDesktop from "../../assets/images/edit-black.svg";
 import { Link } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
@@ -38,6 +41,11 @@ export default function BottomNavigation() {
             alt="add new notebook"
             className="home-navigation__image-plus"
           />
+          <img
+            src={plusIconDesktop}
+            alt="add new notebook"
+            className="home-navigation__image-plus-desktop"
+          />
         </Link>
 
         {location.pathname === "/edit" && (
@@ -46,6 +54,11 @@ export default function BottomNavigation() {
               src={editIcon}
               alt="edit notebook"
               className="home-navigation__image"
+            />
+            <img
+              src={editIconDesktop}
+              alt="add new notebook"
+              className="home-navigation__image-desktop"
             />
           </Link>
         )}
@@ -57,6 +70,11 @@ export default function BottomNavigation() {
               alt="edit notebook"
               className="home-navigation__image"
             />
+            <img
+              src={editIconDesktop}
+              alt="add new notebook"
+              className="home-navigation__image-desktop"
+            />
           </Link>
         )}
 
@@ -66,6 +84,11 @@ export default function BottomNavigation() {
               src={deleteIcon}
               alt="delete notebook"
               className="home-navigation__image"
+            />
+            <img
+              src={deleteIconDesktop}
+              alt="add new notebook"
+              className="home-navigation__image-desktop"
             />
           </Link>
         )}
@@ -77,6 +100,11 @@ export default function BottomNavigation() {
               alt="delete notebook"
               className="home-navigation__image"
             />
+            <img
+              src={deleteIconDesktop}
+              alt="add new notebook"
+              className="home-navigation__image-desktop"
+            />
           </Link>
         )}
       </nav>
@@ -85,15 +113,22 @@ export default function BottomNavigation() {
   //in a notebook
   if (notebookId && !listId)
     return (
-      <nav className="notebook-navigation">
-        <Link to={`/notebooks/${notebookId}/create/lists`}>
-          <img
-            src={plusIcon}
-            alt="add new list"
-            className="notebook-navigation__icon-plus"
-          />
-        </Link>
-      </nav>
+      <>
+        <nav className="notebook-navigation">
+          <Link to={`/notebooks/${notebookId}/create/lists`}>
+            <img
+              src={plusIcon}
+              alt="add new list"
+              className="notebook-navigation__icon-plus"
+            />
+            <img
+              src={plusIconDesktop}
+              alt="add new list"
+              className="home-navigation__image-plus-desktop"
+            />
+          </Link>
+        </nav>
+      </>
     );
 
   //in a list
@@ -102,13 +137,22 @@ export default function BottomNavigation() {
       <nav className="list-bottom-navigation">
         <button
           onClick={() => handleDeleteList(listId)}
-          className="list-bottom-navigation__button-delete"
+          className="list-bottom-navigation__button-delete-mobile"
+        ></button>
+        <button
+          onClick={() => handleDeleteList(listId)}
+          className="list-bottom-navigation__button-delete-desktop"
         ></button>
         <Link to={`/notebooks/${notebookId}/lists/${listId}/edit`}>
           <img
             src={editIcon}
             alt="edit list"
-            className="list-bottom-navigation__button-edit"
+            className="list-bottom-navigation__button-edit-mobile"
+          />
+          <img
+            src={editIconDesktop}
+            alt="edit list"
+            className="list-bottom-navigation__button-edit-desktop"
           />
         </Link>
       </nav>

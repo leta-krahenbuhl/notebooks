@@ -1,9 +1,9 @@
 import "./App.scss";
-import Header from "./components/Header/Header";
+// import Header from "./components/Header/Header";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Home from "./pages/Home/Home";
 import CreateNotebook from "./pages/CreateNotebook/CreateNotebook";
-import Notebook from "./pages/Notebook/notebook";
+import Notebook from "./pages/Notebook/Notebook";
 import AddEditList from "./pages/AddEditList/AddEditList";
 import List from "./components/List/List";
 
@@ -11,7 +11,7 @@ function App() {
   return (
     <BrowserRouter>
       <div className="app">
-        <Header />
+        {/* <Header /> */}
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/delete" element={<Home />} />

@@ -4,4 +4,19 @@
 .main-home {
   min-height: 100vh;
   margin-top: 1.2rem;
+
+  @include tablet {
+    margin-left: 1rem;
+    margin-right: 1rem;
+  }
+
+  @include desktop {
+    margin-top: 0;
+    margin-left: 0rem;
+    padding-top: 2rem;
+    width: 304px;
+    text-align: center;
+    background-color: $primary2;
+    box-shadow: 1px 1px 10px #f5f5f5;
+  }
 }
