@@ -1,18 +1,15 @@
 import "./App.scss";
-// import Header from "./components/Header/Header";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Home from "./pages/Home/Home";
 import CreateNotebook from "./pages/CreateNotebook/CreateNotebook";
 import Notebook from "./pages/Notebook/Notebook";
 import AddEditList from "./pages/AddEditList/AddEditList";
 import List from "./components/List/List";
-import Readme from "./pages/Readme/Readme";
 
 function App() {
   return (
     <BrowserRouter>
       <div className="app">
-        {/* <Header /> */}
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/delete" element={<Home />} />
@@ -47,8 +44,6 @@ function App() {
             path="/notebooks/:notebookId/create/lists/:listId"
             element={<AddEditList />}
           />
-
-          <Route path="/readme" element={<Readme />} />
         </Routes>
       </div>
     </BrowserRouter>
