@@ -11,7 +11,8 @@ export default function Header() {
       </Link>
       {(location.pathname === "/" ||
         location.pathname === "/edit" ||
-        location.pathname === "/delete") && (
+        location.pathname === "/delete" ||
+        location.pathname === "/readme") && (
         <div className="header__border"></div>
       )}
     </header>

@@ -1,9 +1,2 @@
 @use "../../styles/partials/variables" as *;
 @use "../../styles/partials/mixins" as *;
-
-.readme {
-  &__main {
-    padding: 1rem;
-    min-height: 100vh;
-  }
-}
