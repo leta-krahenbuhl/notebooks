@@ -6,6 +6,7 @@ import CreateNotebook from "./pages/CreateNotebook/CreateNotebook";
 import Notebook from "./pages/Notebook/Notebook";
 import AddEditList from "./pages/AddEditList/AddEditList";
 import List from "./components/List/List";
+import Readme from "./pages/Readme/Readme";
 
 function App() {
   return (
@@ -46,6 +47,8 @@ function App() {
             path="/notebooks/:notebookId/create/lists/:listId"
             element={<AddEditList />}
           />
+
+          <Route path="/readme" element={<Readme />} />
         </Routes>
       </div>
     </BrowserRouter>
