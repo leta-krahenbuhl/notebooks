@@ -29,7 +29,6 @@ export default function Home() {
           <br />
           <p>Have a look at the source code here: </p>
           <br />
-          <br />
 
           <p>
             <a
@@ -83,7 +82,8 @@ export default function Home() {
           Notebooks was built as a react.js app on the front-end using HTML, CSS
           with SASS and JavaScript. The back-end is build with node.js, Express
           and an SQL database. The database consists of three separate tables
-          and I used Knex as a query builder.
+          and I used Knex as a query builder. Any edits are updated and saved in
+          the database.
         </p>
         <br />
         <p>
