@@ -2,77 +2,19 @@
 
 - This is the front-end part of the notebooks project. It connects with the following back-end part: https://github.com/leta-krahenbuhl/notebooks-server
 - A to do list app where users can sort to do lists into notebooks
-- To be extended into a combination of lists, trackers and journals (see 'Nice to Haves')
-- Designed for mobile only at the moment!
-
-### Problem
-
-Physical notebooks take up space and are time consuming to maintain. A notebook on your phone can be udpated quickly, on the go, and doesn't use any extra space in your bag or bookshelf.
-
-### User Profile
-
-People who like usings lists to organise their lifes.
-
-### Features
-
-#### General
-
-- Clicking on the notebooks logo will re-direct back to the landing page
-
-#### Landing Page
-
-- Displays a list of all notebooks
-- Click on a notebook title will show its lists
-- Bottom nav bar:
-  - Plus icon: Add a new notebook
-  - Pen icon: Edit the name of an existing notebook
-  - Bin icon: Delete an existing notebook and all it's content
-
-#### Add notebook page
-
-- Type in new title and save
-- Cancel to get back to landing page
-
-#### Notebook page
-
-- Under each list title are its corresponding list items, lists separated by dotted line
-- All lists displayed as endless scroll
-- Every list item has an empty square next to it, marking it as not done
-- Clicking on empty square fills out the square and marks the list item as done
-- Clicking on list title shows individual list page (place to edit list)
-- Top navigation shows title of the notebook
-- Bottom navigation
-  - Plus icon: Add a new list Users
-
-#### Add list page
-
-- Add a title
-- Add list items
-- Done button re-directs to notebook page
-
-#### List page
-
-- Top navigation
-  - shows notebook title and list title
-  - click on notebook title links to notebook page
-- Bottom navigation:
-  - Bin icon: delete list
-  - Edit icon: edit list title or items
-
-#### Edit list page
-
-- Edit list title or list items
-- Done button redirects back to list page
-- Top navigation:
-  - Click on list title redirects to list page
-  - Click on notebook title redirects to notebook page
-
-## Implementation
+- Software engineering diploma graduate project
 
 ### Tech Stack
 
 - HTML, CSS, SASS/BEM, JavaScript, React JS, Node/Express server
 - Use of local MySQL database with knex.js
+
+### Features
+
+- edit/add/delete notebooks, edit/add/delete lists, tick off list items
+- front and back-end form validation
+- any changes are immediately updated in the database
+- breadcrumb navigation 
 
 ### APIs
 
@@ -87,18 +29,46 @@ Three API endpoints:
 #### /
 
 - Landing page with list of all notebooks as links
+- Displays a list of all notebooks
+- Click on a notebook to see its lists
+- Bottom nav bar:
+  - Plus icon: Add a new notebook (links to "/create/notebook")
+  - Pen icon: Edit the name of an existing notebook
+  - Bin icon: Delete an existing notebook and all it's content
 
 #### /create/notebook
 
 - Add a new notebook
 
+#### /edit
+
+- Edit a notebook title
+
+#### /delete
+
+- delete a notebook and all of its containing lists
+
 #### /notebooks/:notebook-id
 
 - All lists of one specific notebook
+- Under each list title are its corresponding list items, lists separated by dotted line
+- All lists displayed as endless scroll, newest on top
+- Every list item has an empty square next to it, marking it as not done
+- Clicking on empty square fills out the square and marks the list item as done
+- Clicking on list title shows individual list page (place to edit list)
+- Top navigation shows title of the notebook
+- Bottom navigation
+  - Plus icon: Add a new list
 
 #### /notebooks/:notebook-id/lists/:list-id
 
 - A single list
+- Top navigation
+  - shows notebook title and list title
+  - click on notebook title links to notebook page
+- Bottom navigation:
+  - Bin icon: delete list
+  - Edit icon: edit list title or items
 
 #### /notebooks/:notebookId/create/lists
 
@@ -188,16 +158,10 @@ Three API endpoints:
   - set up a local .env file with your environment variables (see env.sample file for reference)
   - npm start (to view react app in browser)
 
-## Nice-to-haves / next steps
-
-- This project is set up to be extended to incorporate mood trackers, habit trackers and journals as well
-- Each notebook will eventually represent a year and contain all lists, trackers and journal entries from that year, sorted by date
-- Responsive design
-- Log-in functionality
 
 ## Key take-aways
 
 - Coding takes time
 - Error messages are my friends
 - The same problem looks very different at 11:30pm and 11:30am
-- If anything seems to complicated, break it down into smaller pieces
+- If anything seems to complicated, break it down into several smaller problems
