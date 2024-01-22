@@ -7,7 +7,7 @@
 ### Tech Stack
 
 - HTML, CSS, SASS/BEM, JavaScript, React JS, Node/Express server
-- Use of local MySQL database with knex.js
+- Use of MySQL database with knex.js
 
 ### Features
 
