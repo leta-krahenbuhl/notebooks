@@ -1,0 +1,120 @@
+.add-list-title-form {
+  margin-left: 1rem;
+  margin-right: 1rem;
+  height: 9rem;
+}
+@media screen and (min-width: 768px) {
+  .add-list-title-form {
+    margin-left: 4rem;
+    margin-right: 4rem;
+    margin-top: -2rem;
+  }
+}
+@media screen and (min-width: 1024px) {
+  .add-list-title-form {
+    margin-left: 1rem;
+    margin-right: 1rem;
+  }
+}
+.add-list-title-form__header {
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+  text-align: center;
+  font-family: "Antonio";
+  font-size: 1.8rem;
+}
+@media screen and (min-width: 768px) {
+  .add-list-title-form__header {
+    margin-top: 5rem;
+  }
+}
+@media screen and (min-width: 1024px) {
+  .add-list-title-form__header {
+    margin-top: 3rem;
+  }
+}
+.add-list-title-form__wrapper {
+  display: flex;
+  width: 100%;
+  align-items: center;
+}
+.add-list-title-form__input {
+  width: 100%;
+  margin-right: 1rem;
+  padding-left: 0.5rem;
+  height: 2.5rem;
+  border: 3px solid black;
+  border-radius: 4px;
+}
+.add-list-title-form__button {
+  background-image: URL("../../assets/images/save-black.svg");
+  background-color: white;
+  background-size: 1.5rem;
+  background-repeat: no-repeat;
+  background-position: center;
+  border: none;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 5px;
+  flex-shrink: 0;
+}
+.add-list-title-form__error {
+  font-size: 0.7rem;
+  color: red;
+  text-align: left;
+  margin-top: 0.5rem;
+  margin-left: 1.1rem;
+  margin-top: -1.7rem;
+  margin-bottom: 1.9rem;
+}
+.add-list-title-form__error--new {
+  margin-left: 0rem;
+  margin-top: 0.3rem;
+  margin-bottom: 0;
+}
+
+.edit-title {
+  margin: 1rem;
+  height: 9rem;
+}
+.edit-title__wrapper {
+  display: flex;
+  justify-content: space-between;
+}
+@media screen and (min-width: 768px) {
+  .edit-title__wrapper {
+    margin-left: 3rem;
+    margin-right: 3rem;
+  }
+}
+@media screen and (min-width: 1024px) {
+  .edit-title__wrapper {
+    margin-left: 0rem;
+    margin-right: 0rem;
+  }
+}
+.edit-title__header {
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+  text-align: center;
+  font-family: "Antonio";
+  font-size: 1.8rem;
+}
+.edit-title__list-title {
+  font-size: 1.6rem;
+  margin-bottom: 1rem;
+  margin-top: 0rem;
+  text-align: left;
+}
+.edit-title__button {
+  background-image: URL("../../assets/images/edit-black.svg");
+  background-color: white;
+  background-size: 1.5rem;
+  background-repeat: no-repeat;
+  background-position: center;
+  border: none;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 5px;
+  flex-shrink: 0;
+}/*# sourceMappingURL=AddEditListTitle.css.map */

@@ -1,0 +1,62 @@
+.edit-item-form {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.edit-item-form__button-save {
+  background-color: white;
+  background-size: 1.5rem;
+  background-repeat: no-repeat;
+  background-position: center;
+  border: none;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 5px;
+  flex-shrink: 0;
+  background-image: URL("../../assets/images/save-black.svg");
+  margin-right: 0rem;
+}
+.edit-item-form__error {
+  font-size: 0.7rem;
+  color: red;
+  text-align: left;
+  margin-top: 0.5rem;
+  display: block;
+  margin-top: 0;
+}
+
+.edit-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.edit-item__text {
+  flex: 1;
+  text-align: left;
+}
+.edit-item__button-edit {
+  background-color: white;
+  background-size: 1.5rem;
+  background-repeat: no-repeat;
+  background-position: center;
+  border: none;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 5px;
+  flex-shrink: 0;
+  background-image: URL("../../assets/images/edit-black.svg");
+}
+.edit-item__button-delete {
+  background-image: URL("../../assets/images/trash-black.svg");
+  background-color: white;
+  background-size: 1.5rem;
+  background-repeat: no-repeat;
+  background-position: center;
+  border: none;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 5px;
+  flex-shrink: 0;
+  background-size: 1.4rem;
+  margin-right: 1.2rem;
+}/*# sourceMappingURL=EditItem.css.map */

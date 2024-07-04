@@ -1,0 +1,41 @@
+@font-face {
+  font-family: "Bimbo";
+  src: url("../../assets/fonts/Bimbo-Sharpie-trial.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Antonio";
+  src: url("../../assets/fonts/Antonio-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0px;
+  font-family: "Courier New", Courier, monospace;
+}
+
+h1,
+h2,
+p {
+  margin: 0;
+}
+
+input {
+  font-family: "Courier New", Courier, monospace;
+}
+
+.app {
+  --dot-bg: white;
+  --dot-color: lightgrey;
+  --dot-size: 2px;
+  --dot-space: 22px;
+  background: linear-gradient(90deg, var(--dot-bg) calc(var(--dot-space) - var(--dot-size)), transparent 1%) center/var(--dot-space) var(--dot-space), linear-gradient(var(--dot-bg) calc(var(--dot-space) - var(--dot-size)), transparent 1%) center/var(--dot-space) var(--dot-space), var(--dot-color);
+  background-attachment: fixed;
+}/*# sourceMappingURL=App.css.map */
