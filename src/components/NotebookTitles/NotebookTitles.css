@@ -1,13 +1,13 @@
-@media screen and (min-width: 1024px) {
-  .notebook__wrapper {
-    margin-left: 1rem;
-    margin-right: 1rem;
-  }
-}
-.notebook__delete-wrapper {
+.notebook__wrapper {
+  width: 16.2rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+@media screen and (min-width: 1024px) {
+  .notebook__wrapper {
+    margin-left: 1rem;
+  }
 }
 .notebook__wrapper-single {
   display: flex;
@@ -17,12 +17,15 @@
 .notebook__title {
   margin: 1rem;
   color: black;
-  font-size: 1.8rem;
+  font-size: 1.2rem;
 }
 @media screen and (min-width: 1024px) {
   .notebook__title {
     text-align: left;
   }
+}
+.notebook__title:hover {
+  color: rgb(200, 175, 255);
 }
 .notebook__button-delete {
   background-image: url("../../assets/images/trash-black.svg");
@@ -69,6 +72,14 @@
   text-align: left;
   margin-top: 0.5rem;
   margin-left: 1rem;
+}
+.notebook__icon {
+  width: 1rem;
+  margin-top: 0.5rem;
+  margin-left: 0.5rem;
+}
+.notebook__icon:hover {
+  filter: invert(84%) sepia(56%) saturate(477%) hue-rotate(167deg) brightness(100%) contrast(94%);
 }
 
 .notebook-edit-form {

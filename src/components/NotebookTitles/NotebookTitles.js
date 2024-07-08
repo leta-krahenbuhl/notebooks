@@ -6,6 +6,8 @@ import { editNotebookTitle } from "../../utils/AxiosRequests";
 import { deleteNotebook } from "../../utils/AxiosRequests";
 import { useLocation } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
+import editIcon from "../../assets/images/edit-black.svg";
+import deleteIcon from "../../assets/images/trash-black.svg";
 
 export default function Home() {
   const [notebooks, setNotebooks] = useState(null);
@@ -13,6 +15,7 @@ export default function Home() {
   const [notebookToEdit, setNotebookToEdit] = useState(null);
   const [editedTitle, setEditedTitle] = useState("");
   const [isError, setIsError] = useState(false);
+  const [hoveredNotebookId, setHoveredNotebookId] = useState(null);
 
   const location = useLocation();
   const navigate = useNavigate();
@@ -27,6 +30,7 @@ export default function Home() {
     }
   }, [notebookToEdit, notebooks]);
 
+  // Get all notebook titles in database
   const getNotebookTitles = async () => {
     try {
       const data = await fetchNotebookTitles();
@@ -47,6 +51,7 @@ export default function Home() {
     return <div>Loading...</div>;
   }
 
+  // handle Delete notebook button
   const handleDelete = async (id) => {
     const confirmDelete = window.confirm(
       "Are you sure you want to delete this notebook? This action cannot be undone."
@@ -69,8 +74,10 @@ export default function Home() {
 
   const handleClickEditIcon = async (id) => {
     setNotebookToEdit(id);
+    navigate(`/edit`);
   };
 
+  // save an edited ntoebook title
   const handleSaveTitle = async (event, id) => {
     event.preventDefault();
 
@@ -103,23 +110,32 @@ export default function Home() {
       <>
         {notebooks.map((notebook) => {
           return (
-            <div className="notebook__wrapper" key={notebook.date}>
-              <div className="notebook__delete-wrapper">
-                <Link to={`/notebooks/${notebook.id}`}>
-                  <h2 className="notebook__title">{notebook.title}</h2>
-                </Link>
-                {location.pathname === "/delete" && (
-                  <button
-                    onClick={() => handleDelete(notebook.id)}
-                    className="notebook__button-delete"
-                  ></button>
-                )}
-              </div>
-              {location.pathname === "/edit" && (
-                <button
-                  onClick={() => handleClickEditIcon(notebook.id)}
-                  className="notebook__button-edit"
-                ></button>
+            <div
+              className="notebook__wrapper"
+              key={notebook.date}
+              onMouseEnter={() => setHoveredNotebookId(notebook.id)}
+              onMouseLeave={() => setHoveredNotebookId(null)}
+            >
+              <Link to={`/notebooks/${notebook.id}`}>
+                <h2 className="notebook__title">&#128211; {notebook.title}</h2>
+              </Link>
+              {hoveredNotebookId === notebook.id && (
+                <div className="notebook__icon-wrapper">
+                  <span className="notebook__icons">
+                    <img
+                      src={editIcon}
+                      alt="edit notebook"
+                      className="notebook__icon"
+                      onClick={() => handleClickEditIcon(notebook.id)}
+                    />
+                    <img
+                      src={deleteIcon}
+                      alt="delete notebook"
+                      className="notebook__icon"
+                      onClick={() => handleDelete(notebook.id)}
+                    />
+                  </span>
+                </div>
               )}
             </div>
           );

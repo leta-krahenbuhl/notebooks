@@ -3,16 +3,14 @@
 
 .notebook {
   &__wrapper {
-    @include desktop {
-      margin-left: 1rem;
-      margin-right: 1rem;
-    }
-  }
-
-  &__delete-wrapper {
+    width: 16.2rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
+
+    @include desktop {
+      margin-left: 1rem;
+    }
   }
 
   &__wrapper-single {
@@ -24,11 +22,15 @@
   &__title {
     margin: 1rem;
     color: $primary1;
-    font-size: 1.8rem;
+    font-size: 1.2rem;
 
     @include desktop {
       text-align: left;
     }
+  }
+
+  &__title:hover {
+    color: rgb(200, 175, 255);
   }
 
   &__button-delete {
@@ -52,6 +54,17 @@
   &__error {
     @include error-message-form;
     margin-left: 1rem;
+  }
+
+  &__icon {
+    width: 1rem;
+    margin-top: 0.5rem;
+    margin-left: 0.5rem;
+  }
+
+  &__icon:hover {
+    filter: invert(84%) sepia(56%) saturate(477%) hue-rotate(167deg)
+      brightness(100%) contrast(94%);
   }
 }
 
