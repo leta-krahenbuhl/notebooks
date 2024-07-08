@@ -6,8 +6,8 @@ import { editNotebookTitle } from "../../utils/AxiosRequests";
 import { deleteNotebook } from "../../utils/AxiosRequests";
 import { useLocation } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
-import editIcon from "../../assets/images/edit-black.svg";
-import deleteIcon from "../../assets/images/trash-black.svg";
+import editIcon from "../../assets/images/icon-edit-grey.svg";
+import deleteIcon from "../../assets/images/icon-trash-grey.svg";
 
 export default function Home() {
   const [notebooks, setNotebooks] = useState(null);

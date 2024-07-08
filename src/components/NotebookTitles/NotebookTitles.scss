@@ -63,8 +63,7 @@
   }
 
   &__icon:hover {
-    filter: invert(84%) sepia(56%) saturate(477%) hue-rotate(167deg)
-      brightness(100%) contrast(94%);
+    filter: brightness(0) saturate(100%);
   }
 }
 

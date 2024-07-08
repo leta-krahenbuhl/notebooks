@@ -2,9 +2,9 @@ import "./BottomNavigation.scss";
 import { deleteList } from "../../utils/AxiosRequests";
 import plusIcon from "../../assets/images/plus.svg";
 import editIcon from "../../assets/images/edit-white.svg";
-import deleteIcon from "../../assets/images/delete.svg";
+// import deleteIcon from "../../assets/images/delete.svg";
 import deleteIconDesktop from "../../assets/images/trash-black.svg";
-import plusIconDesktop from "../../assets/images/plus-black.svg";
+import plusIconDesktop from "../../assets/images/icon-plus-grey.svg";
 import editIconDesktop from "../../assets/images/edit-black.svg";
 import { Link } from "react-router-dom";
 import { useParams } from "react-router-dom";
@@ -35,78 +35,21 @@ export default function BottomNavigation() {
   if (!notebookId)
     return (
       <nav className="home-navigation">
-        <Link to="/create/notebook">
-          <img
-            src={plusIcon}
-            alt="add new notebook"
-            className="home-navigation__image-plus"
-          />
-          <img
-            src={plusIconDesktop}
-            alt="add new notebook"
-            className="home-navigation__image-plus-desktop"
-          />
+        <Link to="/create/notebook" className="home-navigation__a">
+          <div className="home-navigation__wrapper">
+            <img
+              src={plusIcon}
+              alt="add new notebook"
+              className="home-navigation__image-plus"
+            />
+            <img
+              src={plusIconDesktop}
+              alt="add new notebook"
+              className="home-navigation__image-plus-desktop"
+            />
+            <p className="home-navigation__text">ADD NOTEBOOK</p>
+          </div>
         </Link>
-
-        {location.pathname === "/edit" && (
-          <Link to="/">
-            <img
-              src={editIcon}
-              alt="edit notebook"
-              className="home-navigation__image"
-            />
-            <img
-              src={editIconDesktop}
-              alt="add new notebook"
-              className="home-navigation__image-desktop"
-            />
-          </Link>
-        )}
-
-        {(location.pathname === "/" || location.pathname === "/delete") && (
-          <Link to="/edit">
-            <img
-              src={editIcon}
-              alt="edit notebook"
-              className="home-navigation__image"
-            />
-            <img
-              src={editIconDesktop}
-              alt="add new notebook"
-              className="home-navigation__image-desktop"
-            />
-          </Link>
-        )}
-
-        {location.pathname === "/delete" && (
-          <Link to="/">
-            <img
-              src={deleteIcon}
-              alt="delete notebook"
-              className="home-navigation__image"
-            />
-            <img
-              src={deleteIconDesktop}
-              alt="add new notebook"
-              className="home-navigation__image-desktop"
-            />
-          </Link>
-        )}
-
-        {(location.pathname === "/" || location.pathname === "/edit") && (
-          <Link to="/delete">
-            <img
-              src={deleteIcon}
-              alt="delete notebook"
-              className="home-navigation__image"
-            />
-            <img
-              src={deleteIconDesktop}
-              alt="add new notebook"
-              className="home-navigation__image-desktop"
-            />
-          </Link>
-        )}
       </nav>
     );
 
@@ -116,6 +59,8 @@ export default function BottomNavigation() {
       <>
         <nav className="notebook-navigation">
           <Link to={`/notebooks/${notebookId}/create/lists`}>
+            <p className="home-navigation__text">add list</p>
+
             <img
               src={plusIcon}
               alt="add new list"
