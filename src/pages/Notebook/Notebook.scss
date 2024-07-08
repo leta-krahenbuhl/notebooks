@@ -8,29 +8,27 @@
 }
 
 .nav-desktop-wrapper {
-  position: sticky;
-  top: 0rem;
+  // position: sticky;
+  // top: 0rem;
 
   @include desktop {
-    display: flex;
-    flex-direction: column;
+    // display: flex;
+    // flex-direction: column;
     height: 100vh;
-    background-color: $primary2;
+    // background-color: $primary2;
     box-shadow: 1px 1px 10px #f5f5f5;
-    padding-bottom: 1rem;
-    position: fixed;
+    // position: fixed;
   }
 }
 
 .notebook {
   min-height: 100vh;
-  color: $primary1;
   overflow-y: auto;
 
   @include desktop {
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 0rem;
+    // margin-left: auto;
+    // margin-right: auto;
+    // margin-top: 0rem;
   }
 }
 
@@ -43,14 +41,14 @@
   }
 }
 
-.bottom-navigation-desktop {
-  display: none;
+// .bottom-navigation-desktop {
+//   display: none;
 
-  @include desktop {
-    display: inline;
-    margin-top: auto;
-  }
-}
+//   @include desktop {
+//     display: inline;
+//     margin-top: auto;
+//   }
+// }
 
 a {
   color: $primary1;

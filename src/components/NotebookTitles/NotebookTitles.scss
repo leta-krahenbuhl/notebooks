@@ -2,6 +2,9 @@
 @use "../../styles/partials/mixins" as *;
 
 .notebook {
+  // why doesn't this work?????
+  overflow-y: auto;
+
   &__wrapper {
     width: 16.2rem;
     display: flex;

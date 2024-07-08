@@ -1,82 +1,85 @@
 @use "../../styles/partials/variables" as *;
 @use "../../styles/partials/mixins" as *;
 
-.nav-desktop-wrapper-home {
-  position: sticky;
-  top: 0rem;
+.home {
+  display: flex;
+  overflow: auto;
+  max-height: 100vh;
+  max-width: 100vw;
 
-  @include desktop {
-    display: flex;
-    flex-direction: column;
-    height: 100vh;
-    background-color: $primary2;
-    padding-bottom: 1rem;
-    position: fixed;
-  }
-}
+  &__nav-desktop-wrapper {
+    position: sticky;
+    top: 0rem;
 
-.nav {
-  margin-top: 1.2rem;
-
-  @include tablet {
-    margin-left: 1rem;
-    margin-right: 1rem;
+    @include desktop {
+      min-height: 100vh;
+      background-color: $primary2;
+    }
   }
 
-  @include desktop {
-    min-height: 100vh;
-    margin-top: 0;
-    margin-left: 0rem;
-    padding-top: 2rem;
-    width: 304px;
-    text-align: center;
-    background-color: $primary2;
-    box-shadow: 1px 1px 10px #f5f5f5;
+  &__nav {
+    margin-top: 1.2rem;
+
+    @include tablet {
+      margin-left: 1rem;
+      margin-right: 1rem;
+    }
+
+    @include desktop {
+      height: 100vh;
+      margin-top: 0;
+      margin-left: 0rem;
+      padding-top: 2rem;
+      width: 304px;
+      text-align: center;
+      background-color: $primary2;
+      box-shadow: 1px 1px 10px #f5f5f5;
+    }
   }
-}
 
-.readme-desktop {
-  display: none;
-
-  @include desktop {
-    display: block;
-    width: 54rem;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 0rem;
-    padding-left: 350px;
-    padding-top: 4rem;
-    padding-bottom: 4rem;
+  &__main {
+    margin: 5rem 8rem 5rem 8rem;
   }
 
   &__link {
     text-decoration: underline;
   }
 
-  &__header {
-    margin-bottom: 0.5rem;
-  }
-}
-
-.readme-mobile {
-  padding: 1rem;
-  min-height: 100vh;
-  padding-bottom: 2rem;
-
-  @include tablet {
-    display: block;
-    padding: 3rem 4rem 3rem 4rem;
-  }
-
-  @include desktop {
+  &__readme-desktop {
     display: none;
+
+    @include desktop {
+      display: inline;
+      margin-top: 0rem;
+      padding-top: 4rem;
+      padding-bottom: 4rem;
+    }
+
+    &__header {
+      margin-bottom: 0.5rem;
+    }
   }
 
-  &__link {
-    text-decoration: underline;
-  }
+  &__readme-mobile {
+    padding: 1rem;
+    min-height: 100vh;
+    padding-bottom: 2rem;
 
-  &__header {
-    margin-bottom: 0.5rem;
+    @include tablet {
+      display: block;
+      padding: 3rem 4rem 3rem 4rem;
+    }
+
+    @include desktop {
+      display: none;
+    }
+
+    &__link {
+      text-decoration: underline;
+    }
+
+    &__header {
+      margin-bottom: 0.5rem;
+    }
   }
 }

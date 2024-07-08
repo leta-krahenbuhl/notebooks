@@ -2,9 +2,10 @@ import Header from "../../components/Header/Header";
 
 import List from "../../components/List/List";
 import { useParams } from "react-router-dom";
-import TopNavigation from "../../components/TopNavigation/TopNavigation";
+// import TopNavigation from "../../components/TopNavigation/TopNavigation";
 import BottomNavigation from "../../components/BottomNavigation/BottomNavigation";
 import "./Notebook.scss";
+import NotebookTitles from "../../components/NotebookTitles/NotebookTitles";
 
 export default function Notebook() {
   const { notebookId } = useParams();
@@ -14,10 +15,9 @@ export default function Notebook() {
       <div className="desktop-wrapper">
         <div className="nav-desktop-wrapper">
           <Header />
-          <TopNavigation notebookId={notebookId} />
-          <div className="bottom-navigation-desktop">
-            <BottomNavigation />
-          </div>
+          <nav className="nav">
+            <NotebookTitles />
+          </nav>
         </div>
         <article className="notebook">
           <List notebookId={notebookId} />

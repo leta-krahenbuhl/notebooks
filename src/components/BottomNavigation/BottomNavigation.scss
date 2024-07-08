@@ -2,6 +2,8 @@
 @use "../../styles/partials/mixins" as *;
 
 .notebook-navigation {
+  width: 100%;
+
   @include bottom-navigation;
   padding-top: 0.45rem;
 

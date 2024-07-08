@@ -104,10 +104,10 @@ export default function Home() {
     navigate(`/`);
   };
 
-  //page load and delete render
+  //page load, home and delete render
   if (location.pathname === "/" || location.pathname === "/delete") {
     return (
-      <>
+      <div className="notebook">
         {notebooks.map((notebook) => {
           return (
             <div
@@ -140,7 +140,7 @@ export default function Home() {
             </div>
           );
         })}
-      </>
+      </div>
     );
   }
 

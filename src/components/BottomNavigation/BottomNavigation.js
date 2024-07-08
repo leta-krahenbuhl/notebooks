@@ -59,18 +59,19 @@ export default function BottomNavigation() {
       <>
         <nav className="notebook-navigation">
           <Link to={`/notebooks/${notebookId}/create/lists`}>
-            <p className="home-navigation__text">add list</p>
-
-            <img
-              src={plusIcon}
-              alt="add new list"
-              className="notebook-navigation__icon-plus"
-            />
-            <img
-              src={plusIconDesktop}
-              alt="add new list"
-              className="home-navigation__image-plus-desktop"
-            />
+            <div className="notebook-navigation__wrapper">
+              <img
+                src={plusIcon}
+                alt="add new list"
+                className="notebook-navigation__icon-plus"
+              />
+              <img
+                src={plusIconDesktop}
+                alt="add new list"
+                className="notebook-navigation__image-plus-desktop"
+              />
+              <p className="notebook-navigation__text">ADD LIST</p>
+            </div>
           </Link>
         </nav>
       </>
