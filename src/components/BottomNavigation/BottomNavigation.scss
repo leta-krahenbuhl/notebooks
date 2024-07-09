@@ -1,14 +1,16 @@
 @use "../../styles/partials/variables" as *;
 @use "../../styles/partials/mixins" as *;
 
-.notebook-navigation {
-  width: 100%;
+.notebook-navigation-bottom {
+  // width: 100%;
+  display: flex;
+  flex-direction: column;
 
   @include bottom-navigation;
   padding-top: 0.7rem;
 
   @include desktop {
-    padding-bottom: 3rem;
+    // padding-bottom: 3rem;
   }
 
   &__wrapper {
@@ -20,12 +22,22 @@
 
   &__a {
     width: 100%;
+    margin-bottom: 0.5rem;
   }
 
   &__text {
     color: #b1b1b1;
     font-weight: 700;
     font-style: italic;
+  }
+
+  .notebook-navigation-bottom__a:hover
+    .notebook-navigation-bottom__image-plus-desktop {
+    filter: brightness(0) saturate(100%); /* Change SVG color to black */
+  }
+
+  .notebook-navigation-bottom__a:hover .notebook-navigation-bottom__text {
+    color: black; /* Change text color to black */
   }
 
   &__image-plus {

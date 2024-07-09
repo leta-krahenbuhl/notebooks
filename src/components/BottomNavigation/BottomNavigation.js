@@ -18,33 +18,33 @@ export default function BottomNavigation() {
   // if in a notebook
   if (notebookId)
     return (
-      <div className="notebook-navigation">
-        <Link to="/create/notebook" className="notebook-navigation__a">
-          <div className="notebook-navigation__wrapper">
+      <div className="notebook-navigation-bottom">
+        <Link
+          to={`/notebooks/${notebookId}/create/lists/`}
+          className="notebook-navigation-bottom__a"
+        >
+          <div className="notebook-navigation-bottom__wrapper">
+            <img
+              src={plusIconDesktop}
+              alt="add new notebook"
+              className="notebook-navigation-bottom__image-plus-desktop"
+            />
+            <p className="notebook-navigation-bottom__text">ADD LIST</p>
+          </div>
+        </Link>
+        <Link to="/create/notebook" className="notebook-navigation-bottom__a">
+          <div className="notebook-navigation-bottom__wrapper">
             <img
               src={plusIcon}
               alt="add new notebook"
-              className="notebook-navigation__image-plus"
+              className="notebook-navigation-bottom__image-plus"
             />
             <img
               src={plusIconDesktop}
               alt="add new notebook"
-              className="notebook-navigation__image-plus-desktop"
+              className="notebook-navigation-bottom__image-plus-desktop"
             />
-            <p className="notebook-navigation__text">ADD NOTEBOOK</p>
-          </div>
-        </Link>
-        <Link
-          to={`/notebooks/${notebookId}/create/lists/`}
-          className="notebook-navigation__a"
-        >
-          <div className="notebook-navigation__wrapper">
-            <img
-              src={plusIconDesktop}
-              alt="add new notebook"
-              className="notebook-navigation__image-plus-desktop"
-            />
-            <p className="notebook-navigation__text">ADD LIST</p>
+            <p className="notebook-navigation-bottom__text">ADD NOTEBOOK</p>
           </div>
         </Link>
       </div>

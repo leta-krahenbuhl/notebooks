@@ -1,5 +1,6 @@
-.notebook-navigation {
-  width: 100%;
+.notebook-navigation-bottom {
+  display: flex;
+  flex-direction: column;
   background-color: black;
   text-align: center;
   padding-top: 0.6rem;
@@ -11,69 +12,71 @@
   padding-top: 0.7rem;
 }
 @media screen and (min-width: 1024px) {
-  .notebook-navigation {
-    width: 304px;
+  .notebook-navigation-bottom {
     background-color: white;
+    padding-bottom: 4.65rem;
   }
 }
-@media screen and (min-width: 1024px) {
-  .notebook-navigation {
-    padding-bottom: 3rem;
-  }
-}
-.notebook-navigation__wrapper {
+.notebook-navigation-bottom__wrapper {
   width: 100%;
   display: flex;
   justify-items: start;
   margin-left: 2rem;
 }
-.notebook-navigation__a {
+.notebook-navigation-bottom__a {
   width: 100%;
+  margin-bottom: 0.5rem;
 }
-.notebook-navigation__text {
+.notebook-navigation-bottom__text {
   color: #b1b1b1;
   font-weight: 700;
   font-style: italic;
 }
-.notebook-navigation__image-plus {
+.notebook-navigation-bottom .notebook-navigation-bottom__a:hover .notebook-navigation-bottom__image-plus-desktop {
+  filter: brightness(0) saturate(100%); /* Change SVG color to black */
+}
+.notebook-navigation-bottom .notebook-navigation-bottom__a:hover .notebook-navigation-bottom__text {
+  color: black; /* Change text color to black */
+}
+.notebook-navigation-bottom__image-plus {
   margin-top: -0.3rem;
   width: 1.8rem;
 }
 @media screen and (min-width: 1024px) {
-  .notebook-navigation__image-plus {
+  .notebook-navigation-bottom__image-plus {
     display: none;
   }
 }
-.notebook-navigation__image-plus-desktop {
+.notebook-navigation-bottom__image-plus-desktop {
   display: none;
 }
 @media screen and (min-width: 1024px) {
-  .notebook-navigation__image-plus-desktop {
+  .notebook-navigation-bottom__image-plus-desktop {
     display: inline;
     width: 1rem;
     height: 1rem;
     margin-right: 0.5rem;
   }
 }
-.notebook-navigation .home-navigation__a:hover .home-navigation__image-plus-desktop {
+.notebook-navigation-bottom .home-navigation__a:hover .home-navigation__image-plus-desktop {
   filter: brightness(0) saturate(100%); /* Change SVG color to black */
 }
-.notebook-navigation .home-navigation__a:hover .home-navigation__text {
+.notebook-navigation-bottom .home-navigation__a:hover .home-navigation__text {
   color: black; /* Change text color to black */
 }
-.notebook-navigation__image {
+.notebook-navigation-bottom__image {
   width: 1.8rem;
 }
 @media screen and (min-width: 1024px) {
-  .notebook-navigation__image {
+  .notebook-navigation-bottom__image {
     display: none;
   }
 }
-.notebook-navigation__image-desktop {
+.notebook-navigation-bottom__image-desktop {
   display: none;
 }
 @media screen and (min-width: 1024px) {
-  .notebook-navigation__image-desktop {
+  .notebook-navigation-bottom__image-desktop {
     display: inline;
     width: 2rem;
   }
@@ -93,8 +96,8 @@
 }
 @media screen and (min-width: 1024px) {
   .home-navigation {
-    width: 304px;
     background-color: white;
+    padding-bottom: 4.65rem;
   }
 }
 @media screen and (min-width: 1024px) {
@@ -173,8 +176,8 @@
 }
 @media screen and (min-width: 1024px) {
   .list-bottom-navigation {
-    width: 304px;
     background-color: white;
+    padding-bottom: 4.65rem;
   }
 }
 @media screen and (min-width: 1024px) {

@@ -99,12 +99,12 @@ export default function List() {
   return (
     <div className="list">
       {itemsForTitles.map((titleObj, index) => (
-        <div key={index}>
-          <div
-            className="list__title-wrapper"
-            onMouseEnter={() => setHoveredListTitleId(titleObj.title.id)}
-            onMouseLeave={() => setHoveredListTitleId(null)}
-          >
+        <div
+          key={index}
+          onMouseEnter={() => setHoveredListTitleId(titleObj.title.id)}
+          onMouseLeave={() => setHoveredListTitleId(null)}
+        >
+          <div className="list__title-wrapper">
             <Link to={`/notebooks/${notebookId}/lists/${titleObj.title.id}`}>
               <h2 className="list__title">&#x1F4C3; {titleObj.title.title}</h2>
             </Link>

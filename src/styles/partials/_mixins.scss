@@ -85,8 +85,9 @@
   height: 3.2rem;
 
   @include desktop {
-    width: 304px;
+    // width: 304px;
     background-color: $primary2;
+    padding-bottom: 4.65rem;
   }
 }
 
