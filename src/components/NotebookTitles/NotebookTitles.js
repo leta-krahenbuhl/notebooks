@@ -8,6 +8,7 @@ import { useLocation } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import editIcon from "../../assets/images/icon-edit-grey.svg";
 import deleteIcon from "../../assets/images/icon-trash-grey.svg";
+import { useParams } from "react-router-dom";
 
 export default function Home() {
   const [notebooks, setNotebooks] = useState(null);
@@ -19,6 +20,8 @@ export default function Home() {
 
   const location = useLocation();
   const navigate = useNavigate();
+  const { notebookId } = useParams();
+  console.log("notebookId iiiis:", notebookId); //this works
 
   //setEditedTitle before starting to edit to populate input field with current title
   useEffect(() => {
@@ -104,8 +107,6 @@ export default function Home() {
     navigate(`/`);
   };
 
-  //page load, home and delete render
-
   //after clicking on edit
   if (location.pathname === "/edit") {
     return (
@@ -151,7 +152,8 @@ export default function Home() {
         })}
       </>
     );
-  } else {
+  } // on page load, home, after clicking delete
+  else {
     return (
       <div className="notebook">
         {notebooks.map((notebook) => {
@@ -163,7 +165,15 @@ export default function Home() {
               onMouseLeave={() => setHoveredNotebookId(null)}
             >
               <Link to={`/notebooks/${notebook.id}`}>
-                <h2 className="notebook__title">&#128211; {notebook.title}</h2>
+                <h2
+                  className={`notebook__title ${
+                    notebook.id == notebookId
+                      ? "notebook__title--highlight"
+                      : ""
+                  }`}
+                >
+                  &#128211; {notebook.title}
+                </h2>
               </Link>
               {hoveredNotebookId === notebook.id && (
                 <div className="notebook__icon-wrapper">

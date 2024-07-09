@@ -4,9 +4,10 @@ import ListItems from "../ListItems/ListItems";
 import { fetchListItems } from "../../utils/AxiosRequests";
 import { useState, useEffect } from "react";
 import { fetchListTitles } from "../../utils/AxiosRequests";
-import TopNavigation from "../../components/TopNavigation/TopNavigation";
+// import TopNavigation from "../../components/TopNavigation/TopNavigation";
 import BottomNavigation from "../../components/BottomNavigation/BottomNavigation";
 import Header from "../../components/Header/Header";
+import NotebookTitles from "../../components/NotebookTitles/NotebookTitles";
 
 export default function List() {
   const [allListItems, setAllListItems] = useState(null);
@@ -92,11 +93,13 @@ export default function List() {
 
   if (listId) {
     return (
-      <>
+      <div className="list-detail">
         <div className="desktop-wrapper">
           <div className="nav-desktop-wrapper">
             <Header />
-            <TopNavigation notebookId={notebookId} />
+            <nav className="notebook2__nav">
+              <NotebookTitles />
+            </nav>
             <div className="bottom-navigation-desktop">
               <BottomNavigation />
             </div>
@@ -110,10 +113,10 @@ export default function List() {
             />
           </div>
         </div>
-        <div className="bottom-navigation-mobile">
+        {/* <div className="bottom-navigation-mobile">
           <BottomNavigation />
-        </div>
-      </>
+        </div> */}
+      </div>
     );
   }
 }

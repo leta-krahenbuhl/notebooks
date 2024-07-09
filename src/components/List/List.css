@@ -1,7 +1,8 @@
-@media screen and (min-width: 1024px) {
-  .desktop-wrapper {
-    display: flex;
-  }
+.list-detail {
+  display: flex;
+  overflow: auto;
+  max-height: 100vh;
+  max-width: 100vw;
 }
 
 @media screen and (min-width: 1024px) {

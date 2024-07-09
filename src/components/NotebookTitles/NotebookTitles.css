@@ -27,8 +27,15 @@
     text-align: left;
   }
 }
+.notebook__title--highlight {
+  text-decoration: underline;
+  text-decoration-thickness: 3px;
+  text-underline-offset: 6px;
+}
 .notebook__title:hover {
-  color: rgb(200, 175, 255);
+  text-decoration: underline;
+  text-decoration-thickness: 3px;
+  text-underline-offset: 6px;
 }
 .notebook__button-delete {
   background-image: url("../../assets/images/trash-black.svg");

@@ -30,10 +30,14 @@
     @include desktop {
       text-align: left;
     }
+
+    &--highlight {
+      @include hover1;
+    }
   }
 
   &__title:hover {
-    color: rgb(200, 175, 255);
+    @include hover1;
   }
 
   &__button-delete {
