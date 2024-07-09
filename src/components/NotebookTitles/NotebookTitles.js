@@ -105,44 +105,6 @@ export default function Home() {
   };
 
   //page load, home and delete render
-  if (location.pathname === "/" || location.pathname === "/delete") {
-    return (
-      <div className="notebook">
-        {notebooks.map((notebook) => {
-          return (
-            <div
-              className="notebook__wrapper"
-              key={notebook.date}
-              onMouseEnter={() => setHoveredNotebookId(notebook.id)}
-              onMouseLeave={() => setHoveredNotebookId(null)}
-            >
-              <Link to={`/notebooks/${notebook.id}`}>
-                <h2 className="notebook__title">&#128211; {notebook.title}</h2>
-              </Link>
-              {hoveredNotebookId === notebook.id && (
-                <div className="notebook__icon-wrapper">
-                  <span className="notebook__icons">
-                    <img
-                      src={editIcon}
-                      alt="edit notebook"
-                      className="notebook__icon"
-                      onClick={() => handleClickEditIcon(notebook.id)}
-                    />
-                    <img
-                      src={deleteIcon}
-                      alt="delete notebook"
-                      className="notebook__icon"
-                      onClick={() => handleDelete(notebook.id)}
-                    />
-                  </span>
-                </div>
-              )}
-            </div>
-          );
-        })}
-      </div>
-    );
-  }
 
   //after clicking on edit
   if (location.pathname === "/edit") {
@@ -188,6 +150,43 @@ export default function Home() {
           );
         })}
       </>
+    );
+  } else {
+    return (
+      <div className="notebook">
+        {notebooks.map((notebook) => {
+          return (
+            <div
+              className="notebook__wrapper"
+              key={notebook.date}
+              onMouseEnter={() => setHoveredNotebookId(notebook.id)}
+              onMouseLeave={() => setHoveredNotebookId(null)}
+            >
+              <Link to={`/notebooks/${notebook.id}`}>
+                <h2 className="notebook__title">&#128211; {notebook.title}</h2>
+              </Link>
+              {hoveredNotebookId === notebook.id && (
+                <div className="notebook__icon-wrapper">
+                  <span className="notebook__icons">
+                    <img
+                      src={editIcon}
+                      alt="edit notebook"
+                      className="notebook__icon"
+                      onClick={() => handleClickEditIcon(notebook.id)}
+                    />
+                    <img
+                      src={deleteIcon}
+                      alt="delete notebook"
+                      className="notebook__icon"
+                      onClick={() => handleDelete(notebook.id)}
+                    />
+                  </span>
+                </div>
+              )}
+            </div>
+          );
+        })}
+      </div>
     );
   }
 }

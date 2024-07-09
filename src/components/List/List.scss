@@ -20,25 +20,31 @@
 }
 
 .list {
-  padding: 1rem;
-  min-height: 100vh;
-  overflow-y: auto;
+  // padding: 1rem;
+  // min-height: 100vh;
+  // overflow-y: auto;
 
   @include tablet {
-    padding: 3rem 4rem 3rem 4rem;
+    // padding: 3rem 4rem 3rem 4rem;
   }
 
   @include desktop {
-    width: 54rem;
+    // width: 54rem;
+    width: 25rem;
     margin-left: auto;
     margin-right: auto;
-    margin-top: 0rem;
-    padding-left: 350px;
+    margin-top: 5rem;
+    // padding-left: 350px;
   }
 
   &__title {
     font-size: 1.8rem;
     margin-top: 1rem;
+    color: black;
+  }
+
+  &__title:hover {
+    color: $hover;
   }
 
   &__item {

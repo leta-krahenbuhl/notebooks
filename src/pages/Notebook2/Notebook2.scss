@@ -1,7 +1,7 @@
 @use "../../styles/partials/variables" as *;
 @use "../../styles/partials/mixins" as *;
 
-.home {
+.notebook2 {
   display: flex;
   overflow: auto;
   max-height: 100vh;
@@ -22,7 +22,9 @@
   }
 
   &__main {
-    margin: 5rem 8rem 5rem 8rem;
+    // margin: 5rem 15rem 5rem 15rem;
+    // width: 6rem;
+    flex-grow: 1;
   }
 
   &__link {

@@ -2,9 +2,10 @@ import "./App.scss";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Home from "./pages/Home/Home";
 import CreateNotebook from "./pages/CreateNotebook/CreateNotebook";
-import Notebook from "./pages/Notebook/Notebook";
+// import Notebook from "./pages/Notebook/Notebook";
 import AddEditList from "./pages/AddEditList/AddEditList";
 import List from "./components/List/List";
+import Notebook2 from "./pages/Notebook2/Notebook2";
 
 function App() {
   return (
@@ -15,7 +16,7 @@ function App() {
           <Route path="/delete" element={<Home />} />
           <Route path="/edit" element={<Home />} />
 
-          <Route path="/notebooks/:notebookId" element={<Notebook />} />
+          <Route path="/notebooks/:notebookId" element={<Notebook2 />} />
 
           <Route
             path="/notebooks/:notebookId/lists/:listId"
