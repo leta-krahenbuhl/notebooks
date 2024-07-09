@@ -6,7 +6,6 @@
   overflow-y: auto;
 
   &__wrapper {
-    width: 16.2rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -20,6 +19,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    width: 100%;
   }
 
   &__title {
@@ -63,6 +63,10 @@
     margin-left: 1rem;
   }
 
+  // &__icons {
+  //   display: flex;
+  // }
+
   &__icon {
     width: 1rem;
     margin-top: 0.5rem;
@@ -72,6 +76,18 @@
   &__icon:hover {
     filter: brightness(0) saturate(100%);
     cursor: pointer;
+  }
+
+  &__form-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+  }
+
+  &__icon-wrapper {
+    display: flex;
+    align-items: center;
   }
 }
 

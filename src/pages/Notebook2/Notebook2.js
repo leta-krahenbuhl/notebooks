@@ -4,8 +4,8 @@ import NotebookTitles from "../../components/NotebookTitles/NotebookTitles";
 import BottomNavigation from "../../components/BottomNavigation/BottomNavigation";
 import { useParams } from "react-router-dom";
 import List from "../../components/List/List";
-import plusIconDesktop from "../../assets/images/icon-plus-grey.svg";
-import { Link } from "react-router-dom";
+// import plusIconDesktop from "../../assets/images/icon-plus-grey.svg";
+// import { Link } from "react-router-dom";
 
 export default function Notebook2() {
   const { notebookId } = useParams();

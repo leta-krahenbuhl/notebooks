@@ -2,7 +2,6 @@
   overflow-y: auto;
 }
 .notebook__wrapper {
-  width: 16.2rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -16,6 +15,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  width: 100%;
 }
 .notebook__title {
   margin: 1rem;
@@ -91,6 +91,16 @@
 .notebook__icon:hover {
   filter: brightness(0) saturate(100%);
   cursor: pointer;
+}
+.notebook__form-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+.notebook__icon-wrapper {
+  display: flex;
+  align-items: center;
 }
 
 .notebook-edit-form {

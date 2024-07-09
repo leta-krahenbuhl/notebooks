@@ -20,7 +20,7 @@
 @media screen and (min-width: 768px) {
   .edit-list__nav {
     margin-left: 1rem;
-    margin-right: 1rem;
+    margin-right: 1.2rem;
   }
 }
 @media screen and (min-width: 1024px) {
