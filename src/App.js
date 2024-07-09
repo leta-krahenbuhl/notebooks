@@ -7,6 +7,7 @@ import AddEditList from "./pages/AddEditList/AddEditList";
 import List from "./components/List/List";
 import Notebook2 from "./pages/Notebook2/Notebook2";
 import EditList from "./pages/EditList/EditList";
+import AddList from "./pages/AddList/AddList";
 
 function App() {
   return (
@@ -35,7 +36,7 @@ function App() {
           <Route path="/create/notebook" element={<CreateNotebook />} />
           <Route
             path="/notebooks/:notebookId/create/lists/"
-            element={<AddEditList />}
+            element={<AddList />}
           />
           {/* <Route
             path="/notebooks/:notebookId/create/journal/"
@@ -44,7 +45,7 @@ function App() {
 
           <Route
             path="/notebooks/:notebookId/create/lists/:listId"
-            element={<AddEditList />}
+            element={<AddList />}
           />
         </Routes>
       </div>

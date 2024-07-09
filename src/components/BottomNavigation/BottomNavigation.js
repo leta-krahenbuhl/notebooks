@@ -11,12 +11,48 @@ import { useParams } from "react-router-dom";
 import { useLocation } from "react-router-dom";
 
 export default function BottomNavigation() {
-  // const { notebookId, listId } = useParams();
+  const { notebookId, listId } = useParams();
   // const navigate = useNavigate();
   // const location = useLocation();
 
+  // if in a notebook
+  if (notebookId)
+    return (
+      <div className="notebook-navigation">
+        <Link to="/create/notebook" className="notebook-navigation__a">
+          <div className="notebook-navigation__wrapper">
+            <img
+              src={plusIcon}
+              alt="add new notebook"
+              className="notebook-navigation__image-plus"
+            />
+            <img
+              src={plusIconDesktop}
+              alt="add new notebook"
+              className="notebook-navigation__image-plus-desktop"
+            />
+            <p className="notebook-navigation__text">ADD NOTEBOOK</p>
+          </div>
+        </Link>
+        <Link
+          to={`/notebooks/${notebookId}/create/lists/`}
+          className="notebook-navigation__a"
+        >
+          <div className="notebook-navigation__wrapper">
+            <img
+              src={plusIconDesktop}
+              alt="add new notebook"
+              className="notebook-navigation__image-plus-desktop"
+            />
+            <p className="notebook-navigation__text">ADD LIST</p>
+          </div>
+        </Link>
+      </div>
+    );
+
+  // when no notebookId (so should be in home)
   return (
-    <nav className="home-navigation">
+    <div className="home-navigation">
       <Link to="/create/notebook" className="home-navigation__a">
         <div className="home-navigation__wrapper">
           <img
@@ -32,7 +68,7 @@ export default function BottomNavigation() {
           <p className="home-navigation__text">ADD NOTEBOOK</p>
         </div>
       </Link>
-    </nav>
+    </div>
   );
 
   //in a notebook

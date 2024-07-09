@@ -1,0 +1,57 @@
+.add-edit-list {
+  text-align: center;
+  min-height: 100vh;
+}
+@media screen and (min-width: 1024px) {
+  .add-edit-list__wrapper {
+    display: flex;
+    justify-content: center;
+  }
+}
+@media screen and (min-width: 1024px) {
+  .add-edit-list__wrapper-side {
+    position: fixed;
+    left: 0px;
+  }
+}
+.add-edit-list__side {
+  display: none;
+}
+@media screen and (min-width: 1024px) {
+  .add-edit-list__side {
+    display: block;
+    width: 304px;
+    height: 90vh;
+    background-color: white;
+    box-shadow: 1px 1px 10px #f5f5f5;
+  }
+}
+@media screen and (min-width: 768px) {
+  .add-edit-list__wrapper-main {
+    margin-top: 3rem;
+  }
+}
+@media screen and (min-width: 1024px) {
+  .add-edit-list__wrapper-main {
+    padding-left: 300px;
+    width: 54rem;
+  }
+}
+.add-edit-list__done-button {
+  background-color: black;
+  color: white;
+  font-family: "Antonio";
+  border: none;
+  width: 10rem;
+  font-size: 2rem;
+  padding-bottom: 0.5rem;
+  border-radius: 4px;
+  margin: 1rem;
+  margin-top: 1.5rem;
+  margin-bottom: 2.5rem;
+}
+@media screen and (min-width: 768px) {
+  .add-edit-list__done-button {
+    margin-top: 3rem;
+  }
+}/*# sourceMappingURL=AddList.css.map */

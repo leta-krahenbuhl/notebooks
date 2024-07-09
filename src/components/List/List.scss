@@ -57,15 +57,14 @@
 
   &__title-wrapper {
     display: flex;
+    justify-content: space-between;
+    align-items: baseline;
   }
-
-  // &__icon-wrapper {
-  //   display: flex;
-  // }
 
   &__icon {
     width: 1rem;
     margin-left: 0.5rem;
+    padding-top: 1rem;
   }
 
   &__icon:hover {
