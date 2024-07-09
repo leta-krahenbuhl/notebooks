@@ -12,6 +12,7 @@
   .notebook2__nav-desktop-wrapper {
     min-height: 100vh;
     background-color: white;
+    box-shadow: 1px 1px 10px #f5f5f5;
   }
 }
 .notebook2__nav {
@@ -28,11 +29,7 @@
     height: 100vh;
     margin-top: 0;
     margin-left: 0rem;
-    padding-top: 1rem;
-    width: 304px;
     text-align: center;
-    background-color: white;
-    box-shadow: 1px 1px 10px #f5f5f5;
   }
 }
 .notebook2__main {

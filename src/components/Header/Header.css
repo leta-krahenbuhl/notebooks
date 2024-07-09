@@ -1,6 +1,5 @@
 .header {
   margin: 0.5rem 0 0rem 0;
-  background-color: white;
   position: sticky;
   top: 0px;
 }
@@ -10,7 +9,6 @@
     padding-top: 1rem;
     width: 304px;
     text-align: center;
-    box-shadow: 1px 1px 10px #f5f5f5;
   }
 }
 .header__border {
