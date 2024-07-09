@@ -45,18 +45,32 @@
   }
 
   &__title {
-    font-size: 1.8rem;
+    font-size: 1.2rem;
     margin-top: 1rem;
     color: black;
-  }
-
-  &__title:hover {
-    color: $hover;
   }
 
   &__item {
     margin-left: -1.7rem;
     line-height: 1.6rem;
+  }
+
+  &__title-wrapper {
+    display: flex;
+  }
+
+  // &__icon-wrapper {
+  //   display: flex;
+  // }
+
+  &__icon {
+    width: 1rem;
+    margin-left: 0.5rem;
+  }
+
+  &__icon:hover {
+    filter: brightness(0) saturate(100%);
+    cursor: pointer;
   }
 }
 

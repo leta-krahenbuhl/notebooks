@@ -26,16 +26,24 @@
   }
 }
 .list__title {
-  font-size: 1.8rem;
+  font-size: 1.2rem;
   margin-top: 1rem;
   color: black;
-}
-.list__title:hover {
-  color: rgb(200, 175, 255);
 }
 .list__item {
   margin-left: -1.7rem;
   line-height: 1.6rem;
+}
+.list__title-wrapper {
+  display: flex;
+}
+.list__icon {
+  width: 1rem;
+  margin-left: 0.5rem;
+}
+.list__icon:hover {
+  filter: brightness(0) saturate(100%);
+  cursor: pointer;
 }
 
 .bottom-navigation-mobile {

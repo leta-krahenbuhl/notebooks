@@ -1,5 +1,4 @@
 import "./BottomNavigation.scss";
-// import { deleteList } from "../../utils/AxiosRequests";
 import plusIcon from "../../assets/images/plus.svg";
 // import editIcon from "../../assets/images/edit-white.svg";
 // import deleteIcon from "../../assets/images/delete.svg";
@@ -8,29 +7,13 @@ import plusIconDesktop from "../../assets/images/icon-plus-grey.svg";
 // import editIconDesktop from "../../assets/images/edit-black.svg";
 import { Link } from "react-router-dom";
 import { useParams } from "react-router-dom";
-import { useNavigate } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
 import { useLocation } from "react-router-dom";
 
 export default function BottomNavigation() {
   // const { notebookId, listId } = useParams();
   // const navigate = useNavigate();
   // const location = useLocation();
-
-  // to be put somewhere else
-  // const handleDeleteList = async (listId) => {
-  //   const confirmDelete = window.confirm(
-  //     `Are you sure you want to delete this list? This action cannot be undone.`
-  //   );
-
-  //   if (confirmDelete) {
-  //     try {
-  //       await deleteList(listId);
-  //     } catch (error) {
-  //       console.error(error);
-  //     }
-  //     navigate(`/notebooks/${notebookId}`);
-  //   }
-  // };
 
   return (
     <nav className="home-navigation">

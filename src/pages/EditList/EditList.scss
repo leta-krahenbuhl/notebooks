@@ -1,0 +1,69 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+
+.edit-list {
+  display: flex;
+  overflow: auto;
+  max-height: 100vh;
+  max-width: 100vw;
+
+  &__nav-desktop-wrapper {
+    position: sticky;
+    top: 0rem;
+
+    @include desktop {
+      min-height: 100vh;
+      background-color: $primary2;
+    }
+  }
+
+  &__nav {
+    @include nav;
+  }
+
+  &__main {
+    margin: 5rem 8rem 5rem 8rem;
+  }
+
+  &__link {
+    text-decoration: underline;
+  }
+
+  &__readme-desktop {
+    display: none;
+
+    @include desktop {
+      display: inline;
+      margin-top: 0rem;
+      padding-top: 4rem;
+      padding-bottom: 4rem;
+    }
+
+    &__header {
+      margin-bottom: 0.5rem;
+    }
+  }
+
+  &__readme-mobile {
+    padding: 1rem;
+    min-height: 100vh;
+    padding-bottom: 2rem;
+
+    @include tablet {
+      display: block;
+      padding: 3rem 4rem 3rem 4rem;
+    }
+
+    @include desktop {
+      display: none;
+    }
+
+    &__link {
+      text-decoration: underline;
+    }
+
+    &__header {
+      margin-bottom: 0.5rem;
+    }
+  }
+}

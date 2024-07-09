@@ -21,7 +21,6 @@ export default function Home() {
   const location = useLocation();
   const navigate = useNavigate();
   const { notebookId } = useParams();
-  console.log("notebookId iiiis:", notebookId); //this works
 
   //setEditedTitle before starting to edit to populate input field with current title
   useEffect(() => {
