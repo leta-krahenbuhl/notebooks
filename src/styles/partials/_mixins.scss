@@ -65,19 +65,18 @@
 }
 
 @mixin bottom-navigation {
-  background-color: $primary1;
+  background-color: $primary2;
   text-align: center;
-  padding-top: 0.6rem;
   position: sticky;
   bottom: 0px;
   display: flex;
   justify-content: space-evenly;
-  height: 3.2rem;
+  padding-bottom: 0.5rem;
+  font-size: 0.8rem;
 
   @include desktop {
-    // width: 304px;
-    background-color: $primary2;
-    padding-bottom: 4.65rem;
+    padding-bottom: 1.5rem;
+    font-size: 1rem;
   }
 }
 
@@ -106,12 +105,10 @@
 }
 
 @mixin nav {
-  @include desktop {
-    height: 100vh;
-    margin-top: 0;
-    margin-left: 0rem;
-    text-align: center;
-  }
+  height: 100vh;
+  margin-top: 0;
+  margin-left: 0rem;
+  text-align: center;
 }
 
 @mixin hover1 {

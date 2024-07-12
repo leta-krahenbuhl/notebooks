@@ -1,50 +1,36 @@
 import "./BottomNavigation.scss";
-import plusIcon from "../../assets/images/plus.svg";
-// import editIcon from "../../assets/images/edit-white.svg";
-// import deleteIcon from "../../assets/images/delete.svg";
-// import deleteIconDesktop from "../../assets/images/trash-black.svg";
-import plusIconDesktop from "../../assets/images/icon-plus-grey.svg";
-// import editIconDesktop from "../../assets/images/edit-black.svg";
+import plusIcon from "../../assets/images/icon-plus-grey.svg";
 import { Link } from "react-router-dom";
 import { useParams } from "react-router-dom";
-// import { useNavigate } from "react-router-dom";
-import { useLocation } from "react-router-dom";
 
 export default function BottomNavigation() {
   const { notebookId, listId } = useParams();
-  // const navigate = useNavigate();
-  // const location = useLocation();
 
   // if in a notebook
   if (notebookId)
     return (
-      <div className="notebook-navigation-bottom">
+      <div className="bottom-nav">
         <Link
           to={`/notebooks/${notebookId}/create/lists/`}
-          className="notebook-navigation-bottom__a"
+          className="bottom-nav__a"
         >
-          <div className="notebook-navigation-bottom__wrapper">
-            <img
-              src={plusIconDesktop}
-              alt="add new notebook"
-              className="notebook-navigation-bottom__image-plus-desktop"
-            />
-            <p className="notebook-navigation-bottom__text">ADD LIST</p>
-          </div>
-        </Link>
-        <Link to="/create/notebook" className="notebook-navigation-bottom__a">
-          <div className="notebook-navigation-bottom__wrapper">
+          <div className="bottom-nav__wrapper">
             <img
               src={plusIcon}
               alt="add new notebook"
-              className="notebook-navigation-bottom__image-plus"
+              className="bottom-nav__image-plus-desktop"
             />
+            <p className="bottom-nav__text">ADD LIST</p>
+          </div>
+        </Link>
+        <Link to="/create/notebook" className="bottom-nav__a">
+          <div className="bottom-nav__wrapper">
             <img
-              src={plusIconDesktop}
+              src={plusIcon}
               alt="add new notebook"
-              className="notebook-navigation-bottom__image-plus-desktop"
+              className="bottom-nav__image-plus-desktop"
             />
-            <p className="notebook-navigation-bottom__text">ADD NOTEBOOK</p>
+            <p className="bottom-nav__text">ADD NOTEBOOK</p>
           </div>
         </Link>
       </div>
@@ -52,20 +38,15 @@ export default function BottomNavigation() {
 
   // when no notebookId (so should be in home)
   return (
-    <div className="home-navigation">
-      <Link to="/create/notebook" className="home-navigation__a">
-        <div className="home-navigation__wrapper">
+    <div className="bottom-nav">
+      <Link to="/create/notebook" className="bottom-nav__a">
+        <div className="bottom-nav__wrapper">
           <img
             src={plusIcon}
             alt="add new notebook"
-            className="home-navigation__image-plus"
+            className="bottom-nav__image-plus-desktop"
           />
-          <img
-            src={plusIconDesktop}
-            alt="add new notebook"
-            className="home-navigation__image-plus-desktop"
-          />
-          <p className="home-navigation__text">ADD NOTEBOOK</p>
+          <p className="bottom-nav__text">ADD NOTEBOOK</p>
         </div>
       </Link>
     </div>
