@@ -42,20 +42,20 @@
 
   &__button-delete {
     background-image: url("../../assets/images/trash-black.svg");
-    @include button-icon-white;
+    @include icon;
     margin-right: 1rem;
   }
 
   &__button-edit {
     background-image: url("../../assets/images/edit-black.svg");
     margin-right: 1rem;
-    @include button-icon-white;
+    @include icon;
   }
 
   &__button-save {
     background-image: url("../../assets/images/save-black.svg");
     margin-right: 1rem;
-    @include button-icon-white;
+    @include icon;
   }
 
   &__error {

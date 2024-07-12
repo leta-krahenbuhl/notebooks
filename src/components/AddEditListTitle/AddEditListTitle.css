@@ -57,6 +57,7 @@
   height: 2.5rem;
   border-radius: 5px;
   flex-shrink: 0;
+  cursor: pointer;
 }
 .add-list-title-form__error {
   font-size: 0.7rem;
@@ -74,8 +75,10 @@
 }
 
 .edit-title {
-  margin: 1rem;
-  height: 9rem;
+  margin: 1rem 1rem 0rem 1rem;
+}
+.edit-title__main {
+  flex-grow: 1;
 }
 .edit-title__wrapper {
   display: flex;
@@ -94,7 +97,6 @@
   }
 }
 .edit-title__header {
-  margin-top: 1rem;
   margin-bottom: 2rem;
   text-align: center;
   font-family: "Antonio";
@@ -117,4 +119,5 @@
   height: 2.5rem;
   border-radius: 5px;
   flex-shrink: 0;
+  cursor: pointer;
 }/*# sourceMappingURL=AddEditListTitle.css.map */

@@ -2,11 +2,12 @@
 @use "../../styles/partials/mixins" as *;
 
 .edit-list-items {
-  margin: 1rem;
+  margin: 0rem 1rem 1rem 1rem;
   text-align: center;
 
   &__list {
     margin-left: -1.6rem;
+    padding-left: 1rem;
 
     @include tablet {
       margin-left: 3rem;

@@ -161,21 +161,19 @@ export default function AddListTitle() {
   //title displayed (no input field)
   if (isTitle) {
     return (
-      <>
-        <article className="edit-title">
-          <h2 className="edit-title__header">EDIT LIST</h2>
-          <div className="edit-title__wrapper">
-            <h3 className="edit-title__list-title">
-              {titleArr && titleArr.length > 0 ? titleArr[0].title : ""}
-            </h3>
-            <button
-              alt="edit list title button"
-              onClick={() => handleClick(titleArr[0].title)}
-              className="edit-title__button"
-            ></button>
-          </div>
-        </article>
-      </>
+      <article className="edit-title">
+        <h2 className="edit-title__header">EDIT LIST</h2>
+        <div className="edit-title__wrapper">
+          <h3 className="edit-title__list-title">
+            {titleArr && titleArr.length > 0 ? titleArr[0].title : ""}
+          </h3>
+          <button
+            alt="edit list title button"
+            onClick={() => handleClick(titleArr[0].title)}
+            className="edit-title__button"
+          ></button>
+        </div>
+      </article>
     );
   }
 }

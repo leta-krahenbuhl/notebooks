@@ -44,10 +44,11 @@
   background-repeat: no-repeat;
   background-position: center;
   border: none;
-  width: 2.5rem;
-  height: 2.5rem;
+  width: 2rem;
+  height: 2rem;
   border-radius: 5px;
   flex-shrink: 0;
+  cursor: pointer;
   margin-right: 1rem;
 }
 .notebook__button-edit {
@@ -58,10 +59,11 @@
   background-repeat: no-repeat;
   background-position: center;
   border: none;
-  width: 2.5rem;
-  height: 2.5rem;
+  width: 2rem;
+  height: 2rem;
   border-radius: 5px;
   flex-shrink: 0;
+  cursor: pointer;
 }
 .notebook__button-save {
   background-image: url("../../assets/images/save-black.svg");
@@ -71,10 +73,11 @@
   background-repeat: no-repeat;
   background-position: center;
   border: none;
-  width: 2.5rem;
-  height: 2.5rem;
+  width: 2rem;
+  height: 2rem;
   border-radius: 5px;
   flex-shrink: 0;
+  cursor: pointer;
 }
 .notebook__error {
   font-size: 0.7rem;

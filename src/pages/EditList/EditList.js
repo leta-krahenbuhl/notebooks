@@ -21,9 +21,10 @@ export default function EditList() {
         <BottomNavigation />
       </div>
       <main className="edit-list__main">
-        <AddEditListTitle />
-        <AddEditListItems />
-
+        <div className="edit-list__main-wrapper">
+          <AddEditListTitle />
+          <AddEditListItems />
+        </div>
         {/* Adding a new list without saving a title => coming from notebook page */}
         {/* {location.pathname.endsWith("create/lists") && (
           <Link to={`/notebooks/${notebookId}`}>
@@ -41,7 +42,7 @@ export default function EditList() {
         {/* Edit an existing list */}
         {location.pathname.endsWith("/edit") && (
           <Link to={`/notebooks/${notebookId}`}>
-            <button className="add-edit-list__done-button">DONE</button>
+            <button className="edit-list__done-button">DONE</button>
           </Link>
         )}
       </main>

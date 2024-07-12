@@ -41,6 +41,7 @@
   height: 2.5rem;
   border-radius: 5px;
   flex-shrink: 0;
+  cursor: pointer;
 }
 .create-notebook-entry__cancel-button {
   background-color: white;
@@ -80,6 +81,7 @@
   height: 2.5rem;
   border-radius: 5px;
   flex-shrink: 0;
+  cursor: pointer;
 }
 .add-notebook-form__error {
   font-size: 0.7rem;

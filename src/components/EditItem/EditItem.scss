@@ -7,7 +7,7 @@
   align-items: center;
 
   &__button-save {
-    @include button-icon-white;
+    @include icon;
     background-image: URL("../../assets/images/save-black.svg");
     margin-right: 0rem;
   }
@@ -30,7 +30,7 @@
   }
 
   &__button-edit {
-    @include button-icon-white;
+    @include icon;
     background-image: URL("../../assets/images/edit-black.svg");
   }
 

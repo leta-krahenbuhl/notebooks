@@ -105,9 +105,8 @@ export default function List() {
           onMouseLeave={() => setHoveredListTitleId(null)}
         >
           <div className="list__title-wrapper">
-            <Link to={`/notebooks/${notebookId}/lists/${titleObj.title.id}`}>
-              <h2 className="list__title">&#x1F4C3; {titleObj.title.title}</h2>
-            </Link>
+            <h2 className="list__title">&#x1F4C3; {titleObj.title.title}</h2>
+
             {hoveredListTitleId === titleObj.title.id && (
               <div className="list__icon-wrapper">
                 <span className="list__icons">
