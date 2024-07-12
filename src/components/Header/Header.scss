@@ -2,15 +2,11 @@
 @use "../../styles/partials/mixins" as *;
 
 .header {
-  margin: 0.5rem 0 0rem 0;
-  // padding-bottom: 3rem;
-  // background-color: $primary2;
   position: sticky;
   top: 0px;
-  // height: 3rem;
 
   @include tablet {
-    // height: 5rem;
+    margin: 1rem 0 0rem 0;
   }
 
   @include desktop {
@@ -26,24 +22,22 @@
   }
 
   &__logo {
-    text-decoration: none;
     font-family: "Bimbo";
     font-size: 2rem;
-    color: black;
     transform: rotate(-2deg);
     margin-left: 1rem;
     margin-bottom: 0.5rem;
     text-align: left;
 
     @include tablet {
-      margin-bottom: 1rem;
+      font-size: 1.5rem;
       margin-left: 1.5rem;
     }
 
     @include desktop {
       font-size: 1.8rem;
+      margin-bottom: 1rem;
       margin-left: 2rem;
-      text-align: left;
     }
   }
 }

@@ -10,11 +10,17 @@
   &__nav-desktop-wrapper {
     position: sticky;
     top: 0rem;
+    padding-right: 1rem;
+    min-height: 100vh;
+    background-color: $primary2;
+    box-shadow: 1px 1px 10px #f7f7f7;
+
+    @include tablet {
+      width: 160%;
+    }
 
     @include desktop {
-      min-height: 100vh;
-      background-color: $primary2;
-      box-shadow: 1px 1px 10px #f7f7f7;
+      width: 20rem;
     }
   }
 
@@ -23,48 +29,40 @@
   }
 
   &__main {
-    margin: 5rem 8rem 5rem 8rem;
+    margin: 2rem 5rem 2rem 5rem;
+    @include desktop {
+      margin: 5rem 10rem 5rem 10rem;
+    }
+  }
+
+  &__header {
+    font-size: 0.8rem;
+
+    @include desktop {
+      font-size: 1.2rem;
+    }
+  }
+
+  &__text {
+    font-size: 0.8rem;
+
+    @include desktop {
+      font-size: 1rem;
+    }
   }
 
   &__link {
     text-decoration: underline;
-  }
-
-  &__readme-desktop {
-    display: none;
+    font-style: italic;
 
     @include desktop {
-      display: inline;
-      margin-top: 0rem;
-      padding-top: 4rem;
-      padding-bottom: 4rem;
-    }
-
-    &__header {
-      margin-bottom: 0.5rem;
+      text-decoration: none;
     }
   }
 
-  &__readme-mobile {
-    padding: 1rem;
-    min-height: 100vh;
-    padding-bottom: 2rem;
-
-    @include tablet {
-      display: block;
-      padding: 3rem 4rem 3rem 4rem;
-    }
-
+  &__link:hover {
     @include desktop {
-      display: none;
-    }
-
-    &__link {
       text-decoration: underline;
-    }
-
-    &__header {
-      margin-bottom: 0.5rem;
     }
   }
 }

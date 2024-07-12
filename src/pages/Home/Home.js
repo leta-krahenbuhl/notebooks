@@ -14,71 +14,15 @@ export default function Home() {
         <BottomNavigation />
       </div>
       <main className="home__main">
-        <div className="home__readme-mobile">
-          <h3>Welcome :)</h3>
-          <p>
+        <div className="home__readme">
+          <h3 className="home__header">Welcome :)</h3>
+          <p className="home__text">
             Notebooks was created as a capstone project for my software
             engineering diploma course at BrainStation London. It is a web app
             to store lists which are sorted into notebooks.
           </p>
           <br />
-          <p>
-            The project was built to showcase a React front end application with
-            full CRUD operations, and an Express/Node.js backend linked to an
-            SQL database. The database consists of three separate tables and I
-            used Knex as a query builder.
-          </p>
-          <br />
-          <p>Feel free to have a look at the source code here: </p>
-          <br />
-
-          <p>
-            <a
-              href="https://github.com/leta-krahenbuhl/notebooks"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="readme-mobile__link"
-            >
-              Front-end repo
-            </a>
-          </p>
-
-          <p>
-            <a
-              href="https://github.com/leta-krahenbuhl/notebooks-server"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="readme-mobile__link"
-            >
-              Back-end repo
-            </a>
-          </p>
-          <br />
-          <br />
-          <h3>User guide</h3>
-
-          <h4 class="readme-mobile__header">Edit/delete or add new notebook</h4>
-          <p> Use the buttons at the bottom of the homepage. </p>
-          <h4 class="readme-mobile__header"> Add a new list to a notebook </h4>
-          <p>
-            Click onto the notebook you would like to add the list to, then use
-            the plus button at the bottom of the page.
-          </p>
-          <h4 class="readme-mobile__header"> Edit/delete a list</h4>
-          <p>
-            Click onto the list title and use the edit/delete button to edit a
-            list.
-          </p>
-        </div>
-        <div className="home__readme-desktop">
-          <h3>Welcome :)</h3>
-          <p>
-            Notebooks was created as a capstone project for my software
-            engineering diploma course at BrainStation London. It is a web app
-            to store lists which are sorted into notebooks.
-          </p>
-          <br />
-          <p>
+          <p className="home__text">
             The project was built to showcase a React front end application with
             full CRUD operations, and an Express/Node.js backend linked to an
             SQL database. The database consists of three separate tables and I
@@ -86,29 +30,27 @@ export default function Home() {
           </p>
           <br />
 
-          <p>
+          <p className="home__text">
             Feel free to a look at the source code here:
             <br />
             <br />
           </p>
-
-          <p>
+          <p className="home__text">
             <a
               href="https://github.com/leta-krahenbuhl/notebooks"
               target="_blank"
               rel="noopener noreferrer"
-              class="home__link"
+              class="home__link home__link--mobile"
             >
               Front-end repo
             </a>
           </p>
-
-          <p>
+          <p className="home__text">
             <a
               href="https://github.com/leta-krahenbuhl/notebooks-server"
               target="_blank"
               rel="noopener noreferrer"
-              class="home__link"
+              class="home__link home__link--mobile"
             >
               Back-end repo
             </a>

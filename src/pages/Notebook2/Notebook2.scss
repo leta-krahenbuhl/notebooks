@@ -20,6 +20,8 @@
 
   &__nav {
     @include nav;
+    padding-right: 1rem;
+    width: 20rem;
   }
 
   &__main {
