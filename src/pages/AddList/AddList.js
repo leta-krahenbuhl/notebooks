@@ -22,9 +22,10 @@ export default function AddList() {
       </div>
 
       <main className="add-list__main">
-        <AddEditListTitle />
-        <AddEditListItems />
-
+        <div className="add-list__main-wrapper">
+          <AddEditListTitle />
+          <AddEditListItems />
+        </div>
         {/* Adding a new list without saving a title => coming from notebook page */}
         {location.pathname.endsWith("create/lists") && (
           <Link to={`/notebooks/${notebookId}`}>
@@ -45,6 +46,10 @@ export default function AddList() {
             <button className="add-list__done-button">DONE</button>
           </Link>
         )}
+
+        <Link to={`/notebooks/${notebookId}`}>
+          <p className="add-list__cancel-button">CANCEL</p>
+        </Link>
       </main>
     </article>
   );

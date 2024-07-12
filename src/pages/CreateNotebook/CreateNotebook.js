@@ -50,7 +50,7 @@ export default function CreateNotebook() {
           <form onSubmit={handleSubmit} className="add-notebook-form">
             <div className="add-notebook-form__wrapper">
               <input
-                placeholder="Enter your title here"
+                placeholder="Enter notebook title here"
                 type="text"
                 name="title"
                 id="title"

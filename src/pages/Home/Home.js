@@ -24,12 +24,12 @@ export default function Home() {
           <br />
           <p>
             The project was built to showcase a React front end application with
-            full CRUD operations, and an Express/Node.js backend, together with
-            an SQL database. The database consists of three separate tables and
-            I used Knex as a query builder.
+            full CRUD operations, and an Express/Node.js backend linked to an
+            SQL database. The database consists of three separate tables and I
+            used Knex as a query builder.
           </p>
           <br />
-          <p>Have a look at the source code here: </p>
+          <p>Feel free to have a look at the source code here: </p>
           <br />
 
           <p>
@@ -80,14 +80,14 @@ export default function Home() {
           <br />
           <p>
             The project was built to showcase a React front end application with
-            full CRUD operations, and an Express/Node.js backend, together with
-            an SQL database. The database consists of three separate tables and
-            I used Knex as a query builder.
+            full CRUD operations, and an Express/Node.js backend linked to an
+            SQL database. The database consists of three separate tables and I
+            used Knex as a query builder.
           </p>
           <br />
 
           <p>
-            Have a look at the source code here:
+            Feel free to a look at the source code here:
             <br />
             <br />
           </p>
