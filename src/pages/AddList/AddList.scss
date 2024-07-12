@@ -1,22 +1,27 @@
 @use "../../styles/partials/variables" as *;
 @use "../../styles/partials/mixins" as *;
 
-.add-edit-list {
-  text-align: center;
-  min-height: 100vh;
+.add-list {
+  display: flex;
+  overflow: auto;
+  max-height: 100vh;
+  width: 100%;
+  // text-align: center;
+  // min-height: 100vh;
 
-  &__wrapper {
+  &__nav-wrapper {
+    position: sticky;
+    top: 0rem;
+
     @include desktop {
-      display: flex;
-      justify-content: center;
+      min-height: 100vh;
+      background-color: $primary2;
+      box-shadow: 1px 1px 10px #f7f7f7;
     }
   }
 
-  &__wrapper-side {
-    @include desktop {
-      position: fixed;
-      left: 0px;
-    }
+  &__nav {
+    @include nav;
   }
 
   &__side {
@@ -31,15 +36,8 @@
     }
   }
 
-  &__wrapper-main {
-    @include tablet {
-      margin-top: 3rem;
-    }
-
-    @include desktop {
-      padding-left: 300px;
-      width: 54rem;
-    }
+  &__main {
+    margin: 5rem 8rem 5rem 8rem;
   }
 
   &__done-button {
