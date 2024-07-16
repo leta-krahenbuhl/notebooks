@@ -13,9 +13,10 @@ export default function Home() {
         </nav>
         <BottomNavigation />
       </div>
-      <main className="home__main">
+
+      <article className="home__main">
         <div className="home__readme">
-          <h3 className="home__header">Welcome :)</h3>
+          <h3 className="home__header">Welcome</h3>
           <p className="home__text">
             Notebooks was created as a capstone project for my software
             engineering diploma course at BrainStation London. It is a web app
@@ -56,7 +57,7 @@ export default function Home() {
             </a>
           </p>
         </div>
-      </main>
+      </article>
     </article>
   );
 }

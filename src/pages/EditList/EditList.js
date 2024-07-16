@@ -20,6 +20,7 @@ export default function EditList() {
         </nav>
         <BottomNavigation />
       </div>
+
       <main className="edit-list__main">
         <AddEditListTitle />
         <AddEditListItems />

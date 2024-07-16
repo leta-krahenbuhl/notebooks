@@ -13,7 +13,7 @@ export default function AddList() {
 
   return (
     <article className="add-list">
-      <div className="add-list__nav-wrapper">
+      <div className="add-list__nav-desktop-wrapper">
         <Header />
         <nav className="add-list__nav">
           <NotebookTitles />
@@ -22,27 +22,20 @@ export default function AddList() {
       </div>
 
       <main className="add-list__main">
-        <div className="add-list__main-wrapper">
-          <AddEditListTitle />
-          <AddEditListItems />
-        </div>
+        <AddEditListTitle />
+        <AddEditListItems />
         {/* Adding a new list without saving a title => coming from notebook page */}
-        {location.pathname.endsWith("create/lists") && (
+        {/* {location.pathname.endsWith("create/lists") && (
           <Link to={`/notebooks/${notebookId}`}>
             <button className="add-list__done-button">DONE</button>
           </Link>
-        )}
+        )} */}
 
         {/* Creating a new list and added title/items and coming from notebook page */}
-        {location.pathname.endsWith(`create/lists/${listId}`) && (
+        {location.pathname.endsWith(
+          `create/lists/${listId}` || location.pathname.endsWith(`/edit`)
+        ) && (
           <Link to={`/notebooks/${notebookId}`}>
-            <button className="add-list__done-button">DONE</button>
-          </Link>
-        )}
-
-        {/* Edit an existing list => coming from list page*/}
-        {location.pathname.endsWith("/edit") && (
-          <Link to={`/notebooks/${notebookId}/lists/${listId}`}>
             <button className="add-list__done-button">DONE</button>
           </Link>
         )}

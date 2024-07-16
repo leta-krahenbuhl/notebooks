@@ -17,10 +17,11 @@ export default function Notebook2() {
         </nav>
         <BottomNavigation />
       </div>
-      <main className="notebook2__main">
+
+      <article className="notebook2__main">
         <List notebookId={notebookId} />
         <div className="notebook2__whitespace"></div>
-      </main>
+      </article>
     </article>
   );
 }

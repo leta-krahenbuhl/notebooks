@@ -49,6 +49,8 @@
   &__button {
     background-image: URL("../../assets/images/save-black.svg");
     @include icon;
+    background-size: 1.5rem;
+    width: 1.5rem;
   }
 
   &__error {

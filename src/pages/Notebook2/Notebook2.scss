@@ -41,44 +41,6 @@
     text-decoration: underline;
   }
 
-  &__readme-desktop {
-    display: none;
-
-    @include desktop {
-      display: inline;
-      margin-top: 0rem;
-      padding-top: 4rem;
-      padding-bottom: 4rem;
-    }
-
-    &__header {
-      margin-bottom: 0.5rem;
-    }
-  }
-
-  &__readme-mobile {
-    padding: 1rem;
-    min-height: 100vh;
-    padding-bottom: 2rem;
-
-    @include tablet {
-      display: block;
-      padding: 3rem 4rem 3rem 4rem;
-    }
-
-    @include desktop {
-      display: none;
-    }
-
-    &__link {
-      text-decoration: underline;
-    }
-
-    &__header {
-      margin-bottom: 0.5rem;
-    }
-  }
-
   &__whitespace {
     height: 1rem;
 

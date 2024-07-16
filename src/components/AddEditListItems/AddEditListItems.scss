@@ -51,11 +51,20 @@
     background-image: URL("../../assets/images/save-black.svg");
     @include icon;
     margin-top: 0.5rem;
+    // background-size: 1.5rem;
+    // width: 1.5rem;
 
     &--inactive {
       background-image: URL("../../assets/images/save-grey.svg");
       @include icon;
+      margin-top: 0.5rem;
       background-size: 1.5rem;
+      width: 1.5rem;
+      cursor: default;
+
+      @include desktop {
+        margin-top: 0.2rem;
+      }
     }
 
     @include desktop {

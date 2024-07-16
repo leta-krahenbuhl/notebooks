@@ -66,6 +66,15 @@
   &__button {
     background-image: URL("../../assets/images/save-black.svg");
     @include icon;
+    margin-top: 0.5rem;
+    width: 2rem;
+    background-size: 1.8rem;
+
+    @include desktop {
+      margin-top: 0.2rem;
+      width: 2rem;
+      background-size: 1.8rem;
+    }
   }
 
   &__error {

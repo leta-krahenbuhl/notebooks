@@ -105,12 +105,12 @@
 }
 
 @mixin cancel-button {
-  background-color: $primary2;
   border: none;
   font-family: "Courier New", Courier, monospace;
   font-style: italic;
   font-weight: bold;
   font-size: 1rem;
+  margin-top: 3rem;
 }
 
 @mixin error-message-form {
