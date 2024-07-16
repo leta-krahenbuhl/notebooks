@@ -10,24 +10,31 @@
   &__nav-desktop-wrapper {
     position: sticky;
     top: 0rem;
+    padding-right: 1rem;
+    min-height: 100vh;
+    background-color: $primary2;
+    box-shadow: 1px 1px 10px #f7f7f7;
+
+    @include tablet {
+      width: 14rem;
+    }
 
     @include desktop {
-      min-height: 100vh;
-      background-color: $primary2;
-      box-shadow: 1px 1px 10px #f5f5f5;
+      width: 20rem;
     }
   }
 
   &__nav {
     @include nav;
-    padding-right: 1rem;
-    width: 20rem;
   }
 
   &__main {
-    // margin: 5rem 15rem 5rem 15rem;
-    // width: 6rem;
+    margin: 4rem 8rem 2rem 8rem;
     flex-grow: 1;
+
+    @include desktop {
+      margin: 5rem 10rem 5rem 10rem;
+    }
   }
 
   &__link {
@@ -69,6 +76,14 @@
 
     &__header {
       margin-bottom: 0.5rem;
+    }
+  }
+
+  &__whitespace {
+    height: 1rem;
+
+    @include desktop {
+      height: 4rem;
     }
   }
 }

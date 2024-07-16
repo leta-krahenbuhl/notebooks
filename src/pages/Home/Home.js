@@ -23,10 +23,10 @@ export default function Home() {
           </p>
           <br />
           <p className="home__text">
-            The project was built to showcase a React front end application with
-            full CRUD operations, and an Express/Node.js backend linked to an
-            SQL database. The database consists of three separate tables and I
-            used Knex as a query builder.
+            The project was built to showcase a fully responsive React front end
+            application with full CRUD operations, and an Express/Node.js
+            backend linked to an SQL database. The database consists of three
+            separate tables and I used Knex as a query builder.
           </p>
           <br />
 

@@ -29,12 +29,11 @@
     font-style: italic;
   }
 
-  .notebook-navigation-bottom__a:hover
-    .notebook-navigation-bottom__image-plus-desktop {
+  .bottom-nav__a:hover .bottom-nav__image-plus-desktop {
     filter: brightness(0) saturate(100%); /* Change SVG color to black */
   }
 
-  .notebook-navigation-bottom__a:hover .notebook-navigation-bottom__text {
+  .bottom-nav__a:hover .bottom-nav__text {
     color: black; /* Change text color to black */
   }
 
