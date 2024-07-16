@@ -125,6 +125,20 @@ export default function List() {
                 </span>
               </div>
             )}
+            <div className="list__icons-tablet">
+              <img
+                src={editIcon}
+                alt="edit list"
+                className="list__icon"
+                onClick={() => handleEditList(titleObj.title.id)}
+              />
+              <img
+                src={deleteIcon}
+                alt="delete list"
+                className="list__icon"
+                onClick={() => handleDeleteList(titleObj.title.id)}
+              />
+            </div>
           </div>
 
           <ListItems
