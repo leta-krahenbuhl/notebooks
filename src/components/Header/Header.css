@@ -1,7 +1,11 @@
 .header {
-  margin: 0.5rem 0 0rem 0;
   position: sticky;
   top: 0px;
+}
+@media screen and (min-width: 768px) {
+  .header {
+    margin: 1rem 0 0rem 0;
+  }
 }
 @media screen and (min-width: 1024px) {
   .header {
@@ -15,26 +19,23 @@
   border-top: 3px solid black;
 }
 .header__logo {
-  text-decoration: none;
   font-family: "Bimbo";
   font-size: 2rem;
-  color: black;
   transform: rotate(-2deg);
   margin-left: 1rem;
-  margin-bottom: 0.5rem;
   text-align: left;
 }
 @media screen and (min-width: 768px) {
   .header__logo {
-    margin-bottom: 1rem;
-    margin-left: 1.5rem;
+    font-size: 1.5rem;
+    margin-left: 1.2rem;
   }
 }
 @media screen and (min-width: 1024px) {
   .header__logo {
     font-size: 1.8rem;
+    margin-bottom: 1rem;
     margin-left: 2rem;
-    text-align: left;
   }
 }
 

@@ -40,6 +40,7 @@
     width: 100%;
     margin-right: 1rem;
     @include input-field;
+
     &--inactive {
       width: 100%;
       margin-right: 1rem;
@@ -50,9 +51,14 @@
   &__button {
     background-image: URL("../../assets/images/save-black.svg");
     @include icon;
-    margin-top: 0.5rem;
-    // background-size: 1.5rem;
-    // width: 1.5rem;
+
+    @include tablet {
+      margin-top: 1rem;
+    }
+
+    @include desktop {
+      margin-top: 0.5rem;
+    }
 
     &--inactive {
       background-image: URL("../../assets/images/save-grey.svg");
@@ -61,6 +67,10 @@
       background-size: 1.5rem;
       width: 1.5rem;
       cursor: default;
+
+      @include tablet {
+        margin-top: 1.25rem;
+      }
 
       @include desktop {
         margin-top: 0.2rem;

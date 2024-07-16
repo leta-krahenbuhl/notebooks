@@ -1,183 +1,93 @@
-.notebook-navigation-bottom {
+.bottom-nav {
   display: flex;
   flex-direction: column;
-  background-color: black;
+  background-color: white;
   text-align: center;
-  padding-top: 0.6rem;
   position: sticky;
   bottom: 0px;
   display: flex;
   justify-content: space-evenly;
-  height: 3.2rem;
-  padding-top: 0.7rem;
+  padding-bottom: 0.5rem;
+  font-size: 0.8rem;
 }
 @media screen and (min-width: 1024px) {
-  .notebook-navigation-bottom {
-    background-color: white;
-    padding-bottom: 4.65rem;
+  .bottom-nav {
+    padding-bottom: 1.5rem;
+    font-size: 1rem;
   }
 }
-.notebook-navigation-bottom__wrapper {
+.bottom-nav__wrapper {
   width: 100%;
   display: flex;
   justify-items: start;
-  margin-left: 2rem;
+  margin-left: 1rem;
 }
-.notebook-navigation-bottom__a {
+@media screen and (min-width: 1024px) {
+  .bottom-nav__wrapper {
+    margin-left: 2rem;
+  }
+}
+.bottom-nav__a {
   width: 100%;
   margin-bottom: 0.5rem;
 }
-.notebook-navigation-bottom__text {
+.bottom-nav__text {
   color: #b1b1b1;
   font-weight: 700;
   font-style: italic;
 }
-.notebook-navigation-bottom .notebook-navigation-bottom__a:hover .notebook-navigation-bottom__image-plus-desktop {
+.bottom-nav .bottom-nav__a:hover .bottom-nav__image-plus-desktop {
   filter: brightness(0) saturate(100%); /* Change SVG color to black */
 }
-.notebook-navigation-bottom .notebook-navigation-bottom__a:hover .notebook-navigation-bottom__text {
+.bottom-nav .bottom-nav__a:hover .bottom-nav__text {
   color: black; /* Change text color to black */
 }
-.notebook-navigation-bottom__image-plus {
-  margin-top: -0.3rem;
-  width: 1.8rem;
-}
-@media screen and (min-width: 1024px) {
-  .notebook-navigation-bottom__image-plus {
-    display: none;
-  }
-}
-.notebook-navigation-bottom__image-plus-desktop {
+.bottom-nav__image-plus-desktop {
   display: none;
+  display: inline;
+  width: 1rem;
+  height: 1rem;
+  margin-right: 0.5rem;
 }
-@media screen and (min-width: 1024px) {
-  .notebook-navigation-bottom__image-plus-desktop {
-    display: inline;
-    width: 1rem;
-    height: 1rem;
-    margin-right: 0.5rem;
-  }
-}
-.notebook-navigation-bottom .home-navigation__a:hover .home-navigation__image-plus-desktop {
+.bottom-nav .home-navigation__a:hover .home-navigation__image-plus-desktop {
   filter: brightness(0) saturate(100%); /* Change SVG color to black */
 }
-.notebook-navigation-bottom .home-navigation__a:hover .home-navigation__text {
+.bottom-nav .home-navigation__a:hover .home-navigation__text {
   color: black; /* Change text color to black */
 }
-.notebook-navigation-bottom__image {
+.bottom-nav__image {
   width: 1.8rem;
 }
 @media screen and (min-width: 1024px) {
-  .notebook-navigation-bottom__image {
+  .bottom-nav__image {
     display: none;
   }
 }
-.notebook-navigation-bottom__image-desktop {
+.bottom-nav__image-desktop {
   display: none;
 }
 @media screen and (min-width: 1024px) {
-  .notebook-navigation-bottom__image-desktop {
-    display: inline;
-    width: 2rem;
-  }
-}
-
-.home-navigation {
-  width: 100%;
-  background-color: black;
-  text-align: center;
-  padding-top: 0.6rem;
-  position: sticky;
-  bottom: 0px;
-  display: flex;
-  justify-content: space-evenly;
-  height: 3.2rem;
-  padding-top: 0.7rem;
-}
-@media screen and (min-width: 1024px) {
-  .home-navigation {
-    background-color: white;
-    padding-bottom: 4.65rem;
-  }
-}
-@media screen and (min-width: 1024px) {
-  .home-navigation {
-    padding-bottom: 3rem;
-  }
-}
-.home-navigation__wrapper {
-  width: 100%;
-  display: flex;
-  justify-items: start;
-  margin-left: 2rem;
-}
-.home-navigation__a {
-  width: 100%;
-}
-.home-navigation__text {
-  color: #b1b1b1;
-  font-weight: 700;
-  font-style: italic;
-}
-.home-navigation__image-plus {
-  margin-top: -0.3rem;
-  width: 1.8rem;
-}
-@media screen and (min-width: 1024px) {
-  .home-navigation__image-plus {
-    display: none;
-  }
-}
-.home-navigation__image-plus-desktop {
-  display: none;
-}
-@media screen and (min-width: 1024px) {
-  .home-navigation__image-plus-desktop {
-    display: inline;
-    width: 1rem;
-    height: 1rem;
-    margin-right: 0.5rem;
-  }
-}
-.home-navigation .home-navigation__a:hover .home-navigation__image-plus-desktop {
-  filter: brightness(0) saturate(100%); /* Change SVG color to black */
-}
-.home-navigation .home-navigation__a:hover .home-navigation__text {
-  color: black; /* Change text color to black */
-}
-.home-navigation__image {
-  width: 1.8rem;
-}
-@media screen and (min-width: 1024px) {
-  .home-navigation__image {
-    display: none;
-  }
-}
-.home-navigation__image-desktop {
-  display: none;
-}
-@media screen and (min-width: 1024px) {
-  .home-navigation__image-desktop {
+  .bottom-nav__image-desktop {
     display: inline;
     width: 2rem;
   }
 }
 
 .list-bottom-navigation {
-  background-color: black;
+  background-color: white;
   text-align: center;
-  padding-top: 0.6rem;
   position: sticky;
   bottom: 0px;
   display: flex;
   justify-content: space-evenly;
-  height: 3.2rem;
+  padding-bottom: 0.5rem;
+  font-size: 0.8rem;
   padding-top: 0.4rem;
 }
 @media screen and (min-width: 1024px) {
   .list-bottom-navigation {
-    background-color: white;
-    padding-bottom: 4.65rem;
+    padding-bottom: 1.5rem;
+    font-size: 1rem;
   }
 }
 @media screen and (min-width: 1024px) {
@@ -188,19 +98,26 @@
 .list-bottom-navigation__button-delete-mobile {
   background-image: url("../../assets/images/delete.svg");
   background-color: white;
-  background-size: 1.5rem;
+  background-size: 0.9rem;
   background-repeat: no-repeat;
   background-position: center;
   border: none;
-  width: 2rem;
-  height: 2rem;
   border-radius: 5px;
   flex-shrink: 0;
   cursor: pointer;
+  width: 1.5rem;
+  height: 1.5rem;
   background-color: black;
   background-size: 1.8rem;
   margin-bottom: 0.6rem;
   width: 1.8rem;
+}
+@media screen and (min-width: 1024px) {
+  .list-bottom-navigation__button-delete-mobile {
+    background-size: 1.5rem;
+    width: 2rem;
+    height: 2rem;
+  }
 }
 @media screen and (min-width: 1024px) {
   .list-bottom-navigation__button-delete-mobile {
@@ -215,18 +132,25 @@
     display: inline;
     background-image: url("../../assets/images/trash-black.svg");
     background-color: white;
-    background-size: 1.5rem;
+    background-size: 0.9rem;
     background-repeat: no-repeat;
     background-position: center;
     border: none;
-    width: 2rem;
-    height: 2rem;
     border-radius: 5px;
     flex-shrink: 0;
     cursor: pointer;
+    width: 1.5rem;
+    height: 1.5rem;
     background-size: 2rem;
     width: 2rem;
     cursor: pointer;
+  }
+}
+@media screen and (min-width: 1024px) and (min-width: 1024px) {
+  .list-bottom-navigation__button-delete-desktop {
+    background-size: 1.5rem;
+    width: 2rem;
+    height: 2rem;
   }
 }
 .list-bottom-navigation__button-edit-mobile {

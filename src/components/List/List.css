@@ -5,30 +5,33 @@
   max-width: 100vw;
 }
 
-@media screen and (min-width: 1024px) {
-  .nav-desktop-wrapper {
-    display: flex;
-    flex-direction: column;
-    height: 100vh;
-    background-color: white;
-    box-shadow: 1px 1px 10px #f5f5f5;
-    padding-bottom: 1rem;
-    position: fixed;
+@media screen and (min-width: 768px) {
+  .list {
+    font-size: 0.9rem;
   }
 }
-
 @media screen and (min-width: 1024px) {
   .list {
     width: 28rem;
     margin-left: auto;
     margin-right: auto;
-    margin-top: 5rem;
+    font-size: 1rem;
   }
 }
 .list__title {
-  font-size: 1.2rem;
-  margin-top: 1rem;
+  font-size: 1rem;
   color: black;
+}
+@media screen and (min-width: 768px) {
+  .list__title {
+    margin-top: 0rem;
+  }
+}
+@media screen and (min-width: 1024px) {
+  .list__title {
+    margin-top: 1rem;
+    font-size: 1.2rem;
+  }
 }
 .list__item {
   margin-left: -1.7rem;
@@ -40,13 +43,33 @@
   align-items: baseline;
 }
 .list__icon {
-  width: 1rem;
-  margin-left: 0.5rem;
-  padding-top: 1rem;
+  width: 0.8rem;
+  margin-left: 0.2rem;
+  padding-top: 0rem;
+}
+@media screen and (min-width: 1024px) {
+  .list__icon {
+    margin-left: 0.5rem;
+    width: 1rem;
+    padding-top: 1rem;
+  }
 }
 .list__icon:hover {
   filter: brightness(0) saturate(100%);
   cursor: pointer;
+}
+.list__icon-wrapper {
+  display: none;
+}
+@media screen and (min-width: 1024px) {
+  .list__icon-wrapper {
+    display: inline;
+  }
+}
+@media screen and (min-width: 1024px) {
+  .list__icons-tablet {
+    display: none;
+  }
 }
 
 .bottom-navigation-mobile {

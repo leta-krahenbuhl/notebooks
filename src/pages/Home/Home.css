@@ -7,70 +7,63 @@
 .home__nav-desktop-wrapper {
   position: sticky;
   top: 0rem;
+  padding-right: 1rem;
+  min-height: 100vh;
+  background-color: white;
+  box-shadow: 1px 1px 10px #f7f7f7;
+}
+@media screen and (min-width: 768px) {
+  .home__nav-desktop-wrapper {
+    width: 180%;
+  }
 }
 @media screen and (min-width: 1024px) {
   .home__nav-desktop-wrapper {
-    min-height: 100vh;
-    background-color: white;
-    box-shadow: 1px 1px 10px #f7f7f7;
+    width: 20rem;
   }
 }
 .home__nav {
-  margin-top: 1.2rem;
-}
-@media screen and (min-width: 768px) {
-  .home__nav {
-    margin-left: 1rem;
-    margin-right: 1.2rem;
-  }
-}
-@media screen and (min-width: 1024px) {
-  .home__nav {
-    height: 100vh;
-    margin-top: 0;
-    margin-left: 0rem;
-    text-align: center;
-  }
+  height: 100vh;
+  margin-top: 0;
+  margin-left: 0rem;
+  text-align: center;
 }
 .home__main {
-  margin: 5rem 8rem 5rem 8rem;
+  margin: 4rem 8rem 2rem 8rem;
+  flex-grow: 1;
+}
+@media screen and (min-width: 1024px) {
+  .home__main {
+    margin: 5rem 10rem 5rem 10rem;
+  }
+}
+.home__header {
+  font-size: 0.8rem;
+}
+@media screen and (min-width: 1024px) {
+  .home__header {
+    font-size: 1.2rem;
+  }
+}
+.home__text {
+  font-size: 0.8rem;
+}
+@media screen and (min-width: 1024px) {
+  .home__text {
+    font-size: 1rem;
+  }
 }
 .home__link {
   text-decoration: underline;
-}
-.home__readme-desktop {
-  display: none;
+  font-style: italic;
 }
 @media screen and (min-width: 1024px) {
-  .home__readme-desktop {
-    display: inline;
-    margin-top: 0rem;
-    padding-top: 4rem;
-    padding-bottom: 4rem;
-  }
-}
-.home__readme-desktop__header {
-  margin-bottom: 0.5rem;
-}
-.home__readme-mobile {
-  padding: 1rem;
-  min-height: 100vh;
-  padding-bottom: 2rem;
-}
-@media screen and (min-width: 768px) {
-  .home__readme-mobile {
-    display: block;
-    padding: 3rem 4rem 3rem 4rem;
+  .home__link {
+    text-decoration: none;
   }
 }
 @media screen and (min-width: 1024px) {
-  .home__readme-mobile {
-    display: none;
+  .home__link:hover {
+    text-decoration: underline;
   }
-}
-.home__readme-mobile__link {
-  text-decoration: underline;
-}
-.home__readme-mobile__header {
-  margin-bottom: 0.5rem;
 }/*# sourceMappingURL=Home.css.map */

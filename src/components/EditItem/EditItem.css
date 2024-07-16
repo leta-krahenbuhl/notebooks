@@ -5,17 +5,24 @@
 }
 .edit-item-form__button-save {
   background-color: white;
-  background-size: 1.5rem;
+  background-size: 0.9rem;
   background-repeat: no-repeat;
   background-position: center;
   border: none;
-  width: 2rem;
-  height: 2rem;
   border-radius: 5px;
   flex-shrink: 0;
   cursor: pointer;
+  width: 1.5rem;
+  height: 1.5rem;
   background-image: URL("../../assets/images/save-black.svg");
   margin-right: 0rem;
+}
+@media screen and (min-width: 1024px) {
+  .edit-item-form__button-save {
+    background-size: 1.5rem;
+    width: 2rem;
+    height: 2rem;
+  }
 }
 .edit-item-form__error {
   font-size: 0.7rem;
@@ -34,32 +41,55 @@
 .edit-item__text {
   flex: 1;
   text-align: left;
+  font-size: 0.8rem;
+}
+@media screen and (min-width: 1024px) {
+  .edit-item__text {
+    font-size: 1rem;
+  }
 }
 .edit-item__button-edit {
   background-color: white;
-  background-size: 1.5rem;
+  background-size: 0.9rem;
   background-repeat: no-repeat;
   background-position: center;
   border: none;
-  width: 2rem;
-  height: 2rem;
   border-radius: 5px;
   flex-shrink: 0;
   cursor: pointer;
+  width: 1.5rem;
+  height: 1.5rem;
   background-image: URL("../../assets/images/edit-black.svg");
 }
+@media screen and (min-width: 1024px) {
+  .edit-item__button-edit {
+    background-size: 1.5rem;
+    width: 2rem;
+    height: 2rem;
+  }
+}
 .edit-item__button-delete {
-  background-image: URL("../../assets/images/trash-black.svg");
   background-color: white;
-  background-size: 1.5rem;
+  background-size: 0.9rem;
   background-repeat: no-repeat;
   background-position: center;
   border: none;
-  width: 2rem;
-  height: 2rem;
   border-radius: 5px;
   flex-shrink: 0;
   cursor: pointer;
-  background-size: 1.4rem;
-  margin-right: 1.2rem;
+  width: 1.5rem;
+  height: 1.5rem;
+  background-image: URL("../../assets/images/trash-black.svg");
+}
+@media screen and (min-width: 1024px) {
+  .edit-item__button-delete {
+    background-size: 1.5rem;
+    width: 2rem;
+    height: 2rem;
+  }
+}
+@media screen and (min-width: 1024px) {
+  .edit-item__button-delete {
+    margin-right: 1rem;
+  }
 }/*# sourceMappingURL=EditItem.css.map */

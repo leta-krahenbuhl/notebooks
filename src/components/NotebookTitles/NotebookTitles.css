@@ -1,14 +1,17 @@
 .notebook {
+  padding-bottom: 1rem;
   overflow-y: auto;
 }
 .notebook__wrapper {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  height: 2.5rem;
 }
 @media screen and (min-width: 1024px) {
   .notebook__wrapper {
     margin-left: 1rem;
+    height: 3rem;
   }
 }
 .notebook__wrapper-single {
@@ -18,66 +21,118 @@
   width: 100%;
 }
 .notebook__title {
-  margin: 1rem;
+  margin: 1rem 1rem 0rem 1rem;
   color: black;
-  font-size: 1.2rem;
+  font-size: 1rem;
 }
-@media screen and (min-width: 1024px) {
+@media screen and (min-width: 768px) {
   .notebook__title {
     text-align: left;
   }
 }
+@media screen and (min-width: 1024px) {
+  .notebook__title {
+    margin: 1rem;
+    font-size: 1.2rem;
+  }
+}
 .notebook__title--highlight {
   text-decoration: underline;
-  text-decoration-thickness: 3px;
-  text-underline-offset: 6px;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 4px;
+}
+@media screen and (min-width: 1024px) {
+  .notebook__title--highlight {
+    text-decoration-thickness: 3px;
+    text-underline-offset: 6px;
+  }
 }
 .notebook__title:hover {
   text-decoration: underline;
-  text-decoration-thickness: 3px;
-  text-underline-offset: 6px;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 4px;
+}
+@media screen and (min-width: 1024px) {
+  .notebook__title:hover {
+    text-decoration-thickness: 3px;
+    text-underline-offset: 6px;
+  }
 }
 .notebook__button-delete {
   background-image: url("../../assets/images/trash-black.svg");
   background-color: white;
-  background-size: 1.5rem;
+  background-size: 0.9rem;
   background-repeat: no-repeat;
   background-position: center;
   border: none;
-  width: 2rem;
-  height: 2rem;
   border-radius: 5px;
   flex-shrink: 0;
   cursor: pointer;
+  width: 1.5rem;
+  height: 1.5rem;
   margin-right: 1rem;
+}
+@media screen and (min-width: 1024px) {
+  .notebook__button-delete {
+    background-size: 1.5rem;
+    width: 2rem;
+    height: 2rem;
+  }
 }
 .notebook__button-edit {
   background-image: url("../../assets/images/edit-black.svg");
   margin-right: 1rem;
   background-color: white;
-  background-size: 1.5rem;
+  background-size: 0.9rem;
   background-repeat: no-repeat;
   background-position: center;
   border: none;
-  width: 2rem;
-  height: 2rem;
   border-radius: 5px;
   flex-shrink: 0;
   cursor: pointer;
+  width: 1.5rem;
+  height: 1.5rem;
+}
+@media screen and (min-width: 1024px) {
+  .notebook__button-edit {
+    background-size: 1.5rem;
+    width: 2rem;
+    height: 2rem;
+  }
 }
 .notebook__button-save {
   background-image: url("../../assets/images/save-black.svg");
-  margin-right: 1rem;
   background-color: white;
-  background-size: 1.5rem;
+  background-size: 0.9rem;
   background-repeat: no-repeat;
   background-position: center;
   border: none;
-  width: 2rem;
-  height: 2rem;
   border-radius: 5px;
   flex-shrink: 0;
   cursor: pointer;
+  width: 1.5rem;
+  height: 1.5rem;
+}
+@media screen and (min-width: 1024px) {
+  .notebook__button-save {
+    background-size: 1.5rem;
+    width: 2rem;
+    height: 2rem;
+  }
+}
+@media screen and (min-width: 768px) {
+  .notebook__button-save {
+    margin-top: 1.2rem;
+    margin-right: 0.6rem;
+  }
+}
+@media screen and (min-width: 1024px) {
+  .notebook__button-save {
+    background-size: 1rem;
+    width: 1rem;
+    margin-top: 0.9rem;
+    margin-right: 1.5rem;
+  }
 }
 .notebook__error {
   font-size: 0.7rem;
@@ -87,9 +142,16 @@
   margin-left: 1rem;
 }
 .notebook__icon {
-  width: 1rem;
-  margin-top: 0.5rem;
-  margin-left: 0.5rem;
+  width: 0.8rem;
+  margin-left: 0.2rem;
+  margin-top: 1rem;
+}
+@media screen and (min-width: 1024px) {
+  .notebook__icon {
+    width: 1rem;
+    margin-top: 0.5rem;
+    margin-left: 0.5rem;
+  }
 }
 .notebook__icon:hover {
   filter: brightness(0) saturate(100%);
@@ -102,18 +164,51 @@
   width: 100%;
 }
 .notebook__icon-wrapper {
+  display: none;
+}
+@media screen and (min-width: 1024px) {
+  .notebook__icon-wrapper {
+    display: flex;
+    align-items: center;
+  }
+}
+.notebook__icons-tablet {
   display: flex;
   align-items: center;
+}
+@media screen and (min-width: 1024px) {
+  .notebook__icons-tablet {
+    display: none;
+  }
 }
 
 .notebook-edit-form {
   display: flex;
   justify-content: space-between;
   margin-left: 1rem;
+  width: 100%;
 }
 .notebook-edit-form__input {
   padding-left: 0.5rem;
-  height: 2.5rem;
+  height: 2rem;
   border: 3px solid black;
   border-radius: 4px;
+}
+@media screen and (min-width: 768px) {
+  .notebook-edit-form__input {
+    margin-top: 0rem;
+    border: 2px solid black;
+  }
+}
+@media screen and (min-width: 1024px) {
+  .notebook-edit-form__input {
+    margin-top: 0rem;
+    border: 3px solid black;
+    height: 2.5rem;
+  }
+}
+@media screen and (min-width: 768px) {
+  .notebook-edit-form__input {
+    margin-top: 1rem;
+  }
 }/*# sourceMappingURL=NotebookTitles.css.map */

@@ -51,6 +51,10 @@
     @include icon;
     background-size: 1.5rem;
     width: 1.5rem;
+
+    @include desktop {
+      margin-top: 0rem;
+    }
   }
 
   &__error {

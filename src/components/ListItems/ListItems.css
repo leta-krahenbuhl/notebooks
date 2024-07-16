@@ -12,7 +12,7 @@
 }
 
 .border {
-  border-bottom: 4px dotted black;
+  border-bottom: 3px dotted black;
   margin-bottom: 2rem;
   margin-top: 2rem;
 }
@@ -20,5 +20,10 @@
   .border {
     margin-bottom: 3rem;
     margin-top: 3rem;
+  }
+}
+@media screen and (min-width: 1024px) {
+  .border {
+    border-bottom: 4px dotted black;
   }
 }/*# sourceMappingURL=ListItems.css.map */

@@ -7,94 +7,68 @@
 .edit-list__nav-desktop-wrapper {
   position: sticky;
   top: 0rem;
+  padding-right: 1rem;
+  min-height: 100vh;
+  background-color: white;
+  box-shadow: 1px 1px 10px #f7f7f7;
+}
+@media screen and (min-width: 768px) {
+  .edit-list__nav-desktop-wrapper {
+    width: 14rem;
+  }
 }
 @media screen and (min-width: 1024px) {
   .edit-list__nav-desktop-wrapper {
-    min-height: 100vh;
-    background-color: white;
+    width: 20rem;
   }
 }
 .edit-list__nav {
-  margin-top: 1.2rem;
-}
-@media screen and (min-width: 768px) {
-  .edit-list__nav {
-    margin-left: 1rem;
-    margin-right: 1.2rem;
-  }
-}
-@media screen and (min-width: 1024px) {
-  .edit-list__nav {
-    height: 100vh;
-    margin-top: 0;
-    margin-left: 0rem;
-    text-align: center;
-  }
+  height: 100vh;
+  margin-top: 0;
+  margin-left: 0rem;
+  text-align: center;
 }
 .edit-list__main {
-  margin: 5rem 8rem 5rem 8rem;
+  margin: 4rem 4rem 2rem 4rem;
   flex-grow: 1;
   text-align: center;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
 }
-.edit-list__main-wrapper {
-  width: 28rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
+@media screen and (min-width: 1024px) {
+  .edit-list__main {
+    margin: 5rem 13rem 5rem 13rem;
+  }
 }
 .edit-list__link {
   text-decoration: underline;
-}
-.edit-list__readme-desktop {
-  display: none;
-}
-@media screen and (min-width: 1024px) {
-  .edit-list__readme-desktop {
-    display: inline;
-    margin-top: 0rem;
-    padding-top: 4rem;
-    padding-bottom: 4rem;
-  }
-}
-.edit-list__readme-desktop__header {
-  margin-bottom: 0.5rem;
-}
-.edit-list__readme-mobile {
-  padding: 1rem;
-  min-height: 100vh;
-  padding-bottom: 2rem;
-}
-@media screen and (min-width: 768px) {
-  .edit-list__readme-mobile {
-    display: block;
-    padding: 3rem 4rem 3rem 4rem;
-  }
-}
-@media screen and (min-width: 1024px) {
-  .edit-list__readme-mobile {
-    display: none;
-  }
-}
-.edit-list__readme-mobile__link {
-  text-decoration: underline;
-}
-.edit-list__readme-mobile__header {
-  margin-bottom: 0.5rem;
 }
 .edit-list__done-button {
   background-color: black;
   color: white;
   font-family: "Antonio";
   border: none;
-  width: 10rem;
-  font-size: 2rem;
-  padding-bottom: 0.5rem;
   border-radius: 4px;
   margin: 1rem;
-  margin-top: 1.5rem;
-  margin-bottom: 2.5rem;
   cursor: pointer;
+}
+@media screen and (min-width: 768px) {
+  .edit-list__done-button {
+    width: 8rem;
+    font-size: 1.5rem;
+    padding-bottom: 0.3rem;
+  }
+}
+@media screen and (min-width: 1024px) {
+  .edit-list__done-button {
+    padding-bottom: 0.5rem;
+    width: 10rem;
+    font-size: 2rem;
+  }
+}
+.edit-list__whitespace {
+  height: 1rem;
+}
+@media screen and (min-width: 1024px) {
+  .edit-list__whitespace {
+    height: 4rem;
+  }
 }/*# sourceMappingURL=EditList.css.map */
