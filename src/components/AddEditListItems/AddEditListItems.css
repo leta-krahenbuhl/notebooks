@@ -98,7 +98,7 @@
 }
 @media screen and (min-width: 768px) {
   .add-list-items-form__button {
-    margin-top: 1rem;
+    margin-top: 0.3rem;
   }
 }
 @media screen and (min-width: 1024px) {
@@ -118,9 +118,6 @@
   cursor: pointer;
   width: 1.5rem;
   height: 1.5rem;
-  margin-top: 0.5rem;
-  background-size: 1.5rem;
-  width: 1.5rem;
   cursor: default;
 }
 @media screen and (min-width: 1024px) {
@@ -132,7 +129,7 @@
 }
 @media screen and (min-width: 768px) {
   .add-list-items-form__button--inactive {
-    margin-top: 1.25rem;
+    margin-top: 0.3rem;
   }
 }
 @media screen and (min-width: 1024px) {

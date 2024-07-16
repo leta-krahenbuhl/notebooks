@@ -53,7 +53,7 @@
     @include icon;
 
     @include tablet {
-      margin-top: 1rem;
+      margin-top: 0.3rem;
     }
 
     @include desktop {
@@ -63,13 +63,13 @@
     &--inactive {
       background-image: URL("../../assets/images/save-grey.svg");
       @include icon;
-      margin-top: 0.5rem;
-      background-size: 1.5rem;
-      width: 1.5rem;
+      // margin-top: 0.5rem;
+      // background-size: 1.5rem;
+      // width: 1.5rem;
       cursor: default;
 
       @include tablet {
-        margin-top: 1.25rem;
+        margin-top: 0.3rem;
       }
 
       @include desktop {
