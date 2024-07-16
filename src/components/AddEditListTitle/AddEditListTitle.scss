@@ -4,7 +4,7 @@
 .add-list-title-form {
   margin-left: 1rem;
   margin-right: 1rem;
-  height: 9rem;
+  height: 8rem;
 
   @include tablet {
     margin-left: 4rem;
@@ -25,7 +25,7 @@
     font-size: 1.8rem;
 
     @include tablet {
-      margin-top: 5rem;
+      margin-top: 3rem;
     }
 
     @include desktop {
@@ -37,6 +37,7 @@
     display: flex;
     width: 100%;
     align-items: center;
+    height: 2rem;
   }
 
   &__input {
@@ -47,7 +48,7 @@
 
   &__button {
     background-image: URL("../../assets/images/save-black.svg");
-    @include button-icon;
+    @include icon;
   }
 
   &__error {
@@ -66,6 +67,7 @@
 
 .edit-title {
   margin: 1rem 1rem 0rem 1rem;
+  height: 8rem;
 
   &__main {
     flex-grow: 1;
@@ -78,6 +80,7 @@
     @include tablet {
       margin-left: 3rem;
       margin-right: 3rem;
+      height: 2rem;
     }
 
     @include desktop {
@@ -94,14 +97,20 @@
   }
 
   &__list-title {
-    font-size: 1.6rem;
+    font-size: 1rem;
     margin-bottom: 1rem;
     margin-top: 0rem;
     text-align: left;
+
+    @include desktop {
+      font-size: 1.6rem;
+    }
   }
 
   &__button {
+    @include icon;
     background-image: URL("../../assets/images/edit-black.svg");
-    @include button-icon;
   }
 }
+
+//INHERE

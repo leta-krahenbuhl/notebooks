@@ -21,10 +21,9 @@ export default function EditList() {
         <BottomNavigation />
       </div>
       <main className="edit-list__main">
-        <div className="edit-list__main-wrapper">
-          <AddEditListTitle />
-          <AddEditListItems />
-        </div>
+        <AddEditListTitle />
+        <AddEditListItems />
+
         {/* Adding a new list without saving a title => coming from notebook page */}
         {/* {location.pathname.endsWith("create/lists") && (
           <Link to={`/notebooks/${notebookId}`}>
@@ -45,6 +44,7 @@ export default function EditList() {
             <button className="edit-list__done-button">DONE</button>
           </Link>
         )}
+        <div className="edit-list__whitespace"></div>
       </main>
     </article>
   );

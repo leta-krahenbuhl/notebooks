@@ -5,7 +5,7 @@ import { useParams } from "react-router-dom";
 import { fetchListTitles } from "../../utils/AxiosRequests";
 import { useEffect, useState } from "react";
 
-export default function AddListTitle() {
+export default function AddEditListTitle() {
   const [isTitle, setIsTitle] = useState(false);
   const [titleArr, setTitleArr] = useState("");
   const [title, setTitle] = useState(""); //used as a dependency for rendering titleArr

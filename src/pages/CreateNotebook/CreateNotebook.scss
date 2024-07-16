@@ -12,6 +12,10 @@
   align-items: center;
 
   @include tablet {
+    padding: 3rem 13rem 3rem 13rem;
+  }
+
+  @include desktop {
     padding: 3rem 4rem 3rem 4rem;
   }
 
@@ -34,7 +38,7 @@
   }
 
   &__button {
-    @include button-icon;
+    @include icon;
   }
 
   &__cancel-button {
@@ -61,7 +65,7 @@
 
   &__button {
     background-image: URL("../../assets/images/save-black.svg");
-    @include button-icon;
+    @include icon;
   }
 
   &__error {
@@ -69,3 +73,4 @@
     display: block;
   }
 }
+//INHERE

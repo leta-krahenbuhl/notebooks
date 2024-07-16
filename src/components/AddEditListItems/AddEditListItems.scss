@@ -49,12 +49,17 @@
 
   &__button {
     background-image: URL("../../assets/images/save-black.svg");
-    @include button-icon;
+    @include icon;
+    margin-top: 0.5rem;
 
     &--inactive {
       background-image: URL("../../assets/images/save-grey.svg");
-      @include button-icon;
+      @include icon;
       background-size: 1.5rem;
+    }
+
+    @include desktop {
+      margin-top: 0.3rem;
     }
   }
 }

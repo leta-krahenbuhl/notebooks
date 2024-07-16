@@ -27,6 +27,11 @@
   &__text {
     flex: 1;
     text-align: left;
+    font-size: 0.8rem;
+
+    @include desktop {
+      font-size: 1rem;
+    }
   }
 
   &__button-edit {
@@ -35,9 +40,11 @@
   }
 
   &__button-delete {
-    background-image: URL("../../assets/images/trash-black.svg");
     @include icon;
-    background-size: 1.4rem;
-    margin-right: 1.2rem;
+    background-image: URL("../../assets/images/trash-black.svg");
+
+    @include desktop {
+      margin-right: 1rem;
+    }
   }
 }
