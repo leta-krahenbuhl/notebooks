@@ -149,6 +149,22 @@ export default function NotebookTitles() {
                     &#128211; {notebook.title}
                   </h2>
                 </Link>
+                {notebook.id == notebookId && (
+                  <div className="notebook__icons-tablet">
+                    <img
+                      src={editIcon}
+                      alt="edit notebook"
+                      className="notebook__icon notebook__icon--tablet"
+                      onClick={() => handleClickEditIcon(notebook.id)}
+                    />
+                    <img
+                      src={deleteIcon}
+                      alt="delete notebook"
+                      className="notebook__icon"
+                      onClick={() => handleDelete(notebook.id)}
+                    />
+                  </div>
+                )}
                 {hoveredNotebookId === notebook.id && (
                   <div className="notebook__icon-wrapper">
                     <span className="notebook__icons">

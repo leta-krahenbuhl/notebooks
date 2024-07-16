@@ -113,6 +113,10 @@
 
 @mixin hover1 {
   text-decoration: underline;
-  text-decoration-thickness: 3px;
-  text-underline-offset: 6px;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 4px;
+  @include desktop {
+    text-decoration-thickness: 3px;
+    text-underline-offset: 6px;
+  }
 }
