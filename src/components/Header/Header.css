@@ -15,8 +15,27 @@
     text-align: center;
   }
 }
+.header__logo-menu-container {
+  display: flex;
+  justify-content: space-between;
+  padding-right: 1rem;
+}
+.header__icon-menu {
+  width: 2rem;
+}
+@media screen and (min-width: 768px) {
+  .header__icon-menu {
+    display: none;
+  }
+}
 .header__border {
+  width: 100%;
   border-top: 3px solid black;
+}
+@media screen and (min-width: 768px) {
+  .header__border {
+    display: none;
+  }
 }
 .header__logo {
   font-family: "Bimbo";
@@ -24,6 +43,8 @@
   transform: rotate(-2deg);
   margin-left: 1rem;
   text-align: left;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
 }
 @media screen and (min-width: 768px) {
   .header__logo {

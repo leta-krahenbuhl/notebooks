@@ -11,7 +11,9 @@ export default function Home() {
         <nav className="home__nav">
           <NotebookTitles />
         </nav>
-        <BottomNavigation />
+        <div className="home__bottom-nav-desk">
+          <BottomNavigation />
+        </div>
       </div>
 
       <article className="home__main">
@@ -58,6 +60,10 @@ export default function Home() {
           </p>
         </div>
       </article>
+
+      <div className="home__bottom-nav-mobile">
+        <BottomNavigation />
+      </div>
     </article>
   );
 }

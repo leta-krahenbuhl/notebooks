@@ -34,19 +34,6 @@
   }
 }
 
-// @mixin button-icon {
-//   background-color: $primary2;
-//   background-size: 1.5rem;
-//   background-repeat: no-repeat;
-//   background-position: center;
-//   border: none;
-//   width: 2.5rem;
-//   height: 2.5rem;
-//   border-radius: 5px;
-//   flex-shrink: 0;
-//   cursor: pointer;
-// }
-
 @mixin icon {
   background-color: $primary2;
   background-size: 0.9rem;
@@ -89,10 +76,14 @@
   text-align: center;
   position: sticky;
   bottom: 0px;
-  display: flex;
   justify-content: space-evenly;
   padding-bottom: 0.5rem;
+  padding-top: 1rem;
   font-size: 0.8rem;
+
+  @include tablet {
+    padding-top: 0rem;
+  }
 
   @include desktop {
     padding-bottom: 1.5rem;

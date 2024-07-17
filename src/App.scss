@@ -3,43 +3,31 @@
 @use "./styles/partials/mixins" as *;
 
 .app {
+  --dot-bg: white;
+  --dot-color: lightgrey;
+  --dot-size: 1.5px;
+  --dot-space: 16px;
+  background: linear-gradient(
+        90deg,
+        var(--dot-bg) calc(var(--dot-space) - var(--dot-size)),
+        transparent 1%
+      )
+      center / var(--dot-space) var(--dot-space),
+    linear-gradient(
+        var(--dot-bg) calc(var(--dot-space) - var(--dot-size)),
+        transparent 1%
+      )
+      center / var(--dot-space) var(--dot-space),
+    var(--dot-color);
+  background-attachment: fixed;
+
   @include tablet {
-    --dot-bg: white;
-    --dot-color: lightgrey;
     --dot-size: 1.5px;
     --dot-space: 16px;
-    background: linear-gradient(
-          90deg,
-          var(--dot-bg) calc(var(--dot-space) - var(--dot-size)),
-          transparent 1%
-        )
-        center / var(--dot-space) var(--dot-space),
-      linear-gradient(
-          var(--dot-bg) calc(var(--dot-space) - var(--dot-size)),
-          transparent 1%
-        )
-        center / var(--dot-space) var(--dot-space),
-      var(--dot-color);
-    background-attachment: fixed;
   }
 
   @include desktop {
-    --dot-bg: white;
-    --dot-color: lightgrey;
     --dot-size: 2px;
     --dot-space: 22px;
-    background: linear-gradient(
-          90deg,
-          var(--dot-bg) calc(var(--dot-space) - var(--dot-size)),
-          transparent 1%
-        )
-        center / var(--dot-space) var(--dot-space),
-      linear-gradient(
-          var(--dot-bg) calc(var(--dot-space) - var(--dot-size)),
-          transparent 1%
-        )
-        center / var(--dot-space) var(--dot-space),
-      var(--dot-color);
-    background-attachment: fixed;
   }
 }
