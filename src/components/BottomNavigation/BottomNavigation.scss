@@ -3,9 +3,12 @@
 
 .bottom-nav {
   display: flex;
-  flex-direction: column;
-
+  flex-direction: row-reverse;
   @include bottom-navigation;
+
+  @include tablet {
+    flex-direction: column;
+  }
 
   &__wrapper {
     width: 100%;
@@ -27,6 +30,7 @@
     color: #b1b1b1;
     font-weight: 700;
     font-style: italic;
+    margin-top: 0.1rem;
   }
 
   .bottom-nav__a:hover .bottom-nav__image-plus-desktop {
@@ -43,6 +47,9 @@
     width: 1rem;
     height: 1rem;
     margin-right: 0.5rem;
+
+    @include tablet {
+    }
   }
 
   .home-navigation__a:hover .home-navigation__image-plus-desktop {

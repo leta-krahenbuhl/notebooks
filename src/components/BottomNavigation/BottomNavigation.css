@@ -1,17 +1,19 @@
 .bottom-nav {
   display: flex;
-  flex-direction: column;
+  flex-direction: row-reverse;
   background-color: white;
   text-align: center;
   position: sticky;
   bottom: 0px;
-  justify-content: space-evenly;
+  justify-content: space-between;
   padding-bottom: 0.5rem;
   padding-top: 1rem;
   font-size: 0.8rem;
+  border-top: 3px solid black;
 }
 @media screen and (min-width: 768px) {
   .bottom-nav {
+    border-top: none;
     padding-top: 0rem;
   }
 }
@@ -19,6 +21,11 @@
   .bottom-nav {
     padding-bottom: 1.5rem;
     font-size: 1rem;
+  }
+}
+@media screen and (min-width: 768px) {
+  .bottom-nav {
+    flex-direction: column;
   }
 }
 .bottom-nav__wrapper {
@@ -40,6 +47,7 @@
   color: #b1b1b1;
   font-weight: 700;
   font-style: italic;
+  margin-top: 0.1rem;
 }
 .bottom-nav .bottom-nav__a:hover .bottom-nav__image-plus-desktop {
   filter: brightness(0) saturate(100%); /* Change SVG color to black */
@@ -83,14 +91,16 @@
   text-align: center;
   position: sticky;
   bottom: 0px;
-  justify-content: space-evenly;
+  justify-content: space-between;
   padding-bottom: 0.5rem;
   padding-top: 1rem;
   font-size: 0.8rem;
+  border-top: 3px solid black;
   padding-top: 0.4rem;
 }
 @media screen and (min-width: 768px) {
   .list-bottom-navigation {
+    border-top: none;
     padding-top: 0rem;
   }
 }

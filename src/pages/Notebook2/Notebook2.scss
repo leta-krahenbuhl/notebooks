@@ -5,9 +5,13 @@
   overflow: auto;
   height: 100vh;
   max-width: 100vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 
   @include tablet {
     display: flex;
+    flex-direction: row;
   }
 
   &__nav-desktop-wrapper {
@@ -19,7 +23,7 @@
     @include tablet {
       height: 3rem;
       padding-right: 1rem;
-      min-height: 100vh;
+      min-height: 100vh; //HEEERE
       width: 14rem;
       margin-bottom: 1rem;
     }
@@ -47,10 +51,14 @@
   }
 
   &__main {
-    margin: 6rem 1rem 1rem 1rem;
-    height: 100%;
+    margin: 1rem 1rem 2.5rem 1rem;
+    // overflow: auto;
+    // height: 100vh;
+    // height: 100%; // this stops menu from moving up in to do
 
     @include tablet {
+      overflow: visible;
+      height: 100%;
       margin: 4rem 8rem 2rem 8rem;
       flex-grow: 1;
     }

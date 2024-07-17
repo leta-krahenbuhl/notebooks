@@ -1,13 +1,52 @@
 .breadcrumb {
   padding-left: 1rem;
   padding-bottom: 1rem;
+  padding-right: 1rem;
 }
 @media screen and (min-width: 768px) {
   .breadcrumb {
     display: none;
   }
 }
+.breadcrumb__wrapper {
+  display: flex;
+  justify-content: space-between;
+}
 .breadcrumb__notebook-title {
   font-size: 1.5rem;
   font-weight: 700;
+}
+.breadcrumb__icon {
+  width: 0.8rem;
+  margin-left: 0.2rem;
+  margin-top: 0.7rem;
+}
+.breadcrumb__button-save {
+  background-image: url("../../assets/images/save-black.svg");
+  background-color: white;
+  background-size: 0.9rem;
+  background-repeat: no-repeat;
+  background-position: center;
+  border: none;
+  border-radius: 5px;
+  flex-shrink: 0;
+  cursor: pointer;
+  width: 1.5rem;
+  height: 1.5rem;
+}
+@media screen and (min-width: 1024px) {
+  .breadcrumb__button-save {
+    background-size: 1.5rem;
+    width: 2rem;
+    height: 2rem;
+  }
+}
+.breadcrumb__form-wrapper {
+  margin-top: 0.5rem;
+  height: 1.48rem;
+}
+
+.breadcrumb-edit-form {
+  display: flex;
+  justify-content: space-between;
 }/*# sourceMappingURL=Breadcrumb.css.map */

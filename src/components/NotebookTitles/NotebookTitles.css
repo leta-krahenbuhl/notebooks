@@ -173,8 +173,14 @@
   }
 }
 .notebook__icons-tablet {
-  display: flex;
-  align-items: center;
+  display: none;
+}
+@media screen and (min-width: 768px) {
+  .notebook__icons-tablet {
+    display: flex;
+    align-items: center;
+    display: inline;
+  }
 }
 @media screen and (min-width: 1024px) {
   .notebook__icons-tablet {

@@ -114,8 +114,13 @@
   }
 
   &__icons-tablet {
-    display: flex;
-    align-items: center;
+    display: none;
+
+    @include tablet {
+      display: flex;
+      align-items: center;
+      display: inline;
+    }
 
     @include desktop {
       display: none;

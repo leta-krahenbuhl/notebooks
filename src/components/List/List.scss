@@ -3,13 +3,14 @@
 
 .list-detail {
   display: flex;
-  overflow: auto;
+  // overflow: auto;
   max-height: 100vh;
   max-width: 100vw;
 }
 
 .list {
-  margin-top: 9rem;
+  margin-top: 8rem;
+  // height: 100vh;
 
   @include tablet {
     margin-top: 0rem;

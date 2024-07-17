@@ -104,13 +104,7 @@ export default function NotebookTitles() {
     }
 
     getNotebookTitles();
-    // navigate(`/`);
   };
-
-  // // to close menu after notebook title in mobile menu render is clicked
-  // const handleLinkClick = () => {
-  //   setIsMenuVisible(false);
-  // };
 
   return (
     <div className="notebook">

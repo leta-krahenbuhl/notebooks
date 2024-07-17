@@ -76,12 +76,14 @@
   text-align: center;
   position: sticky;
   bottom: 0px;
-  justify-content: space-evenly;
+  justify-content: space-between;
   padding-bottom: 0.5rem;
   padding-top: 1rem;
   font-size: 0.8rem;
+  border-top: $border;
 
   @include tablet {
+    border-top: none;
     padding-top: 0rem;
   }
 
@@ -118,8 +120,10 @@
 @mixin nav {
   height: 100vh;
   margin-top: 0;
-  margin-left: 0rem;
   text-align: center;
+  // background-color: $primary2;
+  // padding-right: 1rem;
+  // width: 16rem;
 }
 
 @mixin hover1 {
