@@ -2,10 +2,15 @@
 @use "../../styles/partials/mixins" as *;
 
 .header {
-  position: sticky;
-  top: 0px;
+  position: absolute; /* Position it absolutely within the header */
+  top: 100%; /* Position it right below the header */
+  left: 0;
+  right: 0;
+  background-color: $primary2;
 
   @include tablet {
+    position: sticky;
+    top: 0px;
     margin: 1rem 0 0rem 0;
   }
 
@@ -58,6 +63,9 @@
       margin-bottom: 1rem;
       margin-left: 2rem;
     }
+  }
+
+  &__breadcrump {
   }
 }
 

@@ -1,0 +1,15 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+
+.breadcrumb {
+  padding-left: 1rem;
+  padding-bottom: 1rem;
+  @include tablet {
+    display: none;
+  }
+
+  &__notebook-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+  }
+}

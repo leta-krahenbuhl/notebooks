@@ -9,7 +9,10 @@
 }
 
 .list {
+  margin-top: 9rem;
+
   @include tablet {
+    margin-top: 0rem;
     font-size: 0.9rem;
   }
 
@@ -17,7 +20,6 @@
     width: 28rem;
     margin-left: auto;
     margin-right: auto;
-    // margin-top: 5rem;
     font-size: 1rem;
   }
 

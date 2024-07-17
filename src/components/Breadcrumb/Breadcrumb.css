@@ -1,0 +1,13 @@
+.breadcrumb {
+  padding-left: 1rem;
+  padding-bottom: 1rem;
+}
+@media screen and (min-width: 768px) {
+  .breadcrumb {
+    display: none;
+  }
+}
+.breadcrumb__notebook-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+}/*# sourceMappingURL=Breadcrumb.css.map */

@@ -1,17 +1,23 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import "./Header.scss";
-import { useLocation } from "react-router-dom";
 import iconMenu from "../../assets/images/icon-menu.svg";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import NotebookTitles from "../NotebookTitles/NotebookTitles";
+import Breadcrumb from "../Breadcrumb/Breadcrumb";
 
 export default function Header() {
   const [isMenuVisible, setIsMenuVisible] = useState(false);
   const location = useLocation();
+  const navigate = useNavigate(); // Initialize useNavigate
 
   const handleMenuClick = () => {
     setIsMenuVisible(!isMenuVisible);
   };
+
+  // Close menu on page change
+  useEffect(() => {
+    setIsMenuVisible(false); // Close menu whenever location changes
+  }, [location.pathname]);
 
   return (
     <header className="header">
@@ -31,6 +37,9 @@ export default function Header() {
           <NotebookTitles />
         </div>
       )}
+      <div className="header__breadcrumb">
+        {location.pathname !== "/" && !isMenuVisible && <Breadcrumb />}
+      </div>
       <div className="header__border"></div>
     </header>
   );

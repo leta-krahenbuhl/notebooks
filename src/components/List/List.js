@@ -5,7 +5,6 @@ import { fetchListItems } from "../../utils/AxiosRequests";
 import { useState, useEffect } from "react";
 import { fetchListTitles } from "../../utils/AxiosRequests";
 import { deleteList } from "../../utils/AxiosRequests";
-
 // import TopNavigation from "../../components/TopNavigation/TopNavigation";
 // import BottomNavigation from "../../components/BottomNavigation/BottomNavigation";
 // import Header from "../../components/Header/Header";

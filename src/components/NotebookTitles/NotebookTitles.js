@@ -107,6 +107,11 @@ export default function NotebookTitles() {
     // navigate(`/`);
   };
 
+  // // to close menu after notebook title in mobile menu render is clicked
+  // const handleLinkClick = () => {
+  //   setIsMenuVisible(false);
+  // };
+
   return (
     <div className="notebook">
       {notebooks.map((notebook) => {
