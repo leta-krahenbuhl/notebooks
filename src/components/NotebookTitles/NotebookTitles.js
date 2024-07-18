@@ -116,7 +116,8 @@ export default function NotebookTitles() {
             onMouseEnter={() => setHoveredNotebookId(notebook.id)}
             onMouseLeave={() => setHoveredNotebookId(null)}
           >
-            {notebookToEdit === parseInt(notebook.id) ? (
+            {/* eslint-disable-next-line */}
+            {notebookToEdit == notebook.id ? (
               <div className="notebook__form-wrapper">
                 <form className="notebook-edit-form">
                   <input
@@ -140,7 +141,8 @@ export default function NotebookTitles() {
                 <Link to={`/notebooks/${notebook.id}`}>
                   <h2
                     className={`notebook__title ${
-                      notebook.id === parseInt(notebookId)
+                      // eslint-disable-next-line
+                      notebook.id == notebookId
                         ? "notebook__title--highlight"
                         : ""
                     }`}
@@ -148,7 +150,8 @@ export default function NotebookTitles() {
                     &#128211; {notebook.title}
                   </h2>
                 </Link>
-                {notebook.id === parseInt(notebookId) && (
+                {/* eslint-disable-next-line */}
+                {notebook.id == notebookId && (
                   <div className="notebook__icons-tablet">
                     <img
                       src={editIcon}
