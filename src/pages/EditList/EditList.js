@@ -8,7 +8,7 @@ import { useLocation } from "react-router-dom";
 import { Link, useParams } from "react-router-dom";
 
 export default function EditList() {
-  const { notebookId, listId } = useParams();
+  const { notebookId } = useParams();
   const location = useLocation();
 
   return (
