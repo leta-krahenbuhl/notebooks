@@ -108,7 +108,7 @@
   width: 1rem;
   height: 1.5rem;
   margin-top: 0.2rem;
-  margin-top: 0.5rem;
+  margin-top: 0.23rem;
   width: 2rem;
   background-size: 1.8rem;
 }
@@ -117,6 +117,11 @@
     background-size: 1.5rem;
     width: 2rem;
     height: 2rem;
+  }
+}
+@media screen and (min-width: 768px) {
+  .add-notebook-form__button {
+    margin-top: 0.5rem;
   }
 }
 @media screen and (min-width: 1024px) {
@@ -132,11 +137,6 @@
   text-align: left;
   padding-top: 0.2rem;
   display: block;
-}
-@media screen and (min-width: 768px) {
-  .add-notebook-form__error {
-    padding-left: 3rem;
-  }
 }
 @media screen and (min-width: 1024px) {
   .add-notebook-form__error {

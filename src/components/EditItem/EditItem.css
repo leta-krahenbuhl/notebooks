@@ -33,11 +33,6 @@
   display: block;
   margin-top: 0;
 }
-@media screen and (min-width: 768px) {
-  .edit-item-form__error {
-    padding-left: 3rem;
-  }
-}
 @media screen and (min-width: 1024px) {
   .edit-item-form__error {
     padding-top: 0.8rem;

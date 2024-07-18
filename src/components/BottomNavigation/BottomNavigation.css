@@ -71,6 +71,9 @@
 .bottom-nav .bottom-nav__a:hover .bottom-nav__text {
   color: black; /* Change text color to black */
 }
+.bottom-nav .bottom-nav__a:hover .bottom-nav__text1 {
+  color: black; /* Change text color to black */
+}
 .bottom-nav__image-plus-desktop {
   display: none;
   display: inline;
@@ -78,10 +81,19 @@
   height: 1rem;
   margin-right: 0.5rem;
 }
+@media screen and (min-width: 1024px) {
+  .bottom-nav__image-plus-desktop {
+    width: 1.2rem;
+    height: 1.2rem;
+  }
+}
 .bottom-nav .home-navigation__a:hover .home-navigation__image-plus-desktop {
   filter: brightness(0) saturate(100%); /* Change SVG color to black */
 }
 .bottom-nav .home-navigation__a:hover .home-navigation__text {
+  color: black; /* Change text color to black */
+}
+.bottom-nav .home-navigation__a:hover .home-navigation__text1 {
   color: black; /* Change text color to black */
 }
 .bottom-nav__image {

@@ -1,6 +1,6 @@
 import "./Breadcrumb.scss";
 import { useState, useEffect } from "react";
-import { useParams, useLocation, useNavigate } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import {
   fetchNotebookTitles,
   editNotebookTitle,
@@ -15,7 +15,6 @@ export default function Breadcrumb() {
   const [editedTitle, setEditedTitle] = useState("");
   const [isError, setIsError] = useState(false);
 
-  const location = useLocation();
   const navigate = useNavigate();
   const { notebookId } = useParams();
 
@@ -35,7 +34,7 @@ export default function Breadcrumb() {
   // Fetch notebook titles on component mount or when notebookId changes
   useEffect(() => {
     getNotebookTitles();
-  }, [notebookId]);
+  });
 
   // Set edited title when notebookToEdit changes
   useEffect(() => {

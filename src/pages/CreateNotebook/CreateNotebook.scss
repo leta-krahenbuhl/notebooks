@@ -66,9 +66,13 @@
   &__button {
     background-image: URL("../../assets/images/save-black.svg");
     @include icon;
-    margin-top: 0.5rem;
+    margin-top: 0.23rem;
     width: 2rem;
     background-size: 1.8rem;
+
+    @include tablet {
+      margin-top: 0.5rem;
+    }
 
     @include desktop {
       margin-top: 0.2rem;
@@ -82,4 +86,3 @@
     display: block;
   }
 }
-//INHERE

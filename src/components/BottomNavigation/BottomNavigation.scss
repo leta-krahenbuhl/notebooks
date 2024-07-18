@@ -56,6 +56,9 @@
   .bottom-nav__a:hover .bottom-nav__text {
     color: black; /* Change text color to black */
   }
+  .bottom-nav__a:hover .bottom-nav__text1 {
+    color: black; /* Change text color to black */
+  }
 
   &__image-plus-desktop {
     display: none;
@@ -64,7 +67,9 @@
     height: 1rem;
     margin-right: 0.5rem;
 
-    @include tablet {
+    @include desktop {
+      width: 1.2rem;
+      height: 1.2rem;
     }
   }
 
@@ -73,6 +78,10 @@
   }
 
   .home-navigation__a:hover .home-navigation__text {
+    color: black; /* Change text color to black */
+  }
+
+  .home-navigation__a:hover .home-navigation__text1 {
     color: black; /* Change text color to black */
   }
 

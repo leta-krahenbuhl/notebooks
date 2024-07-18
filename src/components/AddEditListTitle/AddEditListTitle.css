@@ -116,11 +116,6 @@
   text-align: left;
   padding-top: 0.2rem;
 }
-@media screen and (min-width: 768px) {
-  .edit-title__error {
-    padding-left: 3rem;
-  }
-}
 @media screen and (min-width: 1024px) {
   .edit-title__error {
     padding-top: 0.8rem;

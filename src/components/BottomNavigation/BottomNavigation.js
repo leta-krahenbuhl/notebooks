@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { useParams } from "react-router-dom";
 
 export default function BottomNavigation() {
-  const { notebookId, listId } = useParams();
+  const { notebookId } = useParams();
 
   // if in a notebook
   if (notebookId)
@@ -46,7 +46,7 @@ export default function BottomNavigation() {
             alt="add new notebook"
             className="bottom-nav__image-plus-desktop"
           />
-          <p className="bottom-nav__text1">ADD NOTEBOOK</p>
+          <p className="bottom-nav__text">ADD NOTEBOOK</p>
         </div>
       </Link>
     </div>

@@ -144,11 +144,6 @@
   padding-top: 0.2rem;
   margin-left: 1rem;
 }
-@media screen and (min-width: 768px) {
-  .notebook__error {
-    padding-left: 3rem;
-  }
-}
 @media screen and (min-width: 1024px) {
   .notebook__error {
     padding-top: 0.8rem;

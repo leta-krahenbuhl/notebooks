@@ -9,6 +9,7 @@ export default function CreateNotebook() {
   const [formErrors, setFormErrors] = useState({});
   const [isError, setIsError] = useState(false);
 
+  // add notebook
   const handleSubmit = async (event) => {
     event.preventDefault();
 
