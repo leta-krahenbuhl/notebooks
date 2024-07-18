@@ -48,13 +48,9 @@
   border-radius: 4px;
   margin: 1rem;
   cursor: pointer;
-}
-@media screen and (min-width: 768px) {
-  .edit-list__done-button {
-    width: 8rem;
-    font-size: 1.5rem;
-    padding-bottom: 0.3rem;
-  }
+  width: 8rem;
+  font-size: 1.5rem;
+  padding-bottom: 0.3rem;
 }
 @media screen and (min-width: 1024px) {
   .edit-list__done-button {

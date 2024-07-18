@@ -20,12 +20,9 @@
   border-radius: 4px;
   margin: 1rem;
   cursor: pointer;
-
-  @include tablet {
-    width: 8rem;
-    font-size: 1.5rem;
-    padding-bottom: 0.3rem;
-  }
+  width: 8rem;
+  font-size: 1.5rem;
+  padding-bottom: 0.3rem;
 
   @include desktop {
     padding-bottom: 0.5rem;
@@ -43,8 +40,12 @@
   border-radius: 5px;
   flex-shrink: 0;
   cursor: pointer;
-  width: 1.5rem;
+  width: 1rem;
   height: 1.5rem;
+  margin-top: 0.2rem;
+
+  @include tablet {
+  }
 
   @include desktop {
     background-size: 1.5rem;
@@ -56,12 +57,12 @@
 @mixin input-field {
   padding-left: 0.5rem;
   height: 2rem;
-  border: $border;
+  border: $border-tablet;
   border-radius: 4px;
 
   @include tablet {
     margin-top: 0rem;
-    border: $border-tablet;
+    margin-left: 0rem;
   }
 
   @include desktop {
@@ -77,7 +78,7 @@
   position: sticky;
   bottom: 0px;
   justify-content: space-between;
-  padding-bottom: 0.5rem;
+  padding-bottom: 1rem;
   padding-top: 1rem;
   font-size: 0.8rem;
   border-top: $border;
@@ -107,23 +108,29 @@
   font-style: italic;
   font-weight: bold;
   font-size: 1rem;
-  margin-top: 3rem;
+  margin-top: 2rem;
 }
 
 @mixin error-message-form {
   font-size: 0.7rem;
   color: $warning;
   text-align: left;
-  margin-top: 0.5rem;
+  padding-top: 0.2rem;
+
+  @include tablet {
+    padding-left: 3rem;
+  }
+
+  @include desktop {
+    padding-top: 0.8rem;
+    padding-left: 0rem;
+  }
 }
 
 @mixin nav {
   height: 100vh;
   margin-top: 0;
   text-align: center;
-  // background-color: $primary2;
-  // padding-right: 1rem;
-  // width: 16rem;
 }
 
 @mixin hover1 {

@@ -23,7 +23,7 @@
 
   &__a {
     width: 100%;
-    margin-bottom: 0.5rem;
+    // margin-bottom: 0.5rem;
   }
 
   &__text {
@@ -31,6 +31,22 @@
     font-weight: 700;
     font-style: italic;
     margin-top: 0.1rem;
+
+    @include tablet {
+      margin-top: 0.1rem;
+      margin-bottom: 0.5rem;
+    }
+  }
+
+  &__text1 {
+    color: #b1b1b1;
+    font-weight: 700;
+    font-style: italic;
+    margin-top: 0.1rem;
+
+    @include tablet {
+      margin-bottom: 0.14rem;
+    }
   }
 
   .bottom-nav__a:hover .bottom-nav__image-plus-desktop {

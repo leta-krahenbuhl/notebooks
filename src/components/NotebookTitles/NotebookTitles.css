@@ -68,8 +68,9 @@
   border-radius: 5px;
   flex-shrink: 0;
   cursor: pointer;
-  width: 1.5rem;
+  width: 1rem;
   height: 1.5rem;
+  margin-top: 0.2rem;
   margin-right: 1rem;
 }
 @media screen and (min-width: 1024px) {
@@ -90,8 +91,9 @@
   border-radius: 5px;
   flex-shrink: 0;
   cursor: pointer;
-  width: 1.5rem;
+  width: 1rem;
   height: 1.5rem;
+  margin-top: 0.2rem;
 }
 @media screen and (min-width: 1024px) {
   .notebook__button-edit {
@@ -110,8 +112,9 @@
   border-radius: 5px;
   flex-shrink: 0;
   cursor: pointer;
-  width: 1.5rem;
+  width: 1rem;
   height: 1.5rem;
+  margin-top: 0.2rem;
 }
 @media screen and (min-width: 1024px) {
   .notebook__button-save {
@@ -138,8 +141,19 @@
   font-size: 0.7rem;
   color: red;
   text-align: left;
-  margin-top: 0.5rem;
+  padding-top: 0.2rem;
   margin-left: 1rem;
+}
+@media screen and (min-width: 768px) {
+  .notebook__error {
+    padding-left: 3rem;
+  }
+}
+@media screen and (min-width: 1024px) {
+  .notebook__error {
+    padding-top: 0.8rem;
+    padding-left: 0rem;
+  }
 }
 .notebook__icon {
   width: 0.8rem;
@@ -197,13 +211,13 @@
 .notebook-edit-form__input {
   padding-left: 0.5rem;
   height: 2rem;
-  border: 3px solid black;
+  border: 2px solid black;
   border-radius: 4px;
 }
 @media screen and (min-width: 768px) {
   .notebook-edit-form__input {
     margin-top: 0rem;
-    border: 2px solid black;
+    margin-left: 0rem;
   }
 }
 @media screen and (min-width: 1024px) {

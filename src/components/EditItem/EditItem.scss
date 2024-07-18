@@ -42,9 +42,14 @@
   &__button-delete {
     @include icon;
     background-image: URL("../../assets/images/trash-black.svg");
+    margin-right: 0.5rem;
 
     @include desktop {
       margin-right: 1rem;
     }
   }
+}
+
+.wrapper {
+  padding-left: 1rem;
 }

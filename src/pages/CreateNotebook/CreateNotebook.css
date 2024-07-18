@@ -44,8 +44,9 @@
   border-radius: 5px;
   flex-shrink: 0;
   cursor: pointer;
-  width: 1.5rem;
+  width: 1rem;
   height: 1.5rem;
+  margin-top: 0.2rem;
 }
 @media screen and (min-width: 1024px) {
   .create-notebook-entry__button {
@@ -60,7 +61,7 @@
   font-style: italic;
   font-weight: bold;
   font-size: 1rem;
-  margin-top: 3rem;
+  margin-top: 2rem;
   width: 4rem;
   margin-bottom: 1rem;
 }
@@ -78,13 +79,13 @@
   margin-right: 1rem;
   padding-left: 0.5rem;
   height: 2rem;
-  border: 3px solid black;
+  border: 2px solid black;
   border-radius: 4px;
 }
 @media screen and (min-width: 768px) {
   .add-notebook-form__input {
     margin-top: 0rem;
-    border: 2px solid black;
+    margin-left: 0rem;
   }
 }
 @media screen and (min-width: 1024px) {
@@ -104,8 +105,9 @@
   border-radius: 5px;
   flex-shrink: 0;
   cursor: pointer;
-  width: 1.5rem;
+  width: 1rem;
   height: 1.5rem;
+  margin-top: 0.2rem;
   margin-top: 0.5rem;
   width: 2rem;
   background-size: 1.8rem;
@@ -128,6 +130,17 @@
   font-size: 0.7rem;
   color: red;
   text-align: left;
-  margin-top: 0.5rem;
+  padding-top: 0.2rem;
   display: block;
+}
+@media screen and (min-width: 768px) {
+  .add-notebook-form__error {
+    padding-left: 3rem;
+  }
+}
+@media screen and (min-width: 1024px) {
+  .add-notebook-form__error {
+    padding-top: 0.8rem;
+    padding-left: 0rem;
+  }
 }/*# sourceMappingURL=CreateNotebook.css.map */

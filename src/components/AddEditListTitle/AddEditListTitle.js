@@ -15,6 +15,7 @@ export default function AddEditListTitle() {
   const { notebookId, listId } = useParams();
   const baseURL = process.env.REACT_APP_BASE_URL;
 
+  //get all list titles?
   useEffect(() => {
     if (listId) {
       const getTitles = async () => {
@@ -34,6 +35,7 @@ export default function AddEditListTitle() {
     }
   }, [title, listId]);
 
+  // save a title
   const handleSubmitTitle = async (event) => {
     event.preventDefault();
     setIsError(false);
@@ -106,26 +108,26 @@ export default function AddEditListTitle() {
   //add a new list
   if (!isTitle && !listId) {
     return (
-      <>
-        <form className="add-list-title-form" onSubmit={handleSubmitTitle}>
-          <h2 className="add-list-title-form__header">ADD LIST</h2>
-          <div className="add-list-title-form__wrapper">
+      <article className="edit-title">
+        <h2 className="edit-title__header">ADD LIST</h2>
+        <form className="edit-title__form" onSubmit={handleSubmitTitle}>
+          <div className="edit-title__wrapper">
             <input
               type="text"
               id="text"
               name="text"
               placeholder="add title"
-              className="add-list-title-form__input"
+              className="edit-title__input"
             />
-            <button className="add-list-title-form__button"></button>
+            <button className="edit-title__button"></button>
           </div>
           {isError && (
-            <p className="add-list-title-form__error add-list-title-form__error--new">
-              Please enter a lissssst title.
+            <p className="edit-title__error add-list-title__error--new">
+              Please enter a list title.
             </p>
           )}
         </form>
-      </>
+      </article>
     );
   }
 
@@ -170,7 +172,7 @@ export default function AddEditListTitle() {
           <button
             alt="edit list title button"
             onClick={() => handleClick(titleArr[0].title)}
-            className="edit-title__button"
+            className="edit-title__button-edit"
           ></button>
         </div>
       </article>

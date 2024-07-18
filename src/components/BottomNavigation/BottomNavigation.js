@@ -46,7 +46,7 @@ export default function BottomNavigation() {
             alt="add new notebook"
             className="bottom-nav__image-plus-desktop"
           />
-          <p className="bottom-nav__text">ADD NOTEBOOK</p>
+          <p className="bottom-nav__text1">ADD NOTEBOOK</p>
         </div>
       </Link>
     </div>

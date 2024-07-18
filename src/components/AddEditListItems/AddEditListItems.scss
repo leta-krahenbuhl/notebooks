@@ -2,14 +2,24 @@
 @use "../../styles/partials/mixins" as *;
 
 .edit-list-items {
-  margin: 0rem 1rem 1rem 1rem;
+  margin: 0rem 1rem 1rem 0rem; //18
   text-align: center;
+
+  @include tablet {
+    margin: 0rem 0rem 0rem 0rem;
+  }
+
+  @include desktop {
+    margin: 0rem 1rem 1rem 1rem;
+  }
 
   &__list {
     margin-left: -1.6rem;
-    padding-left: 1rem;
+    // padding-left: 1rem; //18
+    padding-left: 2.6rem;
 
     @include tablet {
+      padding-left: 1rem;
       margin-left: 3rem;
       margin-right: 3rem;
     }
@@ -63,9 +73,6 @@
     &--inactive {
       background-image: URL("../../assets/images/save-grey.svg");
       @include icon;
-      // margin-top: 0.5rem;
-      // background-size: 1.5rem;
-      // width: 1.5rem;
       cursor: default;
 
       @include tablet {

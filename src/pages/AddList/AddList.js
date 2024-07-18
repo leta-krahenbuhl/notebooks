@@ -18,18 +18,14 @@ export default function AddList() {
         <nav className="add-list__nav">
           <NotebookTitles />
         </nav>
-        <BottomNavigation />
+        <div className="add-list__bottom-nav-desk">
+          <BottomNavigation />
+        </div>
       </div>
 
-      <main className="add-list__main">
+      <article className="add-list__main">
         <AddEditListTitle />
         <AddEditListItems />
-        {/* Adding a new list without saving a title => coming from notebook page */}
-        {/* {location.pathname.endsWith("create/lists") && (
-          <Link to={`/notebooks/${notebookId}`}>
-            <button className="add-list__done-button">DONE</button>
-          </Link>
-        )} */}
 
         {/* Creating a new list and added title/items and coming from notebook page */}
         {location.pathname.endsWith(
@@ -43,7 +39,11 @@ export default function AddList() {
         <Link to={`/notebooks/${notebookId}`}>
           <p className="add-list__cancel-button">CANCEL</p>
         </Link>
-      </main>
+      </article>
+
+      <div className="add-list__bottom-nav-mobile">
+        <BottomNavigation />
+      </div>
     </article>
   );
 }
