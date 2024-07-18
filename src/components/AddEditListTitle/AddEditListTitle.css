@@ -21,16 +21,6 @@
   font-family: "Antonio";
   font-size: 1.8rem;
 }
-@media screen and (min-width: 768px) {
-  .add-list-title-form__header {
-    margin-top: 3rem;
-  }
-}
-@media screen and (min-width: 1024px) {
-  .add-list-title-form__header {
-    margin-top: 3rem;
-  }
-}
 .add-list-title-form__wrapper {
   display: flex;
   width: 100%;
@@ -98,16 +88,6 @@
   text-align: center;
   font-family: "Antonio";
   font-size: 1.8rem;
-}
-@media screen and (min-width: 768px) {
-  .edit-title__header {
-    margin-top: 3rem;
-  }
-}
-@media screen and (min-width: 1024px) {
-  .edit-title__header {
-    margin-top: 3rem;
-  }
 }
 .edit-title__input {
   width: 100%;

@@ -4,7 +4,6 @@ import NotebookTitles from "../../components/NotebookTitles/NotebookTitles";
 import BottomNavigation from "../../components/BottomNavigation/BottomNavigation";
 import { useParams } from "react-router-dom";
 import List from "../../components/List/List";
-import Breadcrumb from "../../components/Breadcrumb/Breadcrumb";
 import { useLocation } from "react-router-dom";
 
 export default function Notebook2() {

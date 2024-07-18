@@ -18,10 +18,12 @@ export default function EditList() {
         <nav className="edit-list__nav">
           <NotebookTitles />
         </nav>
-        <BottomNavigation />
+        <div className="edit-list__bottom-nav-desk">
+          <BottomNavigation />
+        </div>
       </div>
 
-      <main className="edit-list__main">
+      <article className="edit-list__main">
         <AddEditListTitle />
         <AddEditListItems />
 
@@ -46,7 +48,11 @@ export default function EditList() {
           </Link>
         )}
         <div className="edit-list__whitespace"></div>
-      </main>
+      </article>
+
+      <div className="edit-list__bottom-nav-mobile">
+        <BottomNavigation />
+      </div>
     </article>
   );
 }
