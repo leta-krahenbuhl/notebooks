@@ -1,14 +1,10 @@
-import { Link, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import "./List.scss";
 import ListItems from "../ListItems/ListItems";
 import { fetchListItems } from "../../utils/AxiosRequests";
 import { useState, useEffect } from "react";
 import { fetchListTitles } from "../../utils/AxiosRequests";
 import { deleteList } from "../../utils/AxiosRequests";
-// import TopNavigation from "../../components/TopNavigation/TopNavigation";
-// import BottomNavigation from "../../components/BottomNavigation/BottomNavigation";
-// import Header from "../../components/Header/Header";
-// import NotebookTitles from "../../components/NotebookTitles/NotebookTitles";
 import editIcon from "../../assets/images/icon-edit-grey.svg";
 import deleteIcon from "../../assets/images/icon-trash-grey.svg";
 import { useNavigate } from "react-router-dom";
@@ -41,7 +37,7 @@ export default function List() {
 
   useEffect(() => {
     getArrayOfListTitlesWithNotebookId();
-  }, [notebookId]);
+  });
 
   const getAllListItems = async () => {
     try {

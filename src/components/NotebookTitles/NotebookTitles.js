@@ -6,7 +6,7 @@ import {
   editNotebookTitle,
   deleteNotebook,
 } from "../../utils/AxiosRequests";
-import { useLocation, useNavigate, useParams } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import editIcon from "../../assets/images/icon-edit-grey.svg";
 import deleteIcon from "../../assets/images/icon-trash-grey.svg";
 
@@ -20,7 +20,6 @@ export default function NotebookTitles() {
 
   const location = useLocation();
   const navigate = useNavigate();
-  const { notebookId } = useParams();
 
   useEffect(() => {
     const searchParams = new URLSearchParams(location.search);
@@ -116,7 +115,7 @@ export default function NotebookTitles() {
             onMouseEnter={() => setHoveredNotebookId(notebook.id)}
             onMouseLeave={() => setHoveredNotebookId(null)}
           >
-            {notebookToEdit == notebook.id ? (
+            {notebookToEdit === parseInt(notebook.id) ? (
               <div className="notebook__form-wrapper">
                 <form className="notebook-edit-form">
                   <input
@@ -140,7 +139,7 @@ export default function NotebookTitles() {
                 <Link to={`/notebooks/${notebook.id}`}>
                   <h2
                     className={`notebook__title ${
-                      notebook.id == notebookId
+                      notebook.id === parseInt(notebook.id)
                         ? "notebook__title--highlight"
                         : ""
                     }`}
@@ -148,7 +147,7 @@ export default function NotebookTitles() {
                     &#128211; {notebook.title}
                   </h2>
                 </Link>
-                {notebook.id == notebookId && (
+                {notebook.id === parseInt(notebook.id) && (
                   <div className="notebook__icons-tablet">
                     <img
                       src={editIcon}
@@ -164,7 +163,7 @@ export default function NotebookTitles() {
                     />
                   </div>
                 )}
-                {hoveredNotebookId === notebook.id && (
+                {hoveredNotebookId === parseInt(notebook.id) && (
                   <div className="notebook__icon-wrapper">
                     <span className="notebook__icons">
                       <img

@@ -1,4 +1,4 @@
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import "./Header.scss";
 import iconMenu from "../../assets/images/icon-menu.svg";
 import { useState, useEffect } from "react";
@@ -8,7 +8,6 @@ import Breadcrumb from "../Breadcrumb/Breadcrumb";
 export default function Header() {
   const [isMenuVisible, setIsMenuVisible] = useState(false);
   const location = useLocation();
-  const navigate = useNavigate(); // Initialize useNavigate
 
   const handleMenuClick = () => {
     setIsMenuVisible(!isMenuVisible);

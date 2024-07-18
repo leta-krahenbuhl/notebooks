@@ -4,11 +4,9 @@ import NotebookTitles from "../../components/NotebookTitles/NotebookTitles";
 import BottomNavigation from "../../components/BottomNavigation/BottomNavigation";
 import { useParams } from "react-router-dom";
 import List from "../../components/List/List";
-import { useLocation } from "react-router-dom";
 
 export default function Notebook2() {
   const { notebookId } = useParams();
-  const location = useLocation();
 
   return (
     <article className="notebook2">

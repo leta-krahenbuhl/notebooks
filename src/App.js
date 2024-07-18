@@ -2,8 +2,6 @@ import "./App.scss";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Home from "./pages/Home/Home";
 import CreateNotebook from "./pages/CreateNotebook/CreateNotebook";
-// import Notebook from "./pages/Notebook/Notebook";
-import AddEditList from "./pages/AddEditList/AddEditList";
 import List from "./components/List/List";
 import Notebook2 from "./pages/Notebook2/Notebook2";
 import EditList from "./pages/EditList/EditList";
