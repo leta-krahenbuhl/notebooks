@@ -17,6 +17,7 @@ export default function List() {
   const { notebookId, listId } = useParams(); // listId undefined?
   const navigate = useNavigate();
 
+  // get list titles with notebook id
   const getArrayOfListTitlesWithNotebookId = async () => {
     try {
       const data = await fetchListTitles();
@@ -37,8 +38,10 @@ export default function List() {
 
   useEffect(() => {
     getArrayOfListTitlesWithNotebookId();
-  });
+    // eslint-disable-next-line
+  }, [notebookId]);
 
+  // get all items from a list
   const getAllListItems = async () => {
     try {
       const data = await fetchListItems();
@@ -90,7 +93,6 @@ export default function List() {
   };
 
   //in notebook page
-  // if (!listId) {
   return (
     <div className="list">
       {itemsForTitles.map((titleObj, index) => (
@@ -146,34 +148,4 @@ export default function List() {
       ))}
     </div>
   );
-  // }
-
-  // if (listId) {
-  //   return (
-  //     <div className="list-detail">
-  //       <div className="desktop-wrapper">
-  //         <div className="nav-desktop-wrapper">
-  //           <Header />
-  //           <nav className="notebook2__nav">
-  //             <NotebookTitles />
-  //           </nav>
-  //           <div className="bottom-navigation-desktop">
-  //             <BottomNavigation />
-  //           </div>
-  //         </div>
-
-  //         <div className="list">
-  //           <ListItems
-  //             itemsForTitles={itemsForTitles}
-  //             getAllListItems={getAllListItems}
-  //             listId={listId}
-  //           />
-  //         </div>
-  //       </div>
-  //       {/* <div className="bottom-navigation-mobile">
-  //         <BottomNavigation />
-  //       </div> */}
-  //     </div>
-  //   );
-  // }
 }

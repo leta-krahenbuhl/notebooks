@@ -34,14 +34,16 @@ export default function Breadcrumb() {
   // Fetch notebook titles on component mount or when notebookId changes
   useEffect(() => {
     getNotebookTitles();
-  });
+    // eslint-disable-next-line
+  }, [notebookId]);
 
   // Set edited title when notebookToEdit changes
   useEffect(() => {
     if (notebookToEdit !== null) {
       setEditedTitle(currentNotebook?.title || "");
     }
-  }, [notebookToEdit, currentNotebook]);
+    // eslint-disable-next-line
+  }, [notebookToEdit]);
 
   const handleClickEditIcon = () => {
     setNotebookToEdit(currentNotebook.id);
@@ -68,6 +70,7 @@ export default function Breadcrumb() {
     }
   };
 
+  // delete notebook
   const handleDelete = async () => {
     const confirmDelete = window.confirm(
       "Are you sure you want to delete this notebook? This action cannot be undone."
