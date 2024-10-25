@@ -11,10 +11,10 @@
   }
 
   &__wrapper {
-    width: 100%;
     display: flex;
-    justify-items: start;
+    justify-content: left;
     margin-left: 1rem;
+    margin-right: 1rem;
 
     @include desktop {
       margin-left: 2rem;
@@ -22,8 +22,6 @@
   }
 
   &__a {
-    width: 100%;
-    // margin-bottom: 0.5rem;
   }
 
   &__text {
@@ -31,6 +29,7 @@
     font-weight: 700;
     font-style: italic;
     margin-top: 0.1rem;
+    text-align: left;
 
     @include tablet {
       margin-top: 0.1rem;
@@ -102,65 +101,6 @@
     }
   }
 }
-
-// .home-navigation {
-//   background-color: white;
-//   width: 100%;
-
-//   @include bottom-navigation;
-
-//   &__wrapper {
-//     display: flex;
-//     justify-items: start;
-//     margin-left: 1rem;
-
-//     @include desktop {
-//       margin-left: 2rem;
-//     }
-//   }
-
-//   &__a {
-//     width: 100%;
-//   }
-
-//   &__text {
-//     color: #b1b1b1;
-//     font-weight: 700;
-//     font-style: italic;
-//   }
-
-//   &__image-plus-desktop {
-//     display: inline;
-//     width: 1rem;
-//     height: 1rem;
-//     margin-right: 0.5rem;
-//   }
-
-//   .home-navigation__a:hover .home-navigation__image-plus-desktop {
-//     filter: brightness(0) saturate(100%); /* Change SVG color to black */
-//   }
-
-//   .home-navigation__a:hover .home-navigation__text {
-//     color: black; /* Change text color to black */
-//   }
-
-//   &__image {
-//     width: 1.8rem;
-
-//     @include desktop {
-//       display: none;
-//     }
-//   }
-
-//   &__image-desktop {
-//     display: none;
-
-//     @include desktop {
-//       display: inline;
-//       width: 2rem;
-//     }
-//   }
-// }
 
 .list-bottom-navigation {
   @include bottom-navigation;

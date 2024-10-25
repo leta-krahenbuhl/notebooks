@@ -6,6 +6,7 @@ import List from "./components/List/List";
 import Notebook2 from "./pages/Notebook2/Notebook2";
 import EditList from "./pages/EditList/EditList";
 import AddList from "./pages/AddList/AddList";
+import CreateHabitTracker from "./pages/CreateHabitTracker/CreateHabitTracker";
 
 function App() {
   return (
@@ -36,10 +37,10 @@ function App() {
             path="/notebooks/:notebookId/create/lists/"
             element={<AddList />}
           />
-          {/* <Route
-            path="/notebooks/:notebookId/create/journal/"
-            element={<AddEditList />}
-          /> */}
+          <Route
+            path="/create/habit-tracker"
+            element={<CreateHabitTracker />}
+          />
 
           <Route
             path="/notebooks/:notebookId/create/lists/:listId"

@@ -20,7 +20,7 @@ export default function BottomNavigation() {
               alt="add new notebook"
               className="bottom-nav__image-plus-desktop"
             />
-            <p className="bottom-nav__text">ADD LIST</p>
+            <p className="bottom-nav__text">LIST</p>
           </div>
         </Link>
         <Link to="/create/notebook" className="bottom-nav__a">
@@ -30,7 +30,17 @@ export default function BottomNavigation() {
               alt="add new notebook"
               className="bottom-nav__image-plus-desktop"
             />
-            <p className="bottom-nav__text">ADD NOTEBOOK</p>
+            <p className="bottom-nav__text">NOTEBOOK</p>
+          </div>
+        </Link>
+        <Link to="/create/habit-tracker" className="bottom-nav__a">
+          <div className="bottom-nav__wrapper">
+            <img
+              src={plusIcon}
+              alt="add new habit tracker"
+              className="bottom-nav__image-plus-desktop"
+            />
+            <p className="bottom-nav__text">HABIT TRACKER</p>
           </div>
         </Link>
       </div>
@@ -51,55 +61,4 @@ export default function BottomNavigation() {
       </Link>
     </div>
   );
-
-  //in a notebook
-  // if (notebookId && !listId)
-  //   return (
-  //     <>
-  //       <nav className="notebook-navigation">
-  //         <Link to={`/notebooks/${notebookId}/create/lists`}>
-  //           <div className="notebook-navigation__wrapper">
-  //             <img
-  //               src={plusIcon}
-  //               alt="add new list"
-  //               className="notebook-navigation__icon-plus"
-  //             />
-  //             <img
-  //               src={plusIconDesktop}
-  //               alt="add new list"
-  //               className="notebook-navigation__image-plus-desktop"
-  //             />
-  //             <p className="notebook-navigation__text">ADD LIST</p>
-  //           </div>
-  //         </Link>
-  //       </nav>
-  //     </>
-  //   );
-
-  // //in a list
-  // if (notebookId && listId)
-  //   return (
-  //     <nav className="list-bottom-navigation">
-  //       <button
-  //         onClick={() => handleDeleteList(listId)}
-  //         className="list-bottom-navigation__button-delete-mobile"
-  //       ></button>
-  //       <button
-  //         onClick={() => handleDeleteList(listId)}
-  //         className="list-bottom-navigation__button-delete-desktop"
-  //       ></button>
-  //       <Link to={`/notebooks/${notebookId}/lists/${listId}/edit`}>
-  //         <img
-  //           src={editIcon}
-  //           alt="edit list"
-  //           className="list-bottom-navigation__button-edit-mobile"
-  //         />
-  //         <img
-  //           src={editIconDesktop}
-  //           alt="edit list"
-  //           className="list-bottom-navigation__button-edit-desktop"
-  //         />
-  //       </Link>
-  //     </nav>
-  //   );
 }

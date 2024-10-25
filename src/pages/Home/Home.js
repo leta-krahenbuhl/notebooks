@@ -48,7 +48,7 @@ export default function Home() {
               href="https://github.com/leta-krahenbuhl/notebooks"
               target="_blank"
               rel="noopener noreferrer"
-              class="home__link home__link--mobile"
+              className="home__link home__link--mobile"
             >
               Front-end repo
             </a>
@@ -58,7 +58,7 @@ export default function Home() {
               href="https://github.com/leta-krahenbuhl/notebooks-server"
               target="_blank"
               rel="noopener noreferrer"
-              class="home__link home__link--mobile"
+              className="home__link home__link--mobile"
             >
               Back-end repo
             </a>
