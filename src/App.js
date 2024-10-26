@@ -33,18 +33,25 @@ function App() {
           />
 
           <Route path="/create/notebook" element={<CreateNotebook />} />
+
           <Route
             path="/notebooks/:notebookId/create/lists/"
             element={<AddList />}
-          />
-          <Route
-            path="/create/habit-tracker"
-            element={<CreateHabitTracker />}
           />
 
           <Route
             path="/notebooks/:notebookId/create/lists/:listId"
             element={<AddList />}
+          />
+
+          <Route
+            path="/notebooks/:notebookId/create/habit-tracker"
+            element={<CreateHabitTracker />}
+          />
+
+          <Route
+            path="/notebooks/:notebookId/create/habit-tracker/:trackerId"
+            element={<CreateHabitTracker />}
           />
         </Routes>
       </div>

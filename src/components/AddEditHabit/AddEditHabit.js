@@ -1,4 +1,4 @@
-import "./AddEditListItems.scss";
+import "./AddEditHabit.scss";
 import axios from "axios";
 import EditItem from "../EditItem/EditItem";
 import { useEffect, useState } from "react";
@@ -6,7 +6,8 @@ import { useParams } from "react-router-dom";
 import { fetchListItems } from "../../utils/AxiosRequests";
 import { editListItem } from "../../utils/AxiosRequests";
 
-export default function AddEditListItem() {
+export default function AddEditHabit() {
+  const [isTitle, setIsTitle] = useState(false);
   const [allItems, setAllItems] = useState([]); //only items for current list title
   const { listId } = useParams();
   const [isErrorNewItem, setIsErrorNewItem] = useState(false);
@@ -102,7 +103,7 @@ export default function AddEditListItem() {
                 : "add-list-items-form__input--inactive"
             }`}
             name="listItem"
-            placeholder="add item"
+            placeholder="add habit"
           />
           <button
             className={`${
@@ -114,7 +115,7 @@ export default function AddEditListItem() {
         </div>
         {isErrorNewItem && (
           <p className="add-notebook-form__error">
-            Please enter text for your item.
+            Please enter text for your habit.
           </p>
         )}
       </form>

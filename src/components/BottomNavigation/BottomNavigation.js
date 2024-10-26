@@ -33,7 +33,10 @@ export default function BottomNavigation() {
             <p className="bottom-nav__text">NOTEBOOK</p>
           </div>
         </Link>
-        <Link to="/create/habit-tracker" className="bottom-nav__a">
+        <Link
+          to={`/notebooks/${notebookId}/create/habit-tracker`}
+          className="bottom-nav__a"
+        >
           <div className="bottom-nav__wrapper">
             <img
               src={plusIcon}
