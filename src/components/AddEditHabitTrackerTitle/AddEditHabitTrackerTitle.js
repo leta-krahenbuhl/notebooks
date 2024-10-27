@@ -3,7 +3,7 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
-import { fetchTrackerTitles } from "../../../utils/AxiosRequests";
+import { fetchTrackerTitles } from "../../utils/AxiosRequests";
 
 export default function AddEditHabitTrackerTitle() {
   const [dateWC, setDateWC] = useState("");
@@ -16,7 +16,23 @@ export default function AddEditHabitTrackerTitle() {
   const { notebookId, trackerId } = useParams();
   const baseURL = process.env.REACT_APP_BASE_URL;
 
-  //get all tracker titles
+  // Helper function to parse "WC 30th Sept 2024" to "YYYY-MM-DD"
+  const parseDateWC = (dateWC) => {
+    const regex = /WC (\d{1,2})(st|nd|rd|th) (\w+) (\d{4})/;
+    const match = dateWC.match(regex);
+    if (!match) return ""; // Return empty if no match
+
+    const day = parseInt(match[1]);
+    const month = new Date(Date.parse(match[3] + " 1, 2020")).getMonth(); // Convert month name to index
+    const year = parseInt(match[4]);
+
+    const formattedDate = new Date(year, month, day)
+      .toISOString()
+      .split("T")[0];
+    return formattedDate;
+  };
+
+  //get all tracker titles, set current title info in titleArr
   useEffect(() => {
     // console.log("trackerId: ", trackerId); // works
     if (trackerId) {
@@ -29,6 +45,11 @@ export default function AddEditHabitTrackerTitle() {
             return titleObj.id === parseInt(trackerId);
           });
           setTitleArr(currentTitleArr);
+
+          if (currentTitleArr.length > 0) {
+            const existingDateWC = currentTitleArr[0].title; // adjust property as needed
+            setDateWC(parseDateWC(existingDateWC));
+          }
         } catch (error) {
           console.error(error);
         }
@@ -193,43 +214,47 @@ export default function AddEditHabitTrackerTitle() {
   }
   //   console.log("isTitle: ", isTitle);
 
-  //title not displayed but trackerId so editing existing one
+  // Edit tracker title
+  // (title not displayed but trackerId so editing existing one)
   if (trackerId && !isTitle) {
     return (
-      <article className="edit-title">
-        <h2 className="edit-title__header">EDIT HABIT TRACKER</h2>
-        <div className="edit-title__wrapper">
-          <h3 className="edit-title__list-title">
-            <p>Editing existing tracker title</p>
-            {title}
-            {/* {titleArr && titleArr.length > 0 ? titleArr[0].title : ""} */}
-          </h3>
-          <button
-            alt="edit list title button"
-            onClick={() => handleClick(title)}
-            className="edit-title__button-edit"
-          ></button>
-        </div>
-      </article>
+      <>
+        <form className="add-list-title-form" onSubmit={handleSubmitTitle}>
+          <h2 className="add-list-title-form__header">EDIT LIST</h2>
+          <div className="add-list-title-form__wrapper">
+            <input
+              type="date"
+              id="week-start"
+              name="week-start"
+              onChange={handleDateChange}
+              className="add-list-title-form__input"
+              value={dateWC}
+            />
+            <button className="add-list-title-form__button"></button>
+          </div>
+        </form>
+        {isError && (
+          <p className="add-list-title-form__error">
+            Please enter a list title.
+          </p>
+        )}
+      </>
     );
   }
 
   //title displayed (no input field)
   if (isTitle) {
     return (
-      <article className="edit-title">
-        <h2 className="edit-title__header">EDIT HABIT TRACKER</h2>
-        <div className="edit-title__wrapper">
-          <h3 className="edit-title__list-title">
-            <p>this should be the title</p>
-
-            {title}
-            {/* {titleArr && titleArr.length > 0 ? titleArr[0].title : ""} */}
+      <article className="add-edit-tracker-title">
+        <h2 className="add-edit-tracker-title__header">EDIT HABIT TRACKER</h2>
+        <div className="add-edit-tracker-title__wrapper">
+          <h3 className="add-edit-tracker-title__list-title">
+            {titleArr && titleArr.length > 0 ? titleArr[0].title : ""}
           </h3>
           <button
             alt="edit list title button"
             onClick={() => handleClick(title)}
-            className="edit-title__button-edit"
+            className="add-edit-tracker-title__button-edit"
           ></button>
         </div>
       </article>

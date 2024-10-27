@@ -5,7 +5,7 @@ import Header from "../../components/Header/Header";
 import NotebookTitles from "../../components/NotebookTitles/NotebookTitles";
 import BottomNavigation from "../../components/BottomNavigation/BottomNavigation";
 import AddEditHabit from "../../components/AddEditHabit/AddEditHabit";
-import AddEditHabitTrackerTitle from "../../components/AddEditHabit/AddEditHabitTrackerTitle/AddEditHabitTrackerTitle";
+import AddEditHabitTrackerTitle from "../../components/AddEditHabitTrackerTitle/AddEditHabitTrackerTitle";
 
 export default function CreateHabitTracker() {
   const location = useLocation();
