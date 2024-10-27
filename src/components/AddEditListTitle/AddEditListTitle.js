@@ -15,7 +15,7 @@ export default function AddEditListTitle() {
   const { notebookId, listId } = useParams();
   const baseURL = process.env.REACT_APP_BASE_URL;
 
-  //get all list titles?
+  //get all list titles
   useEffect(() => {
     if (listId) {
       const getTitles = async () => {

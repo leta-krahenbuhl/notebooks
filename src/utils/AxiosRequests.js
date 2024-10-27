@@ -12,6 +12,11 @@ const fetchListTitles = async () => {
   return data;
 };
 
+const fetchTrackerTitles = async () => {
+  const { data } = await axios.get(`${baseURL}/api/tracker-titles`);
+  return data;
+};
+
 const fetchListItems = async () => {
   const { data } = await axios.get(`${baseURL}/api/list-items`);
   return data;
@@ -58,4 +63,5 @@ export {
   deleteList,
   deleteItem,
   editNotebookTitle,
+  fetchTrackerTitles,
 };

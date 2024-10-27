@@ -7,7 +7,6 @@ import { fetchListItems } from "../../utils/AxiosRequests";
 import { editListItem } from "../../utils/AxiosRequests";
 
 export default function AddEditHabit() {
-  const [isTitle, setIsTitle] = useState(false);
   const [allItems, setAllItems] = useState([]); //only items for current list title
   const { listId } = useParams();
   const [isErrorNewItem, setIsErrorNewItem] = useState(false);
