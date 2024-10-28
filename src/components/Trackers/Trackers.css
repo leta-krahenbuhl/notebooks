@@ -7,20 +7,6 @@
 .tracker {
   margin-top: 8rem;
 }
-@media screen and (min-width: 768px) {
-  .tracker {
-    margin-top: 0rem;
-    font-size: 0.9rem;
-  }
-}
-@media screen and (min-width: 1024px) {
-  .tracker {
-    width: 28rem;
-    margin-left: auto;
-    margin-right: auto;
-    font-size: 1rem;
-  }
-}
 .tracker__title {
   font-size: 1rem;
   color: black;
@@ -45,34 +31,13 @@
   justify-content: space-between;
   align-items: baseline;
 }
+.tracker__icons {
+  display: flex;
+}
 .tracker__icon {
   width: 0.8rem;
   margin-left: 0.2rem;
   padding-top: 0rem;
-}
-@media screen and (min-width: 1024px) {
-  .tracker__icon {
-    margin-left: 0.5rem;
-    width: 1rem;
-    padding-top: 1rem;
-  }
-}
-.tracker__icon:hover {
-  filter: brightness(0) saturate(100%);
-  cursor: pointer;
-}
-.tracker__icon-wrapper {
-  display: none;
-}
-@media screen and (min-width: 1024px) {
-  .tracker__icon-wrapper {
-    display: inline;
-  }
-}
-@media screen and (min-width: 1024px) {
-  .tracker__icons-tablet {
-    display: none;
-  }
 }
 
 .bottom-navigation-mobile {

@@ -1,0 +1,39 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+
+.tracker-items {
+  &__text {
+    margin: 0.5rem 0 0.5rem 0;
+  }
+
+  &__item {
+    line-height: 1.6rem;
+    margin-left: -1.6rem;
+  }
+
+  &__wrapper {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__square {
+    width: 1.5rem;
+    margin: 0;
+  }
+}
+
+// TODO: make this a mixin?
+.border {
+  border-bottom: 3px dotted black;
+  margin-bottom: 2rem;
+  margin-top: 2rem;
+
+  @include tablet {
+    margin-bottom: 3rem;
+    margin-top: 3rem;
+  }
+
+  @include desktop {
+    border-bottom: 4px dotted black;
+  }
+}

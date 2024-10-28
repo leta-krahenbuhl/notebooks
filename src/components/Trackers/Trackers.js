@@ -8,6 +8,7 @@ import { deleteTracker } from "../../utils/AxiosRequests";
 import editIcon from "../../assets/images/icon-edit-grey.svg";
 import deleteIcon from "../../assets/images/icon-trash-grey.svg";
 import { useNavigate } from "react-router-dom";
+import Habits from "../Habits/Habits";
 
 export default function Trackers() {
   const [allListItems, setAllListItems] = useState(null);
@@ -102,22 +103,31 @@ export default function Trackers() {
   return (
     <div className="tracker">
       {trackerTitleswithNotebookId?.map((titleObj) => (
-        <div key={titleObj.title} className="tracker__title-wrapper">
-          <h2 className="tracker__title">{titleObj.title}</h2>
-          <div className="tracker__icons-tablet">
-            <img
-              src={editIcon}
-              alt="edit tracker"
-              className="tracker__icon"
-              onClick={() => handleEditTracker(titleObj.id)}
-            />
-            <img
-              src={deleteIcon}
-              alt="delete tracker"
-              className="tracker__icon"
-              onClick={() => handleDeleteTracker(titleObj.id)}
-            />
+        <div key={titleObj.title}>
+          <div className="tracker__title-wrapper">
+            <h2 className="tracker__title">&#x2714; {titleObj.title}</h2>
+            <div className="tracker__icons">
+              <img
+                src={editIcon}
+                alt="edit tracker"
+                className="tracker__icon"
+                onClick={() => handleEditTracker(titleObj.id)}
+              />
+              <img
+                src={deleteIcon}
+                alt="delete tracker"
+                className="tracker__icon"
+                onClick={() => handleDeleteTracker(titleObj.id)}
+              />
+            </div>
           </div>
+
+          <Habits
+            itemsForTitles={itemsForTitles}
+            getAllListItems={getAllListItems}
+            listIdForTitle={titleObj.title.id}
+            listId={listId}
+          />
         </div>
       ))}
     </div>
