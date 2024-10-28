@@ -53,6 +53,12 @@ const deleteList = async (listId) => {
   });
 };
 
+const deleteTracker = async (trackerId) => {
+  await axios.delete(`${baseURL}/api/tracker-titles`, {
+    data: { trackerId: trackerId },
+  });
+};
+
 export {
   fetchNotebookTitles,
   fetchListTitles,
@@ -64,4 +70,5 @@ export {
   deleteItem,
   editNotebookTitle,
   fetchTrackerTitles,
+  deleteTracker,
 };

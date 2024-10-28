@@ -4,6 +4,7 @@ import NotebookTitles from "../../components/NotebookTitles/NotebookTitles";
 import BottomNavigation from "../../components/BottomNavigation/BottomNavigation";
 import { useParams } from "react-router-dom";
 import List from "../../components/List/List";
+import Trackers from "../../components/Trackers/Trackers";
 
 export default function Notebook2() {
   const { notebookId } = useParams();
@@ -22,6 +23,11 @@ export default function Notebook2() {
 
       <article className="notebook2__main">
         <List notebookId={notebookId} />
+        <div className="notebook2__whitespace"></div>
+      </article>
+
+      <article className="notebook2__main">
+        <Trackers notebookId={notebookId} />
         <div className="notebook2__whitespace"></div>
       </article>
 
