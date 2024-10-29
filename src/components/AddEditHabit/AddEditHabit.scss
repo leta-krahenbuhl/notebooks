@@ -33,24 +33,21 @@
   }
 }
 
-.add-list-items-form {
-  @include tablet {
-    margin-left: 3rem;
-    margin-right: 3rem;
-  }
-
-  @include desktop {
-    margin-left: 0rem;
-    margin-right: 0rem;
-  }
-
+.add-habit-form {
   &__wrapper {
     display: flex;
   }
 
+  &__input-container {
+    text-align: left;
+    display: block;
+    width: 100%;
+    margin-right: 0.5rem;
+  }
+
   &__input {
     width: 100%;
-    margin-right: 1rem;
+    margin: 0.5rem 0 0 0rem;
     @include input-field;
 
     &--inactive {

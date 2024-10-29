@@ -105,7 +105,7 @@ export default function Trackers() {
       {trackerTitleswithNotebookId?.map((titleObj) => (
         <div key={titleObj.title}>
           <div className="tracker__title-wrapper">
-            <h2 className="tracker__title">&#x2714; {titleObj.title}</h2>
+            <h2 className="tracker__title">&#x1F4C4; {titleObj.title}</h2>
             <div className="tracker__icons">
               <img
                 src={editIcon}

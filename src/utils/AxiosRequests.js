@@ -22,6 +22,11 @@ const fetchListItems = async () => {
   return data;
 };
 
+const fetchHabits = async () => {
+  const { data } = await axios.get(`${baseURL}/api/habits`);
+  return data;
+};
+
 const editListItemDone = async (updateDoneObject) =>
   await axios.put(`${baseURL}/api/list-items/done`, updateDoneObject);
 
@@ -71,4 +76,5 @@ export {
   editNotebookTitle,
   fetchTrackerTitles,
   deleteTracker,
+  fetchHabits,
 };

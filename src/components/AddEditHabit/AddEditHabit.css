@@ -30,22 +30,37 @@
   }
 }
 
-@media screen and (min-width: 768px) {
-  .add-list-items-form {
-    margin-left: 3rem;
-    margin-right: 3rem;
-  }
-}
-@media screen and (min-width: 1024px) {
-  .add-list-items-form {
-    margin-left: 0rem;
-    margin-right: 0rem;
-  }
-}
-.add-list-items-form__wrapper {
+.add-habit-form__wrapper {
   display: flex;
 }
-.add-list-items-form__input {
+.add-habit-form__input-container {
+  text-align: left;
+  display: block;
+  width: 100%;
+  margin-right: 0.5rem;
+}
+.add-habit-form__input {
+  width: 100%;
+  margin: 0.5rem 0 0 0rem;
+  padding-left: 0.5rem;
+  height: 2rem;
+  border: 2px solid black;
+  border-radius: 4px;
+}
+@media screen and (min-width: 768px) {
+  .add-habit-form__input {
+    margin-top: 0rem;
+    margin-left: 0rem;
+  }
+}
+@media screen and (min-width: 1024px) {
+  .add-habit-form__input {
+    margin-top: 0rem;
+    border: 3px solid black;
+    height: 2.5rem;
+  }
+}
+.add-habit-form__input--inactive {
   width: 100%;
   margin-right: 1rem;
   padding-left: 0.5rem;
@@ -54,40 +69,19 @@
   border-radius: 4px;
 }
 @media screen and (min-width: 768px) {
-  .add-list-items-form__input {
+  .add-habit-form__input--inactive {
     margin-top: 0rem;
     margin-left: 0rem;
   }
 }
 @media screen and (min-width: 1024px) {
-  .add-list-items-form__input {
+  .add-habit-form__input--inactive {
     margin-top: 0rem;
     border: 3px solid black;
     height: 2.5rem;
   }
 }
-.add-list-items-form__input--inactive {
-  width: 100%;
-  margin-right: 1rem;
-  padding-left: 0.5rem;
-  height: 2rem;
-  border: 2px solid black;
-  border-radius: 4px;
-}
-@media screen and (min-width: 768px) {
-  .add-list-items-form__input--inactive {
-    margin-top: 0rem;
-    margin-left: 0rem;
-  }
-}
-@media screen and (min-width: 1024px) {
-  .add-list-items-form__input--inactive {
-    margin-top: 0rem;
-    border: 3px solid black;
-    height: 2.5rem;
-  }
-}
-.add-list-items-form__button {
+.add-habit-form__button {
   background-image: URL("../../assets/images/save-black.svg");
   background-color: white;
   background-size: 0.9rem;
@@ -102,23 +96,23 @@
   margin-top: 0.2rem;
 }
 @media screen and (min-width: 1024px) {
-  .add-list-items-form__button {
+  .add-habit-form__button {
     background-size: 1.5rem;
     width: 2rem;
     height: 2rem;
   }
 }
 @media screen and (min-width: 768px) {
-  .add-list-items-form__button {
+  .add-habit-form__button {
     margin-top: 0.3rem;
   }
 }
 @media screen and (min-width: 1024px) {
-  .add-list-items-form__button {
+  .add-habit-form__button {
     margin-top: 0.5rem;
   }
 }
-.add-list-items-form__button--inactive {
+.add-habit-form__button--inactive {
   background-image: URL("../../assets/images/save-grey.svg");
   background-color: white;
   background-size: 0.9rem;
@@ -134,24 +128,24 @@
   cursor: default;
 }
 @media screen and (min-width: 1024px) {
-  .add-list-items-form__button--inactive {
+  .add-habit-form__button--inactive {
     background-size: 1.5rem;
     width: 2rem;
     height: 2rem;
   }
 }
 @media screen and (min-width: 768px) {
-  .add-list-items-form__button--inactive {
+  .add-habit-form__button--inactive {
     margin-top: 0.3rem;
   }
 }
 @media screen and (min-width: 1024px) {
-  .add-list-items-form__button--inactive {
+  .add-habit-form__button--inactive {
     margin-top: 0.2rem;
   }
 }
 @media screen and (min-width: 1024px) {
-  .add-list-items-form__button {
+  .add-habit-form__button {
     margin-top: 0.3rem;
   }
 }/*# sourceMappingURL=AddEditHabit.css.map */

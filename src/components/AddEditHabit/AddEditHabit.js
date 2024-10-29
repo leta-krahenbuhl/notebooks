@@ -3,25 +3,26 @@ import axios from "axios";
 import EditItem from "../EditItem/EditItem";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { fetchListItems } from "../../utils/AxiosRequests";
+import { fetchHabits } from "../../utils/AxiosRequests";
 import { editListItem } from "../../utils/AxiosRequests";
 
 export default function AddEditHabit() {
-  const [allItems, setAllItems] = useState([]); //only items for current list title
-  const { listId } = useParams();
-  const [isErrorNewItem, setIsErrorNewItem] = useState(false);
+  const [allHabits, setAllHabits] = useState([]); //only items for current list title
+  const [isErrorNewHabit, setIsErrorNewHabit] = useState(false);
   const [render, setRender] = useState(false);
+  const [frequency, setFrequency] = useState(1);
 
-  const parsedListId = parseInt(listId);
+  const { trackerId } = useParams();
+  const parsedTrackerId = parseInt(trackerId);
   const baseURL = process.env.REACT_APP_BASE_URL;
 
-  // fetch list items
+  // get habits with trackerId
   useEffect(() => {
-    const getItems = async () => {
+    const getHabits = async () => {
       try {
-        const data = await fetchListItems();
+        const data = await fetchHabits();
         const currentItemArr = data.filter((itemObj) => {
-          return itemObj.list_id === parseInt(listId);
+          return itemObj.tracker_id === parseInt(trackerId);
         });
         return currentItemArr;
       } catch (error) {
@@ -29,46 +30,50 @@ export default function AddEditHabit() {
       }
     };
 
-    getItems()
+    getHabits()
       .then((data) => {
-        setAllItems(data);
+        setAllHabits(data);
       })
       .catch(console.error);
-  }, [listId, render]);
+  }, [trackerId, render]);
+
+  console.log("allHabits: ", allHabits);
 
   // edit list item
   const handleUpateItem = async (updatedItem) => {
     await editListItem(updatedItem);
   };
 
-  // add new list item
-  const handleSubmitItem = async (event) => {
+  // add new habit
+  const handleSubmitHabit = async (event) => {
     event.preventDefault();
 
-    setIsErrorNewItem(false);
+    setIsErrorNewHabit(false);
 
-    if (!event.target.listItem.value) {
-      return setIsErrorNewItem(true);
+    if (!event.target.habit.value) {
+      return setIsErrorNewHabit(true);
     }
 
-    if (!listId) {
-      return alert("Please add a list title before adding list items.");
+    if (!trackerId) {
+      return alert(
+        "Please add a week for this habit and click save, before adding a habit."
+      );
     }
 
-    const newListItem = {
-      text: event.target.listItem.value,
-      list_id: parsedListId,
+    const newHabit = {
+      text: event.target.habit.value,
+      tracker_id: parsedTrackerId,
+      circles: frequency,
     };
 
-    try {
-      const response = await axios.post(
-        `${baseURL}/api/list-items`,
-        newListItem
-      );
-      const updatedItem = response.data;
+    // console.log("newHabit: ", newHabit);
 
-      setIsErrorNewItem(false);
-      setAllItems((prevItems) => [...prevItems, updatedItem]);
+    try {
+      const response = await axios.post(`${baseURL}/api/habits`, newHabit);
+      const updatedHabit = response.data;
+
+      setIsErrorNewHabit(false);
+      setAllHabits((prevHabits) => [...prevHabits, updatedHabit]);
 
       event.target.reset();
     } catch (error) {
@@ -80,7 +85,8 @@ export default function AddEditHabit() {
     // exisiting items
     <div className="edit-list-items">
       <ul className="edit-list-items__list">
-        {allItems.map((item) => (
+        <p>Existing habits here</p>
+        {/* {allItems.map((item) => (
           <li key={item.id} className="edit-list-items__item">
             <EditItem
               item={item}
@@ -89,30 +95,49 @@ export default function AddEditHabit() {
               render={render}
             />
           </li>
-        ))}
+        ))} */}
       </ul>
       {/* add new item */}
-      <form className="add-list-items-form" onSubmit={handleSubmitItem}>
-        <div className="add-list-items-form__wrapper">
-          <input
-            type="text"
-            className={`${
-              listId
-                ? "add-list-items-form__input"
-                : "add-list-items-form__input--inactive"
-            }`}
-            name="listItem"
-            placeholder="add habit"
-          />
+      <form className="add-habit-form" onSubmit={handleSubmitHabit}>
+        <div className="add-habit-form__wrapper">
+          <div className="add-habit-form__input-container">
+            <label htmlFor="habit">New habit</label>
+            <input
+              id="habit"
+              type="text"
+              className={`${
+                trackerId
+                  ? "add-habit-form__input"
+                  : "add-habit-form__input--inactive"
+              }`}
+              name="habit"
+              placeholder="add habit"
+            />
+
+            <label htmlFor="frequency">How many times / week?</label>
+            <select
+              id="frequency"
+              name="frequency"
+              className="add-habit-form__dropdown"
+              value={frequency}
+              onChange={(e) => setFrequency(e.target.value)}
+            >
+              {[...Array(7)].map((_, index) => (
+                <option key={index + 1} value={index + 1}>
+                  {index + 1}
+                </option>
+              ))}
+            </select>
+          </div>
           <button
             className={`${
-              listId
-                ? "add-list-items-form__button"
-                : "add-list-items-form__button--inactive"
+              trackerId
+                ? "add-habit-form__button"
+                : "add-habit-form__button--inactive"
             }`}
           ></button>
         </div>
-        {isErrorNewItem && (
+        {isErrorNewHabit && (
           <p className="add-notebook-form__error">
             Please enter text for your habit.
           </p>
