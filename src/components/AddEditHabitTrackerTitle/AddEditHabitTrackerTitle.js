@@ -80,10 +80,15 @@ export default function AddEditHabitTrackerTitle() {
     setDateWC(adjustedDate);
   };
 
-  // save the habit tracker
+  // Save a new habit tracker title
   const handleSubmitTitle = async (event) => {
     event.preventDefault();
     setIsError(false);
+
+    // console.log(
+    //   "event.target.elements.weekStart.value: ",
+    //   event.target.elements.weekStart.value
+    // ); // logs as 2024-09-29
 
     if (!dateWC) {
       return setIsError(true);
@@ -148,32 +153,67 @@ export default function AddEditHabitTrackerTitle() {
         }
       }
     }
+  };
 
-    // //edit an existing tracker title
-    if (trackerId) {
-      setIsError(false);
+  // Edit a habit tracker title
+  const handleEditTitle = async (event) => {
+    event.preventDefault();
+    setIsError(false);
 
-      if (!dateWC) {
-        return setIsError(true);
-      }
+    if (!dateWC) {
+      return setIsError(true);
+    }
 
-      const trackerTitle = formatTitle(dateWC);
+    // Take dateWC (ie 2024-10-21) and turn it into WC 21st Oct 2024
+    // to use as title for tracker
+    // TODO: same in handleSubmitTitle, make code DRYer!
+    const formatTitle = (dateString) => {
+      const date = new Date(dateString);
+      const day = date.getDate();
+      const month = date.toLocaleString("default", { month: "short" });
+      const year = date.getFullYear();
 
-      const newTrackerTitle = {
-        id: trackerId,
-        title: trackerTitle,
+      const daySuffix = (day) => {
+        if (day > 3 && day < 21) return "th";
+        switch (day % 10) {
+          case 1:
+            return "st";
+          case 2:
+            return "nd";
+          case 3:
+            return "rd";
+          default:
+            return "th";
+        }
       };
 
-      try {
-        await axios.put(`${baseURL}/api/tracker-titles`, newTrackerTitle);
+      return `WC ${day}${daySuffix(day)} ${month} ${year}`;
+    };
 
-        setIsError(false);
-        setTitle(trackerTitle);
-        setIsTitle(false);
-        // event.target.reset();
-      } catch (error) {
-        console.error(error);
-      }
+    if (!trackerId) {
+      setIsError(true);
+    }
+
+    if (!dateWC) {
+      return setIsError(true);
+    }
+
+    const trackerTitle = formatTitle(dateWC);
+
+    const newTrackerTitle = {
+      id: trackerId,
+      title: trackerTitle,
+    };
+
+    try {
+      await axios.put(`${baseURL}/api/tracker-titles`, newTrackerTitle);
+
+      setIsError(false);
+      setTitle(trackerTitle);
+      setIsTitle(false);
+      // event.target.reset();
+    } catch (error) {
+      console.error(error);
     }
   };
 
@@ -193,11 +233,11 @@ export default function AddEditHabitTrackerTitle() {
           onSubmit={handleSubmitTitle}
         >
           <div className="edit-habit-tracker-title__wrapper">
-            <label htmlFor="week-start">Select Week:</label>
+            <label htmlFor="weekStart">Select Week:</label>
             <input
               type="date"
-              id="week-start"
-              name="week-start"
+              id="weekStart"
+              name="weekStart"
               value={dateWC}
               onChange={handleDateChange}
             />
@@ -212,20 +252,20 @@ export default function AddEditHabitTrackerTitle() {
       </>
     );
   }
-  //   console.log("isTitle: ", isTitle);
 
   // Edit tracker title
-  // (title not displayed but trackerId so editing existing one)
+  // (!isTitle meaning editing form shown)
+  // (trackerId so editing existing one)
   if (trackerId && !isTitle) {
     return (
       <>
-        <form className="add-list-title-form" onSubmit={handleSubmitTitle}>
+        <form className="add-list-title-form" onSubmit={handleEditTitle}>
           <h2 className="add-list-title-form__header">EDIT HABIT TRACKER</h2>
           <div className="add-list-title-form__wrapper">
             <input
               type="date"
-              id="week-start"
-              name="week-start"
+              id="weekStart"
+              name="weekStart"
               onChange={handleDateChange}
               className="add-list-title-form__input"
               value={dateWC}
@@ -252,7 +292,7 @@ export default function AddEditHabitTrackerTitle() {
             {titleArr && titleArr.length > 0 ? titleArr[0].title : ""}
           </h3>
           <button
-            alt="edit list title button"
+            alt="edit tracker title button"
             onClick={() => handleClick(title)}
             className="add-edit-tracker-title__button-edit"
           ></button>

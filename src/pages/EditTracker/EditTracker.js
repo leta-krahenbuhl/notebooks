@@ -27,20 +27,6 @@ export default function EditTracker() {
         <AddEditHabitTrackerTitle />
         <AddEditHabit />
 
-        {/* Adding a new list without saving a title => coming from notebook page */}
-        {/* {location.pathname.endsWith("create/lists") && (
-          <Link to={`/notebooks/${notebookId}`}>
-            <button className="add-edit-list__done-button">DONE</button>
-          </Link>
-        )} */}
-
-        {/* Creating a new list and added title/items and coming from notebook page */}
-        {/* {location.pathname.endsWith(`create/lists/${listId}`) && (
-          <Link to={`/notebooks/${notebookId}`}>
-            <button className="add-edit-list__done-button">DONE</button>
-          </Link>
-        )} */}
-
         {/* Edit an existing list */}
         {location.pathname.endsWith("/edit") && (
           <Link to={`/notebooks/${notebookId}`}>
