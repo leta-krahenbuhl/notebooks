@@ -1,7 +1,7 @@
 import { useParams } from "react-router-dom";
 import "./Trackers.scss";
 import ListItems from "../ListItems/ListItems";
-import { fetchListItems } from "../../utils/AxiosRequests";
+import { fetchHabits } from "../../utils/AxiosRequests";
 import { useState, useEffect } from "react";
 import { fetchTrackerTitles } from "../../utils/AxiosRequests";
 import { deleteTracker } from "../../utils/AxiosRequests";
@@ -11,7 +11,7 @@ import { useNavigate } from "react-router-dom";
 import Habits from "../Habits/Habits";
 
 export default function Trackers() {
-  const [allListItems, setAllListItems] = useState(null);
+  const [allHabits, setAllHabits] = useState(null);
   const [trackerTitleswithNotebookId, setTrackerTitleswithNotebookId] =
     useState(null);
   const [hoveredListTitleId, setHoveredListTitleId] = useState(null);
@@ -26,11 +26,16 @@ export default function Trackers() {
       const data = await fetchTrackerTitles();
       //   console.log("data: ", data); // works
 
-      const arrayOfListTitleswithNotebookId = data.filter(
+      const arrayOfTrackersWithNotebookId = data.filter(
         (notebook) => notebook.notebook_id === parseInt(notebookId)
       );
 
-      const titlesByDate = arrayOfListTitleswithNotebookId.sort(
+      //   console.log(
+      //     "arrayOfTrackersWithNotebookId: ",
+      //     arrayOfTrackersWithNotebookId
+      //   ); // works
+
+      const titlesByDate = arrayOfTrackersWithNotebookId.sort(
         (a, b) => new Date(b.date) - new Date(a.date)
       );
 
@@ -45,33 +50,41 @@ export default function Trackers() {
     // eslint-disable-next-line
   }, [notebookId]);
 
-  // get all items from a list
-  const getAllListItems = async () => {
+  //   console.log("trackerTitleswithNotebookId: ", trackerTitleswithNotebookId); // works
+
+  // get all habits
+  const getAllHabits = async () => {
     try {
-      const data = await fetchListItems();
-      setAllListItems(data);
+      const data = await fetchHabits();
+      setAllHabits(data);
     } catch (error) {
       console.error(error);
     }
   };
 
   useEffect(() => {
-    getAllListItems();
+    getAllHabits();
   }, []);
 
-  //only gets items for titles that are in this notebook
-  const getItemsForTitles = (titles, items) => {
-    const itemsByTitle = titles.map((title) => {
-      const itemsForTitle = items.filter((item) => item.list_id === title.id);
+  //only gets habits for trackers that are in this notebook
+  const getHabitsForTrackers = (trackers, habits) => {
+    // console.log("trackers: ", trackers);
+    // console.log("habits: ", habits);
+    const habitsByTracker = trackers.map((tracker) => {
+      const habitsForATracker = habits.filter(
+        (habit) => habit.tracker_id === tracker.id
+      );
 
-      return { title, items: itemsForTitle };
+      console.log("habitsForATracker: ", habitsForATracker); // works
+      return { tracker, habits: habitsForATracker };
     });
-    return itemsByTitle;
+    console.log("habitsByTracker: ", habitsByTracker); // no habits...
+    return habitsByTracker;
   };
 
-  const itemsForTitles = getItemsForTitles(
+  const itemsForTitles = getHabitsForTrackers(
     trackerTitleswithNotebookId || [],
-    allListItems || []
+    allHabits || []
   );
 
   // delete list
@@ -124,7 +137,6 @@ export default function Trackers() {
 
           <Habits
             itemsForTitles={itemsForTitles}
-            getAllListItems={getAllListItems}
             listIdForTitle={titleObj.title.id}
             listId={listId}
           />

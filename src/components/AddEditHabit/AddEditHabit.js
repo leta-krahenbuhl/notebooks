@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { fetchHabits } from "../../utils/AxiosRequests";
 import { editListItem } from "../../utils/AxiosRequests";
+import Habit from "../Habit/Habit";
 
 export default function AddEditHabit() {
   const [allHabits, setAllHabits] = useState([]); //only items for current list title
@@ -66,8 +67,6 @@ export default function AddEditHabit() {
       circles: frequency,
     };
 
-    // console.log("newHabit: ", newHabit);
-
     try {
       const response = await axios.post(`${baseURL}/api/habits`, newHabit);
       const updatedHabit = response.data;
@@ -85,23 +84,22 @@ export default function AddEditHabit() {
     // exisiting items
     <div className="edit-list-items">
       <ul className="edit-list-items__list">
-        <p>Existing habits here</p>
-        {/* {allItems.map((item) => (
-          <li key={item.id} className="edit-list-items__item">
-            <EditItem
-              item={item}
+        {allHabits.map((habit) => (
+          <li key={habit.id} className="edit-list-items__item">
+            <Habit
+              habit={habit}
               onItemUpdate={handleUpateItem}
               setRender={setRender}
               render={render}
             />
           </li>
-        ))} */}
+        ))}
       </ul>
       {/* add new item */}
       <form className="add-habit-form" onSubmit={handleSubmitHabit}>
         <div className="add-habit-form__wrapper">
           <div className="add-habit-form__input-container">
-            <label htmlFor="habit">New habit</label>
+            <label htmlFor="habit">Add a new habit</label>
             <input
               id="habit"
               type="text"

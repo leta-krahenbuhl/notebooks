@@ -1,0 +1,55 @@
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/mixins" as *;
+
+.habit-form {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  &__button-save {
+    @include icon;
+    background-image: URL("../../assets/images/save-black.svg");
+    margin-right: 0rem;
+  }
+
+  &__error {
+    @include error-message-form;
+    display: block;
+    margin-top: 0;
+  }
+}
+
+.edit-habit {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  &__text {
+    flex: 1;
+    text-align: left;
+    font-size: 0.8rem;
+
+    @include desktop {
+      font-size: 1rem;
+    }
+  }
+
+  &__button-edit {
+    @include icon;
+    background-image: URL("../../assets/images/edit-black.svg");
+  }
+
+  &__button-delete {
+    @include icon;
+    background-image: URL("../../assets/images/trash-black.svg");
+    margin-right: 0.5rem;
+
+    @include desktop {
+      margin-right: 1rem;
+    }
+  }
+}
+
+.wrapper {
+  padding-left: 1rem;
+}

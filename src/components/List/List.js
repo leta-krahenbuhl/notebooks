@@ -41,7 +41,7 @@ export default function List() {
     // eslint-disable-next-line
   }, [notebookId]);
 
-  // get all items from a list
+  // get all items
   const getAllListItems = async () => {
     try {
       const data = await fetchListItems();
@@ -88,7 +88,6 @@ export default function List() {
 
   // edit list
   const handleEditList = (id) => {
-    console.log(id);
     navigate(`/notebooks/${notebookId}/lists/${id}/edit`);
   };
 

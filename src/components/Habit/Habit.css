@@ -1,0 +1,109 @@
+.habit-form {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.habit-form__button-save {
+  background-color: white;
+  background-size: 0.9rem;
+  background-repeat: no-repeat;
+  background-position: center;
+  border: none;
+  border-radius: 5px;
+  flex-shrink: 0;
+  cursor: pointer;
+  width: 1rem;
+  height: 1.5rem;
+  margin-top: 0.2rem;
+  background-image: URL("../../assets/images/save-black.svg");
+  margin-right: 0rem;
+}
+@media screen and (min-width: 1024px) {
+  .habit-form__button-save {
+    background-size: 1.5rem;
+    width: 2rem;
+    height: 2rem;
+  }
+}
+.habit-form__error {
+  font-size: 0.7rem;
+  color: red;
+  text-align: left;
+  padding-top: 0.2rem;
+  display: block;
+  margin-top: 0;
+}
+@media screen and (min-width: 1024px) {
+  .habit-form__error {
+    padding-top: 0.8rem;
+    padding-left: 0rem;
+  }
+}
+
+.edit-habit {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.edit-habit__text {
+  flex: 1;
+  text-align: left;
+  font-size: 0.8rem;
+}
+@media screen and (min-width: 1024px) {
+  .edit-habit__text {
+    font-size: 1rem;
+  }
+}
+.edit-habit__button-edit {
+  background-color: white;
+  background-size: 0.9rem;
+  background-repeat: no-repeat;
+  background-position: center;
+  border: none;
+  border-radius: 5px;
+  flex-shrink: 0;
+  cursor: pointer;
+  width: 1rem;
+  height: 1.5rem;
+  margin-top: 0.2rem;
+  background-image: URL("../../assets/images/edit-black.svg");
+}
+@media screen and (min-width: 1024px) {
+  .edit-habit__button-edit {
+    background-size: 1.5rem;
+    width: 2rem;
+    height: 2rem;
+  }
+}
+.edit-habit__button-delete {
+  background-color: white;
+  background-size: 0.9rem;
+  background-repeat: no-repeat;
+  background-position: center;
+  border: none;
+  border-radius: 5px;
+  flex-shrink: 0;
+  cursor: pointer;
+  width: 1rem;
+  height: 1.5rem;
+  margin-top: 0.2rem;
+  background-image: URL("../../assets/images/trash-black.svg");
+  margin-right: 0.5rem;
+}
+@media screen and (min-width: 1024px) {
+  .edit-habit__button-delete {
+    background-size: 1.5rem;
+    width: 2rem;
+    height: 2rem;
+  }
+}
+@media screen and (min-width: 1024px) {
+  .edit-habit__button-delete {
+    margin-right: 1rem;
+  }
+}
+
+.wrapper {
+  padding-left: 1rem;
+}/*# sourceMappingURL=Habit.css.map */
