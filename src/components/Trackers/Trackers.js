@@ -103,15 +103,12 @@ export default function Trackers() {
 
   // edit tracker
   const handleEditTracker = (id) => {
-    console.log(id);
-    navigate(`/notebooks/${notebookId}/lists/${id}/edit`);
+    navigate(`/notebooks/${notebookId}/habit-trackers/${id}/edit`);
   };
 
   if (!trackerTitleswithNotebookId) {
     <p>Loading...</p>;
   }
-
-  console.log("trackerTitleswithNotebookId: ", trackerTitleswithNotebookId); // works
 
   return (
     <div className="tracker">
@@ -138,7 +135,7 @@ export default function Trackers() {
           <Habits
             habitsForTrackers={habitsForTrackers}
             getAllHabits={getAllHabits}
-            habitIdForTracker={trackerObj.id} // TODO: was trackerObj.title.id, whyyyy??
+            habitIdForTracker={trackerObj.id}
             trackerId={trackerId}
           />
         </div>

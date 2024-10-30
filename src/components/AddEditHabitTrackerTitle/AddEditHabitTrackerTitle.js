@@ -182,7 +182,7 @@ export default function AddEditHabitTrackerTitle() {
     setIsTitle(false);
   };
 
-  //add new tracker title
+  // Add new tracker title
   // (ie no tracker Id and isTitle set to false by default)
   if (!trackerId && !isTitle) {
     return (
@@ -220,7 +220,7 @@ export default function AddEditHabitTrackerTitle() {
     return (
       <>
         <form className="add-list-title-form" onSubmit={handleSubmitTitle}>
-          <h2 className="add-list-title-form__header">EDIT LIST</h2>
+          <h2 className="add-list-title-form__header">EDIT HABIT TRACKER</h2>
           <div className="add-list-title-form__wrapper">
             <input
               type="date"
@@ -235,7 +235,7 @@ export default function AddEditHabitTrackerTitle() {
         </form>
         {isError && (
           <p className="add-list-title-form__error">
-            Please enter a list title.
+            Please enter a week for the tracker.
           </p>
         )}
       </>

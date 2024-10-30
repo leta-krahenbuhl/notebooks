@@ -7,6 +7,7 @@ import Notebook2 from "./pages/Notebook2/Notebook2";
 import EditList from "./pages/EditList/EditList";
 import AddList from "./pages/AddList/AddList";
 import CreateHabitTracker from "./pages/CreateHabitTracker/CreateHabitTracker";
+import EditTracker from "./pages/EditTracker/EditTracker";
 
 function App() {
   return (
@@ -50,8 +51,13 @@ function App() {
           />
 
           <Route
-            path="/notebooks/:notebookId/create/habit-tracker/:trackerId"
+            path="/notebooks/:notebookId/habit-trackers/:trackerId/edit"
             element={<CreateHabitTracker />}
+          />
+
+          <Route
+            path="/notebooks/:notebookId/create/habit-trackers/:trackerId"
+            element={<EditTracker />}
           />
         </Routes>
       </div>

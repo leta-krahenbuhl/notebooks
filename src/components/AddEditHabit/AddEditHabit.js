@@ -38,8 +38,6 @@ export default function AddEditHabit() {
       .catch(console.error);
   }, [trackerId, render]);
 
-  console.log("allHabits: ", allHabits);
-
   // edit list item
   const handleUpateItem = async (updatedItem) => {
     await editListItem(updatedItem);
