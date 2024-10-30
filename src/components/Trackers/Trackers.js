@@ -14,9 +14,9 @@ export default function Trackers() {
   const [allHabits, setAllHabits] = useState(null);
   const [trackerTitleswithNotebookId, setTrackerTitleswithNotebookId] =
     useState(null);
-  const [hoveredListTitleId, setHoveredListTitleId] = useState(null);
+  //   const [hoveredListTitleId, setHoveredListTitleId] = useState(null);
 
-  const { notebookId, listId } = useParams();
+  const { notebookId, trackerId } = useParams();
   const navigate = useNavigate();
 
   // get tracker titles with notebook id
@@ -50,8 +50,6 @@ export default function Trackers() {
     // eslint-disable-next-line
   }, [notebookId]);
 
-  //   console.log("trackerTitleswithNotebookId: ", trackerTitleswithNotebookId); // works
-
   // get all habits
   const getAllHabits = async () => {
     try {
@@ -75,14 +73,14 @@ export default function Trackers() {
         (habit) => habit.tracker_id === tracker.id
       );
 
-      console.log("habitsForATracker: ", habitsForATracker); // works
+      //   console.log("habitsForATracker: ", habitsForATracker); // works
       return { tracker, habits: habitsForATracker };
     });
-    console.log("habitsByTracker: ", habitsByTracker); // no habits...
+    // console.log("habitsByTracker: ", habitsByTracker); // no habits...
     return habitsByTracker;
   };
 
-  const itemsForTitles = getHabitsForTrackers(
+  const habitsForTrackers = getHabitsForTrackers(
     trackerTitleswithNotebookId || [],
     allHabits || []
   );
@@ -113,32 +111,35 @@ export default function Trackers() {
     <p>Loading...</p>;
   }
 
+  console.log("trackerTitleswithNotebookId: ", trackerTitleswithNotebookId); // works
+
   return (
     <div className="tracker">
-      {trackerTitleswithNotebookId?.map((titleObj) => (
-        <div key={titleObj.title}>
+      {trackerTitleswithNotebookId?.map((trackerObj, index) => (
+        <div key={trackerObj.title}>
           <div className="tracker__title-wrapper">
-            <h2 className="tracker__title">&#x1F4C4; {titleObj.title}</h2>
+            <h2 className="tracker__title">&#x1F4C4; {trackerObj.title}</h2>
             <div className="tracker__icons">
               <img
                 src={editIcon}
                 alt="edit tracker"
                 className="tracker__icon"
-                onClick={() => handleEditTracker(titleObj.id)}
+                onClick={() => handleEditTracker(trackerObj.id)}
               />
               <img
                 src={deleteIcon}
                 alt="delete tracker"
                 className="tracker__icon"
-                onClick={() => handleDeleteTracker(titleObj.id)}
+                onClick={() => handleDeleteTracker(trackerObj.id)}
               />
             </div>
           </div>
 
           <Habits
-            itemsForTitles={itemsForTitles}
-            listIdForTitle={titleObj.title.id}
-            listId={listId}
+            habitsForTrackers={habitsForTrackers}
+            getAllHabits={getAllHabits}
+            habitIdForTracker={trackerObj.id} // TODO: was trackerObj.title.id, whyyyy??
+            trackerId={trackerId}
           />
         </div>
       ))}
