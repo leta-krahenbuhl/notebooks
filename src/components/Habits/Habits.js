@@ -1,18 +1,47 @@
 import "./Habits.scss";
-import { editListItemDone } from "../../utils/AxiosRequests";
-import iconSquareDone from "../../assets/images/square-done.svg";
-import iconSquareEmpty from "../../assets/images/square-empty.svg";
+import circleEmpty from "../../assets/images/circle-empty.svg";
+import circleFull from "../../assets/images/circle-full.svg";
+
+import { useState } from "react";
 
 export default function Habits({
   habitsForTrackers,
-  getAllHabits,
   habitIdForTracker,
   trackerId,
+  getAllHabits,
 }) {
+  const [updatedHabits, setUpdatedHabits] = useState(habitsForTrackers);
+
+  // Handle click on a circle
+  const handleCircleClick = async (habitId, isFull) => {
+    setUpdatedHabits((prevHabits) =>
+      prevHabits.map((trackerObj) => ({
+        ...trackerObj,
+        habits: trackerObj.habits.map((habit) => {
+          if (habit.id === habitId) {
+            const circlesDoneUpdated = isFull
+              ? habit.circles_done - 1
+              : habit.circles_done + 1;
+            return {
+              ...habit,
+              circles_done: Math.max(
+                0,
+                Math.min(habit.circles, circlesDoneUpdated)
+              ),
+            };
+          }
+          return habit;
+        }),
+      }))
+    );
+
+    getAllHabits();
+  };
+
   return (
     <>
       <div className="tracker-items__text">
-        {habitsForTrackers.map((trackerObj, index) => (
+        {updatedHabits.map((trackerObj, index) => (
           <div key={index}>
             <ul className="list-items__text">
               {trackerObj.habits
@@ -27,6 +56,30 @@ export default function Habits({
                   return (
                     <div key={uniqueKey} className="list-items__wrapper">
                       <li className="list-items__item">{habit.text}</li>
+                      <div className="circle-images">
+                        {/* Render full circles for circles_done */}
+                        {[...Array(habit.circles_done)].map((_, index) => (
+                          <img
+                            key={`full-${index}`}
+                            src={circleFull}
+                            alt="circle full icon"
+                            className="circle-icon"
+                            onClick={() => handleCircleClick(habit.id, true)}
+                          />
+                        ))}
+                        {/* Render empty circles for circles_undone */}
+                        {[...Array(habit.circles - habit.circles_done)].map(
+                          (_, index) => (
+                            <img
+                              key={`empty-${index}`}
+                              src={circleEmpty}
+                              alt="circle empty icon"
+                              className="circle-icon"
+                              onClick={() => handleCircleClick(habit.id, false)}
+                            />
+                          )
+                        )}
+                      </div>
                     </div>
                   );
                 })}

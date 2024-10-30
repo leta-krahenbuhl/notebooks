@@ -1,6 +1,5 @@
 import { useParams } from "react-router-dom";
 import "./Trackers.scss";
-import ListItems from "../ListItems/ListItems";
 import { fetchHabits } from "../../utils/AxiosRequests";
 import { useState, useEffect } from "react";
 import { fetchTrackerTitles } from "../../utils/AxiosRequests";
@@ -134,9 +133,9 @@ export default function Trackers() {
 
           <Habits
             habitsForTrackers={habitsForTrackers}
-            getAllHabits={getAllHabits}
             habitIdForTracker={trackerObj.id}
             trackerId={trackerId}
+            getAllHabits={getAllHabits}
           />
         </div>
       ))}
