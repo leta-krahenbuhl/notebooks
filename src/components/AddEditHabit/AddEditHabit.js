@@ -1,6 +1,5 @@
 import "./AddEditHabit.scss";
 import axios from "axios";
-import EditItem from "../EditItem/EditItem";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { fetchHabits } from "../../utils/AxiosRequests";
@@ -80,19 +79,19 @@ export default function AddEditHabit() {
 
   return (
     // exisiting items
-    <div className="edit-list-items">
-      <ul className="edit-list-items__list">
+    <div className="add-edit-habit">
+      <div className="add-edit-habit__list">
         {allHabits.map((habit) => (
-          <li key={habit.id} className="edit-list-items__item">
+          <div key={habit.id} className="add-edit-habit__item">
             <Habit
               habit={habit}
               onItemUpdate={handleUpateItem}
               setRender={setRender}
               render={render}
             />
-          </li>
+          </div>
         ))}
-      </ul>
+      </div>
       {/* add new item */}
       <form className="add-habit-form" onSubmit={handleSubmitHabit}>
         <div className="add-habit-form__wrapper">
@@ -109,29 +108,30 @@ export default function AddEditHabit() {
               name="habit"
               placeholder="add habit"
             />
-
-            <label htmlFor="frequency">How many times / week?</label>
-            <select
-              id="frequency"
-              name="frequency"
-              className="add-habit-form__dropdown"
-              value={frequency}
-              onChange={(e) => setFrequency(e.target.value)}
-            >
-              {[...Array(7)].map((_, index) => (
-                <option key={index + 1} value={index + 1}>
-                  {index + 1}
-                </option>
-              ))}
-            </select>
+            <div className="add-habit-form__label-input-container">
+              <label htmlFor="frequency">Times / week?</label>
+              <select
+                id="frequency"
+                name="frequency"
+                className="add-habit-form__dropdown"
+                value={frequency}
+                onChange={(e) => setFrequency(e.target.value)}
+              >
+                {[...Array(7)].map((_, index) => (
+                  <option key={index + 1} value={index + 1}>
+                    {index + 1}
+                  </option>
+                ))}
+              </select>
+              <button
+                className={`${
+                  trackerId
+                    ? "add-habit-form__button"
+                    : "add-habit-form__button--inactive"
+                }`}
+              ></button>
+            </div>
           </div>
-          <button
-            className={`${
-              trackerId
-                ? "add-habit-form__button"
-                : "add-habit-form__button--inactive"
-            }`}
-          ></button>
         </div>
         {isErrorNewHabit && (
           <p className="add-notebook-form__error">

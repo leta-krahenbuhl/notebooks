@@ -1,6 +1,6 @@
 import "./Breadcrumb.scss";
 import { useState, useEffect } from "react";
-import { useParams, useNavigate } from "react-router-dom";
+import { useParams, useNavigate, Link } from "react-router-dom";
 import {
   fetchNotebookTitles,
   editNotebookTitle,
@@ -111,7 +111,12 @@ export default function Breadcrumb() {
       ) : (
         <div className="breadcrumb__wrapper">
           <div className="breadcrumb__notebook-title">
-            &#128211; {currentNotebook?.title}
+            <Link
+              to={`/notebooks/${currentNotebook?.id}`}
+              className="breadcrumb__link"
+            >
+              &#128211; {currentNotebook?.title}
+            </Link>
           </div>
           <div className="breadcrumb__icons">
             <img

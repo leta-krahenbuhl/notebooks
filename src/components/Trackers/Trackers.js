@@ -15,7 +15,7 @@ export default function Trackers() {
     useState(null);
   //   const [hoveredListTitleId, setHoveredListTitleId] = useState(null);
 
-  const { notebookId, trackerId } = useParams();
+  const { notebookId } = useParams();
   const navigate = useNavigate();
 
   // get tracker titles with notebook id
@@ -23,7 +23,6 @@ export default function Trackers() {
     try {
       // get all tracker titles
       const data = await fetchTrackerTitles();
-      //   console.log("data: ", data); // works
 
       const arrayOfTrackersWithNotebookId = data.filter(
         (notebook) => notebook.notebook_id === parseInt(notebookId)
@@ -111,7 +110,7 @@ export default function Trackers() {
 
   return (
     <div className="tracker">
-      {trackerTitleswithNotebookId?.map((trackerObj, index) => (
+      {trackerTitleswithNotebookId?.map((trackerObj) => (
         <div key={trackerObj.title}>
           <div className="tracker__title-wrapper">
             <h2 className="tracker__title">&#x1F4C4; {trackerObj.title}</h2>
@@ -134,7 +133,7 @@ export default function Trackers() {
           <Habits
             habitsForTrackers={habitsForTrackers}
             habitIdForTracker={trackerObj.id}
-            trackerId={trackerId}
+            trackerId={trackerObj.id}
             getAllHabits={getAllHabits}
           />
         </div>

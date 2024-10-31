@@ -45,7 +45,7 @@ export default function Habit({ habit, onItemUpdate, setRender, render }) {
   return (
     <>
       {isEditing ? (
-        <div className="wrapper">
+        <div className="habit">
           <form onSubmit={handleSubmit} className="habit-form">
             <input
               type="text"

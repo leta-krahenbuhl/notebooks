@@ -1,47 +1,25 @@
-.edit-list-items {
+.add-edit-habit {
   margin: 0rem 1rem 1rem 0rem;
   text-align: center;
-}
-@media screen and (min-width: 768px) {
-  .edit-list-items {
-    margin: 0rem 0rem 0rem 0rem;
-  }
-}
-@media screen and (min-width: 1024px) {
-  .edit-list-items {
-    margin: 0rem 1rem 1rem 1rem;
-  }
-}
-.edit-list-items__list {
-  margin-left: -1.6rem;
-  padding-left: 2.6rem;
-}
-@media screen and (min-width: 768px) {
-  .edit-list-items__list {
-    padding-left: 1rem;
-    margin-left: 3rem;
-    margin-right: 3rem;
-  }
-}
-@media screen and (min-width: 1024px) {
-  .edit-list-items__list {
-    margin-left: 0rem;
-    margin-right: 0rem;
-  }
 }
 
 .add-habit-form__wrapper {
   display: flex;
+  margin-top: 2rem;
 }
 .add-habit-form__input-container {
   text-align: left;
   display: block;
   width: 100%;
-  margin-right: 0.5rem;
+}
+.add-habit-form__label-input-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
 }
 .add-habit-form__input {
   width: 100%;
-  margin: 0.5rem 0 0 0rem;
+  margin: 0.5rem 0 1rem 0rem;
   padding-left: 0.5rem;
   height: 2rem;
   border: 2px solid black;
@@ -94,22 +72,13 @@
   width: 1rem;
   height: 1.5rem;
   margin-top: 0.2rem;
+  align-items: baseline;
 }
 @media screen and (min-width: 1024px) {
   .add-habit-form__button {
     background-size: 1.5rem;
     width: 2rem;
     height: 2rem;
-  }
-}
-@media screen and (min-width: 768px) {
-  .add-habit-form__button {
-    margin-top: 0.3rem;
-  }
-}
-@media screen and (min-width: 1024px) {
-  .add-habit-form__button {
-    margin-top: 0.5rem;
   }
 }
 .add-habit-form__button--inactive {
@@ -132,20 +101,5 @@
     background-size: 1.5rem;
     width: 2rem;
     height: 2rem;
-  }
-}
-@media screen and (min-width: 768px) {
-  .add-habit-form__button--inactive {
-    margin-top: 0.3rem;
-  }
-}
-@media screen and (min-width: 1024px) {
-  .add-habit-form__button--inactive {
-    margin-top: 0.2rem;
-  }
-}
-@media screen and (min-width: 1024px) {
-  .add-habit-form__button {
-    margin-top: 0.3rem;
   }
 }/*# sourceMappingURL=AddEditHabit.css.map */

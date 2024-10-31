@@ -3,51 +3,32 @@
 
 // CHANGE CLASSES BEFORE EDITING THIS
 
-.edit-list-items {
+.add-edit-habit {
   margin: 0rem 1rem 1rem 0rem; //18
   text-align: center;
-
-  @include tablet {
-    margin: 0rem 0rem 0rem 0rem;
-  }
-
-  @include desktop {
-    margin: 0rem 1rem 1rem 1rem;
-  }
-
-  &__list {
-    margin-left: -1.6rem;
-    // padding-left: 1rem; //18
-    padding-left: 2.6rem;
-
-    @include tablet {
-      padding-left: 1rem;
-      margin-left: 3rem;
-      margin-right: 3rem;
-    }
-
-    @include desktop {
-      margin-left: 0rem;
-      margin-right: 0rem;
-    }
-  }
 }
 
 .add-habit-form {
   &__wrapper {
     display: flex;
+    margin-top: 2rem;
   }
 
   &__input-container {
     text-align: left;
     display: block;
     width: 100%;
-    margin-right: 0.5rem;
+  }
+
+  &__label-input-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
   }
 
   &__input {
     width: 100%;
-    margin: 0.5rem 0 0 0rem;
+    margin: 0.5rem 0 1rem 0rem;
     @include input-field;
 
     &--inactive {
@@ -60,31 +41,12 @@
   &__button {
     background-image: URL("../../assets/images/save-black.svg");
     @include icon;
-
-    @include tablet {
-      margin-top: 0.3rem;
-    }
-
-    @include desktop {
-      margin-top: 0.5rem;
-    }
+    align-items: baseline;
 
     &--inactive {
       background-image: URL("../../assets/images/save-grey.svg");
       @include icon;
       cursor: default;
-
-      @include tablet {
-        margin-top: 0.3rem;
-      }
-
-      @include desktop {
-        margin-top: 0.2rem;
-      }
-    }
-
-    @include desktop {
-      margin-top: 0.3rem;
     }
   }
 }

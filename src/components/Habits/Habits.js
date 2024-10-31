@@ -40,10 +40,10 @@ export default function Habits({
 
   return (
     <>
-      <div className="tracker-items__text">
+      <div className="habits__text">
         {updatedHabits.map((trackerObj, index) => (
           <div key={index}>
-            <ul className="list-items__text">
+            <ul className="habits__text">
               {trackerObj.habits
                 .filter((habit) => {
                   return (
@@ -54,16 +54,16 @@ export default function Habits({
                 .map((habit, habitIndex) => {
                   const uniqueKey = `${index}-${habitIndex}`;
                   return (
-                    <div key={uniqueKey} className="list-items__wrapper">
-                      <li className="list-items__item">{habit.text}</li>
-                      <div className="circle-images">
+                    <div key={uniqueKey} className="habits__wrapper">
+                      <p className="habits__item">{habit.text}</p>
+                      <div className="habits__circles">
                         {/* Render full circles for circles_done */}
                         {[...Array(habit.circles_done)].map((_, index) => (
                           <img
                             key={`full-${index}`}
                             src={circleFull}
                             alt="circle full icon"
-                            className="circle-icon"
+                            className="habits__circle"
                             onClick={() => handleCircleClick(habit.id, true)}
                           />
                         ))}
@@ -74,7 +74,7 @@ export default function Habits({
                               key={`empty-${index}`}
                               src={circleEmpty}
                               alt="circle empty icon"
-                              className="circle-icon"
+                              className="habits__circle"
                               onClick={() => handleCircleClick(habit.id, false)}
                             />
                           )
